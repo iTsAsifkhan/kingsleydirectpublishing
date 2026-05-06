@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Hero, StatsStrip, WhyChooseUs } from '@/components/sections'
+import { Hero, HeroMarquee, StatsStrip, WhyChooseUs } from '@/components/sections'
 import { organizationSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -50,6 +50,7 @@ export default function Home() {
         }}
       />
       <Hero />
+      <HeroMarquee />
       <WhyChooseUs />
       <StatsStrip />
     </main>

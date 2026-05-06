@@ -1,7 +1,5 @@
 import { ArrowRight, Handshake, MessageCircle } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
-import BookCoverMarquee from './BookCoverMarquee'
-import DiscussCta from './DiscussCta'
 
 export default function Hero() {
   return (
@@ -55,10 +53,6 @@ export default function Hero() {
           </div>
         </div>
       </Container>
-      <div className="section2 relative z-10">
-        <DiscussCta />
-        <BookCoverMarquee />
-      </div>
     </section>
   )
 }
