@@ -805,6 +805,177 @@ p.p-head {
   line-height: 1.25;
 }
 
+.index-wrap-3 {
+  position: relative;
+  overflow: clip;
+  padding: 10rem 0 5rem;
+  background:
+    radial-gradient(circle at 90% 10%, rgb(255 178 16 / 14%), transparent 28%),
+    radial-gradient(circle at 10% 74%, rgb(20 5 69 / 8%), transparent 22%),
+    #ffffff;
+}
+
+.index-wrap-3-heading {
+  display: grid;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.index-wrap-3-heading h2 {
+  max-width: 650px;
+  padding-top: 1rem;
+}
+
+.index-wrap-3-heading p {
+  max-width: 520px;
+  color: #4b4b4b;
+  line-height: 28px;
+}
+
+.index-wrap-3-padding-top {
+  padding-top: 50px;
+}
+
+.services-grid {
+  display: grid;
+  justify-content: center;
+  gap: 25px;
+}
+
+.services-item {
+  position: relative;
+  z-index: 1;
+  padding: 40px 28px 35px 35px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0px 13px 37px rgb(0 0 0 / 6%);
+  transition: 0.3s linear;
+}
+
+.services-item:hover {
+  transform: scale(1.04);
+}
+
+.services-item .services-item-icon {
+  display: inline-flex;
+  width: 95px;
+  height: 95px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #140545;
+  transition: 0.3s linear;
+}
+
+.services-item:hover .services-item-icon {
+  background: #FFB210;
+  box-shadow: 0px 7px 30px #FFB210;
+}
+
+.services-item .services-item-content {
+  min-height: 115px;
+  margin: 25px 0 18px;
+}
+
+.services-item .services-item-content h5 {
+  padding-bottom: 15px;
+  font-size: 22px;
+}
+
+.services-item .services-item-content p {
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.services-item .services-item-cta {
+  color: #140545;
+  font-size: 20px;
+  transition: 0.3s linear;
+}
+
+.services-item:hover .services-item-cta {
+  color: #FFB210;
+}
+
+.services-item .services-item-cta svg {
+  transition: 0.3s linear;
+}
+
+.services-item:hover .services-item-cta svg {
+  transform: translateX(6px);
+}
+
+.index-wrap-3-shade-1,
+.index-wrap-3-shade-2 {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255 178 16 / 22%), transparent 67%);
+  pointer-events: none;
+}
+
+.index-wrap-3-shade-1 {
+  top: -6%;
+  right: -16%;
+}
+
+.index-wrap-3-shade-2 {
+  bottom: 0;
+  left: -16%;
+  background: radial-gradient(circle, rgb(20 5 69 / 10%), transparent 67%);
+}
+
+.index-wrap-3-star-1,
+.index-wrap-3-star-2,
+.index-wrap-3-star-3 {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  pointer-events: none;
+}
+
+.index-wrap-3-star-1::before,
+.index-wrap-3-star-1::after,
+.index-wrap-3-star-2::before,
+.index-wrap-3-star-2::after,
+.index-wrap-3-star-3::before,
+.index-wrap-3-star-3::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: #FFB210;
+  clip-path: polygon(50% 0, 61% 36%, 100% 50%, 61% 64%, 50% 100%, 39% 64%, 0 50%, 39% 36%);
+}
+
+.index-wrap-3-star-1::after,
+.index-wrap-3-star-2::after,
+.index-wrap-3-star-3::after {
+  inset: 11px;
+  background: #140545;
+}
+
+.index-wrap-3-star-1 {
+  top: 20%;
+  right: 1%;
+}
+
+.index-wrap-3-star-2 {
+  top: 41%;
+  right: 10%;
+  animation: rotation 5s linear infinite;
+}
+
+.index-wrap-3-star-3 {
+  top: 30%;
+  bottom: 0;
+  left: 10%;
+  margin: auto 0;
+  animation: rotation 5s linear infinite;
+}
+
 @media (min-width: 1024px) {
   .index-wrap-2-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -822,6 +993,14 @@ p.p-head {
 
   .counter-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .index-wrap-3-heading {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -848,6 +1027,36 @@ p.p-head {
 
   .counter-wrap p {
     font-size: 15px;
+  }
+
+  .index-wrap-3 {
+    padding: 7rem 0 4rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-item {
+    padding: 30px 20px 25px 30px;
+  }
+
+  .services-item .services-item-icon {
+    width: 85px;
+    height: 85px;
+  }
+
+  .services-item .services-item-content {
+    margin: 15px 0;
+  }
+
+  .services-item .services-item-content h5 {
+    padding-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .services-item .services-item-cta {
+    font-size: 16px;
   }
 }
 
@@ -897,6 +1106,18 @@ p.p-head {
 
   .counter-wrap {
     padding: 30px 22px;
+  }
+
+  .index-wrap-3 {
+    padding: 3rem 0 4rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-item .services-item-content {
+    min-height: 105px;
   }
 }
 

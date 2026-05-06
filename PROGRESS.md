@@ -6,11 +6,11 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**2.2.5** - Why Choose Us section and stats strip complete.
+**2.3.5** - Services grid section complete.
 
 ## Currently in progress
 
-Phase 2 - Homepage sections. Start next at **2.3.1**.
+Phase 2 - Homepage sections. Start next at **2.4.1**.
 
 ## Session log
 
@@ -21,6 +21,7 @@ Phase 2 - Homepage sections. Start next at **2.3.1**.
 | 2026-05-06 | 3 | 2.1.1-2.1.6 | Hero section, code-based hero placeholder, two-row book cover marquee, discussion modal CTA, homepage metadata/schema pass |
 | 2026-05-06 | 4 | 2.1 adjustment | Replaced generated hero asset with a code/CSS placeholder per user direction |
 | 2026-05-06 | 5 | 2.2.1-2.2.5 | Why Choose Us section, code/CSS image and platform placeholders, rotating star, stats strip |
+| 2026-05-06 | 6 | 2.3.1-2.3.5 | Services grid section, shared ServiceCard reference class styling, code/CSS shade and star placeholders, quote CTA |
 
 ## Known issues / decisions made
 
@@ -30,6 +31,7 @@ Phase 2 - Homepage sections. Start next at **2.3.1**.
 - `reference/screenshot.png` is not present in the repo; hero values were pulled from `reference/site_custom.css`, `reference/site_responsive.css`, and `reference/page_structure.html`
 - Use code/CSS placeholders for missing imagery unless the user explicitly asks for generated or supplied assets
 - Section 2 follows `index-wrap-2`, `span-tag-border`, `.platforms`, `.index-wrap-counter`, and `.counter-wrap` values from `reference/site_custom.css`
+- Section 3 follows `index-wrap-3`, `.services-item`, `.services-item-icon`, `.services-item-content`, and `.services-item-cta` values from `reference/site_custom.css`; image shades/stars are CSS placeholders
 
 ## Blocked on (waiting for assets, info from user, etc.)
 
@@ -41,4 +43,4 @@ Phase 2 - Homepage sections. Start next at **2.3.1**.
 
 1. Open this repo in VS Code with Claude Code
 2. Paste the resume prompt from `INITIAL_PROMPT.md`
-3. Claude will read `CLAUDE.md`, `BUILD_PLAN.md`, and this file, then continue from **2.3.1**
+3. Claude will read `CLAUDE.md`, `BUILD_PLAN.md`, and this file, then continue from **2.4.1**
