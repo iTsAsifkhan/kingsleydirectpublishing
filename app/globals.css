@@ -232,6 +232,8 @@ button::before {
 }
 
 .index-wrap-1 {
+  overflow-x: clip;
+  overflow-y: visible;
   padding: 13rem 0 0;
 }
 
@@ -388,6 +390,8 @@ p.p-head {
 .section2 {
   position: relative;
   z-index: 1;
+  overflow-x: clip;
+  overflow-y: visible;
   padding: 60px 0;
 }
 
@@ -439,11 +443,13 @@ p.p-head {
 .book-marquee {
   display: grid;
   gap: 25px;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .book-marquee-row {
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .book-marquee-track {

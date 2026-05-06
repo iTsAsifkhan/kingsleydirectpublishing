@@ -5,7 +5,7 @@ import DiscussCta from './DiscussCta'
 
 export default function Hero() {
   return (
-    <section className="index-wrap-1 relative overflow-hidden">
+    <section className="index-wrap-1 relative">
       <span className="hero-star rotation hidden lg:block" aria-hidden="true" />
       <Container className="relative z-10">
         <div className="grid items-center gap-10 lg:grid-cols-2">
