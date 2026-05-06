@@ -6,11 +6,11 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**2.3.5** - Services grid section complete.
+**2.4.6** - Purple CTA banner complete.
 
 ## Currently in progress
 
-Phase 2 - Homepage sections. Start next at **2.4.1**.
+Phase 2 - Homepage sections. Start next at **2.5.1**.
 
 ## Session log
 
@@ -23,6 +23,7 @@ Phase 2 - Homepage sections. Start next at **2.4.1**.
 | 2026-05-06 | 5 | 2.2.1-2.2.5 | Why Choose Us section, code/CSS image and platform placeholders, rotating star, stats strip |
 | 2026-05-06 | 6 | 2.3.1-2.3.5 | Services grid section, shared ServiceCard reference class styling, code/CSS shade and star placeholders, quote CTA |
 | 2026-05-06 | 7 | 2.3 visual fix | Corrected Services section font-weight classes, centered the five-card layout, and expanded card copy to match the reference density |
+| 2026-05-06 | 8 | 2.4.1-2.4.6 | Purple CTA banner with navy rounded section, code/CSS book illustration placeholders, quote CTA, and phone link |
 
 ## Known issues / decisions made
 
@@ -34,6 +35,7 @@ Phase 2 - Homepage sections. Start next at **2.4.1**.
 - Section 2 follows `index-wrap-2`, `span-tag-border`, `.platforms`, `.index-wrap-counter`, and `.counter-wrap` values from `reference/site_custom.css`
 - Section 3 follows `index-wrap-3`, `.services-item`, `.services-item-icon`, `.services-item-content`, and `.services-item-cta` values from `reference/site_custom.css`; image shades/stars are CSS placeholders
 - Tailwind does not generate the legacy `font-500` / `font-600` / `font-700` class names used by some early components, so `globals.css` now aliases them to the reference font weights
+- Section 4 follows `index-wrap-4`, `.span-tag-border-yellow`, `.anchor-number-cta`, `.index-wrap-4-cta-circle`, `.cta-*` positioning, and responsive width values from reference CSS; illustrations remain CSS placeholders
 
 ## Blocked on (waiting for assets, info from user, etc.)
 
@@ -45,4 +47,4 @@ Phase 2 - Homepage sections. Start next at **2.4.1**.
 
 1. Open this repo in VS Code with Claude Code
 2. Paste the resume prompt from `INITIAL_PROMPT.md`
-3. Claude will read `CLAUDE.md`, `BUILD_PLAN.md`, and this file, then continue from **2.4.1**
+3. Claude will read `CLAUDE.md`, `BUILD_PLAN.md`, and this file, then continue from **2.5.1**

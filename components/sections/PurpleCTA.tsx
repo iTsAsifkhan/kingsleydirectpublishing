@@ -1,0 +1,59 @@
+import { ArrowRight, PhoneCall } from 'lucide-react'
+import { Button, Container } from '@/components/ui'
+
+export default function PurpleCTA() {
+  return (
+    <div className="index-wrap-4-shell position-relative">
+      <span className="cta-item-img-3" aria-hidden="true" />
+      <span className="cta-shade" aria-hidden="true" />
+      <span className="cta-star" aria-hidden="true" />
+
+      <section className="index-wrap-4 position-relative">
+        <Container className="relative z-10">
+          <div className="index-wrap-4-grid">
+            <div className="index-wrap-4-content text-white">
+              <span className="span-tag-border-yellow">
+                Connect With the Right Team
+              </span>
+              <h2 className="mb-0 fw-700 text-white">
+                Work with a Top-Rated Book Publishing Company to Become a #1
+                Best-Selling Author in the USA
+              </h2>
+              <p>
+                Ready to become a published author? Partner with our expert team
+                for editing, publishing, and marketing to turn your manuscript
+                into a bestseller. Build your author brand and achieve long-term
+                success today!
+              </p>
+              <div className="index-wrap-4-actions">
+                <Button variant="yellow" href="/contact" icon={ArrowRight}>
+                  Get A Quote
+                </Button>
+                <a
+                  className="anchor-number-cta align-items-center d-inline-flex"
+                  href="tel:+18554297565"
+                >
+                  <span className="span-1">
+                    <PhoneCall aria-hidden="true" className="clr-1" size={18} />
+                  </span>
+                  <span className="span-2 fw-600 clr-1 d-inline-block">
+                    Call Now <br />
+                    <b className="text-white">+1(855) 429-7565</b>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <div className="index-wrap-4-visual" aria-hidden="true">
+              <div className="index-wrap-4-cta-circle position-relative">
+                <span className="cta-img" />
+                <span className="cta-item-img-1" />
+                <span className="cta-item-img-2" />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </div>
+  )
+}
