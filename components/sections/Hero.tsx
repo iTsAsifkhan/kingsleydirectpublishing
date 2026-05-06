@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { ArrowRight, Handshake, MessageCircle } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 import BookCoverMarquee from './BookCoverMarquee'
@@ -36,15 +35,23 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative hidden text-right lg:block">
-            <Image
-              src="/images/hero-publishing-illustration.png"
-              alt="Publishing professionals reviewing an open book and manuscript pages"
-              width={1659}
-              height={948}
-              priority
-              className="index-wrap-1-img ml-auto"
-            />
+          <div className="relative hidden lg:block">
+            <div
+              className="index-wrap-1-placeholder ml-auto"
+              role="img"
+              aria-label="Placeholder for the hero publishing illustration"
+            >
+              <div className="placeholder-book" aria-hidden="true">
+                <span />
+                <span />
+              </div>
+              <div className="placeholder-pages" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+              <p>Hero Illustration Placeholder</p>
+            </div>
           </div>
         </div>
       </Container>

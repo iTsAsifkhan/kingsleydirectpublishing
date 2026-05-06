@@ -269,9 +269,96 @@ p.p-head {
   line-height: 28px;
 }
 
-.index-wrap-1-img {
+.index-wrap-1-img,
+.index-wrap-1-placeholder {
   width: min(100%, 720px);
   filter: drop-shadow(0 20px 45px rgb(20 5 69 / 14%));
+}
+
+.index-wrap-1-placeholder {
+  display: flex;
+  aspect-ratio: 1659 / 948;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px dashed rgb(20 5 69 / 24%);
+  border-radius: 20px;
+  color: #140545;
+  background:
+    radial-gradient(circle at 72% 30%, rgb(255 178 16 / 38%), transparent 20%),
+    linear-gradient(135deg, #ffffff 0%, #fff8e8 100%);
+}
+
+.index-wrap-1-placeholder p {
+  position: absolute;
+  right: 0;
+  bottom: 34px;
+  left: 0;
+  margin: 0;
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.placeholder-book {
+  position: relative;
+  width: 230px;
+  height: 170px;
+  border-radius: 20px 20px 14px 14px;
+  background: #140545;
+  box-shadow: 0px 13px 37px rgb(0 0 0 / 6%);
+  transform: rotate(-7deg);
+}
+
+.placeholder-book::before {
+  content: '';
+  position: absolute;
+  inset: 20px auto 20px 50%;
+  width: 2px;
+  background: rgb(255 255 255 / 35%);
+}
+
+.placeholder-book span {
+  position: absolute;
+  left: 28px;
+  width: 74px;
+  height: 8px;
+  border-radius: 50px;
+  background: #FFB210;
+}
+
+.placeholder-book span:first-child {
+  top: 46px;
+}
+
+.placeholder-book span:last-child {
+  top: 70px;
+  width: 52px;
+}
+
+.placeholder-pages {
+  position: absolute;
+  top: 31%;
+  right: 84px;
+  display: grid;
+  gap: 12px;
+}
+
+.placeholder-pages span {
+  display: block;
+  width: 118px;
+  height: 14px;
+  border-radius: 50px;
+  background: rgb(20 5 69 / 16%);
+}
+
+.placeholder-pages span:nth-child(2) {
+  width: 88px;
+  background: #FFB210;
+}
+
+.placeholder-pages span:nth-child(3) {
+  width: 108px;
 }
 
 .hero-star {
