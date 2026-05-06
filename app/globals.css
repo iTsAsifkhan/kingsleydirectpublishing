@@ -123,6 +123,15 @@ input:focus,
 .fw-700 {
   font-weight: 700;
 }
+.font-500 {
+  font-weight: 500;
+}
+.font-600 {
+  font-weight: 600;
+}
+.font-700 {
+  font-weight: 700;
+}
 
 .clr-1 {
   color: #ffb210;
@@ -838,7 +847,8 @@ p.p-head {
 }
 
 .services-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
 }
@@ -848,6 +858,8 @@ p.p-head {
   z-index: 1;
   padding: 40px 28px 35px 35px;
   border-radius: 20px;
+  flex: 0 1 calc((100% - 50px) / 3);
+  max-width: calc((100% - 50px) / 3);
   background: #ffffff;
   box-shadow: 0px 13px 37px rgb(0 0 0 / 6%);
   transition: 0.3s linear;
@@ -871,6 +883,12 @@ p.p-head {
 .services-item:hover .services-item-icon {
   background: #FFB210;
   box-shadow: 0px 7px 30px #FFB210;
+}
+
+.services-item .services-item-icon svg {
+  width: 48px;
+  height: 48px;
+  color: #ffffff;
 }
 
 .services-item .services-item-content {
@@ -999,9 +1017,6 @@ p.p-head {
     grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
   }
 
-  .services-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 991.98px) {
@@ -1033,11 +1048,9 @@ p.p-head {
     padding: 7rem 0 4rem;
   }
 
-  .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .services-item {
+    flex-basis: calc((100% - 25px) / 2);
+    max-width: calc((100% - 25px) / 2);
     padding: 30px 20px 25px 30px;
   }
 
@@ -1112,8 +1125,9 @@ p.p-head {
     padding: 3rem 0 4rem;
   }
 
-  .services-grid {
-    grid-template-columns: 1fr;
+  .services-item {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 
   .services-item .services-item-content {

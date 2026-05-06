@@ -15,7 +15,7 @@ export default function Services() {
         <div className="index-wrap-3-heading">
           <div>
             <span className="span-tag-border">Services We Provide</span>
-            <h2 className="mb-0 font-700 pt-3">
+            <h2 className="mb-0 fw-700 pt-3">
               Our Book <span className="clr-1">Publishing Services</span> And
               Expertise
             </h2>

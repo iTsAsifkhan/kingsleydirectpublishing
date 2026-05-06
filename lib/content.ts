@@ -50,8 +50,10 @@ export const services: Service[] = [
     id: '1',
     slug: 'ghostwriting',
     title: 'Ghostwriting',
-    shortDescription: 'Professional writers bring your story to life.',
-    description: 'Our ghostwriting services help you transform your ideas into a compelling manuscript.',
+    shortDescription:
+      'Have an idea for a potential bestseller? Our professional ghostwriters turn rough concepts, plots, and notes into a polished manuscript ready for publication.',
+    description:
+      'Our ghostwriting services help you transform your ideas into a compelling manuscript through research, outlining, drafting, revisions, and final polish.',
     icon: 'PenTool',
     features: [
       'Professional writing team',
@@ -64,9 +66,11 @@ export const services: Service[] = [
   {
     id: '2',
     slug: 'editing',
-    title: 'Editing & Proofreading',
-    shortDescription: 'Polish your manuscript with expert editors.',
-    description: 'Comprehensive editing and proofreading to ensure your work is publication-ready.',
+    title: 'Editing',
+    shortDescription:
+      'Turn your first draft into a polished, publication-ready book with professional editing, proofreading, structural feedback, and line-level refinement.',
+    description:
+      'Comprehensive editing and proofreading to refine your manuscript with copy editing, line editing, developmental notes, and final proofreading.',
     icon: 'Wand2',
     features: [
       'Line editing',
@@ -79,9 +83,11 @@ export const services: Service[] = [
   {
     id: '3',
     slug: 'publishing',
-    title: 'Publishing Services',
-    shortDescription: 'From manuscript to published book.',
-    description: 'Complete publishing support including formatting, cover design, and distribution.',
+    title: 'Publishing',
+    shortDescription:
+      'Move from completed manuscript to published author with formatting, cover support, platform setup, distribution guidance, and launch preparation.',
+    description:
+      'Complete publishing support including formatting, cover design, book descriptions, platform setup, distribution, and launch strategy.',
     icon: 'BookOpen',
     features: [
       'ISBN assignment',
@@ -94,9 +100,11 @@ export const services: Service[] = [
   {
     id: '4',
     slug: 'marketing',
-    title: 'Marketing & Promotion',
-    shortDescription: 'Get your book in front of readers.',
-    description: 'Strategic marketing campaigns to maximize your book\'s visibility and sales.',
+    title: 'Marketing',
+    shortDescription:
+      'Build visibility for your published book with tailored marketing strategy, optimized listings, launch campaigns, and promotional materials.',
+    description:
+      'Strategic marketing campaigns to increase your book visibility, improve listings, support launches, and connect your work with readers.',
     icon: 'TrendingUp',
     features: [
       'Social media strategy',
@@ -109,9 +117,11 @@ export const services: Service[] = [
   {
     id: '5',
     slug: 'cover-design',
-    title: 'Cover Design',
-    shortDescription: 'Eye-catching covers that sell books.',
-    description: 'Professional cover design that captures your book\'s essence and attracts readers.',
+    title: 'Book Cover Design',
+    shortDescription:
+      'Get a custom-designed book cover that captures your story, looks professional across formats, and helps your book stand out to readers.',
+    description:
+      'Professional cover design that captures your book\'s essence, supports print and digital formats, and attracts readers.',
     icon: 'Layers',
     features: [
       'Custom design',

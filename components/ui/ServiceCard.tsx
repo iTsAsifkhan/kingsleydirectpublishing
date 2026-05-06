@@ -23,13 +23,13 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       </div>
 
       <div className="services-item-content">
-        <h5 className="mb-0 font-600">{service.title}</h5>
+        <h5 className="mb-0 fw-600">{service.title}</h5>
         <p className="mb-0 line-clamp-3 clr-3">{service.shortDescription}</p>
       </div>
 
       <Link
         href={`/services/${service.slug}`}
-        className="services-item-cta inline-flex items-center gap-2 font-600"
+        className="services-item-cta inline-flex items-center gap-2 fw-600"
       >
         Learn More
         <span className="sr-only"> about {service.title}</span>
