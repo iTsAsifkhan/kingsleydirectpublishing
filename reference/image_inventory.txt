@@ -1,0 +1,154 @@
+#000 (data uri non-base64)
+#001 (data uri non-base64)
+#002 image/webp                1,382b  alt='A pixelated hand shaking another pixelated hand, symbolizing'  class=lozad
+#003 image/webp               31,510b  alt='Two animated characters from Over the Hill and Over the Hill'  class=lozad index-wrap-1-img
+#004 (data uri non-base64)
+#005 (data uri non-base64)
+#006 (data uri non-base64)
+#007 (data uri non-base64)
+#008 (data uri non-base64)
+#009 (data uri non-base64)
+#010 (data uri non-base64)
+#011 (data uri non-base64)
+#012 (data uri non-base64)
+#013 (data uri non-base64)
+#014 (data uri non-base64)
+#015 (data uri non-base64)
+#016 (data uri non-base64)
+#017 (data uri non-base64)
+#018 (data uri non-base64)
+#019 (data uri non-base64)
+#020 (data uri non-base64)
+#021 (data uri non-base64)
+#022 (data uri non-base64)
+#023 (data uri non-base64)
+#024 (data uri non-base64)
+#025 (data uri non-base64)
+#026 (data uri non-base64)
+#027 (data uri non-base64)
+#028 (data uri non-base64)
+#029 (data uri non-base64)
+#030 (data uri non-base64)
+#031 (data uri non-base64)
+#032 (data uri non-base64)
+#033 (data uri non-base64)
+#034 (data uri non-base64)
+#035 (data uri non-base64)
+#036 (data uri non-base64)
+#037 (data uri non-base64)
+#038 (data uri non-base64)
+#039 (data uri non-base64)
+#040 (data uri non-base64)
+#041 (data uri non-base64)
+#042 (data uri non-base64)
+#043 (data uri non-base64)
+#044 (data uri non-base64)
+#045 (data uri non-base64)
+#046 (data uri non-base64)
+#047 (data uri non-base64)
+#048 (data uri non-base64)
+#049 (data uri non-base64)
+#050 (data uri non-base64)
+#051 (data uri non-base64)
+#052 (data uri non-base64)
+#053 (data uri non-base64)
+#054 (data uri non-base64)
+#055 (data uri non-base64)
+#056 (data uri non-base64)
+#057 (data uri non-base64)
+#058 (data uri non-base64)
+#059 image/webp              105,528b  alt='A woman works on her computer, focused, with a bookshelf fil'  class=w-100 position-relative
+#060 image/webp                8,652b  alt='Logos of the four major sports leagues NFL, NBA, MLB, and NH'  class=platforms
+#061 (data uri non-base64)
+#062 (data uri non-base64)
+#063 image/webp                9,728b  alt='loading image...'  class=index-wrap-3-star-1
+#064 (data uri non-base64)
+#065 image/webp                2,238b  alt='loading image...'  class=index-wrap-3-star-3
+#066 image/webp                1,130b  alt='Black and white logo of the company displayed prominently.'  class=
+#067 image/webp                1,040b  alt='Company logo presented in a monochrome black and white desig'  class=
+#068 image/webp                  988b  alt='The logo of the company shown in a simple black and white fo'  class=
+#069 image/webp                1,210b  alt='Black and white logo featuring the phrase the best of the be'  class=
+#070 image/webp                1,014b  alt='Company logo presented in a monochrome black and white desig'  class=
+#071 image/webp               14,480b  alt='Two people sit atop a large book, engaged in conversation, w'  class=cta-item-img-3
+#072 image/webp               35,450b  alt='loading image...'  class=cta-shade
+#073 (data uri non-base64)
+#074 image/webp               36,986b  alt='A stack of books, a pair of glasses, and a cup of coffee arr'  class=cta-img
+#075 image/webp                3,668b  alt='A folded piece of white paper resting on a plain white backg'  class=cta-item-img-1
+#076 image/webp                5,466b  alt='A white sheet of paper rests on a smooth black surface, crea'  class=cta-item-img-2
+#077 (data uri non-base64)
+#078 (data uri non-base64)
+#079 (data uri non-base64)
+#080 (data uri non-base64)
+#081 (data uri non-base64)
+#082 (data uri non-base64)
+#083 (data uri non-base64)
+#084 (data uri non-base64)
+#085 (data uri non-base64)
+#086 (data uri non-base64)
+#087 (data uri non-base64)
+#088 (data uri non-base64)
+#089 (data uri non-base64)
+#090 (data uri non-base64)
+#091 (data uri non-base64)
+#092 (data uri non-base64)
+#093 (data uri non-base64)
+#094 (data uri non-base64)
+#095 image/webp                8,154b  alt='Cover of a book titled Time Traveling Mirror, featuring a re'  class=lozad
+#096 image/webp                9,772b  alt='A group of ravens perched on branches, surrounded by a mysti'  class=lozad
+#097 image/webp                7,164b  alt='Cover of The Prince and the Witch by L.A. Thompson, featurin'  class=lozad
+#098 image/webp                9,314b  alt='Cover of Virgin Secrets The Lost Island, Book 1, featuring a'  class=lozad
+#099 image/webp                6,510b  alt='A fallen angel sculpture by Andy Graham, showcasing intricat'  class=lozad
+#100 image/webp                6,198b  alt='Artwork titled I Killed Zoe Spanos by Kit Frick, depicting a'  class=lozad
+#101 image/webp                3,644b  alt='Cover of Sword by Olivia Wilson featuring a striking sword d'  class=lozad
+#102 image/webp                9,422b  alt='Cover of The Battle for the Fae King Throne, featuring a dra'  class=lozad
+#103 (data uri non-base64)
+#104 (data uri non-base64)
+#105 (data uri non-base64)
+#106 (data uri non-base64)
+#107 (data uri non-base64)
+#108 (data uri non-base64)
+#109 (data uri non-base64)
+#110 (data uri non-base64)
+#111 (data uri non-base64)
+#112 (data uri non-base64)
+#113 (data uri non-base64)
+#114 (data uri non-base64)
+#115 (data uri non-base64)
+#116 (data uri non-base64)
+#117 (data uri non-base64)
+#118 (data uri non-base64)
+#119 (data uri non-base64)
+#120 (data uri non-base64)
+#121 (data uri non-base64)
+#122 (data uri non-base64)
+#123 (data uri non-base64)
+#124 (data uri non-base64)
+#125 (data uri non-base64)
+#126 (data uri non-base64)
+#127 (data uri non-base64)
+#128 image/webp                4,806b  alt='Trustpilot logo featuring five stars, symbolizing high custo'  class=
+#129 image/webp                3,966b  alt='Company logo displayed prominently against a simple backgrou'  class=
+#130 image/webp                3,528b  alt='The Writing Life logo, showcasing a pen and paper, represent'  class=
+#131 image/webp                3,612b  alt='Amazon logo displayed prominently on a black background.'  class=
+#132 image/webp                4,094b  alt='Apple Books logo featuring a stylized book at the center, re'  class=
+#133 image/webp                3,252b  alt='Lulu logo displayed prominently on a black background.'  class=
+#134 image/webp                3,014b  alt='A man stands in front of a vibrant green wall, showcasing a '  class=
+#135 (data uri non-base64)
+#136 (data uri non-base64)
+#137 (data uri non-base64)
+#138 (data uri non-base64)
+#139 (data uri non-base64)
+#140 (data uri non-base64)
+#141 (data uri non-base64)
+#142 (data uri non-base64)
+#143 (data uri non-base64)
+#144 (data uri non-base64)
+#145 (data uri non-base64)
+#146 (data uri non-base64)
+#147 (data uri non-base64)
+#148 image/webp                1,206b  alt='Book Publishing Partner'  class=lozad
+#149 (data uri non-base64)
+#150 (data uri non-base64)
+#151 (data uri non-base64)
+#152 (data uri non-base64)
+#153 image/webp                3,322b  alt='Book Publishing Partner'  class=lozad

@@ -1,26 +1,193 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+::-webkit-scrollbar-track {
+  background-color: #140545;
+  border-radius: 10px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::-webkit-scrollbar-thumb {
+  background: #FFB210;
+  border-radius: 10px;
+}
+
+/* Base styles */
+html {
+  font-family: var(--font-noto), sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #0d0d0d;
+  background: #ffffff;
+  font-weight: 400;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-montserrat), sans-serif;
+  margin: 0;
+  color: #140545;
+}
+
+h2 {
+  font-size: 45px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition-duration: 0.8s;
+  outline: 0;
+}
+
+a:hover,
+a:focus {
+  color: #ffb210;
+  outline: 0;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+.form-control {
+  background: unset;
+  padding: 12px 8px 12px 0;
+  transition: 0.3s linear;
+  height: auto;
+  border-radius: 0;
+  font-size: 16px !important;
+  box-shadow: unset;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+input:focus,
+.form-control:focus {
+  box-shadow: unset;
+  background: unset;
+  color: #000000;
+  outline: unset;
+  border-bottom: 2px solid black;
+}
+
+/* Utility classes */
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
+
+.clr-1 {
+  color: #ffb210;
+}
+.clr-3 {
+  color: #8a8a8a;
+}
+
+/* Button slide-fill animation */
+.btn,
+button {
+  padding: 6px 6px 6px 25px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s linear;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover,
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 15px 25px #0000005e;
+}
+
+.btn::before,
+button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  height: 100%;
+  transition: all 0.5s cubic-bezier(0.615, 0, 0.07, 1);
+  z-index: -1;
+}
+
+.btn.btn-yellow::before {
+  background: #140545;
+}
+
+.btn.btn-blue::before {
+  background: #ffb210;
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+/* Keyframe animations */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.rotation {
+  animation: rotation 5s linear infinite;
+}
+
+.marquee {
+  animation: marquee var(--marquee-duration, 20s) linear infinite;
 }
