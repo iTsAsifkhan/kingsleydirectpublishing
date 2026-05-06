@@ -442,22 +442,31 @@ p.p-head {
   overflow: hidden;
 }
 
+.book-marquee-row {
+  overflow: hidden;
+}
+
 .book-marquee-track {
   display: flex;
   width: max-content;
-  gap: 40px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  animation: marquee var(--marquee-duration, 28s) linear infinite;
+  animation: book-marquee-scroll var(--marquee-duration, 28s) linear infinite;
 }
 
-.book-marquee:hover .book-marquee-track {
+.book-marquee-row:hover .book-marquee-track {
   animation-play-state: paused;
 }
 
 .book-marquee-track.reverse {
   animation-direction: reverse;
+}
+
+.book-marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 40px;
+  padding: 0 40px 0 0;
+  margin: 0;
+  list-style: none;
 }
 
 .book-cover {
@@ -577,6 +586,15 @@ p.p-head {
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes book-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 

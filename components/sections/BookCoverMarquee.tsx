@@ -31,27 +31,55 @@ function CoverCard({ book, index }: { book: BookCover; index: number }) {
 }
 
 export default function BookCoverMarquee() {
-  const firstRow = [...books, ...books]
-  const secondRow = [...books.slice(3), ...books.slice(0, 3), ...books]
+  const firstRow = books
+  const secondRow = [...books.slice(3), ...books.slice(0, 3)]
 
   return (
     <div className="book-marquee" aria-label="Sample book genres">
-      <ul
-        className="book-marquee-track"
-        style={{ '--marquee-duration': '32s' } as CSSProperties}
-      >
-        {firstRow.map((book, index) => (
-          <CoverCard key={`row-1-${book.id}-${index}`} book={book} index={index} />
-        ))}
-      </ul>
-      <ul
-        className="book-marquee-track reverse"
-        style={{ '--marquee-duration': '24s' } as CSSProperties}
-      >
-        {secondRow.map((book, index) => (
-          <CoverCard key={`row-2-${book.id}-${index}`} book={book} index={index + 2} />
-        ))}
-      </ul>
+      <div className="book-marquee-row">
+        <div
+          className="book-marquee-track"
+          style={{ '--marquee-duration': '32s' } as CSSProperties}
+        >
+          {[0, 1].map((setIndex) => (
+            <ul
+              key={`row-1-set-${setIndex}`}
+              className="book-marquee-group"
+              aria-hidden={setIndex === 1}
+            >
+              {firstRow.map((book, index) => (
+                <CoverCard
+                  key={`row-1-${setIndex}-${book.id}`}
+                  book={book}
+                  index={index}
+                />
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
+      <div className="book-marquee-row">
+        <div
+          className="book-marquee-track reverse"
+          style={{ '--marquee-duration': '24s' } as CSSProperties}
+        >
+          {[0, 1].map((setIndex) => (
+            <ul
+              key={`row-2-set-${setIndex}`}
+              className="book-marquee-group"
+              aria-hidden={setIndex === 1}
+            >
+              {secondRow.map((book, index) => (
+                <CoverCard
+                  key={`row-2-${setIndex}-${book.id}`}
+                  book={book}
+                  index={index + 2}
+                />
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
