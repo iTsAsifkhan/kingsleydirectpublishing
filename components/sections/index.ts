@@ -1,2 +1,4 @@
 export { default as Hero } from './Hero'
 export { default as BookCoverMarquee } from './BookCoverMarquee'
+export { default as WhyChooseUs } from './WhyChooseUs'
+export { default as StatsStrip } from './StatsStrip'

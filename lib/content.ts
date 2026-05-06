@@ -37,6 +37,13 @@ export interface ProcessStep {
   icon: string
 }
 
+export interface Stat {
+  id: string
+  value: string
+  suffix: string
+  label: string
+}
+
 // Services data
 export const services: Service[] = [
   {
@@ -169,6 +176,34 @@ export const testimonials: Testimonial[] = [
     quote: 'From editing to cover design, every service exceeded my expectations. Truly a one-stop shop for authors.',
     author: 'Michael Brown',
     role: 'First-time Author',
+  },
+]
+
+// Homepage stats
+export const stats: Stat[] = [
+  {
+    id: 'published-clients',
+    value: '5K',
+    suffix: '+',
+    label: 'Published Happy Clients',
+  },
+  {
+    id: 'five-star-reviews',
+    value: '100',
+    suffix: '+',
+    label: 'Five out of Five Reviews',
+  },
+  {
+    id: 'partners-worldwide',
+    value: '40,000',
+    suffix: '+',
+    label: 'Business partners worldwide',
+  },
+  {
+    id: 'satisfaction-rate',
+    value: '97%',
+    suffix: '+',
+    label: 'Satisfaction Rate',
   },
 ]
 
