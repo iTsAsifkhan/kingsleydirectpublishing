@@ -1,32 +1,55 @@
-export const metadata = {
-  title: 'Home',
-  description: 'Book Publishing Partner - Your Path to Publishing Success',
+import type { Metadata } from 'next'
+import { Hero } from '@/components/sections'
+import { organizationSchema } from '@/lib/schema'
+
+export const metadata: Metadata = {
+  title: 'Book Publishing Partner | Self-Publishing Services',
+  description:
+    'Book Publishing Partner helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+  alternates: {
+    canonical: 'https://bookpublishingpartner.com',
+  },
+  openGraph: {
+    title: 'Book Publishing Partner | Self-Publishing Services',
+    description:
+      'Book Publishing Partner helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    url: 'https://bookpublishingpartner.com',
+    type: 'website',
+    images: [
+      {
+        url: 'https://bookpublishingpartner.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Book Publishing Partner self-publishing services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Book Publishing Partner | Self-Publishing Services',
+    description:
+      'Book Publishing Partner helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    images: ['https://bookpublishingpartner.com/og-image.png'],
+  },
 }
 
 export default function Home() {
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Book Publishing Partner',
+    url: 'https://bookpublishingpartner.com',
+  }
+
   return (
     <main className="min-h-screen bg-white">
-      <section className="py-20 px-6 text-center">
-        <h1 className="text-4xl font-bold text-brand-navy mb-6">
-          Book Publishing Partner
-        </h1>
-        <p className="text-xl text-brand-gray2 max-w-2xl mx-auto mb-10">
-          Your Path to Publishing Success
-        </p>
-        <p className="text-gray-600 mb-8">
-          Project scaffolding complete. Sections coming soon.
-        </p>
-        <div className="text-sm text-gray-500">
-          <p>✓ Next.js 15 with App Router</p>
-          <p>✓ TypeScript configured</p>
-          <p>✓ Tailwind CSS with brand tokens</p>
-          <p>✓ Fonts configured (Montserrat + Noto Sans)</p>
-          <p>✓ Metadata and SEO setup</p>
-          <p>✓ Sitemap and robots.txt</p>
-          <p>✓ Content structure in lib/content.ts</p>
-          <p>✓ JSON-LD schema helpers in lib/schema.ts</p>
-        </div>
-      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([organizationSchema(), websiteSchema]),
+        }}
+      />
+      <Hero />
     </main>
   )
 }

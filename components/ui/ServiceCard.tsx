@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import * as LucideIcons from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { Service } from '@/lib/content'
 
 interface ServiceCardProps {
@@ -8,7 +9,9 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service }: ServiceCardProps) {
   // Dynamically get the icon component
-  const Icon = LucideIcons[service.icon as keyof typeof LucideIcons] as any
+  const Icon = LucideIcons[
+    service.icon as keyof typeof LucideIcons
+  ] as LucideIcon | undefined
 
   return (
     <div className="group flex flex-col items-start rounded-card border border-gray-200 bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover">
@@ -31,7 +34,9 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         className="inline-flex items-center gap-2 text-sm font-500 text-brand-navy transition-colors duration-300 hover:text-brand-yellow"
       >
         Learn More
-        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+          -&gt;
+        </span>
       </Link>
     </div>
   )

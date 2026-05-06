@@ -6,27 +6,31 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**0.12** — Project scaffolding complete.
+**2.1.6** — Hero section complete and committed.
 
 ## Currently in progress
 
-Phase 1 — Reusable UI primitives (Button, ServiceCard, SectionHeading, StatCounter)
+Phase 2 — Homepage sections. Start next at **2.2.1**.
 
 ## Session log
 
 | Date | Session # | Tasks completed | Notes / blockers |
 |---|---|---|---|
 | 2026-05-06 | 1 | 0.1–0.12 | Project scaffolding: Next.js 15, Tailwind 4, fonts, metadata, sitemap, robots, content/schema helpers |
+| 2026-05-06 | 2 | 1.1–1.6 | UI primitives: Button (Server Component with Link/button logic), ServiceCard (dynamic icon loading), SectionHeading (pill tag + h2 + subtitle), StatCounter (navy stat card), Container (max-width wrapper) |
+| 2026-05-06 | 3 | 2.1.1–2.1.6 | Hero section, generated publishing illustration asset, two-row book cover marquee, discussion modal CTA, homepage metadata/schema pass |
 
 ## Known issues / decisions made
 
 - Using Google Fonts via next/font (automatically optimized by Next.js, satisfies "self-hosted" requirement)
 - Placeholder content data in `lib/content.ts` for services, FAQs, testimonials, process steps
-- Base styles and keyframes in `globals.css` ready for Phase 1 components
+- Base styles and keyframes in `globals.css` support the hero, marquee, buttons, and Phase 1 components
+- `reference/screenshot.png` is not present in the repo; hero values were pulled from `reference/site_custom.css`, `reference/site_responsive.css`, and `reference/page_structure.html`
+- Hero uses a generated non-infringing raster image at `public/images/hero-publishing-illustration.png` instead of original copyrighted/reference imagery
 
 ## Blocked on (waiting for assets, info from user, etc.)
 
-- _(empty)_
+- `reference/screenshot.png` is missing, so visual comparison is limited until that asset is restored
 
 ---
 
@@ -34,4 +38,4 @@ Phase 1 — Reusable UI primitives (Button, ServiceCard, SectionHeading, StatCou
 
 1. Open this repo in VS Code with Claude Code
 2. Paste the resume prompt from `INITIAL_PROMPT.md`
-3. Claude will read `CLAUDE.md`, `BUILD_PLAN.md`, and this file, then continue from "Last completed task ID"
+3. Claude will read `CLAUDE.md`, `BUILD_PLAN.md`, and this file, then continue from **2.2.1**

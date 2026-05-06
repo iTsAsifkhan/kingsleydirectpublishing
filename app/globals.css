@@ -132,6 +132,7 @@ button {
   transition: 0.3s linear;
   border: none;
   cursor: pointer;
+  isolation: isolate;
 }
 
 .btn:hover,
@@ -163,6 +164,314 @@ button::before {
 
 .btn:hover::before {
   width: 100%;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.btn .span-1 {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  transition: 0.3s linear;
+}
+
+.btn.btn-yellow {
+  background: #FFB210;
+}
+
+.btn.btn-yellow .span-1 {
+  color: #000000;
+}
+
+.btn.btn-yellow:hover .span-1 {
+  color: #ffffff;
+}
+
+.btn.btn-blue {
+  background: #140545;
+}
+
+.btn.btn-blue .span-1 {
+  color: #ffffff;
+}
+
+.btn.btn-blue:hover .span-1 {
+  color: #000000;
+}
+
+.btn .span-2 {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+
+.btn.btn-yellow .span-2 {
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(21, 50, 67, 1) 0%, rgba(4, 10, 13, 1) 100%);
+}
+
+.btn.btn-yellow:hover .span-2,
+.btn.btn-blue .span-2 {
+  color: #ffffff;
+  background: linear-gradient(180deg, #FFB210 0%, #C88800 100%);
+}
+
+.btn.btn-blue:hover .span-2 {
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(21, 50, 67, 1) 0%, rgba(4, 10, 13, 1) 100%);
+}
+
+.index-wrap-1 {
+  padding: 13rem 0 0;
+}
+
+.index-wrap-1::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 100vh;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(255, 178, 16, 0.22), transparent 28%),
+    radial-gradient(circle at 8% 18%, rgba(20, 5, 69, 0.08), transparent 25%),
+    linear-gradient(135deg, #fff8e8 0%, #ffffff 57%, #fff3ce 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.index-wrap-1 .index-banner-sub-heading {
+  padding: 11px 30px;
+  border-radius: 50px;
+  background: #140545;
+}
+
+.index-wrap-1 h1 {
+  padding: 20px 0;
+  font-size: 44px;
+  line-height: 1.18;
+}
+
+p.p-head {
+  padding-bottom: 35px;
+  color: #4b4b4b;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.index-wrap-1-img {
+  width: min(100%, 720px);
+  filter: drop-shadow(0 20px 45px rgb(20 5 69 / 14%));
+}
+
+.hero-star {
+  position: absolute;
+  top: 10rem;
+  left: 4%;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+}
+
+.hero-star::before,
+.hero-star::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: #FFB210;
+  clip-path: polygon(50% 0, 61% 36%, 100% 50%, 61% 64%, 50% 100%, 39% 64%, 0 50%, 39% 36%);
+}
+
+.hero-star::after {
+  inset: 11px;
+  background: #140545;
+}
+
+.section2 {
+  position: relative;
+  z-index: 1;
+  padding: 60px 0;
+}
+
+.section2 .container-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 20;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+}
+
+.section2 .container-box .circle {
+  display: flex;
+  width: 270px;
+  height: 270px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
+  color: #140545;
+  background: linear-gradient(180deg, rgba(255, 178, 16, 1) 0%, rgba(228, 154, 0, 1) 100%);
+  box-shadow: 0px 0px 42px hsl(41deg 100% 53% / 65%);
+  transition: 0.6s cubic-bezier(0.615, 0, 0.07, 1);
+}
+
+.section2 .container-box .get-started {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.modal-close {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #ffffff;
+  background: #140545;
+}
+
+.book-marquee {
+  display: grid;
+  gap: 25px;
+  overflow: hidden;
+}
+
+.book-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  animation: marquee var(--marquee-duration, 28s) linear infinite;
+}
+
+.book-marquee:hover .book-marquee-track {
+  animation-play-state: paused;
+}
+
+.book-marquee-track.reverse {
+  animation-direction: reverse;
+}
+
+.book-cover {
+  position: relative;
+  display: flex;
+  width: 193px;
+  height: 260px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 24px 18px;
+  border-radius: 17px;
+  color: #ffffff;
+  background: linear-gradient(145deg, #140545 0%, #33206f 58%, #FFB210 59%, #C88800 100%);
+  box-shadow: 0px 4px 44px #00000042;
+}
+
+.book-cover::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 50%;
+}
+
+.book-cover strong {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.book-cover-kicker {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.book-cover-line {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 18px;
+  background: rgb(255 255 255 / 70%);
+}
+
+.book-cover-line.short {
+  width: 64%;
+  margin-top: 8px;
+}
+
+.book-cover-1 {
+  background: linear-gradient(145deg, #0D0D0D 0%, #343434 58%, #FFB210 59%, #C88800 100%);
+}
+
+.book-cover-2 {
+  background: linear-gradient(145deg, #4b4b4b 0%, #140545 54%, #FFB210 55%, #E49A00 100%);
+}
+
+.book-cover-3 {
+  background: linear-gradient(145deg, #153243 0%, #040a0d 58%, #FFB210 59%, #C88800 100%);
+}
+
+@media (max-width: 991.98px) {
+  .index-wrap-1 {
+    padding-top: 8rem;
+  }
+
+  .index-wrap-1 h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .index-wrap-1 {
+    padding-top: 7rem;
+  }
+
+  .index-wrap-1 .index-banner-sub-heading {
+    padding: 9px 20px;
+  }
+
+  .index-wrap-1 h1 {
+    font-size: 30px;
+  }
+
+  .book-cover {
+    width: 154px;
+    height: 208px;
+  }
 }
 
 /* Keyframe animations */
