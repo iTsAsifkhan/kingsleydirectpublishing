@@ -62,7 +62,9 @@ export default function RootLayout({
       className={`${montserrat.variable} ${notoSans.variable} scroll-smooth`}
     >
       <head />
-      <body className="bg-white text-brand-ink font-body">{children}</body>
+      <body className="bg-white text-brand-ink font-body" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   )
 }

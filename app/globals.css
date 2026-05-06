@@ -1,16 +1,21 @@
 @import "tailwindcss";
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
+/* Custom scrollbar: document viewport only */
+html {
+  scrollbar-color: #FFB210 #140545;
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
   width: 10px;
 }
 
-::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
   background-color: #140545;
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background: #FFB210;
   border-radius: 10px;
 }
@@ -232,9 +237,13 @@ button::before {
 }
 
 .index-wrap-1 {
-  overflow-x: clip;
-  overflow-y: visible;
+  overflow: clip;
   padding: 13rem 0 0;
+  scrollbar-width: none;
+}
+
+.index-wrap-1::-webkit-scrollbar {
+  display: none;
 }
 
 .index-wrap-1::before {
@@ -390,9 +399,13 @@ p.p-head {
 .section2 {
   position: relative;
   z-index: 1;
-  overflow-x: clip;
-  overflow-y: visible;
+  overflow: clip;
   padding: 60px 0;
+  scrollbar-width: none;
+}
+
+.section2::-webkit-scrollbar {
+  display: none;
 }
 
 .section2 .container-box {
@@ -443,13 +456,21 @@ p.p-head {
 .book-marquee {
   display: grid;
   gap: 25px;
-  overflow-x: clip;
-  overflow-y: visible;
+  overflow: clip;
+  scrollbar-width: none;
+}
+
+.book-marquee::-webkit-scrollbar {
+  display: none;
 }
 
 .book-marquee-row {
-  overflow-x: clip;
-  overflow-y: visible;
+  overflow: clip;
+  scrollbar-width: none;
+}
+
+.book-marquee-row::-webkit-scrollbar {
+  display: none;
 }
 
 .book-marquee-track {
