@@ -222,43 +222,49 @@ export const processSteps: ProcessStep[] = [
   {
     id: '1',
     number: 1,
-    title: 'Consultation',
-    description: 'Discuss your book idea and goals with our team.',
-    icon: 'MessageSquare',
+    title: 'Manuscript Review and Assessment',
+    description:
+      'Our expert team performs a detailed review of your manuscript, providing insightful feedback and actionable recommendations to improve its market potential and ensure it is fully prepared for publication.',
+    icon: 'FileSearch',
   },
   {
     id: '2',
     number: 2,
-    title: 'Planning',
-    description: 'Create a customized publishing roadmap.',
-    icon: 'MapPin',
+    title: 'Editing and Proofreading Services',
+    description:
+      'Our experienced editors carefully refine your manuscript, enhancing its content, grammar, and style to deliver a flawless final version that aligns with industry standards.',
+    icon: 'Wand2',
   },
   {
     id: '3',
     number: 3,
-    title: 'Creation',
-    description: 'Write, edit, and design your book.',
-    icon: 'Zap',
+    title: 'Book Design and Formatting',
+    description:
+      'Our design experts create eye-catching book covers and format the interior layout, ensuring a visually appealing and reader-friendly presentation that complements your book genre and message.',
+    icon: 'LayoutTemplate',
   },
   {
     id: '4',
     number: 4,
-    title: 'Publishing',
-    description: 'Format and publish your book.',
-    icon: 'CheckCircle',
+    title: 'Printing and Production Services',
+    description:
+      'We use premium printing and production methods to bring your book to life in physical form, ensuring it has the polished, professional look of traditionally published titles.',
+    icon: 'Printer',
   },
   {
     id: '5',
     number: 5,
-    title: 'Launch',
-    description: 'Execute your book launch campaign.',
-    icon: 'Rocket',
+    title: 'Distribution and Marketing Solutions',
+    description:
+      'We offer wide-reaching distribution, ensuring your book is available through leading online retailers and bookstores while targeted campaigns connect with your ideal audience.',
+    icon: 'Megaphone',
   },
   {
     id: '6',
     number: 6,
-    title: 'Growth',
-    description: 'Ongoing marketing and reader engagement.',
-    icon: 'TrendingUp',
+    title: 'Royalties and Sales Tracking',
+    description:
+      'As your book reaches a global audience, we offer clear royalty reporting and payment visibility so you can monitor success and enjoy the rewards of your literary accomplishment.',
+    icon: 'BadgeDollarSign',
   },
 ]
