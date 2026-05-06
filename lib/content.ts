@@ -146,7 +146,7 @@ export const faqs: FAQ[] = [
     id: '5',
     question: 'What if I need revisions after publishing?',
     answer:
-      'We support updates and revisions to your published work. You can make corrections and improvements at any time, and we'll help distribute the updated version.',
+      'We support updates and revisions to your published work. You can make corrections and improvements at any time, and we will help distribute the updated version.',
   },
 ]
 
