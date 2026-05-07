@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import {
   Hero,
   HeroMarquee,
+  Portfolio,
   Process,
   PurpleCTA,
   Services,
@@ -64,6 +65,7 @@ export default function Home() {
       <Services />
       <PurpleCTA />
       <Process />
+      <Portfolio />
     </main>
   )
 }
