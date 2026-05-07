@@ -7,6 +7,7 @@ import {
   PurpleCTA,
   Services,
   StatsStrip,
+  Testimonials,
   WhyChooseUs,
 } from '@/components/sections'
 import { organizationSchema } from '@/lib/schema'
@@ -66,6 +67,7 @@ export default function Home() {
       <PurpleCTA />
       <Process />
       <Portfolio />
+      <Testimonials />
     </main>
   )
 }

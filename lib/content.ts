@@ -23,10 +23,11 @@ export interface FAQ {
 
 export interface Testimonial {
   id: string
+  name: string
   quote: string
-  author: string
-  role: string
-  image?: string
+  amazonUrl: string
+  photo: string
+  bookCover: string
 }
 
 export interface ProcessStep {
@@ -167,25 +168,43 @@ export const faqs: FAQ[] = [
   },
 ]
 
-// Testimonials data
+// Testimonials data — real client reviews
 export const testimonials: Testimonial[] = [
   {
     id: '1',
-    quote: 'Working with this team transformed my manuscript into a professional published book. Highly recommended!',
-    author: 'John Smith',
-    role: 'Author',
+    name: 'Esabelle Flynn',
+    quote:
+      "My first children’s book “Violet and Jo” is just now on Amazon and in Kindle form. My second one is currently being illustrated “Violet and Jo — All aboard”. The Patrick White staff have been encouraging and responsive to changes in pictures. For their whole process it is a big financial outlay, but I am hopeful their marketing will bring results.",
+    amazonUrl: 'https://a.co/d/0eIY8UgT',
+    photo: '/images/1.webp',
+    bookCover: '/images/violet and jo.webp',
   },
   {
     id: '2',
-    quote: 'The marketing support was exceptional. My book reached readers I never expected to connect with.',
-    author: 'Sarah Johnson',
-    role: 'Published Author',
+    name: 'Cornelis Pepsee',
+    quote:
+      "I would like to share my review of Patrick White Publishing. I was initially proud of my front cover design, but after Roy Wilson showed me their incredible work, I was truly impressed. The cover speaks volumes and transcends language barriers. From the beginning, I’ve been very pleased with how the front cover of my book was designed and how the process was handled. I recommend Patrick White Publishing and encourage others to give their project coordinator Roy Wilson an opportunity to showcase his talent.",
+    amazonUrl: 'https://a.co/d/09HD02Ya',
+    photo: '/images/2.webp',
+    bookCover: '/images/rangers on patrol.webp',
   },
   {
     id: '3',
-    quote: 'From editing to cover design, every service exceeded my expectations. Truly a one-stop shop for authors.',
-    author: 'Michael Brown',
-    role: 'First-time Author',
+    name: 'Charlie',
+    quote:
+      "Loved the response and the way the drawings evolved to match the text. Very professional and driving gently to the end to get the book published. Much looking forward to the next one.",
+    amazonUrl: 'https://a.co/d/gVPN9Yi',
+    photo: '/images/3.webp',
+    bookCover: '/images/book1.webp',
+  },
+  {
+    id: '4',
+    name: 'Benjamin Sam',
+    quote:
+      "Working with Patrick White Publishing has been a wonderful experience. They have been incredibly supportive in helping me bring my book to life. Roy has been especially helpful throughout the journey, always available to answer my questions and guide me every step of the way. I am so glad I chose Roy for this project and truly appreciate the illustration support and overall assistance provided.",
+    amazonUrl: 'https://amzn.asia/d/0iNdmbht',
+    photo: '/images/4.webp',
+    bookCover: '/images/epileptic girl.webp',
   },
 ]
 
