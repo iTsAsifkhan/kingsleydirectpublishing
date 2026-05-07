@@ -6,11 +6,11 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**2.9.6** - Contact form section complete.
+**3.5** - Header and Footer complete.
 
 ## Currently in progress
 
-Phase 3 - Header & Footer. Start next at **3.1**.
+Phase 4 - Service detail pages. Start next at **4.1**.
 
 ## Session log
 
@@ -39,6 +39,7 @@ Phase 3 - Header & Footer. Start next at **3.1**.
 | 2026-05-07 | 14 | 2.7.1-2.7.4 | Testimonials Swiper carousel with real client data (Esabelle Flynn, Cornelis Pepsee, Charlie, Benjamin Sam), portrait + book cover layout, Amazon + Trustpilot buttons, partners strip |
 | 2026-05-07 | 19 | 2.8.1-2.8.5 | FAQ accordion section: native `<details><summary>`, two-column grid, CSS plus→minus icon via `[open]` selector, FAQPage JSON-LD inline, cream gradient background, responsive breakpoints |
 | 2026-05-07 | 20 | 2.9.1-2.9.6 | Contact form section: yellow footer-cta card, 4 fields (name/phone/email/message), circular navy submit button, React 19 useActionState + server action in app/actions.ts, negative-margin overlap positioning |
+| 2026-05-07 | 21 | 3.1-3.5 | Header: absolute-positioned top bar (navy) with social icons + contact info, desktop nav with CSS hover dropdowns, logo text placeholder; Mobile nav drawer (client); Footer: 4-col layout, quick links, services cols, payment image, navy copyright bar; custom SVG social icons in components/icons/SocialIcons.tsx |
 
 ## Known issues / decisions made
 

@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { Montserrat, Noto_Sans } from 'next/font/google'
+import 'swiper/css'
+import 'swiper/css/pagination'
 import './globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -63,7 +67,9 @@ export default function RootLayout({
     >
       <head />
       <body className="bg-white text-brand-ink font-body" suppressHydrationWarning>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
