@@ -6,11 +6,11 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**2.7.4** - Testimonials section complete.
+**2.8.5** - FAQ accordion section complete.
 
 ## Currently in progress
 
-Phase 2 - Homepage sections. Start next at **2.8.1**.
+Phase 2 - Homepage sections. Start next at **2.9.1**.
 
 ## Session log
 
@@ -29,7 +29,13 @@ Phase 2 - Homepage sections. Start next at **2.8.1**.
 | 2026-05-07 | 11 | 2.5 visual fix | Corrected Process section to use a responsive Swiper carousel across desktop/tablet/mobile, matching the reference `process-slider` behavior instead of a desktop grid |
 | 2026-05-07 | 12 | visual placeholder swap | Replaced homepage CSS-only visual placeholders with temporary real images from `public/images` so assets can be swapped later |
 | 2026-05-07 | 13 | asset mapping update | Repointed hero, about, CTA, process, marquee, and portfolio image sources to the newly added book/mockup assets |
+| 2026-05-07 | 14 | testimonials image fix | Swapped testimonial media so the main frame shows the book mockup and the small floating frame shows the author image |
+| 2026-05-07 | 15 | testimonial logo strip | Replaced the text-only post-testimonials partner strip with logo images from `public/images` |
+| 2026-05-07 | 16 | logo sizing fix | Changed small logo rows from `fill` images to intrinsic image sizing to prevent stretching and overlap |
+| 2026-05-07 | 17 | logo visual cleanup | Removed pill backgrounds, borders, and shadows from the small logo rows |
+| 2026-05-07 | 18 | testimonial layout restyle | Reworked testimonials into a screenshot-style centered carousel with wide cream cards, left book mockup, author profile, quote, metadata, and More About Author CTA |
 | 2026-05-07 | 14 | 2.7.1-2.7.4 | Testimonials Swiper carousel with real client data (Esabelle Flynn, Cornelis Pepsee, Charlie, Benjamin Sam), portrait + book cover layout, Amazon + Trustpilot buttons, partners strip |
+| 2026-05-07 | 19 | 2.8.1-2.8.5 | FAQ accordion section: native `<details><summary>`, two-column grid, CSS plus→minus icon via `[open]` selector, FAQPage JSON-LD inline, cream gradient background, responsive breakpoints |
 
 ## Known issues / decisions made
 
@@ -47,6 +53,11 @@ Phase 2 - Homepage sections. Start next at **2.8.1**.
 - Section 7 uses the actual patrickwhitepublishing.com Swiper testimonials design (portrait + floating book cover + large name + quote + Amazon/Trustpilot), not the original reference review-card layout; 4 real client testimonials in lib/content.ts; partners strip uses styled text pills since logo images are not local
 - `Testimonial` interface in lib/content.ts updated: `{ id, name, quote, amazonUrl, photo, bookCover }` — old fake data replaced with real client data
 - Newly added book/mockup images from `public/images` are used in hero, marquee covers, about visual, CTA art, process cards, and portfolio cards; logo assets remain in the platform logo row
+- Testimonials use `bookCover` for the large main image and `photo` for the small floating author image; `photo` currently points to `wrap-2-img.webp` until real author headshots are supplied
+- The post-testimonials partner strip uses `public/images/1.webp` through `7.webp` as contained logo tiles
+- Small logo strips use explicit `width`/`height` on `next/image`; avoid `fill` there because the assets are narrow logos, not framed hero media
+- Small logo row wrappers are plain layout boxes only; no background, border, radius, or shadow
+- Testimonials carousel uses `slidesPerView="auto"` with centered slides to show partial neighboring cards like the provided mockup
 
 ## Blocked on (waiting for assets, info from user, etc.)
 

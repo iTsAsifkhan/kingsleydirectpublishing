@@ -708,28 +708,24 @@ p.p-head {
 }
 
 .index-wrap-2 .platforms span {
-  position: relative;
   display: inline-flex;
-  min-width: 82px;
-  min-height: 42px;
+  width: 108px;
+  height: 42px;
   align-items: center;
   justify-content: center;
-  border: 1px dashed rgb(20 5 69 / 35%);
-  border-radius: 50px;
-  color: #140545;
-  background: #ffffff;
-  font-size: 13px;
-  font-weight: 700;
-  box-shadow: 0px 13px 37px rgb(0 0 0 / 6%);
 }
 
 .platform-logo {
-  width: 108px;
+  flex: 0 0 auto;
 }
 
 .platform-logo-image {
+  display: block;
+  width: 100%;
+  max-width: 84px;
+  height: 100%;
+  max-height: 26px;
   object-fit: contain;
-  padding: 7px 12px;
 }
 
 .index-wrap-2-placeholder {
@@ -2106,8 +2102,8 @@ p.p-head {
   overflow: clip;
   padding: 90px 0 70px;
   background:
-    radial-gradient(circle at 12% 18%, rgb(255 178 16 / 10%), transparent 24%),
-    linear-gradient(180deg, #ffffff 0%, #fff8e8 100%);
+    radial-gradient(circle at 92% 14%, rgb(255 178 16 / 30%), transparent 12%),
+    linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
 }
 
 .index-wrap-7-star {
@@ -2138,172 +2134,184 @@ p.p-head {
 .index-wrap-7-heading {
   display: grid;
   gap: 28px;
-  align-items: end;
+  align-items: start;
   margin-bottom: 60px;
 }
 
+.index-wrap-7-heading h2 {
+  max-width: 760px;
+}
+
 .review-swiper-wrap {
-  padding-bottom: 64px;
+  overflow: hidden;
+  padding: 0 0 64px;
 }
 
 .review-swiper {
-  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 72px;
 }
 
 .review-swiper .swiper-slide {
-  padding: 10px 4px;
+  width: min(1226px, calc(100vw - 44px));
+  height: auto;
+  opacity: 0.34;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.review-swiper .swiper-slide-active {
+  opacity: 1;
 }
 
 .review-slide {
-  display: flex;
+  display: grid;
+  min-height: 538px;
+  grid-template-columns: minmax(280px, 370px) minmax(0, 1fr);
   align-items: center;
-  gap: 56px;
-  padding: 40px 48px 40px 40px;
-  border-radius: 40px;
-  background: rgb(255 178 16 / 10%);
+  gap: 60px;
+  padding: 40px 28px 40px 36px;
+  border-radius: 38px;
+  background: #fff3d8;
   overflow: hidden;
 }
 
 .review-slide-left {
   position: relative;
-  flex: 0 0 340px;
-  width: 340px;
+  display: flex;
+  min-height: 438px;
+  align-items: center;
+  justify-content: center;
 }
 
-.review-portrait {
+.review-book-backdrop {
+  position: absolute;
+  left: 24px;
+  top: 84px;
+  width: 118px;
+  height: 372px;
+  border: 5px solid #140545;
+  border-radius: 18px;
+  background: #FFB210;
+}
+
+.review-main-book {
   position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  border-radius: 24px;
+  z-index: 1;
+  width: min(302px, 74vw);
+  height: 440px;
+  filter: drop-shadow(0 9px 10px rgb(0 0 0 / 24%));
+}
+
+.review-author-photo {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  flex: 0 0 auto;
+  border-radius: 50%;
   overflow: hidden;
   background: #f0ece8;
 }
 
-.review-book-cover {
-  position: absolute;
-  right: -36px;
-  top: 20px;
-  width: 120px;
-  height: 170px;
-  border-radius: 10px 10px 6px 6px;
-  overflow: hidden;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
-  z-index: 1;
+.review-profile-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
 }
 
 .review-slide-right {
-  flex: 1;
   min-width: 0;
-  padding-right: 20px;
+  padding: 20px 0 18px;
 }
 
 .review-author-name {
-  font-size: 42px;
+  margin: 0 0 4px;
   font-family: var(--font-montserrat), sans-serif;
+  font-size: 20px;
   font-weight: 700;
   color: #140545;
-  line-height: 1.1;
-  margin-bottom: 22px;
+  line-height: 1.2;
+}
+
+.review-author-role {
+  margin: 0;
+  color: #0d0d0d;
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 .review-quote {
-  color: #4b4b4b;
+  max-width: 735px;
+  margin: 0 0 36px;
+  color: #0d0d0d;
+  font-size: 17px;
   line-height: 28px;
-  font-size: 16px;
-  margin-bottom: 30px;
-  max-height: 140px;
-  overflow-y: auto;
-  scrollbar-width: none;
 }
 
-.review-quote::-webkit-scrollbar {
-  display: none;
+.review-detail-row {
+  display: grid;
+  grid-template-columns: 140px 150px minmax(190px, 1fr);
+  align-items: end;
+  gap: 30px;
 }
 
-.review-logos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px;
+.review-detail + .review-detail {
+  padding-left: 28px;
+  border-left: 1px solid #140545;
 }
 
-.review-amazon-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
-  border-radius: 50px;
-  background: #FFB210;
-  color: #000000;
+.review-detail h4 {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #140545;
+  color: #140545;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 18px;
   font-weight: 700;
-  font-size: 14px;
-  transition: 0.3s linear;
-  border: 1px solid #FFB210;
+  line-height: 1.15;
 }
 
-.review-amazon-btn:hover,
-.review-amazon-btn:focus {
-  background: #140545;
-  border-color: #140545;
-  color: #ffffff;
+.review-detail p {
+  margin: 0;
+  color: #0d0d0d;
+  font-size: 13px;
 }
 
-.review-amazon-arrow {
+.review-author-link {
   display: inline-flex;
+  width: fit-content;
+  min-width: 212px;
+  align-items: center;
+  justify-content: space-between;
+  justify-self: end;
+  gap: 14px;
+  padding: 8px 8px 8px 26px;
+  border: 1px solid #0d0d0d;
+  border-radius: 50px;
+  color: #0d0d0d;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.review-author-link span {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  border: 1px solid #0d0d0d;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.15);
-  font-size: 13px;
-  transition: inherit;
 }
 
-.review-trustpilot-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 24px;
-  border-radius: 50px;
-  background: #140545;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 14px;
-  transition: 0.3s linear;
-  border: 1px solid #140545;
-}
-
-.review-trustpilot-btn:hover,
-.review-trustpilot-btn:focus {
-  background: transparent;
-  color: #140545;
-}
-
-/* Swiper navigation arrows */
-.review-swiper-wrap .swiper-button-prev,
-.review-swiper-wrap .swiper-button-next {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  color: #140545;
-  transition: 0.3s linear;
-}
-
-.review-swiper-wrap .swiper-button-prev::after,
-.review-swiper-wrap .swiper-button-next::after {
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.review-swiper-wrap .swiper-button-prev:hover,
-.review-swiper-wrap .swiper-button-next:hover {
+.review-author-link:hover,
+.review-author-link:focus {
+  color: #0d0d0d;
   background: #FFB210;
-  color: #000000;
 }
 
-/* Swiper pagination bullets */
 .review-swiper-wrap .swiper-pagination {
   bottom: 0;
   display: flex;
@@ -2333,7 +2341,7 @@ p.p-head {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 16px 40px;
+  gap: 16px 20px;
   padding: 50px 0 0;
   list-style: none;
   margin: 0;
@@ -2341,15 +2349,19 @@ p.p-head {
 
 .partners-ul li {
   display: inline-flex;
+  width: 150px;
+  height: 58px;
   align-items: center;
-  padding: 10px 24px;
-  border-radius: 50px;
-  background: #ffffff;
-  border: 1px dashed rgba(20, 5, 69, 0.25);
-  color: #140545;
-  font-weight: 700;
-  font-size: 13px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  justify-content: center;
+}
+
+.partner-logo-image {
+  display: block;
+  width: 100%;
+  max-width: 114px;
+  height: 100%;
+  max-height: 34px;
+  object-fit: contain;
 }
 
 @media (min-width: 1024px) {
@@ -2360,31 +2372,44 @@ p.p-head {
 
 @media (max-width: 991.98px) {
   .review-slide {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     padding: 32px 28px;
     gap: 36px;
     border-radius: 30px;
   }
 
   .review-slide-left {
-    flex: 0 0 auto;
     width: 100%;
     max-width: 300px;
+    min-height: 360px;
     margin: 0 auto;
   }
 
-  .review-book-cover {
-    right: -20px;
-    width: 100px;
-    height: 140px;
+  .review-book-backdrop {
+    top: 62px;
+    left: 12px;
+    height: 280px;
+  }
+
+  .review-main-book {
+    height: 360px;
   }
 
   .review-author-name {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   .review-slide-right {
-    padding-right: 0;
+    padding: 0;
+  }
+
+  .review-detail-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .review-author-link {
+    justify-self: start;
+    grid-column: 1 / -1;
   }
 }
 
@@ -2398,17 +2423,30 @@ p.p-head {
   }
 
   .review-author-name {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .review-quote {
     font-size: 14px;
-    max-height: 120px;
+    line-height: 24px;
   }
 
-  .review-swiper-wrap .swiper-button-prev,
-  .review-swiper-wrap .swiper-button-next {
-    display: none;
+  .review-swiper {
+    padding-bottom: 52px;
+  }
+
+  .review-swiper .swiper-slide {
+    width: calc(100vw - 28px);
+  }
+
+  .review-detail-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .review-detail + .review-detail {
+    padding-left: 0;
+    border-left: 0;
   }
 }
 
@@ -2420,6 +2458,200 @@ p.p-head {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   Section 8 — FAQ accordion
+   ========================================== */
+
+.index-wrap-8 {
+  padding: 90px 0 230px;
+  background:
+    radial-gradient(circle at 8% 60%, rgb(255 178 16 / 10%), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #fffbf2 50%, #fff8e8 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.index-wrap-8-star {
+  position: absolute;
+  left: 0;
+  top: 340px;
+  width: 42px;
+  height: 42px;
+  pointer-events: none;
+  animation: rotation 5s linear infinite;
+}
+
+.index-wrap-8-star::before,
+.index-wrap-8-star::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: #FFB210;
+  clip-path: polygon(50% 0, 61% 36%, 100% 50%, 61% 64%, 50% 100%, 39% 64%, 0 50%, 39% 36%);
+}
+
+.index-wrap-8-star::after {
+  inset: 11px;
+  background: #fff8e8;
+}
+
+.index-wrap-8-header {
+  display: grid;
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+.accordion-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion-list li {
+  margin-bottom: 20px;
+}
+
+.accordion-list details {
+  padding: 27px 24px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 6%);
+  cursor: pointer;
+}
+
+.accordion-list summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.accordion-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-list summary h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #0d0d0d;
+}
+
+/* Plus/minus icon */
+.faq-icon {
+  flex: 0 0 auto;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #140545;
+  border-radius: 50%;
+  transition: background 0.25s ease;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: #140545;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.faq-icon::before {
+  width: 10px;
+  height: 2px;
+}
+
+.faq-icon::after {
+  width: 2px;
+  height: 10px;
+}
+
+/* Rotate vertical bar to 0deg (collapses to —) on open */
+details[open] .faq-icon {
+  background: #FFB210;
+  border-color: #FFB210;
+}
+
+details[open] .faq-icon::before,
+details[open] .faq-icon::after {
+  background: #140545;
+}
+
+details[open] .faq-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.accordion-list .answer {
+  padding-top: 15px;
+}
+
+.accordion-list .answer p {
+  margin: 0;
+  color: #4b4b4b;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+@media (min-width: 1024px) {
+  .index-wrap-8-header {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .index-wrap-8 {
+    padding: 60px 0 200px;
+  }
+
+  .accordion-list summary h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .accordion-list {
+    grid-template-columns: 1fr;
+  }
+
+  .accordion-list summary h3 {
+    font-size: 14px;
+  }
+
+  .accordion-list details {
+    padding: 24px 24px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .index-wrap-8 {
+    padding: 40px 0 110px;
+  }
+
+  .accordion-list summary h3 {
+    font-size: 13px;
+  }
+
+  .accordion-list details {
+    padding: 18px 17px;
+    margin-bottom: 12px;
   }
 }
 

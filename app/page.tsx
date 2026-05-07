@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import {
+  FAQ,
   Hero,
   HeroMarquee,
   Portfolio,
@@ -68,6 +69,7 @@ export default function Home() {
       <Process />
       <Portfolio />
       <Testimonials />
+      <FAQ />
     </main>
   )
 }
