@@ -2655,10 +2655,391 @@ details[open] .faq-icon::after {
   }
 }
 
+/* Reference-aligned FAQ overrides */
+.index-wrap-8 {
+  position: relative;
+  overflow: clip;
+  background:
+    radial-gradient(circle at 10% 58%, rgb(255 178 16 / 14%), transparent 24%),
+    radial-gradient(circle at 92% 18%, rgb(255 178 16 / 12%), transparent 22%),
+    linear-gradient(180deg, #ffffff 0%, #fff8e8 100%);
+}
+
+.index-wrap-8-shade {
+  position: absolute;
+  right: -12%;
+  bottom: -230px;
+  left: -12%;
+  height: 360px;
+  border-radius: 50% 50% 0 0;
+  background: radial-gradient(ellipse at center, rgb(255 178 16 / 28%), transparent 68%);
+  pointer-events: none;
+}
+
+.index-wrap-8-header {
+  align-items: center;
+  padding-bottom: 50px;
+  margin-bottom: 0;
+}
+
+.accordion-list {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+}
+
+.accordian-inner,
+.accordian-inner ul {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.accordion-list > .accordian-inner {
+  margin-bottom: 0;
+}
+
+.accordian-inner > ul > li {
+  padding: 27px 24px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: #ffffff;
+  cursor: pointer;
+  transition:
+    background-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.accordian-inner > ul > li:hover {
+  background: #fffbf1;
+  box-shadow: 0 10px 24px rgb(20 5 69 / 7%);
+}
+
+.accordian-inner details {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.accordion-list summary h3 {
+  display: flex;
+  align-items: center;
+  color: #0d0d0d;
+}
+
+.faq-question {
+  margin: 0;
+}
+
+.faq-trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #0d0d0d;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  isolation: auto;
+  line-height: 1.35;
+  overflow: visible;
+  position: static;
+  text-align: left;
+  transition: color 220ms ease;
+}
+
+.faq-trigger:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.faq-trigger::before {
+  content: none;
+}
+
+.faq-trigger:hover span:first-child,
+.faq-item.is-open .faq-trigger span:first-child {
+  color: #140545;
+}
+
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 320ms ease,
+    opacity 220ms ease;
+}
+
+.accordion-list .faq-panel-inner.answer {
+  overflow: hidden;
+  padding-top: 0;
+  transition: padding-top 320ms ease;
+}
+
+.faq-item.is-open .faq-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.accordion-list .faq-item.is-open .faq-panel-inner.answer {
+  padding-top: 15px;
+}
+
+.faq-icon {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  transform: rotate(45deg);
+}
+
+.faq-icon::before,
+.faq-icon::after,
+details[open] .faq-icon::before,
+details[open] .faq-icon::after {
+  right: 7px;
+  bottom: 7px;
+  inset: auto;
+  margin: 0;
+  background: #FFB210;
+  opacity: 1;
+}
+
+.faq-icon::before {
+  width: 17px;
+  height: 4px;
+}
+
+.faq-icon::after {
+  width: 4px;
+  height: 17px;
+}
+
+details[open] .faq-icon {
+  border: 0;
+  background: transparent;
+  transform: rotate(135deg);
+}
+
+.faq-item.is-open .faq-icon {
+  border: 0;
+  background: transparent;
+  transform: rotate(135deg);
+}
+
+details[open] .faq-icon::after {
+  transform: none;
+}
+
+.faq-item.is-open .faq-icon::after {
+  transform: none;
+}
+
+.faq-item.is-open .faq-icon::before,
+.faq-item.is-open .faq-icon::after {
+  opacity: 1;
+}
+
+@media (max-width: 767.98px) {
+  .accordion-list {
+    grid-template-columns: 1fr;
+  }
+
+  .accordian-inner > ul > li {
+    padding: 24px;
+    margin-bottom: 18px;
+  }
+
+  .faq-trigger {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .accordian-inner > ul > li {
+    padding: 18px 17px;
+    margin-bottom: 12px;
+  }
+
+  .faq-trigger {
+    font-size: 14px;
+  }
+}
+
 .rotation {
   animation: rotation 5s linear infinite;
 }
 
 .marquee {
   animation: marquee var(--marquee-duration, 20s) linear infinite;
+}
+
+/* ==========================================
+   Section 9 — Contact form (footer-cta)
+   ========================================== */
+
+.index-wrap-9 {
+  position: relative;
+  z-index: 1;
+  margin: -11% 0 -10%;
+}
+
+.footer-cta {
+  background: #FFB210;
+  border-radius: 20px;
+  padding: 50px 70px 70px;
+}
+
+.footer-cta h2 {
+  color: #0d0d0d;
+  margin-bottom: 28px;
+}
+
+.footer-cta-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 60px;
+}
+
+.footer-cta-fields {
+  min-width: 0;
+}
+
+.footer-cta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.footer-cta-group {
+  position: relative;
+}
+
+.footer-cta-custom-margin {
+  margin-top: 30px;
+}
+
+.footer-cta input {
+  color: #000000;
+  border-bottom-color: #000000;
+}
+
+.footer-cta input::placeholder {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.footer-cta input:focus {
+  color: #000000;
+  border-bottom-color: #000000;
+}
+
+.footer-cta-submit-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer-cta-submit-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 190px;
+  height: 190px;
+  flex: 0 0 auto;
+  padding: 0;
+  border-radius: 50%;
+  background: #140545;
+  color: #ffffff;
+  transition: 0.3s linear;
+}
+
+/* Override the base slide-fill effect — the circle handles its own hover */
+.footer-cta-submit-btn::before {
+  border-radius: 50%;
+}
+
+.footer-cta-submit-btn:hover {
+  background: #0d0330;
+}
+
+.footer-cta-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.footer-cta-feedback {
+  margin: 20px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footer-cta-success {
+  color: #140545;
+}
+
+.footer-cta-error {
+  color: #c0392b;
+}
+
+@media (max-width: 1199.98px) {
+  .index-wrap-9 {
+    margin: -13% 0 -11%;
+  }
+
+  .footer-cta-submit-btn {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .footer-cta-form {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-cta-submit-col {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .footer-cta {
+    padding: 35px 40px 40px;
+  }
+
+  .footer-cta-submit-btn {
+    width: 150px;
+    height: 150px;
+  }
+
+  .index-wrap-9 {
+    margin: -25% 0 -11%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .footer-cta {
+    padding: 28px 24px 36px;
+  }
+
+  .footer-cta-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .footer-cta-group:last-child {
+    margin-top: 20px;
+  }
 }

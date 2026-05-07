@@ -6,11 +6,11 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**2.8.5** - FAQ accordion section complete.
+**2.9.6** - Contact form section complete.
 
 ## Currently in progress
 
-Phase 2 - Homepage sections. Start next at **2.9.1**.
+Phase 3 - Header & Footer. Start next at **3.1**.
 
 ## Session log
 
@@ -34,8 +34,11 @@ Phase 2 - Homepage sections. Start next at **2.9.1**.
 | 2026-05-07 | 16 | logo sizing fix | Changed small logo rows from `fill` images to intrinsic image sizing to prevent stretching and overlap |
 | 2026-05-07 | 17 | logo visual cleanup | Removed pill backgrounds, borders, and shadows from the small logo rows |
 | 2026-05-07 | 18 | testimonial layout restyle | Reworked testimonials into a screenshot-style centered carousel with wide cream cards, left book mockup, author profile, quote, metadata, and More About Author CTA |
+| 2026-05-07 | 19 | FAQ reference fix | Reworked FAQ section to match reference layout: two columns, white rounded rows, blue CTA, warm background shade, and reference question set |
+| 2026-05-07 | 20 | FAQ accordion behavior | Replaced native details accordion with a controlled client accordion so only one FAQ opens at a time, with smoother answer transitions |
 | 2026-05-07 | 14 | 2.7.1-2.7.4 | Testimonials Swiper carousel with real client data (Esabelle Flynn, Cornelis Pepsee, Charlie, Benjamin Sam), portrait + book cover layout, Amazon + Trustpilot buttons, partners strip |
 | 2026-05-07 | 19 | 2.8.1-2.8.5 | FAQ accordion section: native `<details><summary>`, two-column grid, CSS plus→minus icon via `[open]` selector, FAQPage JSON-LD inline, cream gradient background, responsive breakpoints |
+| 2026-05-07 | 20 | 2.9.1-2.9.6 | Contact form section: yellow footer-cta card, 4 fields (name/phone/email/message), circular navy submit button, React 19 useActionState + server action in app/actions.ts, negative-margin overlap positioning |
 
 ## Known issues / decisions made
 
@@ -58,6 +61,8 @@ Phase 2 - Homepage sections. Start next at **2.9.1**.
 - Small logo strips use explicit `width`/`height` on `next/image`; avoid `fill` there because the assets are narrow logos, not framed hero media
 - Small logo row wrappers are plain layout boxes only; no background, border, radius, or shadow
 - Testimonials carousel uses `slidesPerView="auto"` with centered slides to show partial neighboring cards like the provided mockup
+- FAQ section now follows the reference two-column accordion layout; content uses the reference question set with accessible expandable answers
+- FAQ accordion now allows one open item at a time and uses CSS grid transitions for smoother expand/collapse motion
 
 ## Blocked on (waiting for assets, info from user, etc.)
 
