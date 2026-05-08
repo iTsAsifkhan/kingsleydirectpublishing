@@ -113,7 +113,7 @@ export default function Footer() {
 
         {/* Copyright bar */}
         <div className="copyright-div">
-          <p className="fw-500 mb-0">Copyright &copy; 2025 Book Publishing Partner.</p>
+          <p className="fw-500 mb-0">Copyright &copy; 2026 Book Publishing Partner.</p>
           <Image
             src="/images/payment.webp"
             alt="Accepted payment methods"

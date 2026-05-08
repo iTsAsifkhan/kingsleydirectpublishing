@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="index-wrap-1 relative">
       <span className="hero-star rotation hidden lg:block" aria-hidden="true" />
       <Container className="relative z-10">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+        <div className="home-hero-grid grid items-center gap-10 lg:grid-cols-2">
           <div className="text-center lg:text-left">
             <span className="index-banner-sub-heading inline-flex items-center gap-3 text-sm font-600 text-white sm:text-base">
               Book Publishing Partner
@@ -35,17 +35,38 @@ export default function Hero() {
           </div>
 
           <div className="relative hidden lg:block">
-            <div
-              className="index-wrap-1-placeholder ml-auto"
-            >
-              <Image
-                src="/images/book1.webp"
-                alt="Book publishing partner visual"
-                fill
-                priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="section-placeholder-image clean-contain"
-              />
+            <div className="home-hero-visual ml-auto" aria-label="Featured published books">
+              <span className="home-hero-cover home-hero-cover-primary">
+                <Image
+                  src="/images/book1.webp"
+                  alt="The Tortoise and Birds Tree Party book cover"
+                  fill
+                  priority
+                  sizes="285px"
+                  className="section-placeholder-image clean-contain"
+                />
+              </span>
+              <span className="home-hero-cover home-hero-cover-secondary">
+                <Image
+                  src="/images/epileptic girl.webp"
+                  alt="The Epileptic Girl book cover"
+                  fill
+                  priority
+                  sizes="220px"
+                  className="section-placeholder-image clean-contain"
+                />
+              </span>
+              <span className="home-hero-cover home-hero-cover-tertiary">
+                <Image
+                  src="/images/rangers on patrol.webp"
+                  alt="Rangers on Patrol book cover"
+                  fill
+                  priority
+                  sizes="220px"
+                  className="section-placeholder-image clean-contain"
+                />
+              </span>
+              <span className="home-hero-badge">Published Worldwide</span>
             </div>
           </div>
         </div>

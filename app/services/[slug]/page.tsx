@@ -1,15 +1,44 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import * as LucideIcons from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle, MessageCircle, PhoneCall } from 'lucide-react'
 import { Button, Container, ServiceCard } from '@/components/ui'
 import { services } from '@/lib/content'
 import { serviceSchema } from '@/lib/schema'
 
 interface Props {
   params: Promise<{ slug: string }>
+}
+
+const serviceVisuals: Record<string, { primary: string; secondary: string; tertiary: string }> = {
+  ghostwriting: {
+    primary: '/images/book1.webp',
+    secondary: '/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp',
+    tertiary: '/images/wrap-2-img.webp',
+  },
+  editing: {
+    primary: '/images/81TmWd7H0bL._SL1500_-e1777872951701.webp',
+    secondary: '/images/book1.webp',
+    tertiary: '/images/wrap-2-img.webp',
+  },
+  publishing: {
+    primary: '/images/book1.webp',
+    secondary: '/images/epileptic girl.webp',
+    tertiary: '/images/rangers on patrol.webp',
+  },
+  marketing: {
+    primary: '/images/rangers on patrol.webp',
+    secondary: '/images/epileptic girl.webp',
+    tertiary: '/images/book1.webp',
+  },
+  'cover-design': {
+    primary: '/images/epileptic girl.webp',
+    secondary: '/images/rangers on patrol.webp',
+    tertiary: '/images/book1.webp',
+  },
 }
 
 export function generateStaticParams() {
@@ -48,16 +77,15 @@ export default async function ServicePage({ params }: Props) {
   if (!service) notFound()
 
   const Icon = LucideIcons[service.icon as keyof typeof LucideIcons] as LucideIcon | undefined
-
   const related = services.filter((s) => s.slug !== service.slug).slice(0, 3)
+  const descParagraphs = service.longDescription.split('\n\n')
+  const visuals = serviceVisuals[service.slug] ?? serviceVisuals.publishing
 
   const schema = serviceSchema({
     name: `${service.title} Services`,
     description: service.shortDescription,
     url: `https://bookpublishingpartner.com/services/${service.slug}`,
   })
-
-  const descParagraphs = service.longDescription.split('\n\n')
 
   return (
     <>
@@ -66,44 +94,88 @@ export default async function ServicePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ── Hero ── */}
       <section className="service-hero">
+        <span className="service-hero-star service-hero-star-1" aria-hidden="true" />
+        <span className="service-hero-star service-hero-star-2" aria-hidden="true" />
         <Container>
           <div className="service-hero-inner">
             <div className="service-hero-content">
-              <span className="span-tag-border">Our Services</span>
-              <h1 className="service-hero-title fw-700">{service.title} Services</h1>
+              <span className="index-banner-sub-heading service-kicker d-inline-flex align-items-center fw-600 text-white">
+                Book Publishing Partner
+                {Icon && <Icon size={20} strokeWidth={1.7} aria-hidden="true" />}
+              </span>
+              <h1 className="service-hero-title fw-700">
+                Professional <span className="clr-1">{service.title}</span> Services
+              </h1>
               <p className="service-hero-desc">{service.shortDescription}</p>
               <div className="service-hero-ctas">
                 <Button variant="yellow" href="/contact" icon={ArrowRight}>
                   Get A Quote
                 </Button>
-                <a href="tel:+18554297565" className="anchor-number-cta">
-                  <span className="anchor-number-cta-circle">
-                    <ArrowRight size={18} aria-hidden="true" />
-                  </span>
-                  +1 (855) 429-7565
-                </a>
+                <Button variant="blue" href="/contact" icon={MessageCircle}>
+                  Live Chat
+                </Button>
               </div>
             </div>
 
-            <div className="service-hero-icon-wrap" aria-hidden="true">
-              <div className="service-hero-icon-bg">
-                {Icon && <Icon size={80} strokeWidth={1.2} />}
+            <div className="service-hero-visual" aria-hidden="true">
+              <div className="service-visual-circle">
+                <span className="service-visual-cover service-visual-cover-primary">
+                  <Image
+                    src={visuals.primary}
+                    alt=""
+                    fill
+                    priority
+                    sizes="280px"
+                    className="section-placeholder-image clean-contain"
+                  />
+                </span>
+                <span className="service-visual-cover service-visual-cover-secondary">
+                  <Image
+                    src={visuals.secondary}
+                    alt=""
+                    fill
+                    priority
+                    sizes="210px"
+                    className="section-placeholder-image clean-contain"
+                  />
+                </span>
+                <span className="service-visual-card">
+                  {Icon && <Icon size={44} strokeWidth={1.5} />}
+                  <b>{service.title}</b>
+                </span>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ── About this service ── */}
+      <section className="service-stats-strip">
+        <Container>
+          <div className="service-stats-grid">
+            <div>
+              <strong>5K<span>+</span></strong>
+              <p>Published Happy Clients</p>
+            </div>
+            <div>
+              <strong>100<span>+</span></strong>
+              <p>Five out of Five Reviews</p>
+            </div>
+            <div>
+              <strong>97%<span>+</span></strong>
+              <p>Satisfaction Rate</p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <section className="service-about">
         <Container>
           <div className="service-about-grid">
-            <div>
+            <div className="service-about-copy">
               <span className="span-tag-border">What We Do</span>
               <h2 className="fw-700 pt-3">
-                Professional <span className="clr-1">{service.title}</span> Services
+                We Shape Your <span className="clr-1">{service.title}</span> Project for Publishing Success
               </h2>
               <div className="service-long-desc">
                 {descParagraphs.map((para, i) => (
@@ -112,27 +184,46 @@ export default async function ServicePage({ params }: Props) {
               </div>
             </div>
 
-            <div className="service-features-box">
-              <h3 className="service-features-heading fw-700">What&apos;s Included</h3>
-              <ul className="service-features-list">
-                {service.features.map((feat) => (
-                  <li key={feat}>
-                    <CheckCircle size={18} className="service-feature-check" aria-hidden="true" />
-                    {feat}
-                  </li>
-                ))}
-              </ul>
+            <div className="service-about-media">
+              <Image
+                src={visuals.tertiary}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 420px, 100vw"
+                className="section-placeholder-image clean-contain"
+              />
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ── Process ── */}
+      <section className="service-features-section">
+        <Container>
+          <div className="service-section-heading">
+            <span className="span-tag-border">What&apos;s Included</span>
+            <h2 className="fw-700 pt-3">
+              Complete <span className="clr-1">{service.title}</span> Support
+            </h2>
+          </div>
+          <div className="service-feature-grid">
+            {service.features.map((feat, i) => (
+              <article className="service-feature-card" key={feat}>
+                <span>{String(i + 1).padStart(2, '0')}</span>
+                <CheckCircle size={28} className="service-feature-check" aria-hidden="true" />
+                <h3 className="fw-700">{feat}</h3>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <section className="service-process-section">
         <Container>
           <div className="service-process-header">
             <span className="span-tag-border">How It Works</span>
-            <h2 className="fw-700 pt-3">Our {service.title} Process</h2>
+            <h2 className="fw-700 pt-3">
+              Our <span className="clr-1">{service.title}</span> Process
+            </h2>
           </div>
 
           <ol className="service-process-steps">
@@ -146,7 +237,6 @@ export default async function ServicePage({ params }: Props) {
         </Container>
       </section>
 
-      {/* ── Related services ── */}
       <section className="service-related">
         <Container>
           <div className="service-related-header">
@@ -162,12 +252,11 @@ export default async function ServicePage({ params }: Props) {
         </Container>
       </section>
 
-      {/* ── Bottom CTA ── */}
       <section className="service-bottom-cta">
         <Container>
           <div className="service-bottom-cta-inner">
             <div>
-              <h2 className="fw-700 mb-0" style={{ color: '#ffffff' }}>
+              <h2 className="fw-700 mb-0 text-white">
                 Ready to Start Your <span className="clr-1">{service.title}</span> Journey?
               </h2>
               <p className="service-bottom-cta-desc">
@@ -178,6 +267,18 @@ export default async function ServicePage({ params }: Props) {
               <Button variant="yellow" href="/contact" icon={ArrowRight}>
                 Get A Free Quote
               </Button>
+              <a
+                href="tel:+18554297565"
+                className="anchor-number-cta align-items-center d-inline-flex"
+              >
+                <span className="span-1">
+                  <PhoneCall aria-hidden="true" className="clr-1" size={18} />
+                </span>
+                <span className="span-2 fw-600 clr-1 d-inline-block">
+                  Call Now <br />
+                  <b className="text-white">+1(855) 429-7565</b>
+                </span>
+              </a>
               <Link href="/" className="service-all-services-link">
                 View All Services
               </Link>
