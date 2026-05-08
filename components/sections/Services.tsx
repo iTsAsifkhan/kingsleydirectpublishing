@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import { Button, Container, ServiceCard } from '@/components/ui'
+import { Button, Container, FadeIn, ServiceCard } from '@/components/ui'
 import { services } from '@/lib/content'
 
 export default function Services() {
@@ -12,7 +12,7 @@ export default function Services() {
       <span className="index-wrap-3-star-3" aria-hidden="true" />
 
       <Container className="relative z-10">
-        <div className="index-wrap-3-heading">
+        <FadeIn className="index-wrap-3-heading">
           <div>
             <span className="span-tag-border">Services We Provide</span>
             <h2 className="mb-0 fw-700 pt-3">
@@ -26,19 +26,19 @@ export default function Services() {
             and global distribution, we make your publishing journey simple and
             successful.
           </p>
-        </div>
+        </FadeIn>
 
-        <div className="index-wrap-3-padding-top services-grid">
+        <FadeIn delay={0.2} className="index-wrap-3-padding-top services-grid">
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
-        </div>
+        </FadeIn>
 
-        <div className="pt-5 text-center">
+        <FadeIn delay={0.3} className="pt-5 text-center">
           <Button variant="yellow" href="/contact" icon={ArrowRight}>
             Get A Quote
           </Button>
-        </div>
+        </FadeIn>
       </Container>
     </section>
   )

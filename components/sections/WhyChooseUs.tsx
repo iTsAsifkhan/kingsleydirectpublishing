@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { ArrowRight, MessageCircle } from 'lucide-react'
-import { Button, Container } from '@/components/ui'
+import { Button, Container, FadeIn } from '@/components/ui'
 
 const platformLogos = [
   { src: '/images/3.webp', alt: 'Barnes & Noble' },
@@ -14,11 +14,9 @@ export default function WhyChooseUs() {
     <section className="index-wrap-2">
       <Container>
         <div className="index-wrap-2-grid">
-          <div className="index-wrap-2-media-wrap">
+          <FadeIn direction="left" className="index-wrap-2-media-wrap">
             <span className="index-wrap-2-star rotation" aria-hidden="true" />
-            <div
-              className="index-wrap-2-placeholder"
-            >
+            <div className="index-wrap-2-placeholder">
               <Image
                 src="/images/wrap-2-img.webp"
                 alt="Author working with a publishing support team"
@@ -27,9 +25,9 @@ export default function WhyChooseUs() {
                 className="section-placeholder-image clean-contain"
               />
             </div>
-          </div>
+          </FadeIn>
 
-          <div className="index-wrap-2-content">
+          <FadeIn direction="right" delay={0.15} className="index-wrap-2-content">
             <span className="span-tag-border">About Book Publishing Partner</span>
             <h2 className="mb-0 font-700">
               Why Authors Choose Our{' '}
@@ -65,7 +63,7 @@ export default function WhyChooseUs() {
                 Live Chat
               </Button>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </Container>
     </section>

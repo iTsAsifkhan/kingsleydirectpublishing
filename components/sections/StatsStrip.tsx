@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui'
+import { Container, FadeIn } from '@/components/ui'
 import { stats } from '@/lib/content'
 
 export default function StatsStrip() {
@@ -6,7 +6,7 @@ export default function StatsStrip() {
     <div className="index-wrap-counter">
       <Container>
         <div className="counter-wrap">
-          <div className="counter-grid">
+          <FadeIn className="counter-grid">
             {stats.map((stat) => (
               <div className="counter-item" key={stat.id}>
                 <h5 className="mb-0 font-700 text-white">
@@ -16,7 +16,7 @@ export default function StatsStrip() {
                 <p className="mb-0">{stat.label}</p>
               </div>
             ))}
-          </div>
+          </FadeIn>
         </div>
       </Container>
     </div>
