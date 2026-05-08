@@ -122,9 +122,12 @@ export default function Header() {
       {/* Bottom bar — logo + desktop nav + mobile hamburger */}
       <Container>
         <div className="header-bottom-bar">
-          {/* Logo */}
           <Link href="/" className="header-logo" aria-label="Book Publishing Partner home">
-            <span className="header-logo-text">Book Publishing Partner</span>
+            <span className="header-logo-mark">BPP</span>
+            <span className="header-logo-text">
+              <span>Book Publishing</span>
+              <span>Partner</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}

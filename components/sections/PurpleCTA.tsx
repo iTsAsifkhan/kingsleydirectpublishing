@@ -1,10 +1,19 @@
+import Image from 'next/image'
 import { ArrowRight, PhoneCall } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 
 export default function PurpleCTA() {
   return (
     <div className="index-wrap-4-shell position-relative">
-      <span className="cta-item-img-3" aria-hidden="true" />
+      <span className="cta-item-img-3" aria-hidden="true">
+        <Image
+          src="/images/1.webp"
+          alt=""
+          fill
+          sizes="210px"
+          className="section-placeholder-image contain"
+        />
+      </span>
       <span className="cta-shade" aria-hidden="true" />
       <span className="cta-star" aria-hidden="true" />
 
@@ -46,9 +55,33 @@ export default function PurpleCTA() {
 
             <div className="index-wrap-4-visual" aria-hidden="true">
               <div className="index-wrap-4-cta-circle position-relative">
-                <span className="cta-img" />
-                <span className="cta-item-img-1" />
-                <span className="cta-item-img-2" />
+                <span className="cta-img">
+                  <Image
+                    src="/images/book1.webp"
+                    alt=""
+                    fill
+                    sizes="270px"
+                    className="section-placeholder-image contain"
+                  />
+                </span>
+                <span className="cta-item-img-1">
+                  <Image
+                    src="/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp"
+                    alt=""
+                    fill
+                    sizes="118px"
+                    className="section-placeholder-image contain"
+                  />
+                </span>
+                <span className="cta-item-img-2">
+                  <Image
+                    src="/images/81TmWd7H0bL._SL1500_-e1777872951701.webp"
+                    alt=""
+                    fill
+                    sizes="118px"
+                    className="section-placeholder-image contain"
+                  />
+                </span>
               </div>
             </div>
           </div>

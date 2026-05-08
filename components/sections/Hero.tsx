@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { ArrowRight, Handshake, MessageCircle } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 
@@ -36,19 +37,15 @@ export default function Hero() {
           <div className="relative hidden lg:block">
             <div
               className="index-wrap-1-placeholder ml-auto"
-              role="img"
-              aria-label="Placeholder for the hero publishing illustration"
             >
-              <div className="placeholder-book" aria-hidden="true">
-                <span />
-                <span />
-              </div>
-              <div className="placeholder-pages" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </div>
-              <p>Hero Illustration Placeholder</p>
+              <Image
+                src="/images/book1.webp"
+                alt="Book publishing partner visual"
+                fill
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="section-placeholder-image clean-contain"
+              />
             </div>
           </div>
         </div>

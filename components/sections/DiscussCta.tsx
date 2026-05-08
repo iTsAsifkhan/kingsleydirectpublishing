@@ -32,7 +32,7 @@ export default function DiscussCta() {
         >
           <div className="w-full max-w-md rounded-card bg-white p-8 shadow-card">
             <div className="mb-6 flex items-center justify-between gap-4">
-              <h2 id="discuss-title" className="text-2xl font-700">
+              <h2 id="discuss-title" className="text-2xl font-600">
                 Let us discuss your book
               </h2>
               <button

@@ -53,7 +53,11 @@ export default function Footer() {
           {/* Brand column */}
           <div className="footer-brand">
             <Link href="/" className="footer-logo-link" aria-label="Book Publishing Partner home">
-              <span className="footer-logo-text">Book Publishing Partner</span>
+              <span className="footer-logo-mark">BPP</span>
+              <span className="footer-logo-text">
+                <span>Book Publishing</span>
+                <span>Partner</span>
+              </span>
             </Link>
             <p className="footer-brand-desc">
               Book Publishing Partner has become a leading agency known for providing top-tier

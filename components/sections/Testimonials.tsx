@@ -2,15 +2,22 @@
 
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
-import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { ArrowRight } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 import { testimonials } from '@/lib/content'
 
-const PARTNERS = ['Amazon', 'IngramSpark', 'Kobo', 'Draft2Digital', 'Trustpilot', 'Barnes & Noble']
+const PARTNER_LOGOS = [
+  { src: '/images/1.webp', alt: 'Trustpilot' },
+  { src: '/images/2.webp', alt: 'IngramSpark' },
+  { src: '/images/3.webp', alt: 'Barnes and Noble' },
+  { src: '/images/4.webp', alt: 'Amazon Kindle' },
+  { src: '/images/5.webp', alt: 'Apple Books' },
+  { src: '/images/6.webp', alt: 'Lulu' },
+  { src: '/images/7.webp', alt: 'Publishing partner' },
+]
 
 export default function Testimonials() {
   return (
@@ -18,15 +25,11 @@ export default function Testimonials() {
       <span className="index-wrap-7-star" aria-hidden="true" />
 
       <Container className="relative z-10">
-        {/* Section heading row */}
         <div className="index-wrap-7-heading">
-          <div>
-            <span className="span-tag-border">Testimonials</span>
-            <h2 className="mb-0 fw-700 pt-3">
-              Client Testimonials About{' '}
-              <span className="clr-1">Our Book Publishing</span> Partner
-            </h2>
-          </div>
+          <h2 className="mb-0 fw-700">
+            Client Testimonials About{' '}
+            <span className="clr-1">Our Book Publishing</span> Partner
+          </h2>
           <div className="hidden lg:flex justify-end">
             <Button variant="yellow" href="/contact" icon={ArrowRight}>
               Get A Quote
@@ -35,81 +38,97 @@ export default function Testimonials() {
         </div>
       </Container>
 
-      {/* Full-width slider */}
       <div className="review-swiper-wrap">
-        <Container className="relative z-10">
-          <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
-            slidesPerView={1}
-            loop
-            autoplay={{ delay: 5000, pauseOnMouseEnter: true, disableOnInteraction: false }}
-            navigation
-            pagination={{ clickable: true }}
-            className="review-swiper"
-          >
-            {testimonials.map((t) => (
-              <SwiperSlide key={t.id}>
-                <div className="review-slide">
-                  {/* Left: portrait + book cover */}
-                  <div className="review-slide-left">
-                    <div className="review-portrait">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          slidesPerView="auto"
+          centeredSlides
+          loop
+          spaceBetween={92}
+          autoplay={{
+            delay: 5000,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+          }}
+          pagination={{ clickable: true }}
+          className="review-swiper"
+        >
+          {testimonials.map((t) => (
+            <SwiperSlide key={t.id}>
+              <div className="review-slide">
+                <div className="review-slide-left">
+                  <div className="review-book-backdrop" aria-hidden="true" />
+                  <div className="review-main-book">
+                    <Image
+                      src={t.bookCover}
+                      alt={`${t.name}'s published book`}
+                      fill
+                      sizes="(min-width: 1024px) 320px, 75vw"
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+
+                <div className="review-slide-right">
+                  <div className="review-profile-row">
+                    <div className="review-author-photo">
                       <Image
                         src={t.photo}
                         alt={`Photo of ${t.name}`}
                         fill
-                        sizes="(min-width: 1024px) 380px, 90vw"
+                        sizes="86px"
                         className="object-cover object-top"
                       />
                     </div>
-                    <div className="review-book-cover">
-                      <Image
-                        src={t.bookCover}
-                        alt={`${t.name}'s published book`}
-                        fill
-                        sizes="130px"
-                        className="object-cover"
-                      />
+                    <div>
+                      <h3 className="review-author-name">{t.name}</h3>
+                      <p className="review-author-role">Author</p>
                     </div>
                   </div>
 
-                  {/* Right: text content */}
-                  <div className="review-slide-right">
-                    <h3 className="review-author-name">{t.name}</h3>
-                    <p className="review-quote">{t.quote}</p>
-                    <div className="review-logos">
-                      <a
-                        href={t.amazonUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="review-amazon-btn"
-                        aria-label={`Buy ${t.name}'s book on Amazon`}
-                      >
-                        Buy on Amazon
-                        <span className="review-amazon-arrow">→</span>
-                      </a>
-                      <a
-                        href="https://www.trustpilot.com/review/patrickwhitepublishing.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="review-trustpilot-btn"
-                        aria-label="Read reviews on Trustpilot"
-                      >
-                        ★★★★★ Trustpilot
-                      </a>
+                  <p className="review-quote">{t.quote}</p>
+
+                  <div className="review-detail-row">
+                    <div className="review-detail">
+                      <h4>Genre</h4>
+                      <p>{t.genre}</p>
                     </div>
+                    <div className="review-detail">
+                      <h4>Published</h4>
+                      <p>{t.published}</p>
+                    </div>
+                    <a
+                      href={t.amazonUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="review-author-link"
+                      aria-label={`More about ${t.name}`}
+                    >
+                      More About Author
+                      <span>
+                        <ArrowRight aria-hidden="true" size={18} />
+                      </span>
+                    </a>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Container>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
-      {/* Partners strip */}
       <Container className="relative z-10">
         <ul className="partners-ul" aria-label="Publishing partners and platforms">
-          {PARTNERS.map((p) => (
-            <li key={p}>{p}</li>
+          {PARTNER_LOGOS.map((logo) => (
+            <li key={logo.src}>
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={150}
+                height={58}
+                className="partner-logo-image"
+              />
+            </li>
           ))}
         </ul>
       </Container>

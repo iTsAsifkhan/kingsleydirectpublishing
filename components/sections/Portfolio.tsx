@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 import { ArrowRight, PhoneCall } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
@@ -18,51 +19,46 @@ const TABS: readonly Tab[] = [
 
 interface GenreConfig {
   sceneBg: string
-  coverColors: readonly string[]
-  accent: string
 }
 
 const GENRES: Record<Tab, GenreConfig> = {
   Fantasy: {
     sceneBg: 'linear-gradient(135deg, #150b2d 0%, #2d1166 100%)',
-    coverColors: ['#3b1278', '#4c1d95', '#312e81', '#1a0d4a', '#5b21b6', '#2d1155', '#4c1d95', '#3b1278'],
-    accent: '#a78bfa',
   },
   Fiction: {
     sceneBg: 'linear-gradient(135deg, #0c1f3d 0%, #1e3a6e 100%)',
-    coverColors: ['#1e3a6e', '#1d4ed8', '#1e40af', '#1a336b', '#0f2352', '#2563eb', '#1d4ed8', '#1e3a6e'],
-    accent: '#60a5fa',
   },
   Romance: {
     sceneBg: 'linear-gradient(135deg, #2d0a1a 0%, #7f1d3f 100%)',
-    coverColors: ['#7f1d3f', '#9d174d', '#be185d', '#6d1c3c', '#4c0d26', '#9d174d', '#be185d', '#7f1d3f'],
-    accent: '#f472b6',
   },
   Horror: {
     sceneBg: 'linear-gradient(135deg, #0d0d0d 0%, #3d0000 100%)',
-    coverColors: ['#3d0000', '#450a0a', '#7f1d1d', '#991b1b', '#4c0000', '#7f1d1d', '#3d0000', '#450a0a'],
-    accent: '#f87171',
   },
   'Cook Books': {
     sceneBg: 'linear-gradient(135deg, #1a1000 0%, #3d2800 100%)',
-    coverColors: ['#3d2800', '#78350f', '#92400e', '#451a03', '#4d3400', '#78350f', '#3d2800', '#92400e'],
-    accent: '#fbbf24',
   },
   Adventure: {
     sceneBg: 'linear-gradient(135deg, #0a1a0a 0%, #1a3d1a 100%)',
-    coverColors: ['#1a3d1a', '#14532d', '#166534', '#052e16', '#15803d', '#14532d', '#1a3d1a', '#166534'],
-    accent: '#4ade80',
   },
   Mystery: {
     sceneBg: 'linear-gradient(135deg, #0a0a1f 0%, #1a1a3d 100%)',
-    coverColors: ['#1a1a3d', '#312e81', '#1e1b4b', '#3730a3', '#4338ca', '#312e81', '#1a1a3d', '#3730a3'],
-    accent: '#818cf8',
   },
 }
 
+const portfolioImages = [
+  '/images/book1.webp',
+  '/images/epileptic girl.webp',
+  '/images/rangers on patrol.webp',
+  '/images/81TmWd7H0bL._SL1500_-e1777872951701.webp',
+  '/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp',
+  '/images/book1.webp',
+  '/images/epileptic girl.webp',
+  '/images/rangers on patrol.webp',
+]
+
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState<Tab>('Fantasy')
-  const { sceneBg, coverColors, accent } = GENRES[activeTab]
+  const { sceneBg } = GENRES[activeTab]
 
   return (
     <section className="index-wrap-6 position-relative">
@@ -114,21 +110,20 @@ export default function Portfolio() {
           role="tabpanel"
           aria-label={`${activeTab} portfolio items`}
         >
-          {coverColors.map((coverColor, i) => (
+          {portfolioImages.map((imageSrc, i) => (
             <div
               key={i}
               className="portfolio-item"
               style={{ background: sceneBg }}
             >
-              {/* CSS book cover placeholder */}
-              <div className="portfolio-book-cover" style={{ background: coverColor }}>
-                <div className="portfolio-book-spine" />
-                <div className="portfolio-book-lines">
-                  <span style={{ background: `${accent}dd` }} />
-                  <span style={{ width: '70%', background: 'rgba(255,255,255,0.4)' }} />
-                  <span style={{ width: '55%', background: 'rgba(255,255,255,0.25)' }} />
-                </div>
-                <div className="portfolio-book-footer" style={{ background: accent }} />
+              <div className="portfolio-book-cover">
+                <Image
+                  src={imageSrc}
+                  alt={`${activeTab} portfolio sample ${i + 1}`}
+                  fill
+                  sizes="(min-width: 992px) 150px, 120px"
+                  className="section-placeholder-image contain"
+                />
               </div>
             </div>
           ))}

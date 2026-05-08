@@ -6,13 +6,13 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          yellow: '#FFB210',
-          yellowDark: '#C88800',
-          navy: '#140545',
-          ink: '#0D0D0D',
-          gray1: '#343434',
-          gray2: '#4b4b4b',
-          gray3: '#8A8A8A',
+          yellow: 'var(--brand-yellow)',
+          yellowDark: 'var(--brand-yellow-dark)',
+          navy: 'var(--brand-navy)',
+          ink: 'var(--brand-ink)',
+          gray1: 'var(--brand-gray-1)',
+          gray2: 'var(--brand-gray-2)',
+          gray3: 'var(--brand-gray-3)',
         },
       },
       fontFamily: {
@@ -23,9 +23,9 @@ const config: Config = {
         card: '0px 13px 37px rgb(0 0 0 / 6%)',
         'card-hover': '0px 11px 13px #0000002c',
         'btn-hover': '0px 15px 25px #0000005e',
-        'glow-sm': '0px 0px 16px #FFB210',
-        'glow-md': '0px 7px 30px #FFB210',
-        'glow-lg': '0px 0px 33px #FFB210',
+        'glow-sm': '0px 0px 16px var(--brand-yellow)',
+        'glow-md': '0px 7px 30px var(--brand-yellow)',
+        'glow-lg': '0px 0px 33px var(--brand-yellow)',
         'glow-xl': '0px 0px 42px hsl(41deg 100% 53% / 65%)',
       },
       transitionTimingFunction: {

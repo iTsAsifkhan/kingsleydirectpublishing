@@ -1,29 +1,31 @@
 'use client'
 
-import * as LucideIcons from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import { Container } from '@/components/ui'
 import { processSteps, type ProcessStep } from '@/lib/content'
 
-function ProcessCard({ step }: { step: ProcessStep }) {
-  const Icon = LucideIcons[
-    step.icon as keyof typeof LucideIcons
-  ] as LucideIcon | undefined
+const processImages = [
+  '/images/wrap-2-img.webp',
+  '/images/book1.webp',
+  '/images/epileptic girl.webp',
+  '/images/rangers on patrol.webp',
+  '/images/81TmWd7H0bL._SL1500_-e1777872951701.webp',
+  '/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp',
+]
 
+function ProcessCard({ step }: { step: ProcessStep }) {
   return (
     <article className={`process-item process-item-${step.number}`}>
-      <div className="process-item-img process-item-img-1" aria-hidden="true">
-        <div className="process-visual">
-          <span className="process-visual-screen">
-            {Icon ? <Icon aria-hidden="true" /> : null}
-          </span>
-          <span className="process-visual-person one" />
-          <span className="process-visual-person two" />
-          <span className="process-visual-line" />
-          <span className="process-visual-line short" />
-        </div>
+      <div className="process-item-img process-item-img-1">
+        <Image
+          src={processImages[(step.number - 1) % processImages.length]}
+          alt={`${step.title} visual`}
+          fill
+          sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
+          className="section-placeholder-image contain"
+        />
       </div>
       <div className="process-item-content invisible-scroll">
         <h6 className="mb-0 fw-700">
@@ -59,26 +61,30 @@ export default function Process() {
           </p>
         </div>
 
-        <div className="process-row-padding-top process-desktop-grid">
-          {processSteps.map((step) => (
-            <ProcessCard key={step.id} step={step} />
-          ))}
-        </div>
-
-        <div className="process-row-padding-top process-mobile-slider">
+        <div className="process-row-padding-top process-slider-wrap">
           <Swiper
-            modules={[Pagination]}
+            modules={[Autoplay, Pagination]}
+            className="process-slider"
+            loop
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
             pagination={{ clickable: true }}
-            spaceBetween={20}
+            spaceBetween={0}
             slidesPerView={1}
             breakpoints={{
-              576: {
+              768: {
                 slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 3,
               },
             }}
           >
             {processSteps.map((step) => (
-              <SwiperSlide key={step.id}>
+              <SwiperSlide key={step.id} className="process-slide">
                 <ProcessCard step={step} />
               </SwiperSlide>
             ))}

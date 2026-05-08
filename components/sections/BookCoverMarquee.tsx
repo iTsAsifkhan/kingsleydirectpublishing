@@ -1,31 +1,46 @@
 'use client'
 
+import Image from 'next/image'
 import type { CSSProperties } from 'react'
 
 interface BookCover {
   id: string
   title: string
   category: string
+  image: string
 }
 
 const books: BookCover[] = [
-  { id: 'memoir', title: 'Memoir', category: 'Author Story' },
-  { id: 'fiction', title: 'Fiction', category: 'Novel Draft' },
-  { id: 'business', title: 'Business', category: 'Expert Guide' },
-  { id: 'wellness', title: 'Wellness', category: 'Lifestyle' },
-  { id: 'children', title: 'Kids', category: 'Picture Book' },
-  { id: 'history', title: 'History', category: 'Nonfiction' },
-  { id: 'poetry', title: 'Poetry', category: 'Collection' },
-  { id: 'cookbook', title: 'Cookbook', category: 'Recipe Book' },
+  { id: 'memoir', title: 'Memoir', category: 'Author Story', image: '/images/book1.webp' },
+  { id: 'fiction', title: 'Fiction', category: 'Novel Draft', image: '/images/epileptic girl.webp' },
+  { id: 'business', title: 'Business', category: 'Expert Guide', image: '/images/rangers on patrol.webp' },
+  {
+    id: 'wellness',
+    title: 'Wellness',
+    category: 'Lifestyle',
+    image: '/images/81TmWd7H0bL._SL1500_-e1777872951701.webp',
+  },
+  {
+    id: 'children',
+    title: 'Kids',
+    category: 'Picture Book',
+    image: '/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp',
+  },
+  { id: 'history', title: 'History', category: 'Nonfiction', image: '/images/book1.webp' },
+  { id: 'poetry', title: 'Poetry', category: 'Collection', image: '/images/epileptic girl.webp' },
+  { id: 'cookbook', title: 'Cookbook', category: 'Recipe Book', image: '/images/rangers on patrol.webp' },
 ]
 
 function CoverCard({ book, index }: { book: BookCover; index: number }) {
   return (
     <li className={`book-cover book-cover-${index % 4}`}>
-      <span className="book-cover-kicker">{book.category}</span>
-      <strong>{book.title}</strong>
-      <span className="book-cover-line" aria-hidden="true" />
-      <span className="book-cover-line short" aria-hidden="true" />
+      <Image
+        src={book.image}
+        alt={`${book.title} ${book.category}`}
+        fill
+        sizes="(max-width: 767px) 150px, (max-width: 1199px) 190px, 235px"
+        className="book-cover-image"
+      />
     </li>
   )
 }
