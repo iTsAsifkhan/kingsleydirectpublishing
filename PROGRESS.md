@@ -6,11 +6,11 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**3.5** - Header and Footer complete.
+**4.8** - Service detail pages complete.
 
 ## Currently in progress
 
-Phase 4 - Service detail pages. Start next at **4.1**.
+Phase 5 - Polish & animations. Start next at **5.1**.
 
 ## Session log
 
@@ -40,6 +40,7 @@ Phase 4 - Service detail pages. Start next at **4.1**.
 | 2026-05-07 | 19 | 2.8.1-2.8.5 | FAQ accordion section: native `<details><summary>`, two-column grid, CSS plus→minus icon via `[open]` selector, FAQPage JSON-LD inline, cream gradient background, responsive breakpoints |
 | 2026-05-07 | 20 | 2.9.1-2.9.6 | Contact form section: yellow footer-cta card, 4 fields (name/phone/email/message), circular navy submit button, React 19 useActionState + server action in app/actions.ts, negative-margin overlap positioning |
 | 2026-05-07 | 21 | 3.1-3.5 | Header: absolute-positioned top bar (navy) with social icons + contact info, desktop nav with CSS hover dropdowns, logo text placeholder; Mobile nav drawer (client); Footer: 4-col layout, quick links, services cols, payment image, navy copyright bar; custom SVG social icons in components/icons/SocialIcons.tsx |
+| 2026-05-08 | 22 | 4.1-4.8 | Service detail pages: dynamic route app/services/[slug]/page.tsx, generateStaticParams + generateMetadata per slug, Service JSON-LD, 4-section layout (hero/about+features/process/related+CTA), longDescription added to all 5 services in content.ts, sitemap already covered |
 
 ## Known issues / decisions made
 

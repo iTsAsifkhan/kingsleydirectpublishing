@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
+import FAQAccordion from '@/components/sections/FAQAccordion'
 import { faqs } from '@/lib/content'
 import { faqSchema } from '@/lib/schema'
 
@@ -8,6 +9,7 @@ export default function FAQ() {
 
   return (
     <section className="index-wrap-8 relative">
+      <span className="index-wrap-8-shade" aria-hidden="true" />
       <span className="index-wrap-8-star" aria-hidden="true" />
 
       <script
@@ -22,27 +24,13 @@ export default function FAQ() {
             <h2 className="mb-0 fw-700 pt-3">Frequently Asked Questions</h2>
           </div>
           <div className="hidden lg:flex items-start pt-3">
-            <Button variant="yellow" href="/contact" icon={ArrowRight}>
+            <Button variant="blue" href="/contact" icon={ArrowRight}>
               Get A Quote
             </Button>
           </div>
         </div>
 
-        <ul className="accordion-list">
-          {faqs.map((faq) => (
-            <li key={faq.id}>
-              <details>
-                <summary>
-                  <h3>{faq.question}</h3>
-                  <span className="faq-icon" aria-hidden="true" />
-                </summary>
-                <div className="answer">
-                  <p>{faq.answer}</p>
-                </div>
-              </details>
-            </li>
-          ))}
-        </ul>
+        <FAQAccordion faqs={faqs} />
       </Container>
     </section>
   )
