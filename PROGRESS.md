@@ -6,11 +6,11 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**5.5** - Phase 5 polish & animations complete.
+**about-us** - About Us page complete.
 
 ## Currently in progress
 
-Phase 6 - Responsive pass. Start next at **6.1**.
+Phase 6 - Responsive pass. Start next at **6.1**. (Or build more inner pages: /contact, /blogs)
 
 ## Session log
 
@@ -43,6 +43,7 @@ Phase 6 - Responsive pass. Start next at **6.1**.
 | 2026-05-08 | 22 | 4.1-4.8 | Service detail pages: dynamic route app/services/[slug]/page.tsx, generateStaticParams + generateMetadata per slug, Service JSON-LD, 4-section layout (hero/about+features/process/related+CTA), longDescription added to all 5 services in content.ts, sitemap already covered |
 | 2026-05-08 | 23 | 4.9 | Sub-service pages: 26 pages via app/services/[slug]/[subslug]/page.tsx, SubService interface + subServices arrays in content.ts, breadcrumb nav, sibling grid, related parent services, Service JSON-LD; Header NAV updated to real sub-service URLs; sitemap extended with all 26 sub-service URLs at priority 0.6 |
 | 2026-05-08 | 24 | 5.1-5.5 | Phase 5: FadeIn client wrapper (whileInView) applied to WhyChooseUs/Services/PurpleCTA/StatsStrip/FAQ; ChatWidget fixed FAB (WhatsApp/call/email panel); NewsletterPopup (6s delay, sessionStorage dismiss, success state); custom scrollbar already done (5.2); DiscussCta modal already done (5.4) |
+| 2026-05-08 | 25 | about-us | About Us page: inner-page hero (cream bg, platform logos, badge), StatsStrip reused, mission section (2-col, 4 stat cards), 6 pillars navy section, Testimonials/FAQ/PurpleCTA reused, Organization JSON-LD, full metadata; /about-us + /contact added to sitemap |
 
 ## Known issues / decisions made
 
