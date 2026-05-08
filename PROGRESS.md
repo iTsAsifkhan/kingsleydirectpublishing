@@ -6,11 +6,11 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**4.9** - Sub-service pages complete (26 pages).
+**5.5** - Phase 5 polish & animations complete.
 
 ## Currently in progress
 
-Phase 5 - Polish & animations. Start next at **5.1**.
+Phase 6 - Responsive pass. Start next at **6.1**.
 
 ## Session log
 
@@ -42,6 +42,7 @@ Phase 5 - Polish & animations. Start next at **5.1**.
 | 2026-05-07 | 21 | 3.1-3.5 | Header: absolute-positioned top bar (navy) with social icons + contact info, desktop nav with CSS hover dropdowns, logo text placeholder; Mobile nav drawer (client); Footer: 4-col layout, quick links, services cols, payment image, navy copyright bar; custom SVG social icons in components/icons/SocialIcons.tsx |
 | 2026-05-08 | 22 | 4.1-4.8 | Service detail pages: dynamic route app/services/[slug]/page.tsx, generateStaticParams + generateMetadata per slug, Service JSON-LD, 4-section layout (hero/about+features/process/related+CTA), longDescription added to all 5 services in content.ts, sitemap already covered |
 | 2026-05-08 | 23 | 4.9 | Sub-service pages: 26 pages via app/services/[slug]/[subslug]/page.tsx, SubService interface + subServices arrays in content.ts, breadcrumb nav, sibling grid, related parent services, Service JSON-LD; Header NAV updated to real sub-service URLs; sitemap extended with all 26 sub-service URLs at priority 0.6 |
+| 2026-05-08 | 24 | 5.1-5.5 | Phase 5: FadeIn client wrapper (whileInView) applied to WhyChooseUs/Services/PurpleCTA/StatsStrip/FAQ; ChatWidget fixed FAB (WhatsApp/call/email panel); NewsletterPopup (6s delay, sessionStorage dismiss, success state); custom scrollbar already done (5.2); DiscussCta modal already done (5.4) |
 
 ## Known issues / decisions made
 
@@ -77,4 +78,4 @@ Phase 5 - Polish & animations. Start next at **5.1**.
 
 1. Open this repo in VS Code with Claude Code
 2. Paste the resume prompt from `INITIAL_PROMPT.md`
-3. Claude will read `CLAUDE.md`, `BUILD_PLAN.md`, and this file, then continue from **5.1**
+3. Claude will read `CLAUDE.md`, `BUILD_PLAN.md`, and this file, then continue from **6.1**
