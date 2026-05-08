@@ -26,5 +26,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...servicePages]
+  const subServicePages: MetadataRoute.Sitemap = services.flatMap((service) =>
+    service.subServices.map((sub) => ({
+      url: `${baseUrl}/services/${service.slug}/${sub.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
+  )
+
+  return [...staticPages, ...servicePages, ...subServicePages]
 }

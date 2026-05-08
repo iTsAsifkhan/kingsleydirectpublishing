@@ -4319,6 +4319,85 @@ details[open] .faq-icon::after {
   }
 }
 
+/* Sub-service page extras */
+.subservice-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: #4b4b4b;
+}
+
+.subservice-breadcrumb a {
+  color: #140545;
+  font-weight: 500;
+}
+
+.subservice-breadcrumb a:hover {
+  color: #FFB210;
+}
+
+.service-about-grid.single-col {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .service-about-grid.single-col {
+    grid-template-columns: minmax(0, 1fr) 360px;
+  }
+}
+
+.subservice-sibling-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.subservice-sibling-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 28px 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  border-left: 4px solid #FFB210;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 6%);
+  color: inherit;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.subservice-sibling-card:hover {
+  box-shadow: 0 8px 28px rgb(0 0 0 / 12%);
+  transform: translateY(-3px);
+  color: inherit;
+}
+
+.subservice-sibling-title {
+  font-size: 17px;
+  color: #140545;
+  margin: 0;
+}
+
+.subservice-sibling-desc {
+  font-size: 14px;
+  color: #4b4b4b;
+  line-height: 22px;
+  margin: 0;
+  flex: 1;
+}
+
+.subservice-sibling-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFB210;
+  margin-top: 4px;
+}
+
 .rotation {
   animation: rotation 5s linear infinite;
 }
