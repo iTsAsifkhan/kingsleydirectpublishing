@@ -1,15 +1,44 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import * as LucideIcons from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { ArrowRight, CheckCircle, ChevronRight, MessageCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle, ChevronRight, MessageCircle, PhoneCall } from 'lucide-react'
 import { Button, Container, ServiceCard } from '@/components/ui'
 import { services } from '@/lib/content'
 import { serviceSchema } from '@/lib/schema'
 
 interface Props {
   params: Promise<{ slug: string; subslug: string }>
+}
+
+const serviceVisuals: Record<string, { primary: string; secondary: string; tertiary: string }> = {
+  ghostwriting: {
+    primary: '/images/book1.webp',
+    secondary: '/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp',
+    tertiary: '/images/wrap-2-img.webp',
+  },
+  editing: {
+    primary: '/images/81TmWd7H0bL._SL1500_-e1777872951701.webp',
+    secondary: '/images/book1.webp',
+    tertiary: '/images/wrap-2-img.webp',
+  },
+  publishing: {
+    primary: '/images/book1.webp',
+    secondary: '/images/epileptic girl.webp',
+    tertiary: '/images/rangers on patrol.webp',
+  },
+  marketing: {
+    primary: '/images/rangers on patrol.webp',
+    secondary: '/images/epileptic girl.webp',
+    tertiary: '/images/book1.webp',
+  },
+  'cover-design': {
+    primary: '/images/epileptic girl.webp',
+    secondary: '/images/rangers on patrol.webp',
+    tertiary: '/images/book1.webp',
+  },
 }
 
 export function generateStaticParams() {
@@ -47,8 +76,9 @@ export default async function SubServicePage({ params }: Props) {
 
   const ParentIcon = LucideIcons[service.icon as keyof typeof LucideIcons] as LucideIcon | undefined
   const descParagraphs = sub.longDescription.split('\n\n')
-  const otherSubs = service.subServices.filter((s) => s.slug !== subslug).slice(0, 3)
+  const otherSubs = service.subServices.filter((s) => s.slug !== subslug).slice(0, 6)
   const relatedServices = services.filter((s) => s.slug !== slug).slice(0, 3)
+  const visuals = serviceVisuals[service.slug] ?? serviceVisuals.publishing
 
   const schema = serviceSchema({
     name: sub.title,
@@ -63,10 +93,10 @@ export default async function SubServicePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ── Hero ── */}
-      <section className="service-hero">
+      <section className="service-hero subservice-hero">
+        <span className="service-hero-star service-hero-star-1" aria-hidden="true" />
+        <span className="service-hero-star service-hero-star-2" aria-hidden="true" />
         <Container>
-          {/* Breadcrumb */}
           <nav className="subservice-breadcrumb" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <ChevronRight size={14} aria-hidden="true" />
@@ -95,23 +125,70 @@ export default async function SubServicePage({ params }: Props) {
               </div>
             </div>
 
-            <div className="service-hero-icon-wrap" aria-hidden="true">
-              <div className="service-hero-icon-bg">
-                {ParentIcon && <ParentIcon size={80} strokeWidth={1.2} />}
+            <div className="service-hero-visual subservice-hero-visual" aria-hidden="true">
+              <div className="service-visual-circle subservice-visual-circle">
+                <span className="service-visual-cover service-visual-cover-primary">
+                  <Image
+                    src={visuals.primary}
+                    alt=""
+                    fill
+                    priority
+                    sizes="280px"
+                    className="section-placeholder-image clean-contain"
+                  />
+                </span>
+                <span className="service-visual-cover service-visual-cover-secondary">
+                  <Image
+                    src={visuals.secondary}
+                    alt=""
+                    fill
+                    priority
+                    sizes="210px"
+                    className="section-placeholder-image clean-contain"
+                  />
+                </span>
+                <span className="service-visual-card subservice-visual-card">
+                  {ParentIcon && <ParentIcon size={42} strokeWidth={1.5} />}
+                  <b>{sub.title}</b>
+                </span>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ── About ── */}
-      <section className="service-about">
+      <section className="service-stats-strip subservice-stats-strip">
         <Container>
-          <div className="service-about-grid single-col">
+          <div className="service-stats-grid">
+            <div>
+              <strong>
+                5K<span>+</span>
+              </strong>
+              <p>Published Happy Clients</p>
+            </div>
+            <div>
+              <strong>
+                100<span>+</span>
+              </strong>
+              <p>Five out of Five Reviews</p>
+            </div>
+            <div>
+              <strong>
+                97%<span>+</span>
+              </strong>
+              <p>Satisfaction Rate</p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="service-about subservice-about">
+        <Container>
+          <div className="service-about-grid subservice-about-grid">
             <div className="service-about-copy">
               <span className="span-tag-border">What We Do</span>
               <h2 className="fw-700 pt-3">
-                Expert <span className="clr-1">{sub.title}</span> You Can Trust
+                Expert <span className="clr-1">{sub.title}</span> Crafted Around Your Book
               </h2>
               <div className="service-long-desc">
                 {descParagraphs.map((para, i) => (
@@ -120,36 +197,79 @@ export default async function SubServicePage({ params }: Props) {
               </div>
             </div>
 
-            <div className="service-features-box">
-              <h3 className="service-features-heading fw-700">What&apos;s Included</h3>
-              <ul className="service-features-list">
-                {sub.features.map((feat) => (
-                  <li key={feat}>
-                    <CheckCircle size={18} className="service-feature-check" aria-hidden="true" />
-                    {feat}
-                  </li>
-                ))}
-              </ul>
+            <div className="service-about-media subservice-about-media" aria-hidden="true">
+              <Image
+                src={visuals.tertiary}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 420px, 100vw"
+                className="section-placeholder-image clean-contain"
+              />
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ── Other sub-services under same parent ── */}
+      <section className="service-features-section subservice-features-section">
+        <Container>
+          <div className="service-section-heading">
+            <span className="span-tag-border">What&apos;s Included</span>
+            <h2 className="fw-700 pt-3">
+              Focused <span className="clr-1">{sub.title}</span> Deliverables
+            </h2>
+          </div>
+
+          <div className="service-feature-grid subservice-feature-grid">
+            {sub.features.map((feat, i) => (
+              <article className="service-feature-card subservice-feature-card" key={feat}>
+                <span>{String(i + 1).padStart(2, '0')}</span>
+                <CheckCircle size={28} className="service-feature-check" aria-hidden="true" />
+                <h3 className="fw-700">{feat}</h3>
+                <p>
+                  Every part of the package is shaped to keep your project polished,
+                  professional, and ready for the next publishing step.
+                </p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="service-process-section subservice-process-section">
+        <Container>
+          <div className="service-process-header">
+            <span className="span-tag-border">How It Works</span>
+            <h2 className="fw-700 pt-3">A Clear Path from Brief to Finished Work</h2>
+          </div>
+
+          <ol className="service-process-steps">
+            {service.process.map((step, i) => (
+              <li key={step} className="service-process-step">
+                <div className="service-step-number">{String(i + 1).padStart(2, '0')}</div>
+                <p className="service-step-label fw-600">{step}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
       {otherSubs.length > 0 && (
-        <section className="service-related">
+        <section className="service-related subservice-siblings-section">
           <Container>
             <div className="service-related-header">
               <span className="span-tag-border">{service.title} Services</span>
               <h2 className="fw-700 pt-3">Explore More {service.title} Options</h2>
             </div>
             <div className="subservice-sibling-grid">
-              {otherSubs.map((s) => (
+              {otherSubs.map((s, i) => (
                 <Link
                   key={s.slug}
                   href={`/services/${service.slug}/${s.slug}`}
                   className="subservice-sibling-card"
                 >
+                  <span className="subservice-sibling-number">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
                   <h3 className="subservice-sibling-title fw-600">{s.title}</h3>
                   <p className="subservice-sibling-desc">{s.shortDescription}</p>
                   <span className="subservice-sibling-cta">
@@ -162,8 +282,7 @@ export default async function SubServicePage({ params }: Props) {
         </section>
       )}
 
-      {/* ── Related parent services ── */}
-      <section className="service-related" style={{ background: '#fffbf2' }}>
+      <section className="service-related subservice-parent-related">
         <Container>
           <div className="service-related-header">
             <span className="span-tag-border">Our Services</span>
@@ -177,12 +296,11 @@ export default async function SubServicePage({ params }: Props) {
         </Container>
       </section>
 
-      {/* ── CTA ── */}
       <section className="service-bottom-cta">
         <Container>
           <div className="service-bottom-cta-inner">
             <div>
-              <h2 className="fw-700 mb-0" style={{ color: '#ffffff' }}>
+              <h2 className="fw-700 mb-0 text-white">
                 Ready to Get Started with <span className="clr-1">{sub.title}</span>?
               </h2>
               <p className="service-bottom-cta-desc">
@@ -193,6 +311,18 @@ export default async function SubServicePage({ params }: Props) {
               <Button variant="yellow" href="/contact" icon={ArrowRight}>
                 Get A Free Quote
               </Button>
+              <a
+                href="tel:+18554297565"
+                className="anchor-number-cta align-items-center d-inline-flex"
+              >
+                <span className="span-1">
+                  <PhoneCall aria-hidden="true" className="clr-1" size={18} />
+                </span>
+                <span className="span-2 fw-600 clr-1 d-inline-block">
+                  Call Now <br />
+                  <b className="text-white">+1(855) 429-7565</b>
+                </span>
+              </a>
               <Link href={`/services/${service.slug}`} className="service-all-services-link">
                 Back to {service.title}
               </Link>

@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import { Button, Container, FadeIn } from '@/components/ui'
+import { Button, Container } from '@/components/ui'
 import FAQAccordion from '@/components/sections/FAQAccordion'
 import { faqs } from '@/lib/content'
 import { faqSchema } from '@/lib/schema'
@@ -18,7 +18,7 @@ export default function FAQ() {
       />
 
       <Container className="relative z-10">
-        <FadeIn className="index-wrap-8-header">
+        <div className="index-wrap-8-header">
           <div>
             <span className="span-tag-border">FAQ</span>
             <h2 className="mb-0 fw-700 pt-3">Frequently Asked Questions</h2>
@@ -28,11 +28,9 @@ export default function FAQ() {
               Get A Quote
             </Button>
           </div>
-        </FadeIn>
+        </div>
 
-        <FadeIn delay={0.2}>
-          <FAQAccordion faqs={faqs} />
-        </FadeIn>
+        <FAQAccordion faqs={faqs} />
       </Container>
     </section>
   )

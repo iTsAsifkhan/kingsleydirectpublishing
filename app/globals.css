@@ -4552,6 +4552,16 @@ details[open] .faq-icon::after {
   animation: marquee var(--marquee-duration, 20s) linear infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  body.reveal-disabled [data-reveal-section],
+  body.reveal-disabled [data-reveal-item] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
 /* ==========================================
    Section 9 — Contact form (footer-cta)
    ========================================== */
@@ -5038,194 +5048,4 @@ details[open] .faq-icon::after {
   .footer-list-item {
     text-align: left;
   }
-}
-
-/* ── Chat Widget ── */
-.chat-widget {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 300;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
-}
-
-.chat-fab {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--brand-yellow);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-  color: var(--brand-navy);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.chat-fab:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 28px rgba(0,0,0,0.32);
-}
-
-.chat-bubble {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  width: 280px;
-  overflow: hidden;
-  animation: fadeSlideUp 0.25s ease;
-}
-
-.chat-bubble-header {
-  background: var(--brand-navy);
-  color: #fff;
-  padding: 14px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.chat-bubble-title { font-weight: 600; font-size: 15px; }
-.chat-bubble-close {
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  padding: 2px;
-  display: flex;
-  opacity: 0.7;
-  transition: opacity 0.15s;
-}
-.chat-bubble-close:hover { opacity: 1; }
-
-.chat-bubble-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-
-.chat-option {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--brand-ink);
-  transition: background 0.15s;
-  font-size: 14px;
-}
-.chat-option:hover { background: #f5f5f5; }
-.chat-option-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #fff;
-}
-.chat-option-icon--green  { background: #25d366; }
-.chat-option-icon--blue   { background: var(--brand-navy); }
-.chat-option-icon--yellow { background: var(--brand-yellow); color: var(--brand-navy); }
-
-/* ── Newsletter Popup ── */
-.nl-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 400;
-  background: rgba(0,0,0,0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  animation: fadeIn 0.3s ease;
-}
-
-.nl-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 40px 36px;
-  max-width: 440px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
-  animation: fadeSlideUp 0.3s ease;
-}
-
-.nl-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--brand-gray3);
-  padding: 4px;
-  display: flex;
-  transition: color 0.15s;
-}
-.nl-close:hover { color: var(--brand-ink); }
-
-.nl-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--brand-yellow);
-  color: var(--brand-navy);
-  margin-bottom: 16px;
-}
-
-.nl-sub {
-  color: var(--brand-gray2);
-  font-size: 14px;
-  margin: 8px 0 20px;
-  line-height: 1.6;
-}
-
-.nl-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.nl-input {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1.5px solid #e0e0e0;
-  border-radius: 50px;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.nl-input:focus { border-color: var(--brand-yellow); }
-
-.nl-submit {
-  width: 100%;
-  justify-content: center;
-}
-
-.nl-fine {
-  margin-top: 10px;
-  font-size: 12px;
-  color: var(--brand-gray3);
-  margin-bottom: 0;
-}
-
-.nl-success {
-  padding: 12px 0;
-}
-.nl-success h3 { color: var(--brand-navy); margin-bottom: 8px; }
-
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
 }

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { ArrowRight, PhoneCall } from 'lucide-react'
-import { Button, Container, FadeIn } from '@/components/ui'
+import { Button, Container } from '@/components/ui'
 
 export default function PurpleCTA() {
   return (
@@ -20,7 +20,7 @@ export default function PurpleCTA() {
       <section className="index-wrap-4 position-relative">
         <Container className="relative z-10">
           <div className="index-wrap-4-grid">
-            <FadeIn direction="left" className="index-wrap-4-content text-white">
+            <div className="index-wrap-4-content text-white">
               <span className="span-tag-border-yellow">
                 Connect With the Right Team
               </span>
@@ -51,10 +51,10 @@ export default function PurpleCTA() {
                   </span>
                 </a>
               </div>
-            </FadeIn>
+            </div>
 
-            <FadeIn direction="right" delay={0.2} className="index-wrap-4-visual">
-              <div className="index-wrap-4-cta-circle position-relative" aria-hidden="true">
+            <div className="index-wrap-4-visual" aria-hidden="true">
+              <div className="index-wrap-4-cta-circle position-relative">
                 <span className="cta-img">
                   <Image
                     src="/images/book1.webp"
@@ -83,7 +83,7 @@ export default function PurpleCTA() {
                   />
                 </span>
               </div>
-            </FadeIn>
+            </div>
           </div>
         </Container>
       </section>

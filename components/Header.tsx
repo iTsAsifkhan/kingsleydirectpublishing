@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ChevronDown, Mail, MessageCircle, Phone } from 'lucide-react'
 import { Container } from '@/components/ui'
 import MobileNav from './MobileNav'
@@ -79,6 +82,10 @@ export const NAV = [
 ]
 
 export default function Header() {
+  const pathname = usePathname()
+  const isActive = (href: string) =>
+    href === '/' ? pathname === href : pathname === href || pathname.startsWith(`${href}/`)
+
   return (
     <header className="site-header">
       <Container>
@@ -133,25 +140,48 @@ export default function Header() {
           {/* Desktop nav */}
           <nav className="header-desktop-nav" aria-label="Main navigation">
             <ul className="desktop-header-links fw-500">
-              {NAV.map((item) => (
+              {NAV.map((item) => {
+                const itemActive =
+                  isActive(item.href) || item.children?.some((child) => isActive(child.href))
+
+                return (
                 <li key={item.label} className={item.children ? 'position-relative menu-dropdown' : ''}>
-                  <Link href={item.href} className={item.children ? 'd-inline-flex align-items-center' : ''}>
+                  <Link
+                    href={item.href}
+                    className={[
+                      item.children ? 'd-inline-flex align-items-center' : '',
+                      itemActive ? 'is-active' : '',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                    aria-current={itemActive ? 'page' : undefined}
+                  >
                     {item.label}
                     {item.children && <ChevronDown size={14} className="ms-1" aria-hidden="true" />}
                   </Link>
                   {item.children && (
                     <ul className="submenu" role="menu">
-                      {item.children.map((child) => (
+                      {item.children.map((child) => {
+                        const childActive = isActive(child.href)
+
+                        return (
                         <li key={child.label} className="submenu-item" role="none">
-                          <Link href={child.href} className="submenu-link" role="menuitem">
+                          <Link
+                            href={child.href}
+                            className={`submenu-link${childActive ? ' is-active' : ''}`}
+                            role="menuitem"
+                            aria-current={childActive ? 'page' : undefined}
+                          >
                             {child.label}
                           </Link>
                         </li>
-                      ))}
+                        )
+                      })}
                     </ul>
                   )}
                 </li>
-              ))}
+                )
+              })}
             </ul>
           </nav>
 

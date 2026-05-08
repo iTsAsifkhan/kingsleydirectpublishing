@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
 interface NavItem {
@@ -17,9 +18,12 @@ interface MobileNavProps {
 export default function MobileNav({ links }: MobileNavProps) {
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState<string | null>(null)
+  const pathname = usePathname()
 
   const toggle = (label: string) =>
     setExpanded((prev) => (prev === label ? null : label))
+  const isActive = (href: string) =>
+    href === '/' ? pathname === href : pathname === href || pathname.startsWith(`${href}/`)
 
   return (
     <>
@@ -48,7 +52,11 @@ export default function MobileNav({ links }: MobileNavProps) {
                 {item.children ? (
                   <>
                     <button
-                      className="mobile-nav-parent"
+                      className={`mobile-nav-parent${
+                        isActive(item.href) || item.children.some((child) => isActive(child.href))
+                          ? ' is-active'
+                          : ''
+                      }`}
                       onClick={() => toggle(item.label)}
                       aria-expanded={expanded === item.label}
                     >
@@ -65,7 +73,8 @@ export default function MobileNav({ links }: MobileNavProps) {
                           <li key={child.label}>
                             <Link
                               href={child.href}
-                              className="mobile-submenu-link"
+                              className={`mobile-submenu-link${isActive(child.href) ? ' is-active' : ''}`}
+                              aria-current={isActive(child.href) ? 'page' : undefined}
                               onClick={() => setOpen(false)}
                             >
                               {child.label}
@@ -76,7 +85,12 @@ export default function MobileNav({ links }: MobileNavProps) {
                     )}
                   </>
                 ) : (
-                  <Link href={item.href} onClick={() => setOpen(false)}>
+                  <Link
+                    href={item.href}
+                    className={isActive(item.href) ? 'is-active' : ''}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                    onClick={() => setOpen(false)}
+                  >
                     {item.label}
                   </Link>
                 )}
