@@ -5054,14 +5054,20 @@ details[open] .faq-icon::after {
    About Us page
    ========================================== */
 
-/* ── Hero ── */
+/* Hero */
 .about-hero {
   position: relative;
-  padding: 13rem 0 6rem;
+  padding: 13rem 0 7.5rem;
   overflow: clip;
   background:
     radial-gradient(circle at 75% 30%, rgb(255 178 16 / 14%), transparent 30%),
     linear-gradient(135deg, #fff8e8 0%, #ffffff 55%, #fff3ce 100%);
+}
+
+.about-stats-strip {
+  position: relative;
+  z-index: 2;
+  margin: -62px 0 0;
 }
 
 .about-hero-shade {
@@ -5168,7 +5174,7 @@ details[open] .faq-icon::after {
   line-height: 1;
 }
 
-/* ── Mission section ── */
+/* Mission section */
 .about-mission {
   padding: 90px 0;
   background: #fffbf2;
@@ -5221,7 +5227,7 @@ details[open] .faq-icon::after {
   font-size: 15px;
 }
 
-/* ── Pillars section ── */
+/* Pillars section */
 .about-pillars {
   position: relative;
   padding: 90px 0;
@@ -5294,10 +5300,10 @@ details[open] .faq-icon::after {
   line-height: 1.7;
 }
 
-/* ── Responsive tweaks ── */
+/* Responsive tweaks */
 @media (max-width: 767px) {
   .about-hero {
-    padding: 10rem 0 4rem;
+    padding: 10rem 0 5.25rem;
   }
   .about-hero-title {
     font-size: 30px;
@@ -5313,6 +5319,9 @@ details[open] .faq-icon::after {
   }
   .about-pillars-grid {
     grid-template-columns: 1fr;
+  }
+  .about-stats-strip {
+    margin-top: -42px;
   }
 }
 

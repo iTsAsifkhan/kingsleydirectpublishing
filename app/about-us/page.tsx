@@ -23,12 +23,12 @@ import { organizationSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Book Publishing Partner — a leading agency dedicated to helping authors achieve their publishing goals with professional editing, cover design, marketing, and global distribution.',
+    'Learn about Book Publishing Partner - a leading agency dedicated to helping authors achieve their publishing goals with professional editing, cover design, marketing, and global distribution.',
   alternates: { canonical: 'https://bookpublishingpartner.com/about-us' },
   openGraph: {
     title: 'About Us | Book Publishing Partner',
     description:
-      'Learn about Book Publishing Partner — a leading agency dedicated to helping authors achieve their publishing goals with professional editing, cover design, marketing, and global distribution.',
+      'Learn about Book Publishing Partner - a leading agency dedicated to helping authors achieve their publishing goals with professional editing, cover design, marketing, and global distribution.',
     url: 'https://bookpublishingpartner.com/about-us',
     type: 'website',
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About Us | Book Publishing Partner',
     description:
-      'Learn about Book Publishing Partner — a leading agency dedicated to helping authors achieve their publishing goals.',
+      'Learn about Book Publishing Partner - a leading agency dedicated to helping authors achieve their publishing goals.',
   },
 }
 
@@ -63,7 +63,7 @@ const PILLARS = [
   {
     icon: BookOpen,
     title: 'Comprehensive Publishing',
-    desc: 'From manuscript to market, we handle every stage of the publishing process — editing, formatting, cover design, printing, and distribution — under one roof.',
+    desc: 'From manuscript to market, we handle every stage of the publishing process - editing, formatting, cover design, printing, and distribution - under one roof.',
   },
   {
     icon: Headphones,
@@ -78,7 +78,7 @@ const PILLARS = [
   {
     icon: Rocket,
     title: 'Modern Publishing',
-    desc: 'We combine traditional publishing craftsmanship with cutting-edge digital tools — from AI-assisted proofreading to data-driven Amazon marketing campaigns.',
+    desc: 'We combine traditional publishing craftsmanship with cutting-edge digital tools - from AI-assisted proofreading to data-driven Amazon marketing campaigns.',
   },
   {
     icon: Award,
@@ -91,13 +91,13 @@ const schema = organizationSchema()
 
 export default function AboutPage() {
   return (
-    <>
+    <main className="about-page min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ── Hero ── */}
+      {/* Hero */}
       <section className="about-hero">
         <span className="about-hero-shade" aria-hidden="true" />
         <span className="about-hero-star rotation" aria-hidden="true" />
@@ -170,10 +170,10 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── Stats strip ── */}
-      <StatsStrip />
+      {/* Stats strip */}
+      <StatsStrip className="about-stats-strip" />
 
-      {/* ── Mission / value proposition ── */}
+      {/* Mission / value proposition */}
       <section className="about-mission">
         <Container>
           <div className="about-mission-grid">
@@ -193,7 +193,7 @@ export default function AboutPage() {
               <p>
                 Our team of editors, designers, marketers, and publishing strategists
                 work side-by-side with you to transform your manuscript into a
-                polished, market-ready book — and then ensure it reaches readers
+                polished, market-ready book - and then ensure it reaches readers
                 across the globe.
               </p>
               <Button variant="yellow" href="/contact" icon={ArrowRight}>
@@ -213,7 +213,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── Why Choose Us — 6 pillars ── */}
+      {/* Why Choose Us */}
       <section className="about-pillars">
         <span className="about-pillars-shade" aria-hidden="true" />
         <Container className="relative z-10">
@@ -243,14 +243,14 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── Testimonials ── */}
+      {/* Testimonials */}
       <Testimonials />
 
-      {/* ── FAQ ── */}
+      {/* FAQ */}
       <FAQ />
 
-      {/* ── CTA ── */}
+      {/* CTA */}
       <PurpleCTA />
-    </>
+    </main>
   )
 }

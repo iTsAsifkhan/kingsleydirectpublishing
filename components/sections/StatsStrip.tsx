@@ -1,9 +1,13 @@
 import { Container } from '@/components/ui'
 import { stats } from '@/lib/content'
 
-export default function StatsStrip() {
+interface StatsStripProps {
+  className?: string
+}
+
+export default function StatsStrip({ className = '' }: StatsStripProps) {
   return (
-    <div className="index-wrap-counter">
+    <div className={['index-wrap-counter', className].filter(Boolean).join(' ')}>
       <Container>
         <div className="counter-wrap">
           <div className="counter-grid">
