@@ -4,15 +4,13 @@ import { Container } from '@/components/ui'
 import {
   FacebookIcon,
   InstagramIcon,
-  LinkedinIcon,
-  XTwitterIcon,
+  WhatsAppIcon,
 } from '@/components/icons/SocialIcons'
 
 const SOCIAL = [
-  { href: 'https://www.facebook.com/profile.php?id=61574663760511', icon: FacebookIcon, label: 'Facebook' },
-  { href: 'https://www.instagram.com/bookpublishingpartner/', icon: InstagramIcon, label: 'Instagram' },
-  { href: 'https://www.linkedin.com/company/bookpublishingpartner/', icon: LinkedinIcon, label: 'LinkedIn' },
-  { href: 'https://x.com/partner_book', icon: XTwitterIcon, label: 'X (Twitter)' },
+  { href: 'https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/', icon: FacebookIcon, label: 'Facebook' },
+  { href: 'https://www.instagram.com/patrickwhitepublishing/', icon: InstagramIcon, label: 'Instagram' },
+  { href: 'https://wa.link/q4xswu', icon: WhatsAppIcon, label: 'WhatsApp' },
 ]
 
 const QUICK_LINKS = [
@@ -31,16 +29,16 @@ const SERVICES_COL_1 = [
   { label: 'Ghostwriting', href: '/services/ghostwriting' },
   { label: 'Editing', href: '/services/editing' },
   { label: 'Cover Design', href: '/services/cover-design' },
-  { label: 'E-Book Writing', href: '/services/ghostwriting' },
+  { label: 'E-Book Writing', href: '/services/ghostwriting/e-book-writing' },
 ]
 
 const SERVICES_COL_2 = [
-  { label: 'Novel Writing', href: '/services/ghostwriting' },
-  { label: 'Autobiography', href: '/services/ghostwriting' },
-  { label: 'Audio Book', href: '/services/publishing' },
-  { label: 'Book Formatting', href: '/services/editing' },
-  { label: 'Fantasy Ghostwriting', href: '/services/ghostwriting' },
-  { label: 'Non Fiction', href: '/services/ghostwriting' },
+  { label: 'Novel Writing', href: '/services/ghostwriting/novel-writing' },
+  { label: 'Autobiography', href: '/services/ghostwriting/autobiography-writing' },
+  { label: 'Audio Book', href: '/services/publishing/audiobook' },
+  { label: 'Book Formatting', href: '/services/editing/book-formatting' },
+  { label: 'Fantasy Ghostwriting', href: '/services/ghostwriting/fantasy-writing' },
+  { label: 'Non Fiction', href: '/services/ghostwriting/non-fiction-writing' },
 ]
 
 export default function Footer() {
@@ -52,16 +50,16 @@ export default function Footer() {
         <div className="footer-main">
           {/* Brand column */}
           <div className="footer-brand">
-            <Link href="/" className="footer-logo-link" aria-label="Book Publishing Partner home">
-              <span className="footer-logo-mark">BPP</span>
+            <Link href="/" className="footer-logo-link" aria-label="Patrick White Publishing home">
+              <span className="footer-logo-mark">PWP</span>
               <span className="footer-logo-text">
-                <span>Book Publishing</span>
-                <span>Partner</span>
+                <span>Patrick White</span>
+                <span>Publishing</span>
               </span>
             </Link>
             <p className="footer-brand-desc">
-              Book Publishing Partner has become a leading agency known for providing top-tier
-              professional book writing services.
+              Patrick White Publishing is a professional publishing agency known for providing
+              top-tier book writing, editing, design, and marketing services.
             </p>
             <ul className="social-links" aria-label="Social media links">
               {SOCIAL.map(({ href, icon: Icon, label }) => (
@@ -113,7 +111,7 @@ export default function Footer() {
 
         {/* Copyright bar */}
         <div className="copyright-div">
-          <p className="fw-500 mb-0">Copyright &copy; 2026 Book Publishing Partner.</p>
+          <p className="fw-500 mb-0">Copyright &copy; 2026 Patrick White Publishing. ABN 57 997 426 630</p>
           <Image
             src="/images/payment.webp"
             alt="Accepted payment methods"

@@ -6,25 +6,37 @@ import { Autoplay, Pagination } from 'swiper/modules'
 import { Container } from '@/components/ui'
 import { processSteps, type ProcessStep } from '@/lib/content'
 
-const processImages = [
-  '/images/wrap-2-img.webp',
-  '/images/book1.webp',
-  '/images/epileptic girl.webp',
-  '/images/rangers on patrol.webp',
-  '/images/81TmWd7H0bL._SL1500_-e1777872951701.webp',
-  '/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp',
-]
+const processImagesByStep: Record<string, string> = {
+  '1': '/images/manuscript reviews and assesment.webp',
+  '2': '/images/editing and proofreading.webp',
+  '3': '/images/book design and formating.webp',
+  '4': '/images/printing and production.webp',
+  '5': '/images/book marketing.webp',
+  '6': '/images/royalties.webp',
+}
 
 function ProcessCard({ step }: { step: ProcessStep }) {
+  const imageSrc = processImagesByStep[step.id]
+
   return (
     <article className={`process-item process-item-${step.number}`}>
       <div className="process-item-img process-item-img-1">
         <Image
-          src={processImages[(step.number - 1) % processImages.length]}
+          src={imageSrc}
+          alt=""
+          fill
+          sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
+          className="process-card-image-bg"
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          aria-hidden="true"
+        />
+        <Image
+          src={imageSrc}
           alt={`${step.title} visual`}
           fill
           sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="section-placeholder-image contain"
+          className="process-card-image"
+          style={{ objectFit: 'cover', objectPosition: 'center 42%' }}
         />
       </div>
       <div className="process-item-content invisible-scroll">
@@ -49,12 +61,12 @@ export default function Process() {
           <div>
             <span className="span-tag-border">Process We Follow</span>
             <h2 id="process-heading" className="mb-0 fw-700 pt-3">
-              Understanding the Role of a{' '}
-              <span className="clr-1">Book Publishing Partner</span>
+              How We Work at{' '}
+              <span className="clr-1">Patrick White Publishing</span>
             </h2>
           </div>
           <p className="mb-0">
-            A Book Publishing Partner plays a crucial role in helping authors
+            Patrick White Publishing plays a crucial role in helping authors
             transform their manuscripts into professionally published books by
             managing essential services like editing, book design, marketing,
             and global distribution.
@@ -71,7 +83,10 @@ export default function Process() {
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
-            pagination={{ clickable: true }}
+            pagination={{
+              clickable: true,
+              el: '.process-slider-pagination',
+            }}
             spaceBetween={0}
             slidesPerView={1}
             breakpoints={{
@@ -89,6 +104,7 @@ export default function Process() {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className="process-slider-pagination" />
         </div>
       </Container>
     </section>

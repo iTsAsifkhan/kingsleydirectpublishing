@@ -6,18 +6,26 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Book Publishing Partner',
-    url: 'https://bookpublishingpartner.com',
-    logo: 'https://bookpublishingpartner.com/logo.png',
-    description: 'Top book publishing partner to bring your manuscript to life.',
+    name: 'Patrick White Publishing',
+    url: 'https://patrickwhitepublishing.com',
+    logo: 'https://patrickwhitepublishing.com/logo.png',
+    description: 'Professional book publishing services helping authors bring their manuscripts to life.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '2nd Floor, 118 Liverpool Street',
+      addressLocality: 'Hobart',
+      addressRegion: 'TAS',
+      postalCode: '7000',
+      addressCountry: 'AU',
+    },
     sameAs: [
-      'https://www.facebook.com/bookpublishingpartner',
-      'https://www.instagram.com/bookpublishingpartner',
-      'https://www.linkedin.com/company/bookpublishingpartner',
+      'https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/',
+      'https://www.instagram.com/patrickwhitepublishing/',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-800-PUBLISH',
+      telephone: '+61485976735',
+      email: 'info@patrickwhitepublishing.com',
       contactType: 'Customer Service',
     },
   }
@@ -38,8 +46,8 @@ export function serviceSchema(service: {
     ...(service.image && { image: service.image }),
     provider: {
       '@type': 'Organization',
-      name: 'Book Publishing Partner',
-      url: 'https://bookpublishingpartner.com',
+      name: 'Patrick White Publishing',
+      url: 'https://patrickwhitepublishing.com',
     },
   }
 }

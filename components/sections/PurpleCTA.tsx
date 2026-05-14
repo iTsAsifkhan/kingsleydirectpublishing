@@ -40,14 +40,14 @@ export default function PurpleCTA() {
                 </Button>
                 <a
                   className="anchor-number-cta align-items-center d-inline-flex"
-                  href="tel:+18554297565"
+                  href="tel:+61485976735"
                 >
                   <span className="span-1">
                     <PhoneCall aria-hidden="true" className="clr-1" size={18} />
                   </span>
                   <span className="span-2 fw-600 clr-1 d-inline-block">
                     Call Now <br />
-                    <b className="text-white">+1(855) 429-7565</b>
+                    <b className="text-white">+61 485 976 735</b>
                   </span>
                 </a>
               </div>

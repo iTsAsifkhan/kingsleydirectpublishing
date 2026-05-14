@@ -352,7 +352,7 @@ export const services: Service[] = [
 export const faqs: FAQ[] = [
   {
     id: '1',
-    question: 'What Book Publishing Partner do you offer?',
+    question: 'What publishing services does Patrick White Publishing offer?',
     answer:
       'We support authors with manuscript review, editing, design, formatting, publishing setup, distribution guidance, and marketing support.',
   },

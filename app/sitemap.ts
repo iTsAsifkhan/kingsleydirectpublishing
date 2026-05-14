@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { services } from '@/lib/content'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://bookpublishingpartner.com'
+  const baseUrl = 'https://patrickwhitepublishing.com'
 
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -28,6 +28,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/terms-conditions`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.4,
     },
   ]
 

@@ -20,39 +20,39 @@ const notoSans = Noto_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bookpublishingpartner.com'),
+  metadataBase: new URL('https://patrickwhitepublishing.com'),
   title: {
-    default: 'Book Publishing Partner | Your Path to Publishing Success',
-    template: '%s | Book Publishing Partner',
+    default: 'Patrick White Publishing | Professional Book Publishing Services',
+    template: '%s | Patrick White Publishing',
   },
   description:
-    'Top book publishing partner to bring your manuscript to life. From printing to marketing, we help authors and publishers achieve publishing success.',
+    'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://bookpublishingpartner.com',
-    siteName: 'Book Publishing Partner',
-    title: 'Book Publishing Partner | Your Path to Publishing Success',
+    url: 'https://patrickwhitepublishing.com',
+    siteName: 'Patrick White Publishing',
+    title: 'Patrick White Publishing | Professional Book Publishing Services',
     description:
-      'Top book publishing partner to bring your manuscript to life. From printing to marketing, we help authors and publishers achieve publishing success.',
+      'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
     images: [
       {
-        url: 'https://bookpublishingpartner.com/og-image.png',
+        url: 'https://patrickwhitepublishing.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Book Publishing Partner',
+        alt: 'Patrick White Publishing',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Book Publishing Partner | Your Path to Publishing Success',
+    title: 'Patrick White Publishing | Professional Book Publishing Services',
     description:
-      'Top book publishing partner to bring your manuscript to life. From printing to marketing, we help authors and publishers achieve publishing success.',
-    images: ['https://bookpublishingpartner.com/og-image.png'],
+      'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    images: ['https://patrickwhitepublishing.com/og-image.png'],
   },
   alternates: {
-    canonical: 'https://bookpublishingpartner.com',
+    canonical: 'https://patrickwhitepublishing.com',
   },
 }
 

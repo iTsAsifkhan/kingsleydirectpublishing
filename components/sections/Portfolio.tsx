@@ -17,48 +17,45 @@ const TABS: readonly Tab[] = [
   'Mystery',
 ]
 
-interface GenreConfig {
-  sceneBg: string
-}
+const PORTFOLIO_ITEMS_PER_TAB = 8
 
-const GENRES: Record<Tab, GenreConfig> = {
-  Fantasy: {
-    sceneBg: 'linear-gradient(135deg, #150b2d 0%, #2d1166 100%)',
-  },
-  Fiction: {
-    sceneBg: 'linear-gradient(135deg, #0c1f3d 0%, #1e3a6e 100%)',
-  },
-  Romance: {
-    sceneBg: 'linear-gradient(135deg, #2d0a1a 0%, #7f1d3f 100%)',
-  },
-  Horror: {
-    sceneBg: 'linear-gradient(135deg, #0d0d0d 0%, #3d0000 100%)',
-  },
-  'Cook Books': {
-    sceneBg: 'linear-gradient(135deg, #1a1000 0%, #3d2800 100%)',
-  },
-  Adventure: {
-    sceneBg: 'linear-gradient(135deg, #0a1a0a 0%, #1a3d1a 100%)',
-  },
-  Mystery: {
-    sceneBg: 'linear-gradient(135deg, #0a0a1f 0%, #1a1a3d 100%)',
-  },
+const portfolioImagesByTab: Record<Tab, string[]> = {
+  Fantasy: Array.from(
+    { length: 8 },
+    (_, index) => `/images/fantasy (${index + 1}).webp`,
+  ),
+  Fiction: Array.from(
+    { length: 8 },
+    (_, index) => `/images/fiction (${index + 1}).webp`,
+  ),
+  Romance: Array.from(
+    { length: 8 },
+    (_, index) => `/images/romance (${index + 1}).webp`,
+  ),
+  Horror: Array.from(
+    { length: 8 },
+    (_, index) => `/images/horror (${index + 1}).webp`,
+  ),
+  'Cook Books': Array.from(
+    { length: 8 },
+    (_, index) => `/images/Cookbook (${index + 1}).webp`,
+  ),
+  Adventure: Array.from(
+    { length: 8 },
+    (_, index) => `/images/adeventure (${index + 1}).webp`,
+  ),
+  Mystery: Array.from(
+    { length: 8 },
+    (_, index) => `/images/mystery (${index + 1}).webp`,
+  ),
 }
-
-const portfolioImages = [
-  '/images/book1.webp',
-  '/images/epileptic girl.webp',
-  '/images/rangers on patrol.webp',
-  '/images/81TmWd7H0bL._SL1500_-e1777872951701.webp',
-  '/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp',
-  '/images/book1.webp',
-  '/images/epileptic girl.webp',
-  '/images/rangers on patrol.webp',
-]
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState<Tab>('Fantasy')
-  const { sceneBg } = GENRES[activeTab]
+  const activePortfolioImages = portfolioImagesByTab[activeTab].slice(
+    0,
+    PORTFOLIO_ITEMS_PER_TAB,
+  )
 
   return (
     <section className="index-wrap-6 position-relative">
@@ -110,21 +107,15 @@ export default function Portfolio() {
           role="tabpanel"
           aria-label={`${activeTab} portfolio items`}
         >
-          {portfolioImages.map((imageSrc, i) => (
-            <div
-              key={i}
-              className="portfolio-item"
-              style={{ background: sceneBg }}
-            >
-              <div className="portfolio-book-cover">
-                <Image
-                  src={imageSrc}
-                  alt={`${activeTab} portfolio sample ${i + 1}`}
-                  fill
-                  sizes="(min-width: 992px) 150px, 120px"
-                  className="section-placeholder-image contain"
-                />
-              </div>
+          {activePortfolioImages.map((imageSrc, i) => (
+            <div key={imageSrc} className="portfolio-item">
+              <Image
+                src={imageSrc}
+                alt={`${activeTab} portfolio sample ${i + 1}`}
+                fill
+                sizes="(min-width: 768px) 25vw, 50vw"
+                className="portfolio-cover-image"
+              />
             </div>
           ))}
         </div>
@@ -136,14 +127,14 @@ export default function Portfolio() {
           </Button>
           <a
             className="anchor-number-cta align-items-center d-inline-flex"
-            href="tel:+18554297565"
+            href="tel:+61485976735"
           >
             <span className="span-1">
               <PhoneCall aria-hidden="true" className="clr-1" size={16} />
             </span>
             <span className="span-2 fw-600 clr-1 d-inline-block">
               Call Now <br />
-              <b className="text-white">+1(855) 429-7565</b>
+              <b className="text-white">+61 485 976 735</b>
             </span>
           </a>
         </div>

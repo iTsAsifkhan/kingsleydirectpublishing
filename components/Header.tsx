@@ -8,15 +8,13 @@ import MobileNav from './MobileNav'
 import {
   FacebookIcon,
   InstagramIcon,
-  LinkedinIcon,
-  XTwitterIcon,
+  WhatsAppIcon,
 } from '@/components/icons/SocialIcons'
 
 const SOCIAL = [
-  { href: 'https://www.facebook.com/profile.php?id=61574663760511', icon: FacebookIcon, label: 'Facebook' },
-  { href: 'https://www.instagram.com/bookpublishingpartner/', icon: InstagramIcon, label: 'Instagram' },
-  { href: 'https://www.linkedin.com/company/bookpublishingpartner/', icon: LinkedinIcon, label: 'LinkedIn' },
-  { href: 'https://x.com/partner_book', icon: XTwitterIcon, label: 'X (Twitter)' },
+  { href: 'https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/', icon: FacebookIcon, label: 'Facebook' },
+  { href: 'https://www.instagram.com/patrickwhitepublishing/', icon: InstagramIcon, label: 'Instagram' },
+  { href: 'https://wa.link/q4xswu', icon: WhatsAppIcon, label: 'WhatsApp' },
 ]
 
 export const NAV = [
@@ -104,15 +102,15 @@ export default function Header() {
 
             <ul className="header-top-number-ul" aria-label="Contact information">
               <li>
-                <a href="tel:+18554297565" className="header-contact-link">
+                <a href="tel:+61485976735" className="header-contact-link">
                   <Phone size={14} className="clr-1" aria-hidden="true" />
-                  +1(855) 429-7565
+                  +61 485 976 735
                 </a>
               </li>
               <li>
-                <a href="mailto:info@bookpublishingpartner.com" className="header-contact-link">
+                <a href="mailto:info@patrickwhitepublishing.com" className="header-contact-link">
                   <Mail size={14} className="clr-1" aria-hidden="true" />
-                  info@bookpublishingpartner.com
+                  info@patrickwhitepublishing.com
                 </a>
               </li>
               <li>
@@ -129,11 +127,11 @@ export default function Header() {
       {/* Bottom bar — logo + desktop nav + mobile hamburger */}
       <Container>
         <div className="header-bottom-bar">
-          <Link href="/" className="header-logo" aria-label="Book Publishing Partner home">
-            <span className="header-logo-mark">BPP</span>
+          <Link href="/" className="header-logo" aria-label="Patrick White Publishing home">
+            <span className="header-logo-mark">PWP</span>
             <span className="header-logo-text">
-              <span>Book Publishing</span>
-              <span>Partner</span>
+              <span>Patrick White</span>
+              <span>Publishing</span>
             </span>
           </Link>
 

@@ -15,33 +15,33 @@ import {
 import { organizationSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Book Publishing Partner | Self-Publishing Services',
+  title: 'Patrick White Publishing | Professional Book Publishing Services',
   description:
-    'Book Publishing Partner helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
   alternates: {
-    canonical: 'https://bookpublishingpartner.com',
+    canonical: 'https://patrickwhitepublishing.com',
   },
   openGraph: {
-    title: 'Book Publishing Partner | Self-Publishing Services',
+    title: 'Patrick White Publishing | Professional Book Publishing Services',
     description:
-      'Book Publishing Partner helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
-    url: 'https://bookpublishingpartner.com',
+      'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    url: 'https://patrickwhitepublishing.com',
     type: 'website',
     images: [
       {
-        url: 'https://bookpublishingpartner.com/og-image.png',
+        url: 'https://patrickwhitepublishing.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Book Publishing Partner self-publishing services',
+        alt: 'Patrick White Publishing professional book publishing services',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Book Publishing Partner | Self-Publishing Services',
+    title: 'Patrick White Publishing | Professional Book Publishing Services',
     description:
-      'Book Publishing Partner helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
-    images: ['https://bookpublishingpartner.com/og-image.png'],
+      'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    images: ['https://patrickwhitepublishing.com/og-image.png'],
   },
 }
 
@@ -49,8 +49,8 @@ export default function Home() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Book Publishing Partner',
-    url: 'https://bookpublishingpartner.com',
+    name: 'Patrick White Publishing',
+    url: 'https://patrickwhitepublishing.com',
   }
 
   return (

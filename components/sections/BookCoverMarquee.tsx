@@ -10,26 +10,16 @@ interface BookCover {
   image: string
 }
 
-const books: BookCover[] = [
-  { id: 'memoir', title: 'Memoir', category: 'Author Story', image: '/images/book1.webp' },
-  { id: 'fiction', title: 'Fiction', category: 'Novel Draft', image: '/images/epileptic girl.webp' },
-  { id: 'business', title: 'Business', category: 'Expert Guide', image: '/images/rangers on patrol.webp' },
-  {
-    id: 'wellness',
-    title: 'Wellness',
-    category: 'Lifestyle',
-    image: '/images/81TmWd7H0bL._SL1500_-e1777872951701.webp',
-  },
-  {
-    id: 'children',
-    title: 'Kids',
-    category: 'Picture Book',
-    image: '/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp',
-  },
-  { id: 'history', title: 'History', category: 'Nonfiction', image: '/images/book1.webp' },
-  { id: 'poetry', title: 'Poetry', category: 'Collection', image: '/images/epileptic girl.webp' },
-  { id: 'cookbook', title: 'Cookbook', category: 'Recipe Book', image: '/images/rangers on patrol.webp' },
-]
+const books: BookCover[] = Array.from({ length: 34 }, (_, index) => {
+  const coverNumber = index + 1
+
+  return {
+    id: `patrick-white-${coverNumber}`,
+    title: 'Portfolio',
+    category: 'Book Cover',
+    image: `/images/Patrickwhitepublishing (${coverNumber}).webp`,
+  }
+})
 
 function CoverCard({ book, index }: { book: BookCover; index: number }) {
   return (
@@ -47,14 +37,14 @@ function CoverCard({ book, index }: { book: BookCover; index: number }) {
 
 export default function BookCoverMarquee() {
   const firstRow = books
-  const secondRow = [...books.slice(3), ...books.slice(0, 3)]
+  const secondRow = [...books.slice(6), ...books.slice(0, 6)]
 
   return (
     <div className="book-marquee" aria-label="Sample book genres">
       <div className="book-marquee-row">
         <div
           className="book-marquee-track"
-          style={{ '--marquee-duration': '32s' } as CSSProperties}
+          style={{ '--marquee-duration': '120s' } as CSSProperties}
         >
           {[0, 1].map((setIndex) => (
             <ul
@@ -76,7 +66,7 @@ export default function BookCoverMarquee() {
       <div className="book-marquee-row">
         <div
           className="book-marquee-track reverse"
-          style={{ '--marquee-duration': '24s' } as CSSProperties}
+          style={{ '--marquee-duration': '96s' } as CSSProperties}
         >
           {[0, 1].map((setIndex) => (
             <ul

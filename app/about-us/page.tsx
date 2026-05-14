@@ -23,20 +23,20 @@ import { organizationSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Book Publishing Partner - a leading agency dedicated to helping authors achieve their publishing goals with professional editing, cover design, marketing, and global distribution.',
-  alternates: { canonical: 'https://bookpublishingpartner.com/about-us' },
+    'Learn about Patrick White Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals with expert editing, cover design, marketing, and global distribution.',
+  alternates: { canonical: 'https://patrickwhitepublishing.com/about-us' },
   openGraph: {
-    title: 'About Us | Book Publishing Partner',
+    title: 'About Us | Patrick White Publishing',
     description:
-      'Learn about Book Publishing Partner - a leading agency dedicated to helping authors achieve their publishing goals with professional editing, cover design, marketing, and global distribution.',
-    url: 'https://bookpublishingpartner.com/about-us',
+      'Learn about Patrick White Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals with expert editing, cover design, marketing, and global distribution.',
+    url: 'https://patrickwhitepublishing.com/about-us',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Us | Book Publishing Partner',
+    title: 'About Us | Patrick White Publishing',
     description:
-      'Learn about Book Publishing Partner - a leading agency dedicated to helping authors achieve their publishing goals.',
+      'Learn about Patrick White Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals.',
   },
 }
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
           <div className="about-hero-inner">
             <div className="about-hero-content">
               <span className="index-banner-sub-heading inline-flex items-center gap-3 fw-600 text-white">
-                Book Publishing Partner
+                Patrick White Publishing
                 <ShieldCheck size={20} aria-hidden="true" />
               </span>
               <h1 className="about-hero-title fw-700">
@@ -154,7 +154,7 @@ export default function AboutPage() {
               <div className="about-hero-img-wrap">
                 <Image
                   src="/images/wrap-2-img.webp"
-                  alt="Book Publishing Partner team"
+                  alt="Patrick White Publishing team"
                   fill
                   priority
                   sizes="(min-width: 1024px) 480px, 100vw"
@@ -180,11 +180,11 @@ export default function AboutPage() {
             <div className="about-mission-copy">
               <span className="span-tag-border">Our Mission</span>
               <h2 className="fw-700 pt-3">
-                Your Reliable Book Publishing Partner in{' '}
+                Your Trusted Partner in{' '}
                 <span className="clr-1">Crafting Successful Titles</span>
               </h2>
               <p>
-                Book Publishing Partner was founded on a single belief: every author
+                Patrick White Publishing was founded on a single belief: every author
                 deserves a professional publishing experience regardless of their
                 background or budget. We built a full-service agency that combines
                 the rigor of traditional publishing with the flexibility and
@@ -221,7 +221,7 @@ export default function AboutPage() {
             <span className="span-tag-border-yellow">Why Work With Us</span>
             <h2 className="fw-700 pt-3 text-white">
               Six Reasons Authors Choose{' '}
-              <span className="clr-1">Book Publishing Partner</span>
+              <span className="clr-1">Patrick White Publishing</span>
             </h2>
             <p className="about-pillars-sub">
               We&apos;ve helped over 5,000 authors self-publish with confidence.
