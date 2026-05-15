@@ -38,30 +38,33 @@ export default function Hero() {
             <div className="home-hero-visual ml-auto" aria-label="Featured published books">
               <span className="home-hero-cover home-hero-cover-primary">
                 <Image
-                  src="/images/book1.webp"
-                  alt="The Tortoise and Birds Tree Party book cover"
+                  src="/images/3d-book-cover (1).webp"
+                  alt="Featured 3D book cover mockup"
                   fill
                   priority
+                  quality={96}
                   sizes="285px"
                   className="section-placeholder-image clean-contain"
                 />
               </span>
               <span className="home-hero-cover home-hero-cover-secondary">
                 <Image
-                  src="/images/epileptic girl.webp"
-                  alt="The Epileptic Girl book cover"
+                  src="/images/3d-book-cover (2).webp"
+                  alt="Featured 3D book cover mockup"
                   fill
                   priority
+                  quality={96}
                   sizes="220px"
                   className="section-placeholder-image clean-contain"
                 />
               </span>
               <span className="home-hero-cover home-hero-cover-tertiary">
                 <Image
-                  src="/images/rangers on patrol.webp"
-                  alt="Rangers on Patrol book cover"
+                  src="/images/3d-book-cover (3).webp"
+                  alt="Featured 3D book cover mockup"
                   fill
                   priority
+                  quality={96}
                   sizes="220px"
                   className="section-placeholder-image clean-contain"
                 />

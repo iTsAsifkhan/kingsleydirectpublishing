@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Mail, MessageCircle, Phone } from 'lucide-react'
 import { Container } from '@/components/ui'
@@ -128,11 +129,14 @@ export default function Header() {
       <Container>
         <div className="header-bottom-bar">
           <Link href="/" className="header-logo" aria-label="Patrick White Publishing home">
-            <span className="header-logo-mark">PWP</span>
-            <span className="header-logo-text">
-              <span>Patrick White</span>
-              <span>Publishing</span>
-            </span>
+            <Image
+              src="/images/Patrick-White-Publishing-logo.webp"
+              alt="Patrick White Publishing"
+              width={220}
+              height={85}
+              priority
+              className="header-logo-image"
+            />
           </Link>
 
           {/* Desktop nav */}

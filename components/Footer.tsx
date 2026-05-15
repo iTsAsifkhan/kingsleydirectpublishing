@@ -51,11 +51,13 @@ export default function Footer() {
           {/* Brand column */}
           <div className="footer-brand">
             <Link href="/" className="footer-logo-link" aria-label="Patrick White Publishing home">
-              <span className="footer-logo-mark">PWP</span>
-              <span className="footer-logo-text">
-                <span>Patrick White</span>
-                <span>Publishing</span>
-              </span>
+              <Image
+                src="/images/Patrick-White-Publishing-logo.webp"
+                alt="Patrick White Publishing"
+                width={240}
+                height={93}
+                className="footer-logo-image"
+              />
             </Link>
             <p className="footer-brand-desc">
               Patrick White Publishing is a professional publishing agency known for providing

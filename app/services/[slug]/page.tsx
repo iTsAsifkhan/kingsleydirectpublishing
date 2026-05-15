@@ -15,29 +15,29 @@ interface Props {
 
 const serviceVisuals: Record<string, { primary: string; secondary: string; tertiary: string }> = {
   ghostwriting: {
-    primary: '/images/book1.webp',
-    secondary: '/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp',
-    tertiary: '/images/wrap-2-img.webp',
+    primary: '/images/3d-book-cover (4).webp',
+    secondary: '/images/3d-book-cover (5).webp',
+    tertiary: '/images/3d-book-cover (6).webp',
   },
   editing: {
-    primary: '/images/81TmWd7H0bL._SL1500_-e1777872951701.webp',
-    secondary: '/images/book1.webp',
-    tertiary: '/images/wrap-2-img.webp',
+    primary: '/images/3d-book-cover (7).webp',
+    secondary: '/images/3d-book-cover (8).webp',
+    tertiary: '/images/3d-book-cover (9).webp',
   },
   publishing: {
-    primary: '/images/book1.webp',
-    secondary: '/images/epileptic girl.webp',
-    tertiary: '/images/rangers on patrol.webp',
+    primary: '/images/3d-book-cover (10).webp',
+    secondary: '/images/3d-book-cover (11).webp',
+    tertiary: '/images/3d-book-cover (12).webp',
   },
   marketing: {
-    primary: '/images/rangers on patrol.webp',
-    secondary: '/images/epileptic girl.webp',
-    tertiary: '/images/book1.webp',
+    primary: '/images/3d-book-cover (1).webp',
+    secondary: '/images/3d-book-cover (6).webp',
+    tertiary: '/images/3d-book-cover (10).webp',
   },
   'cover-design': {
-    primary: '/images/epileptic girl.webp',
-    secondary: '/images/rangers on patrol.webp',
-    tertiary: '/images/book1.webp',
+    primary: '/images/3d-book-cover (2).webp',
+    secondary: '/images/3d-book-cover (8).webp',
+    tertiary: '/images/3d-book-cover (12).webp',
   },
 }
 
@@ -126,6 +126,7 @@ export default async function ServicePage({ params }: Props) {
                     alt=""
                     fill
                     priority
+                    quality={96}
                     sizes="280px"
                     className="section-placeholder-image clean-contain"
                   />
@@ -136,6 +137,7 @@ export default async function ServicePage({ params }: Props) {
                     alt=""
                     fill
                     priority
+                    quality={96}
                     sizes="210px"
                     className="section-placeholder-image clean-contain"
                   />
@@ -189,6 +191,7 @@ export default async function ServicePage({ params }: Props) {
                 src={visuals.tertiary}
                 alt=""
                 fill
+                quality={96}
                 sizes="(min-width: 1024px) 420px, 100vw"
                 className="section-placeholder-image clean-contain"
               />

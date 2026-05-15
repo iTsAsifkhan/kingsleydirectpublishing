@@ -7,11 +7,11 @@ export default function PurpleCTA() {
     <div className="index-wrap-4-shell position-relative">
       <span className="cta-item-img-3" aria-hidden="true">
         <Image
-          src="/images/1.webp"
+          src="/images/romantic book.webp"
           alt=""
           fill
           sizes="210px"
-          className="section-placeholder-image contain"
+          className="cta-floating-image"
         />
       </span>
       <span className="cta-shade" aria-hidden="true" />
@@ -57,29 +57,29 @@ export default function PurpleCTA() {
               <div className="index-wrap-4-cta-circle position-relative">
                 <span className="cta-img">
                   <Image
-                    src="/images/book1.webp"
+                    src="/images/open book stacked with colorful.webp"
                     alt=""
                     fill
-                    sizes="270px"
-                    className="section-placeholder-image contain"
+                    sizes="430px"
+                    className="cta-main-image"
                   />
                 </span>
                 <span className="cta-item-img-1">
                   <Image
-                    src="/images/81YnsHtfDSL._SL1500_-1-e1777872972273.webp"
+                    src="/images/open book logo.webp"
                     alt=""
                     fill
-                    sizes="118px"
-                    className="section-placeholder-image contain"
+                    sizes="180px"
+                    className="cta-floating-image"
                   />
                 </span>
                 <span className="cta-item-img-2">
                   <Image
-                    src="/images/81TmWd7H0bL._SL1500_-e1777872951701.webp"
+                    src="/images/kid reading educational book.webp"
                     alt=""
                     fill
-                    sizes="118px"
-                    className="section-placeholder-image contain"
+                    sizes="190px"
+                    className="cta-floating-image"
                   />
                 </span>
               </div>
