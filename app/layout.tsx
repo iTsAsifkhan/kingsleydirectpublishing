@@ -21,6 +21,9 @@ const notoSans = Noto_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://patrickwhitepublishing.com'),
+  icons: {
+    icon: '/favicon.svg',
+  },
   title: {
     default: 'Patrick White Publishing | Professional Book Publishing Services',
     template: '%s | Patrick White Publishing',
