@@ -1,6 +1,13 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import sharp from 'sharp'
+
+let sharp
+try {
+  sharp = (await import('sharp')).default
+} catch {
+  console.log('sharp not available — skipping WebP conversion (images already converted).')
+  process.exit(0)
+}
 
 const IMAGE_DIR = path.join(process.cwd(), 'public', 'images')
 const SOURCE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png'])
