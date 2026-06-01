@@ -46,6 +46,7 @@ Phase 6 - Responsive pass. Start next at **6.1**. (Or build more inner pages: /c
 | 2026-05-08 | 25 | about-us | About Us page: inner-page hero (cream bg, platform logos, badge), StatsStrip reused, mission section (2-col, 4 stat cards), 6 pillars navy section, Testimonials/FAQ/PurpleCTA reused, Organization JSON-LD, full metadata; /about-us + /contact added to sitemap |
 | 2026-05-11 | 26 | brand-rebrand | Full rebrand: replaced all "Book Publishing Partner" / "bookpublishingpartner.com" references with "Patrick White Publishing" / "patrickwhitepublishing.com"; updated phone to +61 485 976 735, email to info@patrickwhitepublishing.com, ABN 57 997 426 630 in footer copyright, address 2nd Floor 118 Liverpool St Hobart TAS 7000 in schema; social links updated to real Facebook/Instagram/WhatsApp; logo marks changed from BPP to PWP; WhatsApp icon added to SocialIcons.tsx |
 | 2026-05-14 | 27 | 6.0-logo-image | Replaced logo text placeholders with actual Patrick White Publishing logo image (Patrick-White-Publishing-logo.webp, 220×85px in header, 240×93px in footer) in Header and Footer components using next/image |
+| 2026-05-15 | 28 | fix-prebuild | Fixed latent 504/build failure: `sharp` was missing from package.json so Hostinger's `npm install` never installed it, crashing the prebuild step. Made the sharp import graceful (silent exit-0 if not available — all images already .webp in repo). Added `sharp` to devDependencies for local use. |
 
 ## Known issues / decisions made
 
@@ -81,7 +82,7 @@ Phase 6 - Responsive pass. Start next at **6.1**. (Or build more inner pages: /c
 - **ABN:** 57 997 426 630
 - **Address:** 2nd Floor, 118 Liverpool Street, Hobart, TAS 7000
 - **Facebook:** https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/
-- **Instagram:** https://www.instagram.com/patrickwhitepublishing/
+- **Instagram:** https://www.instagram.com/patrickwhitepublishinghouse/
 - **WhatsApp:** https://wa.link/q4xswu
 
 ## Blocked on (waiting for assets, info from user, etc.)

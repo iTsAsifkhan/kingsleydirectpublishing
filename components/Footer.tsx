@@ -9,7 +9,7 @@ import {
 
 const SOCIAL = [
   { href: 'https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/', icon: FacebookIcon, label: 'Facebook' },
-  { href: 'https://www.instagram.com/patrickwhitepublishing/', icon: InstagramIcon, label: 'Instagram' },
+  { href: 'https://www.instagram.com/patrickwhitepublishinghouse/', icon: InstagramIcon, label: 'Instagram' },
   { href: 'https://wa.link/q4xswu', icon: WhatsAppIcon, label: 'WhatsApp' },
 ]
 

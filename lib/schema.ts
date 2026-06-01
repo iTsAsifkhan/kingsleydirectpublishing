@@ -20,7 +20,7 @@ export function organizationSchema() {
     },
     sameAs: [
       'https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/',
-      'https://www.instagram.com/patrickwhitepublishing/',
+      'https://www.instagram.com/patrickwhitepublishinghouse/',
     ],
     contactPoint: {
       '@type': 'ContactPoint',

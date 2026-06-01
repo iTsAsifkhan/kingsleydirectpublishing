@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-yellow: #FFB210;
-  --color-brand-yellow-dark: #C88800;
-  --color-brand-gold: #E49A00;
-  --color-brand-navy: #140545;
+  --color-brand-yellow: #E02030;
+  --color-brand-yellow-dark: #A41622;
+  --color-brand-gold: #C51F2D;
+  --color-brand-navy: #003060;
   --color-brand-ink: #0D0D0D;
   --color-brand-gray-1: #343434;
   --color-brand-gray-2: #4B4B4B;
@@ -16,10 +16,10 @@
 }
 
 :root {
-  --brand-yellow: #FFB210;
-  --brand-yellow-dark: #C88800;
-  --brand-gold: #E49A00;
-  --brand-navy: #140545;
+  --brand-yellow: #E02030;
+  --brand-yellow-dark: #A41622;
+  --brand-gold: #C51F2D;
+  --brand-navy: #003060;
   --brand-ink: #0D0D0D;
   --brand-gray-1: #343434;
   --brand-gray-2: #4B4B4B;
@@ -339,9 +339,9 @@ button::before {
   width: 100%;
   height: calc(100% + 420px);
   background:
-    radial-gradient(circle at 78% 28%, rgb(255 178 16 / 32%), transparent 24%),
-    radial-gradient(circle at 8% 18%, rgba(20, 5, 69, 0.08), transparent 25%),
-    linear-gradient(110deg, #fffaf0 0%, #fffaf0 52%, #fff1c9 52%, #fff8e8 100%);
+    radial-gradient(circle at 78% 28%, rgb(224 32 48 / 32%), transparent 24%),
+    radial-gradient(circle at 8% 18%, rgba(0, 48, 96, 0.08), transparent 25%),
+    linear-gradient(110deg, #F5F8FC 0%, #F5F8FC 52%, #E8F1FA 52%, #F1F6FB 100%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -405,7 +405,7 @@ p.p-head {
   height: 365px;
   border-radius: 50%;
   background: var(--brand-yellow);
-  box-shadow: 0 0 42px hsl(41deg 100% 53% / 55%);
+  box-shadow: 0 0 42px rgb(224 32 48 / 45%);
   z-index: -1;
 }
 
@@ -417,7 +417,7 @@ p.p-head {
   width: 80%;
   height: 30px;
   border-radius: 50%;
-  background: rgb(20 5 69 / 20%);
+  background: rgb(0 48 96 / 20%);
   filter: blur(13px);
   z-index: -2;
 }
@@ -425,7 +425,7 @@ p.p-head {
 .home-hero-cover {
   position: absolute;
   display: block;
-  filter: drop-shadow(0 18px 24px rgb(20 5 69 / 24%));
+  filter: drop-shadow(0 18px 24px rgb(0 48 96 / 24%));
 }
 
 .home-hero-cover-primary {
@@ -533,7 +533,7 @@ p.p-head {
   width: 118px;
   height: 14px;
   border-radius: 50px;
-  background: rgb(20 5 69 / 16%);
+  background: rgb(0 48 96 / 16%);
 }
 
 .placeholder-pages span:nth-child(2) {
@@ -603,15 +603,15 @@ p.p-head {
   border: 0;
   border-radius: 50%;
   color: #ffffff;
-  background: linear-gradient(180deg, rgba(255, 178, 16, 1) 0%, rgba(228, 154, 0, 1) 100%);
-  box-shadow: 0 22px 55px rgb(255 178 16 / 28%);
+  background: linear-gradient(180deg, rgba(224, 32, 48, 1) 0%, rgba(164, 22, 34, 1) 100%);
+  box-shadow: 0 22px 55px rgb(224 32 48 / 28%);
   transition: 0.6s cubic-bezier(0.615, 0, 0.07, 1);
 }
 
 .section2 .container-box .circle:hover,
 .section2 .container-box .circle:focus-visible {
   transform: translateY(-3px);
-  box-shadow: 0 24px 60px rgb(255 178 16 / 34%);
+  box-shadow: 0 24px 60px rgb(224 32 48 / 34%);
 }
 
 .section2 .container-box .circle::before {
@@ -702,20 +702,20 @@ p.p-head {
   padding: 0;
   border-radius: 14px;
   color: #ffffff;
-  background: #f3f0e8;
-  box-shadow: 0 8px 28px rgb(20 5 69 / 12%);
+  background: #E8EEF4;
+  box-shadow: 0 8px 28px rgb(0 48 96 / 12%);
   transform: translateZ(0);
 }
 
 .book-cover-image {
   object-fit: cover;
   object-position: center;
-  background: #f7f2e8;
+  background: #EEF4FA;
 }
 
 .book-cover-3d {
   background:
-    radial-gradient(circle at 50% 42%, rgb(255 255 255 / 88%) 0 38%, rgb(255 178 16 / 18%) 39% 68%, rgb(243 240 232) 69%);
+    radial-gradient(circle at 50% 42%, rgb(255 255 255 / 88%) 0 38%, rgb(224 32 48 / 18%) 39% 68%, rgb(243 240 232) 69%);
 }
 
 .book-cover-3d .book-cover-image {
@@ -776,14 +776,14 @@ p.p-head {
 }
 
 .book-cover-3 {
-  background: linear-gradient(145deg, #153243 0%, #040a0d 58%, var(--brand-yellow) 59%, var(--brand-yellow-dark) 100%);
+  background: linear-gradient(145deg, #003060 0%, #020911 58%, var(--brand-yellow) 59%, var(--brand-yellow-dark) 100%);
 }
 
 .index-wrap-2 {
   padding: 90px 0 190px;
   background:
-    radial-gradient(circle at 18% 20%, rgb(255 178 16 / 14%), transparent 24%),
-    linear-gradient(180deg, #fff8e8 0%, #ffffff 100%);
+    radial-gradient(circle at 18% 20%, rgb(224 32 48 / 14%), transparent 24%),
+    linear-gradient(180deg, #F1F6FB 0%, #ffffff 100%);
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -963,7 +963,7 @@ p.p-head {
   left: 28px;
   height: 9px;
   border-radius: 50px;
-  background: rgb(20 5 69 / 20%);
+  background: rgb(0 48 96 / 20%);
 }
 
 .about-screen span:first-child {
@@ -1018,8 +1018,8 @@ p.p-head {
   overflow: clip;
   padding: 10rem 0 5rem;
   background:
-    radial-gradient(circle at 90% 10%, rgb(255 178 16 / 14%), transparent 28%),
-    radial-gradient(circle at 10% 74%, rgb(20 5 69 / 8%), transparent 22%),
+    radial-gradient(circle at 90% 10%, rgb(224 32 48 / 14%), transparent 28%),
+    radial-gradient(circle at 10% 74%, rgb(0 48 96 / 8%), transparent 22%),
     #ffffff;
 }
 
@@ -1129,7 +1129,7 @@ p.p-head {
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(255 178 16 / 22%), transparent 67%);
+  background: radial-gradient(circle, rgb(224 32 48 / 22%), transparent 67%);
   pointer-events: none;
 }
 
@@ -1141,7 +1141,7 @@ p.p-head {
 .index-wrap-3-shade-2 {
   bottom: 0;
   left: -16%;
-  background: radial-gradient(circle, rgb(20 5 69 / 10%), transparent 67%);
+  background: radial-gradient(circle, rgb(0 48 96 / 10%), transparent 67%);
 }
 
 .index-wrap-3-star-1,
@@ -1211,8 +1211,8 @@ p.p-head {
   height: 100%;
   border-radius: 0 400px 400px 0;
   background:
-    radial-gradient(circle at 77% 46%, rgb(255 178 16 / 12%), transparent 31%),
-    linear-gradient(135deg, var(--brand-navy) 0%, #21105a 100%);
+    radial-gradient(circle at 77% 46%, rgb(224 32 48 / 12%), transparent 31%),
+    linear-gradient(135deg, var(--brand-navy) 0%, #003D75 100%);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -1406,7 +1406,7 @@ p.p-head {
 }
 
 .cta-main-image {
-  filter: drop-shadow(0 20px 24px rgb(20 5 69 / 28%));
+  filter: drop-shadow(0 20px 24px rgb(0 48 96 / 28%));
 }
 
 .cta-shade {
@@ -1416,7 +1416,7 @@ p.p-head {
   width: 360px;
   height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(255 178 16 / 24%), transparent 68%);
+  background: radial-gradient(circle, rgb(224 32 48 / 24%), transparent 68%);
   pointer-events: none;
 }
 
@@ -1450,9 +1450,9 @@ p.p-head {
   overflow: clip;
   padding: 6rem 0 8rem;
   background:
-    radial-gradient(circle at 90% 2%, rgb(255 178 16 / 10%), transparent 24%),
-    radial-gradient(circle at 8% 92%, rgb(20 5 69 / 7%), transparent 26%),
-    linear-gradient(180deg, #ffffff 0%, #fff8e8 100%);
+    radial-gradient(circle at 90% 2%, rgb(224 32 48 / 10%), transparent 24%),
+    radial-gradient(circle at 8% 92%, rgb(0 48 96 / 7%), transparent 26%),
+    linear-gradient(180deg, #ffffff 0%, #F1F6FB 100%);
 }
 
 .index-wrap-5-heading {
@@ -1486,7 +1486,7 @@ p.p-head {
   height: 250px;
   overflow: hidden;
   border-radius: 20px;
-  background: #f7f2e8;
+  background: #EEF4FA;
 }
 
 .process-card-image-bg {
@@ -1516,8 +1516,8 @@ p.p-head {
   justify-content: center;
   overflow: hidden;
   background:
-    radial-gradient(circle at 78% 24%, rgb(255 178 16 / 34%), transparent 20%),
-    linear-gradient(135deg, #ffffff 0%, #f5f1ff 100%);
+    radial-gradient(circle at 78% 24%, rgb(224 32 48 / 34%), transparent 20%),
+    linear-gradient(135deg, #ffffff 0%, #EEF4FA 100%);
 }
 
 .process-visual::before {
@@ -1525,7 +1525,7 @@ p.p-head {
   position: absolute;
   inset: auto 0 0;
   height: 34%;
-  background: linear-gradient(180deg, transparent 0%, rgb(20 5 69 / 12%) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgb(0 48 96 / 12%) 100%);
 }
 
 .process-visual-screen {
@@ -1598,7 +1598,7 @@ p.p-head {
   width: 120px;
   height: 10px;
   border-radius: 50px;
-  background: rgb(20 5 69 / 18%);
+  background: rgb(0 48 96 / 18%);
 }
 
 .process-visual-line.short {
@@ -1609,32 +1609,32 @@ p.p-head {
 
 .process-item-2 .process-visual {
   background:
-    radial-gradient(circle at 30% 22%, rgb(255 178 16 / 30%), transparent 20%),
-    linear-gradient(135deg, #fff8e8 0%, #ffffff 100%);
+    radial-gradient(circle at 30% 22%, rgb(224 32 48 / 30%), transparent 20%),
+    linear-gradient(135deg, #F1F6FB 0%, #ffffff 100%);
 }
 
 .process-item-3 .process-visual {
   background:
-    radial-gradient(circle at 80% 70%, rgb(20 5 69 / 13%), transparent 28%),
+    radial-gradient(circle at 80% 70%, rgb(0 48 96 / 13%), transparent 28%),
     linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 }
 
 .process-item-4 .process-visual {
   background:
-    radial-gradient(circle at 18% 70%, rgb(255 178 16 / 30%), transparent 24%),
-    linear-gradient(135deg, #ffffff 0%, #fff8e8 100%);
+    radial-gradient(circle at 18% 70%, rgb(224 32 48 / 30%), transparent 24%),
+    linear-gradient(135deg, #ffffff 0%, #F1F6FB 100%);
 }
 
 .process-item-5 .process-visual {
   background:
-    radial-gradient(circle at 74% 28%, rgb(255 178 16 / 27%), transparent 21%),
-    linear-gradient(135deg, #f5f1ff 0%, #ffffff 100%);
+    radial-gradient(circle at 74% 28%, rgb(224 32 48 / 27%), transparent 21%),
+    linear-gradient(135deg, #EEF4FA 0%, #ffffff 100%);
 }
 
 .process-item-6 .process-visual {
   background:
-    radial-gradient(circle at 32% 22%, rgb(20 5 69 / 12%), transparent 22%),
-    linear-gradient(135deg, #ffffff 0%, #fff8e8 100%);
+    radial-gradient(circle at 32% 22%, rgb(0 48 96 / 12%), transparent 22%),
+    linear-gradient(135deg, #ffffff 0%, #F1F6FB 100%);
 }
 
 .process-item-content {
@@ -1702,7 +1702,7 @@ p.p-head {
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(255 178 16 / 20%), transparent 67%);
+  background: radial-gradient(circle, rgb(224 32 48 / 20%), transparent 67%);
   pointer-events: none;
 }
 
@@ -1714,7 +1714,7 @@ p.p-head {
 .index-wrap-5-shade-2 {
   bottom: 0;
   left: -16%;
-  background: radial-gradient(circle, rgb(20 5 69 / 10%), transparent 67%);
+  background: radial-gradient(circle, rgb(0 48 96 / 10%), transparent 67%);
 }
 
 @media (max-width: 1601px) {
@@ -2064,7 +2064,7 @@ p.p-head {
   position: relative;
   overflow: clip;
   padding: 100px 0;
-  background: #0d0826;
+  background: #001327;
   background-attachment: fixed;
 }
 
@@ -2144,7 +2144,7 @@ p.p-head {
   transform: translateY(-10px);
   box-shadow:
     0 18px 48px rgba(0, 0, 0, 0.3),
-    0 0 0 2px rgba(255, 178, 16, 0.82);
+    0 0 0 2px rgba(224, 32, 48, 0.82);
 }
 
 .portfolio-item::after {
@@ -2154,8 +2154,8 @@ p.p-head {
   z-index: 1;
   border-radius: inherit;
   background:
-    linear-gradient(180deg, transparent 54%, rgba(20, 5, 69, 0.26) 100%),
-    rgba(255, 178, 16, 0);
+    linear-gradient(180deg, transparent 54%, rgba(0, 48, 96, 0.26) 100%),
+    rgba(224, 32, 48, 0);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -2251,13 +2251,13 @@ p.p-head {
 .index-wrap-6-shade-1 {
   right: -20%;
   top: -20%;
-  background: radial-gradient(circle, rgba(255, 178, 16, 0.07), transparent 67%);
+  background: radial-gradient(circle, rgba(224, 32, 48, 0.07), transparent 67%);
 }
 
 .index-wrap-6-shade-2 {
   left: -20%;
   bottom: -20%;
-  background: radial-gradient(circle, rgba(255, 178, 16, 0.05), transparent 67%);
+  background: radial-gradient(circle, rgba(224, 32, 48, 0.05), transparent 67%);
 }
 
 .index-wrap-6-star-1,
@@ -2294,7 +2294,7 @@ p.p-head {
 .index-wrap-6-star-1::after,
 .index-wrap-6-star-2::after {
   inset: 11px;
-  background: #0d0826;
+  background: #001327;
 }
 
 @media (min-width: 1024px) {
@@ -2417,7 +2417,7 @@ p.p-head {
   overflow: clip;
   padding: 90px 0 70px;
   background:
-    radial-gradient(circle at 92% 14%, rgb(255 178 16 / 30%), transparent 12%),
+    radial-gradient(circle at 92% 14%, rgb(224 32 48 / 30%), transparent 12%),
     linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
 }
 
@@ -2443,7 +2443,7 @@ p.p-head {
 
 .index-wrap-7-star::after {
   inset: 11px;
-  background: #fff8e8;
+  background: #F1F6FB;
 }
 
 .index-wrap-7-heading {
@@ -2488,7 +2488,7 @@ p.p-head {
   gap: 60px;
   padding: 40px 28px 40px 36px;
   border-radius: 38px;
-  background: #fff3d8;
+  background: #EAF3FA;
   overflow: hidden;
 }
 
@@ -2526,7 +2526,7 @@ p.p-head {
   flex: 0 0 auto;
   border-radius: 50%;
   overflow: hidden;
-  background: #f0ece8;
+  background: #E8EEF4;
 }
 
 .review-profile-row {
@@ -2783,8 +2783,8 @@ p.p-head {
 .index-wrap-8 {
   padding: 90px 0 230px;
   background:
-    radial-gradient(circle at 8% 60%, rgb(255 178 16 / 10%), transparent 30%),
-    linear-gradient(180deg, #ffffff 0%, #fffbf2 50%, #fff8e8 100%);
+    radial-gradient(circle at 8% 60%, rgb(224 32 48 / 10%), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #F6FAFD 50%, #F1F6FB 100%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2812,7 +2812,7 @@ p.p-head {
 
 .index-wrap-8-star::after {
   inset: 11px;
-  background: #fff8e8;
+  background: #F1F6FB;
 }
 
 .index-wrap-8-header {
@@ -2975,9 +2975,9 @@ details[open] .faq-icon::after {
   position: relative;
   overflow: clip;
   background:
-    radial-gradient(circle at 10% 58%, rgb(255 178 16 / 14%), transparent 24%),
-    radial-gradient(circle at 92% 18%, rgb(255 178 16 / 12%), transparent 22%),
-    linear-gradient(180deg, #ffffff 0%, #fff8e8 100%);
+    radial-gradient(circle at 10% 58%, rgb(224 32 48 / 14%), transparent 24%),
+    radial-gradient(circle at 92% 18%, rgb(224 32 48 / 12%), transparent 22%),
+    linear-gradient(180deg, #ffffff 0%, #F1F6FB 100%);
 }
 
 .index-wrap-8-shade {
@@ -2987,7 +2987,7 @@ details[open] .faq-icon::after {
   left: -12%;
   height: 360px;
   border-radius: 50% 50% 0 0;
-  background: radial-gradient(ellipse at center, rgb(255 178 16 / 28%), transparent 68%);
+  background: radial-gradient(ellipse at center, rgb(224 32 48 / 28%), transparent 68%);
   pointer-events: none;
 }
 
@@ -3026,8 +3026,8 @@ details[open] .faq-icon::after {
 }
 
 .accordian-inner > ul > li:hover {
-  background: #fffbf1;
-  box-shadow: 0 10px 24px rgb(20 5 69 / 7%);
+  background: #F6FAFD;
+  box-shadow: 0 10px 24px rgb(0 48 96 / 7%);
 }
 
 .accordian-inner details {
@@ -3484,7 +3484,7 @@ details[open] .faq-icon::after {
 }
 
 .mobile-nav-close:hover {
-  background: #0d0330;
+  background: #001327;
   transform: none;
   box-shadow: none;
 }
@@ -3763,8 +3763,8 @@ details[open] .faq-icon::after {
   padding: 13rem 0 6rem;
   overflow: clip;
   background:
-    radial-gradient(circle at 80% 20%, rgb(255 178 16 / 18%), transparent 28%),
-    linear-gradient(135deg, #fff8e8 0%, #ffffff 60%, #fff3ce 100%);
+    radial-gradient(circle at 80% 20%, rgb(224 32 48 / 18%), transparent 28%),
+    linear-gradient(135deg, #F1F6FB 0%, #ffffff 60%, #E6F0FA 100%);
 }
 
 .service-hero-inner {
@@ -3781,7 +3781,7 @@ details[open] .faq-icon::after {
   font-size: 44px;
   line-height: 1.15;
   margin: 16px 0;
-  color: #140545;
+  color: var(--brand-navy);
 }
 
 .service-hero-desc {
@@ -3810,9 +3810,9 @@ details[open] .faq-icon::after {
   width: 240px;
   height: 240px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #140545 0%, #2a0d80 100%);
-  color: #FFB210;
-  box-shadow: 0 0 42px hsl(41deg 100% 53% / 30%);
+  background: linear-gradient(135deg, var(--brand-navy) 0%, #00508F 100%);
+  color: var(--brand-yellow);
+  box-shadow: 0 0 42px rgb(224 32 48 / 28%);
 }
 
 /* About / long description */
@@ -3844,15 +3844,15 @@ details[open] .faq-icon::after {
 
 .service-features-box {
   padding: 36px 40px;
-  background: #fff8e8;
+  background: #F1F6FB;
   border-radius: 20px;
-  border-left: 4px solid #FFB210;
+  border-left: 4px solid var(--brand-yellow);
 }
 
 .service-features-heading {
   font-size: 20px;
   margin: 0 0 24px;
-  color: #140545;
+  color: var(--brand-navy);
 }
 
 .service-features-list {
@@ -3874,15 +3874,15 @@ details[open] .faq-icon::after {
 
 .service-feature-check {
   flex: 0 0 auto;
-  color: #FFB210;
+  color: var(--brand-yellow);
 }
 
 /* Process */
 .service-process-section {
   padding: 90px 0;
   background:
-    radial-gradient(circle at 10% 50%, rgb(255 178 16 / 10%), transparent 30%),
-    linear-gradient(180deg, #fffbf2 0%, #ffffff 100%);
+    radial-gradient(circle at 10% 50%, rgb(224 32 48 / 10%), transparent 30%),
+    linear-gradient(180deg, #F6FAFD 0%, #ffffff 100%);
 }
 
 .service-process-header {
@@ -3904,14 +3904,14 @@ details[open] .faq-icon::after {
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgb(0 0 0 / 6%);
-  border-top: 3px solid #FFB210;
+  border-top: 3px solid var(--brand-yellow);
 }
 
 .service-step-number {
   font-family: var(--font-montserrat), sans-serif;
   font-size: 36px;
   font-weight: 700;
-  color: #FFB210;
+  color: var(--brand-yellow);
   line-height: 1;
   margin-bottom: 12px;
 }
@@ -3919,7 +3919,7 @@ details[open] .faq-icon::after {
 .service-step-label {
   margin: 0;
   font-size: 15px;
-  color: #140545;
+  color: var(--brand-navy);
   line-height: 1.4;
 }
 
@@ -3942,7 +3942,7 @@ details[open] .faq-icon::after {
 /* Bottom CTA */
 .service-bottom-cta {
   padding: 80px 0;
-  background: #140545;
+  background: var(--brand-navy);
 }
 
 .service-bottom-cta-inner {
@@ -3973,15 +3973,15 @@ details[open] .faq-icon::after {
 }
 
 .service-all-services-link:hover {
-  color: #FFB210;
+  color: var(--brand-yellow);
 }
 
 /* Service pages: closer to the reference visual system */
 .service-hero {
   padding: 13rem 0 7rem;
   background:
-    radial-gradient(circle at 78% 28%, rgb(255 178 16 / 32%), transparent 24%),
-    linear-gradient(110deg, #fffaf0 0%, #fffaf0 52%, #fff1c9 52%, #fff8e8 100%);
+    radial-gradient(circle at 78% 28%, rgb(224 32 48 / 32%), transparent 24%),
+    linear-gradient(110deg, #F5F8FC 0%, #F5F8FC 52%, #E8F1FA 52%, #F1F6FB 100%);
 }
 
 .service-hero::after {
@@ -3992,7 +3992,7 @@ details[open] .faq-icon::after {
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(255 178 16 / 22%), transparent 66%);
+  background: radial-gradient(circle, rgb(224 32 48 / 22%), transparent 66%);
   pointer-events: none;
 }
 
@@ -4049,7 +4049,7 @@ details[open] .faq-icon::after {
   height: 365px;
   border-radius: 50%;
   background: var(--brand-yellow);
-  box-shadow: 0 0 42px hsl(41deg 100% 53% / 55%);
+  box-shadow: 0 0 42px rgb(224 32 48 / 45%);
   z-index: -1;
 }
 
@@ -4061,7 +4061,7 @@ details[open] .faq-icon::after {
   width: 82%;
   height: 30px;
   border-radius: 50%;
-  background: rgb(20 5 69 / 20%);
+  background: rgb(0 48 96 / 20%);
   filter: blur(13px);
   z-index: -2;
 }
@@ -4069,7 +4069,7 @@ details[open] .faq-icon::after {
 .service-visual-cover {
   position: absolute;
   display: block;
-  filter: drop-shadow(0 18px 24px rgb(20 5 69 / 24%));
+  filter: drop-shadow(0 18px 24px rgb(0 48 96 / 24%));
 }
 
 .service-visual-cover-primary {
@@ -4221,8 +4221,8 @@ details[open] .faq-icon::after {
   min-height: 430px;
   border-radius: 24px;
   background:
-    radial-gradient(circle at 78% 22%, rgb(255 178 16 / 20%), transparent 32%),
-    #fff8e8;
+    radial-gradient(circle at 78% 22%, rgb(224 32 48 / 20%), transparent 32%),
+    #F1F6FB;
   box-shadow: 0 13px 37px rgb(0 0 0 / 8%);
   overflow: hidden;
 }
@@ -4231,8 +4231,8 @@ details[open] .faq-icon::after {
   position: relative;
   padding: 90px 0;
   background:
-    radial-gradient(circle at 8% 12%, rgb(255 178 16 / 13%), transparent 26%),
-    linear-gradient(180deg, #fff8e8 0%, #ffffff 100%);
+    radial-gradient(circle at 8% 12%, rgb(224 32 48 / 13%), transparent 26%),
+    linear-gradient(180deg, #F1F6FB 0%, #ffffff 100%);
 }
 
 .service-section-heading {
@@ -4263,7 +4263,7 @@ details[open] .faq-icon::after {
   position: absolute;
   top: 22px;
   right: 26px;
-  color: rgb(20 5 69 / 9%);
+  color: rgb(0 48 96 / 9%);
   font-family: var(--font-montserrat), sans-serif;
   font-size: 54px;
   font-weight: 700;
@@ -4369,7 +4369,7 @@ details[open] .faq-icon::after {
   width: 92%;
   border-radius: 0 400px 400px 0;
   background:
-    radial-gradient(circle at 78% 40%, rgb(255 178 16 / 12%), transparent 30%),
+    radial-gradient(circle at 78% 40%, rgb(224 32 48 / 12%), transparent 30%),
     var(--brand-navy);
 }
 
@@ -4530,7 +4530,7 @@ details[open] .faq-icon::after {
 
 .subservice-about {
   background:
-    radial-gradient(circle at 88% 10%, rgb(255 178 16 / 12%), transparent 25%),
+    radial-gradient(circle at 88% 10%, rgb(224 32 48 / 12%), transparent 25%),
     #ffffff;
 }
 
@@ -4546,15 +4546,15 @@ details[open] .faq-icon::after {
   content: '';
   position: absolute;
   inset: 24px;
-  border: 2px dashed rgb(255 178 16 / 55%);
+  border: 2px dashed rgb(224 32 48 / 55%);
   border-radius: 20px;
   pointer-events: none;
 }
 
 .subservice-features-section {
   background:
-    radial-gradient(circle at 12% 18%, rgb(255 178 16 / 15%), transparent 28%),
-    linear-gradient(180deg, #fff8e8 0%, #ffffff 100%);
+    radial-gradient(circle at 12% 18%, rgb(224 32 48 / 15%), transparent 28%),
+    linear-gradient(180deg, #F1F6FB 0%, #ffffff 100%);
 }
 
 .subservice-feature-grid {
@@ -4576,7 +4576,7 @@ details[open] .faq-icon::after {
 
 .subservice-process-section {
   background:
-    radial-gradient(circle at 82% 20%, rgb(255 178 16 / 14%), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgb(224 32 48 / 14%), transparent 24%),
     var(--brand-navy);
 }
 
@@ -4585,7 +4585,7 @@ details[open] .faq-icon::after {
 }
 
 .subservice-parent-related {
-  background: #fffbf2;
+  background: #F6FAFD;
 }
 
 @media (min-width: 1024px) {
@@ -4616,7 +4616,7 @@ details[open] .faq-icon::after {
   gap: 12px;
   padding: 34px 30px 28px;
   background: #ffffff;
-  border: 1px solid rgb(20 5 69 / 8%);
+  border: 1px solid rgb(0 48 96 / 8%);
   border-radius: 20px;
   box-shadow: 0 13px 37px rgb(0 0 0 / 6%);
   color: inherit;
@@ -4637,7 +4637,7 @@ details[open] .faq-icon::after {
 
 .subservice-sibling-card:hover {
   border-color: var(--brand-yellow);
-  box-shadow: 0 11px 30px rgb(20 5 69 / 12%);
+  box-shadow: 0 11px 30px rgb(0 48 96 / 12%);
   transform: translateY(-5px);
   color: inherit;
 }
@@ -4647,7 +4647,7 @@ details[open] .faq-icon::after {
 }
 
 .subservice-sibling-number {
-  color: rgb(20 5 69 / 11%);
+  color: rgb(0 48 96 / 11%);
   font-family: var(--font-montserrat), sans-serif;
   font-size: 48px;
   font-weight: 700;
@@ -4801,7 +4801,7 @@ details[open] .faq-icon::after {
 }
 
 .footer-cta-submit-btn:hover {
-  background: #0d0330;
+  background: #001327;
 }
 
 .footer-cta-submit-btn:disabled {
@@ -4897,7 +4897,7 @@ details[open] .faq-icon::after {
 .header-top-bar {
   margin-inline: auto;
   background: var(--brand-navy);
-  box-shadow: 0 12px 28px rgb(20 5 69 / 12%);
+  box-shadow: 0 12px 28px rgb(0 48 96 / 12%);
 }
 
 .header-top-inner {
@@ -5076,7 +5076,7 @@ details[open] .faq-icon::after {
   width: min(88vw, 380px);
   padding: 74px 28px 40px;
   background: var(--brand-yellow);
-  box-shadow: 18px 0 45px rgb(20 5 69 / 22%);
+  box-shadow: 18px 0 45px rgb(0 48 96 / 22%);
 }
 
 .mobile-header-list > li > a,
@@ -5093,8 +5093,8 @@ details[open] .faq-icon::after {
 .site-footer {
   position: relative;
   background:
-    radial-gradient(circle at 0% 20%, rgb(255 178 16 / 12%), transparent 24%),
-    linear-gradient(180deg, #fffdf7 0%, #fff7df 100%);
+    radial-gradient(circle at 0% 20%, rgb(224 32 48 / 12%), transparent 24%),
+    linear-gradient(180deg, #FAFCFE 0%, #EEF5FB 100%);
 }
 
 .footer-main {
@@ -5240,8 +5240,8 @@ details[open] .faq-icon::after {
   padding: 13rem 0 7.5rem;
   overflow: clip;
   background:
-    radial-gradient(circle at 75% 30%, rgb(255 178 16 / 14%), transparent 30%),
-    linear-gradient(135deg, #fff8e8 0%, #ffffff 55%, #fff3ce 100%);
+    radial-gradient(circle at 75% 30%, rgb(224 32 48 / 14%), transparent 30%),
+    linear-gradient(135deg, #F1F6FB 0%, #ffffff 55%, #E6F0FA 100%);
 }
 
 .about-stats-strip {
@@ -5286,7 +5286,7 @@ details[open] .faq-icon::after {
   font-size: 44px;
   line-height: 1.15;
   margin: 16px 0;
-  color: #140545;
+  color: var(--brand-navy);
 }
 
 .about-hero-desc {
@@ -5329,14 +5329,14 @@ details[open] .faq-icon::after {
   height: 440px;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(20,5,69,0.14);
+  box-shadow: 0 16px 48px rgba(0,48,96,0.14);
 }
 
 .about-hero-badge {
   position: absolute;
   bottom: -20px;
   left: -20px;
-  background: #140545;
+  background: var(--brand-navy);
   color: #fff;
   border-radius: 14px;
   padding: 16px 22px;
@@ -5357,7 +5357,7 @@ details[open] .faq-icon::after {
 /* Mission section */
 .about-mission {
   padding: 90px 0;
-  background: #fffbf2;
+  background: #F6FAFD;
 }
 
 .about-mission-grid {
@@ -5373,7 +5373,7 @@ details[open] .faq-icon::after {
   }
 }
 
-.about-mission-copy h2 { color: #140545; font-size: 38px; line-height: 1.2; }
+.about-mission-copy h2 { color: var(--brand-navy); font-size: 38px; line-height: 1.2; }
 .about-mission-copy p  { color: #4b4b4b; font-size: 16px; line-height: 1.8; margin-bottom: 18px; }
 
 .about-mission-stats-grid {
@@ -5388,7 +5388,7 @@ details[open] .faq-icon::after {
   padding: 32px 24px;
   text-align: center;
   box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-  border-bottom: 4px solid #FFB210;
+  border-bottom: 4px solid var(--brand-yellow);
   transition: transform 0.3s linear, box-shadow 0.3s linear;
 }
 .about-mission-stat-card:hover {
@@ -5403,7 +5403,7 @@ details[open] .faq-icon::after {
 }
 
 .about-mission-stat-card p {
-  color: #140545;
+  color: var(--brand-navy);
   font-size: 15px;
 }
 
@@ -5411,7 +5411,7 @@ details[open] .faq-icon::after {
 .about-pillars {
   position: relative;
   padding: 90px 0;
-  background: #140545;
+  background: var(--brand-navy);
   overflow: clip;
 }
 
@@ -5422,7 +5422,7 @@ details[open] .faq-icon::after {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(255 178 16 / 12%), transparent 70%);
+  background: radial-gradient(circle, rgb(224 32 48 / 12%), transparent 70%);
   pointer-events: none;
 }
 
@@ -5459,13 +5459,13 @@ details[open] .faq-icon::after {
   width: 62px;
   height: 62px;
   border-radius: 50%;
-  background: #FFB210;
-  color: #140545;
+  background: var(--brand-yellow);
+  color: var(--brand-navy);
   margin-bottom: 20px;
   transition: box-shadow 0.3s linear;
 }
 .about-pillar-card:hover .about-pillar-icon {
-  box-shadow: 0 0 24px #FFB210;
+  box-shadow: 0 0 24px var(--brand-yellow);
 }
 
 .about-pillar-title {
@@ -5523,8 +5523,8 @@ details[open] .faq-icon::after {
   overflow: clip;
   padding: 13rem 0 7rem;
   background:
-    radial-gradient(circle at 78% 22%, rgb(255 178 16 / 16%), transparent 28%),
-    linear-gradient(135deg, #fff8e8 0%, #ffffff 56%, #fff1c9 100%);
+    radial-gradient(circle at 78% 22%, rgb(224 32 48 / 16%), transparent 28%),
+    linear-gradient(135deg, #F1F6FB 0%, #ffffff 56%, #E8F1FA 100%);
 }
 
 .contact-hero-shade {
@@ -5600,7 +5600,7 @@ details[open] .faq-icon::after {
 .contact-detail-card:focus {
   border-color: var(--brand-yellow);
   color: #ffffff;
-  background: rgb(255 178 16 / 12%);
+  background: rgb(224 32 48 / 12%);
   transform: translateY(-3px);
 }
 
@@ -5636,7 +5636,7 @@ details[open] .faq-icon::after {
   position: relative;
   padding: 90px 0;
   background:
-    radial-gradient(circle at 10% 18%, rgb(255 178 16 / 12%), transparent 25%),
+    radial-gradient(circle at 10% 18%, rgb(224 32 48 / 12%), transparent 25%),
     #ffffff;
 }
 
@@ -5648,7 +5648,7 @@ details[open] .faq-icon::after {
 
 .contact-form-card {
   padding: 44px;
-  border: 1px solid rgb(20 5 69 / 8%);
+  border: 1px solid rgb(0 48 96 / 8%);
   border-radius: 20px;
   background: #ffffff;
   box-shadow: 0 13px 37px rgb(0 0 0 / 6%);
@@ -5687,7 +5687,7 @@ details[open] .faq-icon::after {
 .contact-page-field textarea {
   width: 100%;
   border: none;
-  border-bottom: 2px solid rgb(20 5 69 / 35%);
+  border-bottom: 2px solid rgb(0 48 96 / 35%);
   border-radius: 0;
   padding: 12px 0;
   color: #000000;
@@ -5762,7 +5762,7 @@ details[open] .faq-icon::after {
   padding: 40px 34px;
   border-radius: 20px;
   background:
-    radial-gradient(circle at 100% 0%, rgb(255 178 16 / 18%), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgb(224 32 48 / 18%), transparent 36%),
     var(--brand-navy);
   box-shadow: 0 13px 37px rgb(0 0 0 / 10%);
 }
@@ -5880,8 +5880,8 @@ details[open] .faq-icon::after {
   overflow: clip;
   padding: 15rem 0 7rem;
   background:
-    radial-gradient(circle at 78% 22%, rgb(255 178 16 / 15%), transparent 28%),
-    linear-gradient(135deg, #fff8e8 0%, #ffffff 56%, #fff1c9 100%);
+    radial-gradient(circle at 78% 22%, rgb(224 32 48 / 15%), transparent 28%),
+    linear-gradient(135deg, #F1F6FB 0%, #ffffff 56%, #E8F1FA 100%);
 }
 
 .legal-hero-shade {
@@ -5894,7 +5894,7 @@ details[open] .faq-icon::after {
 .legal-hero-copy {
   max-width: 780px;
   padding: 42px;
-  border: 1px solid rgb(20 5 69 / 8%);
+  border: 1px solid rgb(0 48 96 / 8%);
   border-radius: 20px;
   background: rgb(255 255 255 / 86%);
   box-shadow: 0 13px 37px rgb(0 0 0 / 7%);
@@ -5924,7 +5924,7 @@ details[open] .faq-icon::after {
 .legal-content-section {
   padding: 96px 0 120px;
   background:
-    radial-gradient(circle at 10% 18%, rgb(255 178 16 / 10%), transparent 25%),
+    radial-gradient(circle at 10% 18%, rgb(224 32 48 / 10%), transparent 25%),
     #ffffff;
 }
 
@@ -5932,7 +5932,7 @@ details[open] .faq-icon::after {
   max-width: 980px;
   margin: 0 auto;
   padding: 44px;
-  border: 1px solid rgb(20 5 69 / 8%);
+  border: 1px solid rgb(0 48 96 / 8%);
   border-radius: 20px;
   background: #ffffff;
   box-shadow: 0 13px 37px rgb(0 0 0 / 6%);
@@ -5941,7 +5941,7 @@ details[open] .faq-icon::after {
 .legal-block + .legal-block {
   padding-top: 30px;
   margin-top: 30px;
-  border-top: 1px solid rgb(20 5 69 / 10%);
+  border-top: 1px solid rgb(0 48 96 / 10%);
 }
 
 .legal-block h2 {
@@ -5982,7 +5982,7 @@ details[open] .faq-icon::after {
   align-items: center;
   padding-top: 38px;
   margin-top: 34px;
-  border-top: 1px solid rgb(20 5 69 / 10%);
+  border-top: 1px solid rgb(0 48 96 / 10%);
 }
 
 @media (max-width: 767.98px) {
@@ -6011,3 +6011,5 @@ details[open] .faq-icon::after {
     font-size: 23px;
   }
 }
+
+
