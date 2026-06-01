@@ -10,14 +10,24 @@ export function organizationSchema() {
     url: 'https://patrickwhitepublishing.com',
     logo: 'https://patrickwhitepublishing.com/logo.png',
     description: 'Professional book publishing services helping authors bring their manuscripts to life.',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '2nd Floor, 118 Liverpool Street',
-      addressLocality: 'Hobart',
-      addressRegion: 'TAS',
-      postalCode: '7000',
-      addressCountry: 'AU',
-    },
+    address: [
+      {
+        '@type': 'PostalAddress',
+        streetAddress: '2nd Floor, 118 Liverpool Street',
+        addressLocality: 'Hobart',
+        addressRegion: 'TAS',
+        postalCode: '7000',
+        addressCountry: 'AU',
+      },
+      {
+        '@type': 'PostalAddress',
+        streetAddress: 'Unit A1/35-39 Bourk Road',
+        addressLocality: 'Alexandria',
+        addressRegion: 'NSW',
+        postalCode: '2015',
+        addressCountry: 'AU',
+      },
+    ],
     sameAs: [
       'https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/',
       'https://www.instagram.com/patrickwhitepublishinghouse/',

@@ -51,9 +51,15 @@ const CONTACT_DETAILS = [
   },
   {
     icon: MapPin,
-    label: 'Visit Us',
+    label: 'Hobart Office',
     value: '2nd Floor, 118 Liverpool Street, Hobart, TAS 7000',
     href: 'https://www.google.com/maps/search/?api=1&query=2nd%20Floor%20118%20Liverpool%20Street%20Hobart%20TAS%207000',
+  },
+  {
+    icon: MapPin,
+    label: 'Alexandria Office',
+    value: 'Unit A1/35-39 Bourk Road, Alexandria, NSW 2015',
+    href: 'https://www.google.com/maps/search/?api=1&query=Unit%20A1%2F35-39%20Bourk%20Road%20Alexandria%20NSW%202015',
   },
 ]
 

@@ -113,7 +113,7 @@ export default function Footer() {
 
         {/* Copyright bar */}
         <div className="copyright-div">
-          <p className="fw-500 mb-0">Copyright &copy; 2026 Patrick White Publishing. ABN 57 997 426 630</p>
+          <p className="fw-500 mb-0">Copyright &copy; 2026 Patrick White Publishing. ABN 47 088 124 305</p>
           <Image
             src="/images/payment.webp"
             alt="Accepted payment methods"
