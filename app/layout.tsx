@@ -73,7 +73,7 @@ export default function RootLayout({
       <head />
       <body className="bg-white text-brand-ink font-body" suppressHydrationWarning>
         <Header />
-        {children}
+        <div className="site-content">{children}</div>
         <Footer />
         <ScrollReveal />
         <FooterReveal />

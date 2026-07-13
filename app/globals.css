@@ -6139,10 +6139,15 @@ details[open] .faq-icon::after {
 .kdp-bar {
   display: flex;
   align-items: center;
-  gap: clamp(12px, 2vw, 28px);
-  padding: 10px 12px 10px 18px;
+  gap: clamp(12px, 1.6vw, 24px);
+  padding: 10px 14px 10px 22px;
   border-radius: 18px;
-  background: transparent;
+  /* Floating tinted-glass navbar so it no longer reads as a flat transparent bar */
+  background: linear-gradient(118deg, rgb(14 165 160 / 12%) 0%, rgb(255 255 255 / 82%) 46%, rgb(255 255 255 / 90%) 100%);
+  -webkit-backdrop-filter: blur(10px) saturate(1.25);
+  backdrop-filter: blur(10px) saturate(1.25);
+  border: 1px solid rgb(255 255 255 / 60%);
+  box-shadow: 0 14px 36px rgb(0 48 96 / 12%);
   transition: background 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease,
     padding 0.4s ease, -webkit-backdrop-filter 0.4s ease, backdrop-filter 0.4s ease;
 }
@@ -6184,11 +6189,12 @@ details[open] .faq-icon::after {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 8px 12px;
+  padding: 8px 11px;
   border-radius: 10px;
   font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
   font-size: 15px;
+  white-space: nowrap;
   color: var(--brand-ink);
   background: none;
   border: none;
@@ -6377,17 +6383,25 @@ details[open] .faq-icon::after {
   padding-top: 10px;
 }
 .kdp-header.is-pinned .kdp-bar {
-  padding: 8px 10px 8px 20px;
+  padding: 7px 16px 7px 24px;
+  gap: clamp(10px, 1.2vw, 18px);
   border-radius: 999px;
-  background: rgb(255 255 255 / 72%);
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  backdrop-filter: blur(14px) saturate(1.4);
+  background: rgb(255 255 255 / 74%);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  backdrop-filter: blur(16px) saturate(1.5);
   border: 1px solid rgb(255 255 255 / 55%);
-  box-shadow: 0 10px 30px rgb(0 48 96 / 16%);
+  box-shadow: 0 12px 32px rgb(0 48 96 / 18%);
 }
 .kdp-header.is-pinned .kdp-nav-link {
   font-size: 14px;
-  padding: 7px 10px;
+  padding: 7px 9px;
+}
+.kdp-header.is-pinned .kdp-cta {
+  padding-left: 18px;
+}
+.kdp-header.is-pinned .kdp-cta .span-2 {
+  width: 30px;
+  height: 30px;
 }
 .kdp-header.is-pinned .kdp-logo-sub {
   display: none;
@@ -6819,12 +6833,12 @@ details[open] .faq-icon::after {
 /* ============================================================
    Sticky footer reveal (Task 4)
    ============================================================ */
-main {
+.site-content {
   position: relative;
   z-index: 1;
   background: #fff;
 }
-body.footer-reveal-on main {
+body.footer-reveal-on .site-content {
   margin-bottom: var(--footer-h, 520px);
 }
 body.footer-reveal-on .site-footer {
@@ -6835,7 +6849,7 @@ body.footer-reveal-on .site-footer {
   z-index: 0;
 }
 @media (prefers-reduced-motion: reduce) {
-  body.footer-reveal-on main {
+  body.footer-reveal-on .site-content {
     margin-bottom: 0;
   }
   body.footer-reveal-on .site-footer {
@@ -6877,6 +6891,75 @@ body.footer-reveal-on .site-footer {
   display: inline-flex;
 }
 
+/* ============================================================
+   Why Choose Us — distinct redesign (post-marquee section)
+   ============================================================ */
+.kdp-why {
+  position: relative;
+  overflow: clip;
+  background: linear-gradient(180deg, #e7f5f3 0%, #f4fbfa 42%, #ffffff 100%);
+}
+.kdp-why-shape {
+  position: absolute;
+  top: -140px;
+  right: -120px;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(14 165 160 / 20%), transparent 68%);
+  pointer-events: none;
+}
+.kdp-why .index-wrap-2-media-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 28px -22px -22px 28px;
+  border-radius: 28px;
+  background: linear-gradient(150deg, var(--brand-gold), var(--brand-navy));
+  z-index: 0;
+}
+.kdp-why-frame {
+  position: relative;
+  z-index: 1;
+  border-radius: 24px !important;
+  box-shadow: 0 26px 64px rgb(0 48 96 / 24%);
+}
+.kdp-why-badge {
+  position: absolute;
+  left: -8px;
+  bottom: -20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 18px 44px rgb(0 48 96 / 20%);
+}
+.kdp-why-badge-stars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--brand-yellow);
+  margin-bottom: 2px;
+}
+.kdp-why-badge b {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 18px;
+  color: var(--brand-navy);
+  line-height: 1.1;
+}
+.kdp-why-badge span:last-child {
+  font-size: 12.5px;
+  color: var(--brand-gray-2);
+}
+@media (max-width: 575.98px) {
+  .kdp-why-badge {
+    left: 8px;
+    bottom: -14px;
+    padding: 11px 16px;
+  }
+}
+
 /* Remove decorative floating star shapes site-wide (keeps rating stars). */
 .hero-star,
 .footer-star,
@@ -6890,4 +6973,80 @@ body.footer-reveal-on .site-footer {
 .index-wrap-7-star,
 .index-wrap-8-star {
   display: none !important;
+}
+
+/* ============================================================
+   Hero eyebrow — new glassy chip with live pulse dot
+   ============================================================ */
+.kdp-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 60%);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgb(14 165 160 / 38%);
+  color: var(--brand-navy);
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 24px rgb(0 48 96 / 10%);
+}
+.kdp-hero-eyebrow-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--brand-yellow-dark);
+  animation: kdp-pulse 2.2s infinite;
+}
+@keyframes kdp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(14 165 160 / 55%);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgb(14 165 160 / 0%);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(14 165 160 / 0%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kdp-hero-eyebrow-dot {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   PurpleCTA — restyled: richer gradient, glass eyebrow, depth
+   ============================================================ */
+.index-wrap-4 {
+  background: linear-gradient(125deg, #041d3a 0%, var(--brand-navy) 45%, #0b6b66 125%) !important;
+  position: relative;
+  overflow: hidden;
+}
+.index-wrap-4::after {
+  content: '';
+  position: absolute;
+  left: -60px;
+  bottom: -80px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 34px solid rgb(255 255 255 / 5%);
+  pointer-events: none;
+}
+.index-wrap-4 .span-tag-border-yellow {
+  background: rgb(255 255 255 / 10%);
+  border: 1px solid rgb(127 216 210 / 45%);
+  color: var(--brand-gold);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.index-wrap-4-cta-circle {
+  background: radial-gradient(circle at 40% 35%, #0e8f89, #073f6d 75%) !important;
+  box-shadow: 0 30px 70px rgb(0 20 45 / 45%);
 }

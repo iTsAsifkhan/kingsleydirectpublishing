@@ -94,8 +94,6 @@ export default async function SubServicePage({ params }: Props) {
       />
 
       <section className="service-hero subservice-hero">
-        <span className="service-hero-star service-hero-star-1" aria-hidden="true" />
-        <span className="service-hero-star service-hero-star-2" aria-hidden="true" />
         <Container>
           <nav className="subservice-breadcrumb" aria-label="Breadcrumb">
             <Link href="/">Home</Link>

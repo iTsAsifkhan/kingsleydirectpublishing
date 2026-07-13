@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ArrowRight, MessageCircle } from 'lucide-react'
+import { ArrowRight, MessageCircle, Star } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 
 const platformLogos = [
@@ -11,11 +11,12 @@ const platformLogos = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="index-wrap-2">
-      <Container>
+    <section className="index-wrap-2 kdp-why">
+      <span className="kdp-why-shape" aria-hidden="true" />
+      <Container className="relative z-10">
         <div className="index-wrap-2-grid">
           <div className="index-wrap-2-media-wrap">
-            <div className="index-wrap-2-placeholder">
+            <div className="index-wrap-2-placeholder kdp-why-frame">
               <Image
                 src="/images/wrap-2-img.webp"
                 alt="Author working with a publishing support team"
@@ -24,6 +25,15 @@ export default function WhyChooseUs() {
                 className="section-placeholder-image clean-contain"
               />
             </div>
+            <span className="kdp-why-badge">
+              <span className="kdp-why-badge-stars" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={13} fill="currentColor" strokeWidth={0} />
+                ))}
+              </span>
+              <b>5,000+ authors</b>
+              <span>published worldwide</span>
+            </span>
           </div>
 
           <div className="index-wrap-2-content">
@@ -59,7 +69,7 @@ export default function WhyChooseUs() {
                 Get A Quote
               </Button>
               <Button variant="blue" href="/contact" icon={MessageCircle}>
-                Live Chat
+                Talk to an Expert
               </Button>
             </div>
           </div>

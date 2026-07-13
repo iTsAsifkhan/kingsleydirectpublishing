@@ -95,8 +95,6 @@ export default async function ServicePage({ params }: Props) {
       />
 
       <section className="service-hero">
-        <span className="service-hero-star service-hero-star-1" aria-hidden="true" />
-        <span className="service-hero-star service-hero-star-2" aria-hidden="true" />
         <Container>
           <div className="service-hero-inner">
             <div className="service-hero-content">

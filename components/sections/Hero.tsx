@@ -8,9 +8,10 @@ export default function Hero() {
       <Container className="relative z-10">
         <div className="home-hero-grid grid items-center gap-10 lg:grid-cols-2">
           <div className="text-center lg:text-left">
-            <span className="index-banner-sub-heading inline-flex items-center gap-3 text-sm font-600 text-white sm:text-base">
-              Kingsley Direct Publishing
-              <Handshake size={20} aria-hidden="true" />
+            <span className="kdp-hero-eyebrow">
+              <span className="kdp-hero-eyebrow-dot" aria-hidden="true" />
+              <span>Kingsley Direct Publishing</span>
+              <Handshake size={15} aria-hidden="true" />
             </span>
             <h1 className="mb-0 font-700">
               Professional Self-Publishing Services for Author Success
