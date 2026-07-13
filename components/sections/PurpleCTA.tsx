@@ -1,6 +1,9 @@
 import Image from 'next/image'
-import { ArrowRight, PhoneCall } from 'lucide-react'
+import { ArrowRight, MessageCircle, PhoneCall } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
+
+// Real phone not confirmed — show "Call Now" only when a dialable number exists.
+const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
 
 export default function PurpleCTA() {
   return (
@@ -15,7 +18,6 @@ export default function PurpleCTA() {
         />
       </span>
       <span className="cta-shade" aria-hidden="true" />
-      <span className="cta-star" aria-hidden="true" />
 
       <section className="index-wrap-4 position-relative">
         <Container className="relative z-10">
@@ -38,18 +40,33 @@ export default function PurpleCTA() {
                 <Button variant="yellow" href="/contact" icon={ArrowRight}>
                   Get A Quote
                 </Button>
-                <a
-                  className="anchor-number-cta align-items-center d-inline-flex"
-                  href="tel:+442079460000"
-                >
-                  <span className="span-1">
-                    <PhoneCall aria-hidden="true" className="clr-1" size={18} />
-                  </span>
-                  <span className="span-2 fw-600 clr-1 d-inline-block">
-                    Call Now <br />
-                    <b className="text-white">+44 20 7946 0000</b>
-                  </span>
-                </a>
+                {CONTACT_PHONE ? (
+                  <a
+                    className="anchor-number-cta align-items-center d-inline-flex"
+                    href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`}
+                  >
+                    <span className="span-1">
+                      <PhoneCall aria-hidden="true" className="clr-1" size={18} />
+                    </span>
+                    <span className="span-2 fw-600 clr-1 d-inline-block">
+                      Call Now <br />
+                      <b className="text-white">{CONTACT_PHONE}</b>
+                    </span>
+                  </a>
+                ) : (
+                  <a
+                    className="anchor-number-cta align-items-center d-inline-flex"
+                    href="/contact"
+                  >
+                    <span className="span-1">
+                      <MessageCircle aria-hidden="true" className="clr-1" size={18} />
+                    </span>
+                    <span className="span-2 fw-600 clr-1 d-inline-block">
+                      Prefer to talk? <br />
+                      <b className="text-white">Message the team</b>
+                    </span>
+                  </a>
+                )}
               </div>
             </div>
 

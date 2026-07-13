@@ -1,85 +1,60 @@
-'use client'
-
-import { useActionState } from 'react'
-import { Send } from 'lucide-react'
+import { Clock, ShieldCheck, Star } from 'lucide-react'
 import { Container } from '@/components/ui'
-import { submitContactForm } from '@/app/actions'
+import QuoteForm from './QuoteForm'
+
+const TRUST = [
+  { icon: Clock, label: '24-hour response', sub: 'A consultant replies within a day.' },
+  { icon: ShieldCheck, label: 'You keep 100% rights', sub: 'Your work stays yours.' },
+]
 
 export default function ContactForm() {
-  const [state, formAction, isPending] = useActionState(submitContactForm, null)
-
   return (
-    <section className="index-wrap-9">
+    <section className="index-wrap-9 kdp-connect" aria-labelledby="lets-connect-title">
+      <span className="kdp-connect-glow" aria-hidden="true" />
+      <span className="kdp-connect-shape" aria-hidden="true" />
       <Container>
-        <div className="footer-cta">
-          <form className="footer-cta-form" action={formAction}>
-            <div className="footer-cta-fields">
-              <h2 className="fw-700">Let&apos;s Connect</h2>
+        <div className="kdp-connect-card">
+          <div className="kdp-connect-info">
+            <span className="span-tag-border kdp-connect-tag">Let&apos;s Connect</span>
+            <h2 id="lets-connect-title" className="fw-700 kdp-connect-heading">
+              Ready to publish? Let&apos;s map out your book.
+            </h2>
+            <p className="kdp-connect-lede">
+              Tell us where you are in the journey and a publishing consultant will come back
+              with clear, practical next steps — no pressure, no obligation.
+            </p>
 
-              <div className="footer-cta-row">
-                <div className="footer-cta-group">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="full name"
-                    required
-                    disabled={isPending}
-                  />
-                </div>
-                <div className="footer-cta-group">
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="phone number"
-                    required
-                    disabled={isPending}
-                  />
-                </div>
-              </div>
+            <ul className="kdp-connect-trust">
+              {TRUST.map(({ icon: Icon, label, sub }) => (
+                <li key={label}>
+                  <span className="kdp-connect-trust-ico" aria-hidden="true">
+                    <Icon size={20} />
+                  </span>
+                  <span className="kdp-connect-trust-copy">
+                    <strong>{label}</strong>
+                    <span>{sub}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-              <div className="footer-cta-group footer-cta-custom-margin">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="email address"
-                  required
-                  disabled={isPending}
-                />
-              </div>
+            <figure className="kdp-connect-quote">
+              <span className="kdp-connect-stars" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={15} fill="currentColor" strokeWidth={0} />
+                ))}
+              </span>
+              <blockquote>
+                “They made publishing feel simple. From edit to launch, everything just worked.”
+              </blockquote>
+              <figcaption>Verified author review</figcaption>
+            </figure>
+          </div>
 
-              <div className="footer-cta-group footer-cta-custom-margin">
-                <input
-                  type="text"
-                  name="message"
-                  placeholder="type message"
-                  required
-                  disabled={isPending}
-                />
-              </div>
-
-              {state?.success && (
-                <p className="footer-cta-feedback footer-cta-success" role="status">
-                  {state.message}
-                </p>
-              )}
-              {state && !state.success && (
-                <p className="footer-cta-feedback footer-cta-error" role="alert">
-                  {state.message}
-                </p>
-              )}
-            </div>
-
-            <div className="footer-cta-submit-col">
-              <button
-                type="submit"
-                className="footer-cta-submit-btn"
-                disabled={isPending}
-                aria-label="Send message"
-              >
-                <Send size={42} aria-hidden="true" />
-              </button>
-            </div>
-          </form>
+          <div className="kdp-connect-form">
+            <h3 className="kdp-connect-form-title">Get a free quote</h3>
+            <QuoteForm variant="cta" />
+          </div>
         </div>
       </Container>
     </section>

@@ -10,7 +10,6 @@ export default function FAQ() {
   return (
     <section className="index-wrap-8 relative">
       <span className="index-wrap-8-shade" aria-hidden="true" />
-      <span className="index-wrap-8-star" aria-hidden="true" />
 
       <script
         type="application/ld+json"

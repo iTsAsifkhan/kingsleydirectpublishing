@@ -13,10 +13,10 @@ export default function StatsStrip({ className = '' }: StatsStripProps) {
           <div className="counter-grid">
             {stats.map((stat) => (
               <div className="counter-item" key={stat.id}>
-                <h5 className="mb-0 font-700 text-white">
+                <p className="counter-value mb-0 font-700 text-white">
                   {stat.value}
                   <span className="clr-1">{stat.suffix}</span>
-                </h5>
+                </p>
                 <p className="mb-0">{stat.label}</p>
               </div>
             ))}

@@ -5,7 +5,6 @@ import { Button, Container } from '@/components/ui'
 export default function Hero() {
   return (
     <section className="index-wrap-1 relative">
-      <span className="hero-star rotation hidden lg:block" aria-hidden="true" />
       <Container className="relative z-10">
         <div className="home-hero-grid grid items-center gap-10 lg:grid-cols-2">
           <div className="text-center lg:text-left">
@@ -29,7 +28,7 @@ export default function Hero() {
                 Get A Quote
               </Button>
               <Button variant="blue" href="/contact" icon={MessageCircle}>
-                Live Chat
+                Talk to an Expert
               </Button>
             </div>
           </div>
@@ -42,7 +41,7 @@ export default function Hero() {
                   alt="Featured 3D book cover mockup"
                   fill
                   priority
-                  quality={96}
+                  quality={82}
                   sizes="285px"
                   className="section-placeholder-image clean-contain"
                 />
@@ -52,8 +51,7 @@ export default function Hero() {
                   src="/images/3d-book-cover (2).webp"
                   alt="Featured 3D book cover mockup"
                   fill
-                  priority
-                  quality={96}
+                  quality={82}
                   sizes="220px"
                   className="section-placeholder-image clean-contain"
                 />
@@ -63,8 +61,7 @@ export default function Hero() {
                   src="/images/3d-book-cover (3).webp"
                   alt="Featured 3D book cover mockup"
                   fill
-                  priority
-                  quality={96}
+                  quality={82}
                   sizes="220px"
                   className="section-placeholder-image clean-contain"
                 />

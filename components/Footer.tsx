@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Container } from '@/components/ui'
+import NewsletterForm from './NewsletterForm'
 import {
   FacebookIcon,
   InstagramIcon,
@@ -23,42 +24,50 @@ const QUICK_LINKS = [
   { label: 'Terms of Service', href: '/terms-conditions' },
 ]
 
-const SERVICES_COL_1 = [
+const SERVICES = [
   { label: 'Publishing', href: '/services/publishing' },
   { label: 'Marketing', href: '/services/marketing' },
   { label: 'Ghostwriting', href: '/services/ghostwriting' },
   { label: 'Editing', href: '/services/editing' },
   { label: 'Cover Design', href: '/services/cover-design' },
-  { label: 'E-Book Writing', href: '/services/ghostwriting/e-book-writing' },
+  { label: 'Audio Book', href: '/services/publishing/audiobook' },
 ]
 
-const SERVICES_COL_2 = [
+const GENRES = [
   { label: 'Novel Writing', href: '/services/ghostwriting/novel-writing' },
   { label: 'Autobiography', href: '/services/ghostwriting/autobiography-writing' },
-  { label: 'Audio Book', href: '/services/publishing/audiobook' },
-  { label: 'Book Formatting', href: '/services/editing/book-formatting' },
-  { label: 'Fantasy Ghostwriting', href: '/services/ghostwriting/fantasy-writing' },
-  { label: 'Non Fiction', href: '/services/ghostwriting/non-fiction-writing' },
+  { label: 'Fantasy', href: '/services/ghostwriting/fantasy-writing' },
+  { label: 'Fiction', href: '/services/ghostwriting/fiction-writing' },
+  { label: 'Non-Fiction', href: '/services/ghostwriting/non-fiction-writing' },
+  { label: "Children's Book", href: '/services/ghostwriting/children-book-writing' },
 ]
+
+// Only render the registration line once a real company number is provided.
+const COMPANY_NO = process.env.NEXT_PUBLIC_COMPANY_NUMBER
 
 export default function Footer() {
   return (
     <footer className="site-footer relative">
-      <span className="footer-star" aria-hidden="true" />
-
       <Container className="relative z-10">
         <div className="footer-main">
           {/* Brand column */}
           <div className="footer-brand">
             {/* TODO: replace this text wordmark with the real Kingsley Direct Publishing logo image */}
-            <Link href="/" className="footer-logo-link brand-wordmark brand-wordmark-light" aria-label="Kingsley Direct Publishing home">
+            <Link
+              href="/"
+              className="footer-logo-link brand-wordmark brand-wordmark-light"
+              aria-label="Kingsley Direct Publishing home"
+            >
               <span className="brand-wordmark-name">Kingsley</span>
               <span className="brand-wordmark-sub">Direct Publishing</span>
             </Link>
             <p className="footer-brand-desc">
-              Kingsley Direct Publishing is a professional publishing agency known for providing
-              top-tier book writing, editing, design, and marketing services.
+              A professional publishing agency providing top-tier book writing, editing, design,
+              and marketing services — from manuscript to global launch.
             </p>
+
+            <NewsletterForm />
+
             <ul className="social-links" aria-label="Social media links">
               {SOCIAL.map(({ href, icon: Icon, label }) => (
                 <li key={label}>
@@ -82,11 +91,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services col 1 */}
+          {/* Services */}
           <div className="footer-list-item">
             <h4 className="fw-400">Services</h4>
             <ul>
-              {SERVICES_COL_1.map((link) => (
+              {SERVICES.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href}>{link.label}</Link>
                 </li>
@@ -94,11 +103,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services col 2 */}
+          {/* Genres */}
           <div className="footer-list-item">
-            <h4 className="fw-400">Services</h4>
+            <h4 className="fw-400">Genres</h4>
             <ul>
-              {SERVICES_COL_2.map((link) => (
+              {GENRES.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href}>{link.label}</Link>
                 </li>
@@ -109,10 +118,15 @@ export default function Footer() {
 
         {/* Copyright bar */}
         <div className="copyright-div">
-          <p className="fw-500 mb-0">Copyright &copy; 2026 Kingsley Direct Publishing. Registered in England & Wales · Company No. (TBD)</p>
+          <p className="fw-500 mb-0">
+            Copyright &copy; 2026 Kingsley Direct Publishing.
+            {COMPANY_NO
+              ? ` Registered in England & Wales · Company No. ${COMPANY_NO}`
+              : ''}
+          </p>
           <Image
             src="/images/payment.webp"
-            alt="Accepted payment methods"
+            alt="Accepted payment methods: Visa, Mastercard, American Express, PayPal"
             width={280}
             height={32}
             className="object-contain"

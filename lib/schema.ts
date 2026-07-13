@@ -23,7 +23,10 @@ export function organizationSchema() {
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+442079460000',
+      // Only advertise a phone once a real, dialable number is configured.
+      ...(process.env.NEXT_PUBLIC_CONTACT_PHONE && {
+        telephone: process.env.NEXT_PUBLIC_CONTACT_PHONE,
+      }),
       email: 'info@kingsleydirectpublishing.com',
       contactType: 'Customer Service',
     },

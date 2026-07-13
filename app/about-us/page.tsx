@@ -73,7 +73,7 @@ const PILLARS = [
   {
     icon: Globe,
     title: 'Global Distribution',
-    desc: 'We place your book on Amazon, Apple Books, Barnes & Noble, Kobo, IngramSpark, and 40,000+ retail and library partners worldwide.',
+    desc: 'We place your book on Amazon, Apple Books, Barnes & Noble, Kobo, and IngramSpark, reaching retail and library outlets worldwide.',
   },
   {
     icon: Rocket,

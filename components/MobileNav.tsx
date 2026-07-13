@@ -1,15 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, X } from 'lucide-react'
-
-interface NavItem {
-  label: string
-  href: string
-  children?: { label: string; href: string }[]
-}
+import type { NavItem } from '@/lib/nav'
 
 interface MobileNavProps {
   links: NavItem[]
@@ -25,6 +20,20 @@ export default function MobileNav({ links }: MobileNavProps) {
   const isActive = (href: string) =>
     href === '/' ? pathname === href : pathname === href || pathname.startsWith(`${href}/`)
 
+  // Lock scroll + close on Escape while the drawer is open.
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
   return (
     <>
       <button
@@ -37,23 +46,26 @@ export default function MobileNav({ links }: MobileNavProps) {
       </button>
 
       {open && (
-        <div className="mobile-nav-overlay" aria-modal="true" role="dialog">
-          <button
-            className="mobile-nav-close"
-            aria-label="Close navigation menu"
-            onClick={() => setOpen(false)}
-          >
-            <X size={26} />
-          </button>
+        <div className="mobile-nav-overlay" role="dialog" aria-modal="true" aria-label="Site navigation">
+          <div className="mobile-nav-head">
+            <span className="mobile-nav-brand">Kingsley Direct Publishing</span>
+            <button
+              className="mobile-nav-close"
+              aria-label="Close navigation menu"
+              onClick={() => setOpen(false)}
+            >
+              <X size={24} />
+            </button>
+          </div>
 
           <ul className="mobile-header-list">
             {links.map((item) => (
               <li key={item.label}>
-                {item.children ? (
+                {item.mega ? (
                   <>
                     <button
                       className={`mobile-nav-parent${
-                        isActive(item.href) || item.children.some((child) => isActive(child.href))
+                        isActive(item.href) || item.mega.some((child) => isActive(child.href))
                           ? ' is-active'
                           : ''
                       }`}
@@ -62,15 +74,24 @@ export default function MobileNav({ links }: MobileNavProps) {
                     >
                       {item.label}
                       <ChevronDown
-                        size={16}
+                        size={18}
                         className={expanded === item.label ? 'rotate-180' : ''}
                         aria-hidden="true"
                       />
                     </button>
                     {expanded === item.label && (
                       <ul className="mobile-submenu">
-                        {item.children.map((child) => (
-                          <li key={child.label}>
+                        <li>
+                          <Link
+                            href={item.href}
+                            className="mobile-submenu-link mobile-submenu-all"
+                            onClick={() => setOpen(false)}
+                          >
+                            All {item.label}
+                          </Link>
+                        </li>
+                        {item.mega.map((child) => (
+                          <li key={child.href}>
                             <Link
                               href={child.href}
                               className={`mobile-submenu-link${isActive(child.href) ? ' is-active' : ''}`}
@@ -97,6 +118,15 @@ export default function MobileNav({ links }: MobileNavProps) {
               </li>
             ))}
           </ul>
+
+          <div className="mobile-nav-foot">
+            <Link href="/contact" className="btn btn-yellow" onClick={() => setOpen(false)}>
+              <span className="span-1">Get A Quote</span>
+              <span className="span-2" aria-hidden="true">
+                <ChevronDown size={18} className="-rotate-90" />
+              </span>
+            </Link>
+          </div>
         </div>
       )}
     </>

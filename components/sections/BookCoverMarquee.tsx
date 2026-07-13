@@ -47,7 +47,7 @@ function CoverCard({ book, index }: { book: BookCover; index: number }) {
         src={book.image}
         alt={`${book.title} ${book.category}`}
         fill
-        quality={book.variant === 'mockup' ? 96 : undefined}
+        quality={book.variant === 'mockup' ? 82 : undefined}
         sizes="(max-width: 767px) 150px, (max-width: 1199px) 190px, 235px"
         className="book-cover-image"
       />

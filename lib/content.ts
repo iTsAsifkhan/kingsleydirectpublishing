@@ -419,7 +419,7 @@ export const testimonials: Testimonial[] = [
     id: '1',
     name: 'Sarah Bennett',
     genre: "Children's",
-    published: '03+',
+    published: '3',
     quote:
       'From my first rough draft to a finished book, the Kingsley Direct Publishing team guided me at every step. The editing was thorough and the cover design went beyond what I imagined. I could not be happier with the result.',
     amazonUrl: 'https://www.amazon.co.uk',
@@ -430,7 +430,7 @@ export const testimonials: Testimonial[] = [
     id: '2',
     name: 'James Whitfield',
     genre: 'Fiction',
-    published: '02+',
+    published: '2',
     quote:
       'A genuinely professional experience from start to finish. Clear communication, a beautiful layout, and my book was published on time. I would recommend Kingsley Direct Publishing to any first-time author.',
     amazonUrl: 'https://www.amazon.co.uk',
@@ -441,7 +441,7 @@ export const testimonials: Testimonial[] = [
     id: '3',
     name: 'Aisha Khan',
     genre: 'Non-Fiction',
-    published: '04+',
+    published: '4',
     quote:
       'They took the stress out of publishing. The team was responsive, patient with my revisions, and delivered a polished book I am proud to share. Wonderful support throughout the whole journey.',
     amazonUrl: 'https://www.amazon.co.uk',
@@ -452,7 +452,7 @@ export const testimonials: Testimonial[] = [
     id: '4',
     name: 'Daniel Rowe',
     genre: 'Fantasy',
-    published: '01+',
+    published: '1',
     quote:
       'Publishing my book felt daunting until I worked with Kingsley Direct Publishing. Their design and marketing help made all the difference, and the whole process was smooth and transparent.',
     amazonUrl: 'https://www.amazon.co.uk',
@@ -477,9 +477,9 @@ export const stats: Stat[] = [
   },
   {
     id: 'partners-worldwide',
-    value: '40,000',
+    value: '150',
     suffix: '+',
-    label: 'Business partners worldwide',
+    label: 'Retail & Library Outlets',
   },
   {
     id: 'satisfaction-rate',

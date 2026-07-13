@@ -7,9 +7,6 @@ export default function Services() {
     <section className="index-wrap-3 position-relative">
       <span className="index-wrap-3-shade-1" aria-hidden="true" />
       <span className="index-wrap-3-shade-2" aria-hidden="true" />
-      <span className="index-wrap-3-star-1" aria-hidden="true" />
-      <span className="index-wrap-3-star-2" aria-hidden="true" />
-      <span className="index-wrap-3-star-3" aria-hidden="true" />
 
       <Container className="relative z-10">
         <div className="index-wrap-3-heading">

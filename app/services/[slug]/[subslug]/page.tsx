@@ -133,7 +133,7 @@ export default async function SubServicePage({ params }: Props) {
                     alt=""
                     fill
                     priority
-                    quality={96}
+                    quality={82}
                     sizes="280px"
                     className="section-placeholder-image clean-contain"
                   />
@@ -143,8 +143,7 @@ export default async function SubServicePage({ params }: Props) {
                     src={visuals.secondary}
                     alt=""
                     fill
-                    priority
-                    quality={96}
+                    quality={82}
                     sizes="210px"
                     className="section-placeholder-image clean-contain"
                   />
@@ -204,7 +203,7 @@ export default async function SubServicePage({ params }: Props) {
                 src={visuals.tertiary}
                 alt=""
                 fill
-                quality={96}
+                quality={82}
                 sizes="(min-width: 1024px) 420px, 100vw"
                 className="section-placeholder-image clean-contain"
               />

@@ -61,8 +61,6 @@ export default function Portfolio() {
     <section className="index-wrap-6 position-relative">
       <span className="index-wrap-6-shade-1" aria-hidden="true" />
       <span className="index-wrap-6-shade-2" aria-hidden="true" />
-      <span className="index-wrap-6-star-1" aria-hidden="true" />
-      <span className="index-wrap-6-star-2" aria-hidden="true" />
 
       <Container className="relative z-10">
         {/* Section header */}

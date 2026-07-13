@@ -40,10 +40,10 @@ function ProcessCard({ step }: { step: ProcessStep }) {
         />
       </div>
       <div className="process-item-content invisible-scroll">
-        <h6 className="mb-0 fw-700">
+        <h3 className="process-step-title mb-0 fw-700">
           <span className="clr-1">{String(step.number).padStart(2, '0')}</span>.{' '}
           {step.title}
-        </h6>
+        </h3>
         <p className="mb-0">{step.description}</p>
       </div>
     </article>

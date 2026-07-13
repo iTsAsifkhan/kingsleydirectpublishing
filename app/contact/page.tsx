@@ -12,7 +12,7 @@ import {
   Send,
 } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
-import ContactPageForm from '@/components/sections/ContactPageForm'
+import QuoteForm from '@/components/sections/QuoteForm'
 import FAQ from '@/components/sections/FAQ'
 import { organizationSchema } from '@/lib/schema'
 
@@ -36,12 +36,17 @@ export const metadata: Metadata = {
   },
 }
 
+// Real phone + registered address are not confirmed yet. They only render once
+// the matching env vars are set, so no placeholder / "TBD" ships to production.
+const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
+const CONTACT_OFFICE = process.env.NEXT_PUBLIC_OFFICE_ADDRESS
+
 const CONTACT_DETAILS = [
-  {
+  CONTACT_PHONE && {
     icon: Phone,
     label: 'Call Us',
-    value: '+44 20 7946 0000',
-    href: 'tel:+442079460000',
+    value: CONTACT_PHONE,
+    href: `tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`,
   },
   {
     icon: Mail,
@@ -49,13 +54,18 @@ const CONTACT_DETAILS = [
     value: 'info@kingsleydirectpublishing.com',
     href: 'mailto:info@kingsleydirectpublishing.com',
   },
-  {
+  CONTACT_OFFICE && {
     icon: MapPin,
     label: 'Registered Office',
-    value: 'United Kingdom — address to be confirmed',
-    href: 'https://www.google.com/maps/search/?api=1&query=United%20Kingdom',
+    value: CONTACT_OFFICE,
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_OFFICE)}`,
   },
-]
+].filter(Boolean) as {
+  icon: typeof Phone
+  label: string
+  value: string
+  href: string
+}[]
 
 const SUPPORT_STEPS = [
   {
@@ -168,7 +178,7 @@ export default function ContactPage() {
                 consultant will review your message and respond with practical next
                 steps for your book.
               </p>
-              <ContactPageForm />
+              <QuoteForm variant="page" />
             </div>
 
             <aside className="contact-support-card" aria-labelledby="contact-process-title">

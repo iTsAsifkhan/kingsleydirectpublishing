@@ -22,7 +22,6 @@ const PARTNER_LOGOS = [
 export default function Testimonials() {
   return (
     <section className="index-wrap-7 position-relative">
-      <span className="index-wrap-7-star" aria-hidden="true" />
 
       <Container className="relative z-10">
         <div className="index-wrap-7-heading">
@@ -71,18 +70,16 @@ export default function Testimonials() {
 
                 <div className="review-slide-right">
                   <div className="review-profile-row">
-                    <div className="review-author-photo">
-                      <Image
-                        src={t.photo}
-                        alt={`Photo of ${t.name}`}
-                        fill
-                        sizes="86px"
-                        className="object-cover object-top"
-                      />
+                    <div className="review-author-avatar" aria-hidden="true">
+                      {t.name
+                        .split(' ')
+                        .map((w) => w[0])
+                        .slice(0, 2)
+                        .join('')}
                     </div>
                     <div>
                       <h3 className="review-author-name">{t.name}</h3>
-                      <p className="review-author-role">Author</p>
+                      <p className="review-author-role">Verified author</p>
                     </div>
                   </div>
 
@@ -94,21 +91,15 @@ export default function Testimonials() {
                       <p>{t.genre}</p>
                     </div>
                     <div className="review-detail">
-                      <h4>Published</h4>
+                      <h4>Books Published</h4>
                       <p>{t.published}</p>
                     </div>
-                    <a
-                      href={t.amazonUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="review-author-link"
-                      aria-label={`More about ${t.name}`}
-                    >
-                      More About Author
-                      <span>
-                        <ArrowRight aria-hidden="true" size={18} />
+                    <span className="review-verified-tag">
+                      <span aria-hidden="true">
+                        <ArrowRight size={16} />
                       </span>
-                    </a>
+                      Verified review
+                    </span>
                   </div>
                 </div>
               </div>

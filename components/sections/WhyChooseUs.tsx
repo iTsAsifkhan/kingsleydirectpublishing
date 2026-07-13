@@ -15,7 +15,6 @@ export default function WhyChooseUs() {
       <Container>
         <div className="index-wrap-2-grid">
           <div className="index-wrap-2-media-wrap">
-            <span className="index-wrap-2-star rotation" aria-hidden="true" />
             <div className="index-wrap-2-placeholder">
               <Image
                 src="/images/wrap-2-img.webp"

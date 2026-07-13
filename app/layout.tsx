@@ -6,6 +6,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
+import FooterReveal from '@/components/FooterReveal'
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -75,6 +76,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <ScrollReveal />
+        <FooterReveal />
       </body>
     </html>
   )
