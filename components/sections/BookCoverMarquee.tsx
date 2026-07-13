@@ -27,10 +27,10 @@ const portfolioBooks: BookCover[] = Array.from({ length: 34 }, (_, index) => {
   const coverNumber = index + 1
 
   return {
-    id: `patrick-white-${coverNumber}`,
+    id: `showcase-${coverNumber}`,
     title: 'Portfolio',
     category: 'Book Cover',
-    image: `/images/Patrickwhitepublishing (${coverNumber}).webp`,
+    image: `/images/showcase-cover (${coverNumber}).webp`,
   }
 })
 

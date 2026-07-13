@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service) return {}
 
   const title = `${service.title} Services`
-  const url = `https://patrickwhitepublishing.com/services/${service.slug}`
+  const url = `https://kingsleydirectpublishing.com/services/${service.slug}`
 
   return {
     title,
@@ -84,7 +84,7 @@ export default async function ServicePage({ params }: Props) {
   const schema = serviceSchema({
     name: `${service.title} Services`,
     description: service.shortDescription,
-    url: `https://patrickwhitepublishing.com/services/${service.slug}`,
+    url: `https://kingsleydirectpublishing.com/services/${service.slug}`,
   })
 
   return (
@@ -101,7 +101,7 @@ export default async function ServicePage({ params }: Props) {
           <div className="service-hero-inner">
             <div className="service-hero-content">
               <span className="index-banner-sub-heading service-kicker d-inline-flex align-items-center fw-600 text-white">
-                Patrick White Publishing
+                Kingsley Direct Publishing
                 {Icon && <Icon size={20} strokeWidth={1.7} aria-hidden="true" />}
               </span>
               <h1 className="service-hero-title fw-700">
@@ -271,7 +271,7 @@ export default async function ServicePage({ params }: Props) {
                 Get A Free Quote
               </Button>
               <a
-                href="tel:+61485976735"
+                href="tel:+442079460000"
                 className="anchor-number-cta align-items-center d-inline-flex"
               >
                 <span className="span-1">
@@ -279,7 +279,7 @@ export default async function ServicePage({ params }: Props) {
                 </span>
                 <span className="span-2 fw-600 clr-1 d-inline-block">
                   Call Now <br />
-                  <b className="text-white">+61 485 976 735</b>
+                  <b className="text-white">+44 20 7946 0000</b>
                 </span>
               </a>
               <Link href="/" className="service-all-services-link">

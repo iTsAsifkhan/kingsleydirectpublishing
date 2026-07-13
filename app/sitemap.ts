@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { services } from '@/lib/content'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://patrickwhitepublishing.com'
+  const baseUrl = 'https://kingsleydirectpublishing.com'
 
   const staticPages: MetadataRoute.Sitemap = [
     {

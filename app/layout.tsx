@@ -20,42 +20,42 @@ const notoSans = Noto_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://patrickwhitepublishing.com'),
+  metadataBase: new URL('https://kingsleydirectpublishing.com'),
   icons: {
     icon: '/favicon.svg',
   },
   title: {
-    default: 'Patrick White Publishing | Professional Book Publishing Services',
-    template: '%s | Patrick White Publishing',
+    default: 'Kingsley Direct Publishing | Professional Book Publishing Services',
+    template: '%s | Kingsley Direct Publishing',
   },
   description:
-    'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    'Kingsley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://patrickwhitepublishing.com',
-    siteName: 'Patrick White Publishing',
-    title: 'Patrick White Publishing | Professional Book Publishing Services',
+    url: 'https://kingsleydirectpublishing.com',
+    siteName: 'Kingsley Direct Publishing',
+    title: 'Kingsley Direct Publishing | Professional Book Publishing Services',
     description:
-      'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+      'Kingsley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
     images: [
       {
-        url: 'https://patrickwhitepublishing.com/og-image.png',
+        url: 'https://kingsleydirectpublishing.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Patrick White Publishing',
+        alt: 'Kingsley Direct Publishing',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Patrick White Publishing | Professional Book Publishing Services',
+    title: 'Kingsley Direct Publishing | Professional Book Publishing Services',
     description:
-      'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
-    images: ['https://patrickwhitepublishing.com/og-image.png'],
+      'Kingsley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    images: ['https://kingsleydirectpublishing.com/og-image.png'],
   },
   alternates: {
-    canonical: 'https://patrickwhitepublishing.com',
+    canonical: 'https://kingsleydirectpublishing.com',
   },
 }
 

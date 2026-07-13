@@ -127,14 +127,14 @@ export default function Portfolio() {
           </Button>
           <a
             className="anchor-number-cta align-items-center d-inline-flex"
-            href="tel:+61485976735"
+            href="tel:+442079460000"
           >
             <span className="span-1">
               <PhoneCall aria-hidden="true" className="clr-1" size={16} />
             </span>
             <span className="span-2 fw-600 clr-1 d-inline-block">
               Call Now <br />
-              <b className="text-white">+61 485 976 735</b>
+              <b className="text-white">+44 20 7946 0000</b>
             </span>
           </a>
         </div>

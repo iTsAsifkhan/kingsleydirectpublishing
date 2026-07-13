@@ -352,7 +352,7 @@ export const services: Service[] = [
 export const faqs: FAQ[] = [
   {
     id: '1',
-    question: 'What publishing services does Patrick White Publishing offer?',
+    question: 'What publishing services does Kingsley Direct Publishing offer?',
     answer:
       'We support authors with manuscript review, editing, design, formatting, publishing setup, distribution guidance, and marketing support.',
   },
@@ -412,51 +412,52 @@ export const faqs: FAQ[] = [
   },
 ]
 
-// Testimonials data — real client reviews
+// Testimonials — DUMMY placeholder reviews. Replace with real Kingsley Direct
+// Publishing client testimonials (and their book covers) before launch.
 export const testimonials: Testimonial[] = [
   {
     id: '1',
-    name: 'Esabelle Flynn',
-    genre: 'Children',
-    published: '06+',
+    name: 'Sarah Bennett',
+    genre: "Children's",
+    published: '03+',
     quote:
-      "My first children’s book “Violet and Jo” is just now on Amazon and in Kindle form. My second one is currently being illustrated “Violet and Jo — All aboard”. The Patrick White staff have been encouraging and responsive to changes in pictures. For their whole process it is a big financial outlay, but I am hopeful their marketing will bring results.",
-    amazonUrl: 'https://a.co/d/0eIY8UgT',
+      'From my first rough draft to a finished book, the Kingsley Direct Publishing team guided me at every step. The editing was thorough and the cover design went beyond what I imagined. I could not be happier with the result.',
+    amazonUrl: 'https://www.amazon.co.uk',
     photo: '/images/wrap-2-img.webp',
-    bookCover: '/images/violet and jo.webp',
+    bookCover: '/images/3d-book-cover (1).webp',
   },
   {
     id: '2',
-    name: 'Cornelis Pepsee',
-    genre: 'Adventure',
-    published: '07+',
+    name: 'James Whitfield',
+    genre: 'Fiction',
+    published: '02+',
     quote:
-      "I would like to share my review of Patrick White Publishing. I was initially proud of my front cover design, but after Roy Wilson showed me their incredible work, I was truly impressed. The cover speaks volumes and transcends language barriers. From the beginning, I’ve been very pleased with how the front cover of my book was designed and how the process was handled. I recommend Patrick White Publishing and encourage others to give their project coordinator Roy Wilson an opportunity to showcase his talent.",
-    amazonUrl: 'https://a.co/d/09HD02Ya',
+      'A genuinely professional experience from start to finish. Clear communication, a beautiful layout, and my book was published on time. I would recommend Kingsley Direct Publishing to any first-time author.',
+    amazonUrl: 'https://www.amazon.co.uk',
     photo: '/images/wrap-2-img.webp',
-    bookCover: '/images/rangers on patrol.webp',
+    bookCover: '/images/3d-book-cover (2).webp',
   },
   {
     id: '3',
-    name: 'Charlie',
-    genre: 'Children',
-    published: '05+',
+    name: 'Aisha Khan',
+    genre: 'Non-Fiction',
+    published: '04+',
     quote:
-      "Loved the response and the way the drawings evolved to match the text. Very professional and driving gently to the end to get the book published. Much looking forward to the next one.",
-    amazonUrl: 'https://a.co/d/gVPN9Yi',
+      'They took the stress out of publishing. The team was responsive, patient with my revisions, and delivered a polished book I am proud to share. Wonderful support throughout the whole journey.',
+    amazonUrl: 'https://www.amazon.co.uk',
     photo: '/images/wrap-2-img.webp',
-    bookCover: '/images/book1.webp',
+    bookCover: '/images/3d-book-cover (3).webp',
   },
   {
     id: '4',
-    name: 'Benjamin Sam',
-    genre: 'Drama',
-    published: '04+',
+    name: 'Daniel Rowe',
+    genre: 'Fantasy',
+    published: '01+',
     quote:
-      "Working with Patrick White Publishing has been a wonderful experience. They have been incredibly supportive in helping me bring my book to life. Roy has been especially helpful throughout the journey, always available to answer my questions and guide me every step of the way. I am so glad I chose Roy for this project and truly appreciate the illustration support and overall assistance provided.",
-    amazonUrl: 'https://amzn.asia/d/0iNdmbht',
+      'Publishing my book felt daunting until I worked with Kingsley Direct Publishing. Their design and marketing help made all the difference, and the whole process was smooth and transparent.',
+    amazonUrl: 'https://www.amazon.co.uk',
     photo: '/images/wrap-2-img.webp',
-    bookCover: '/images/epileptic girl.webp',
+    bookCover: '/images/3d-book-cover (4).webp',
   },
 ]
 

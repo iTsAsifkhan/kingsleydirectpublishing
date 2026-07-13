@@ -15,33 +15,33 @@ import {
 import { organizationSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Patrick White Publishing | Professional Book Publishing Services',
+  title: 'Kingsley Direct Publishing | Professional Book Publishing Services',
   description:
-    'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    'Kingsley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
   alternates: {
-    canonical: 'https://patrickwhitepublishing.com',
+    canonical: 'https://kingsleydirectpublishing.com',
   },
   openGraph: {
-    title: 'Patrick White Publishing | Professional Book Publishing Services',
+    title: 'Kingsley Direct Publishing | Professional Book Publishing Services',
     description:
-      'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
-    url: 'https://patrickwhitepublishing.com',
+      'Kingsley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    url: 'https://kingsleydirectpublishing.com',
     type: 'website',
     images: [
       {
-        url: 'https://patrickwhitepublishing.com/og-image.png',
+        url: 'https://kingsleydirectpublishing.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Patrick White Publishing professional book publishing services',
+        alt: 'Kingsley Direct Publishing professional book publishing services',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Patrick White Publishing | Professional Book Publishing Services',
+    title: 'Kingsley Direct Publishing | Professional Book Publishing Services',
     description:
-      'Patrick White Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
-    images: ['https://patrickwhitepublishing.com/og-image.png'],
+      'Kingsley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
+    images: ['https://kingsleydirectpublishing.com/og-image.png'],
   },
 }
 
@@ -49,8 +49,8 @@ export default function Home() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Patrick White Publishing',
-    url: 'https://patrickwhitepublishing.com',
+    name: 'Kingsley Direct Publishing',
+    url: 'https://kingsleydirectpublishing.com',
   }
 
   return (

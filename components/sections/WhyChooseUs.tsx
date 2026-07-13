@@ -28,13 +28,13 @@ export default function WhyChooseUs() {
           </div>
 
           <div className="index-wrap-2-content">
-            <span className="span-tag-border">About Patrick White Publishing</span>
+            <span className="span-tag-border">About Kingsley Direct Publishing</span>
             <h2 className="mb-0 font-700">
               Why Authors Choose{' '}
-              <span className="clr-1">Patrick White Publishing</span>
+              <span className="clr-1">Kingsley Direct Publishing</span>
             </h2>
             <p className="mb-0">
-              Publish and sell your book worldwide with Patrick White Publishing.
+              Publish and sell your book worldwide with Kingsley Direct Publishing.
               Get professional services like formatting, custom cover design,
               and Amazon marketing. Set your pricing, earn high royalties, and
               maintain full creative control.

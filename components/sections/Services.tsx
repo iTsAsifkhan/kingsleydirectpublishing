@@ -21,7 +21,7 @@ export default function Services() {
             </h2>
           </div>
           <p className="mb-0">
-            At Patrick White Publishing, we help aspiring authors self-publish
+            At Kingsley Direct Publishing, we help aspiring authors self-publish
             effortlessly. With professional editing, formatting, cover design,
             and global distribution, we make your publishing journey simple and
             successful.

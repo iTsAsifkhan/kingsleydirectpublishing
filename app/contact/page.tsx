@@ -17,22 +17,22 @@ import FAQ from '@/components/sections/FAQ'
 import { organizationSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Contact Patrick White Publishing | Author Support',
+  title: 'Contact Kingsley Direct Publishing | Author Support',
   description:
-    'Contact Patrick White Publishing for book publishing, editing, design, ghostwriting, and marketing support. Speak with our author services team today.',
-  alternates: { canonical: 'https://patrickwhitepublishing.com/contact' },
+    'Contact Kingsley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support. Speak with our author services team today.',
+  alternates: { canonical: 'https://kingsleydirectpublishing.com/contact' },
   openGraph: {
-    title: 'Contact Patrick White Publishing | Author Support',
+    title: 'Contact Kingsley Direct Publishing | Author Support',
     description:
-      'Contact Patrick White Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
-    url: 'https://patrickwhitepublishing.com/contact',
+      'Contact Kingsley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
+    url: 'https://kingsleydirectpublishing.com/contact',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Patrick White Publishing | Author Support',
+    title: 'Contact Kingsley Direct Publishing | Author Support',
     description:
-      'Contact Patrick White Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
+      'Contact Kingsley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
   },
 }
 
@@ -40,26 +40,20 @@ const CONTACT_DETAILS = [
   {
     icon: Phone,
     label: 'Call Us',
-    value: '+61 485 976 735',
-    href: 'tel:+61485976735',
+    value: '+44 20 7946 0000',
+    href: 'tel:+442079460000',
   },
   {
     icon: Mail,
     label: 'Email Us',
-    value: 'info@patrickwhitepublishing.com',
-    href: 'mailto:info@patrickwhitepublishing.com',
+    value: 'info@kingsleydirectpublishing.com',
+    href: 'mailto:info@kingsleydirectpublishing.com',
   },
   {
     icon: MapPin,
-    label: 'Hobart Office',
-    value: '2nd Floor, 118 Liverpool Street, Hobart, TAS 7000',
-    href: 'https://www.google.com/maps/search/?api=1&query=2nd%20Floor%20118%20Liverpool%20Street%20Hobart%20TAS%207000',
-  },
-  {
-    icon: MapPin,
-    label: 'Alexandria Office',
-    value: 'Unit A1/35-39 Bourk Road, Alexandria, NSW 2015',
-    href: 'https://www.google.com/maps/search/?api=1&query=Unit%20A1%2F35-39%20Bourk%20Road%20Alexandria%20NSW%202015',
+    label: 'Registered Office',
+    value: 'United Kingdom — address to be confirmed',
+    href: 'https://www.google.com/maps/search/?api=1&query=United%20Kingdom',
   },
 ]
 
@@ -84,8 +78,8 @@ const SUPPORT_STEPS = [
 const contactPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Contact Patrick White Publishing',
-  url: 'https://patrickwhitepublishing.com/contact',
+  name: 'Contact Kingsley Direct Publishing',
+  url: 'https://kingsleydirectpublishing.com/contact',
   mainEntity: organizationSchema(),
 }
 
@@ -122,14 +116,14 @@ export default function ContactPage() {
               </h1>
               <p className="contact-hero-desc">
                 Whether you need ghostwriting, editing, cover design, publishing
-                setup, or marketing support, Patrick White Publishing is ready to
+                setup, or marketing support, Kingsley Direct Publishing is ready to
                 help you move from manuscript to market with confidence.
               </p>
               <div className="service-hero-ctas">
-                <Button variant="yellow" href="tel:+61485976735" icon={Phone}>
+                <Button variant="yellow" href="tel:+442079460000" icon={Phone}>
                   Call Now
                 </Button>
-                <Button variant="blue" href="mailto:info@patrickwhitepublishing.com" icon={Mail}>
+                <Button variant="blue" href="mailto:info@kingsleydirectpublishing.com" icon={Mail}>
                   Email Us
                 </Button>
               </div>

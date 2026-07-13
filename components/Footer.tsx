@@ -8,9 +8,9 @@ import {
 } from '@/components/icons/SocialIcons'
 
 const SOCIAL = [
-  { href: 'https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/', icon: FacebookIcon, label: 'Facebook' },
-  { href: 'https://www.instagram.com/patrickwhitepublishinghouse/', icon: InstagramIcon, label: 'Instagram' },
-  { href: 'https://wa.link/q4xswu', icon: WhatsAppIcon, label: 'WhatsApp' },
+  { href: 'https://facebook.com/', icon: FacebookIcon, label: 'Facebook' },
+  { href: 'https://instagram.com/', icon: InstagramIcon, label: 'Instagram' },
+  { href: 'https://wa.me/442079460000', icon: WhatsAppIcon, label: 'WhatsApp' },
 ]
 
 const QUICK_LINKS = [
@@ -50,17 +50,13 @@ export default function Footer() {
         <div className="footer-main">
           {/* Brand column */}
           <div className="footer-brand">
-            <Link href="/" className="footer-logo-link" aria-label="Patrick White Publishing home">
-              <Image
-                src="/images/Patrick-White-Publishing-logo.webp"
-                alt="Patrick White Publishing"
-                width={240}
-                height={93}
-                className="footer-logo-image"
-              />
+            {/* TODO: replace this text wordmark with the real Kingsley Direct Publishing logo image */}
+            <Link href="/" className="footer-logo-link brand-wordmark brand-wordmark-light" aria-label="Kingsley Direct Publishing home">
+              <span className="brand-wordmark-name">Kingsley</span>
+              <span className="brand-wordmark-sub">Direct Publishing</span>
             </Link>
             <p className="footer-brand-desc">
-              Patrick White Publishing is a professional publishing agency known for providing
+              Kingsley Direct Publishing is a professional publishing agency known for providing
               top-tier book writing, editing, design, and marketing services.
             </p>
             <ul className="social-links" aria-label="Social media links">
@@ -113,7 +109,7 @@ export default function Footer() {
 
         {/* Copyright bar */}
         <div className="copyright-div">
-          <p className="fw-500 mb-0">Copyright &copy; 2026 Patrick White Publishing. ABN 47 088 124 305</p>
+          <p className="fw-500 mb-0">Copyright &copy; 2026 Kingsley Direct Publishing. Registered in England & Wales · Company No. (TBD)</p>
           <Image
             src="/images/payment.webp"
             alt="Accepted payment methods"

@@ -6,13 +6,13 @@ import { Button, Container } from '@/components/ui'
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description:
-    'Read the Patrick White Publishing terms of service for website use, publishing services, payments, project materials, and client responsibilities.',
-  alternates: { canonical: 'https://patrickwhitepublishing.com/terms-conditions' },
+    'Read the Kingsley Direct Publishing terms of service for website use, publishing services, payments, project materials, and client responsibilities.',
+  alternates: { canonical: 'https://kingsleydirectpublishing.com/terms-conditions' },
   openGraph: {
-    title: 'Terms of Service | Patrick White Publishing',
+    title: 'Terms of Service | Kingsley Direct Publishing',
     description:
-      'Read the Patrick White Publishing terms of service for website use and publishing service engagements.',
-    url: 'https://patrickwhitepublishing.com/terms-conditions',
+      'Read the Kingsley Direct Publishing terms of service for website use and publishing service engagements.',
+    url: 'https://kingsleydirectpublishing.com/terms-conditions',
     type: 'website',
   },
 }
@@ -75,7 +75,7 @@ const TERMS_SECTIONS = [
   {
     title: 'Limitation Of Liability',
     body: [
-      'To the extent permitted by law, Patrick White Publishing is not liable for indirect, incidental, consequential, or loss-of-profit damages arising from website use or services. Our liability for a paid service is limited to the amount paid for that service, except where the law does not permit such limitation.',
+      'To the extent permitted by law, Kingsley Direct Publishing is not liable for indirect, incidental, consequential, or loss-of-profit damages arising from website use or services. Our liability for a paid service is limited to the amount paid for that service, except where the law does not permit such limitation.',
     ],
   },
   {
@@ -109,7 +109,7 @@ export default function TermsConditionsPage() {
             <p className="legal-hero-desc">
               These terms explain how our website and publishing services may be
               used, how project work is managed, and what clients can expect when
-              working with Patrick White Publishing.
+              working with Kingsley Direct Publishing.
             </p>
             <p className="legal-updated mb-0">Last updated: May 14, 2026</p>
           </div>
@@ -123,7 +123,7 @@ export default function TermsConditionsPage() {
               <h2>Agreement To These Terms</h2>
               <p>
                 By using this website, contacting us, requesting a quote, or
-                purchasing services from Patrick White Publishing, you agree to
+                purchasing services from Kingsley Direct Publishing, you agree to
                 these Terms of Service and any written service agreement or quote
                 that applies to your project.
               </p>
@@ -142,11 +142,11 @@ export default function TermsConditionsPage() {
               <h2>Contact Us</h2>
               <p>
                 Questions about these terms can be sent to{' '}
-                <a href="mailto:info@patrickwhitepublishing.com">
-                  info@patrickwhitepublishing.com
+                <a href="mailto:info@kingsleydirectpublishing.com">
+                  info@kingsleydirectpublishing.com
                 </a>{' '}
                 or discussed by calling{' '}
-                <a href="tel:+61485976735">+61 485 976 735</a>.
+                <a href="tel:+442079460000">+44 20 7946 0000</a>.
               </p>
             </section>
 

@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Mail, MessageCircle, Phone } from 'lucide-react'
 import { Container } from '@/components/ui'
@@ -13,9 +12,9 @@ import {
 } from '@/components/icons/SocialIcons'
 
 const SOCIAL = [
-  { href: 'https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/', icon: FacebookIcon, label: 'Facebook' },
-  { href: 'https://www.instagram.com/patrickwhitepublishinghouse/', icon: InstagramIcon, label: 'Instagram' },
-  { href: 'https://wa.link/q4xswu', icon: WhatsAppIcon, label: 'WhatsApp' },
+  { href: 'https://facebook.com/', icon: FacebookIcon, label: 'Facebook' },
+  { href: 'https://instagram.com/', icon: InstagramIcon, label: 'Instagram' },
+  { href: 'https://wa.me/442079460000', icon: WhatsAppIcon, label: 'WhatsApp' },
 ]
 
 export const NAV = [
@@ -103,15 +102,15 @@ export default function Header() {
 
             <ul className="header-top-number-ul" aria-label="Contact information">
               <li>
-                <a href="tel:+61485976735" className="header-contact-link">
+                <a href="tel:+442079460000" className="header-contact-link">
                   <Phone size={14} className="clr-1" aria-hidden="true" />
-                  +61 485 976 735
+                  +44 20 7946 0000
                 </a>
               </li>
               <li>
-                <a href="mailto:info@patrickwhitepublishing.com" className="header-contact-link">
+                <a href="mailto:info@kingsleydirectpublishing.com" className="header-contact-link">
                   <Mail size={14} className="clr-1" aria-hidden="true" />
-                  info@patrickwhitepublishing.com
+                  info@kingsleydirectpublishing.com
                 </a>
               </li>
               <li>
@@ -128,15 +127,10 @@ export default function Header() {
       {/* Bottom bar — logo + desktop nav + mobile hamburger */}
       <Container>
         <div className="header-bottom-bar">
-          <Link href="/" className="header-logo" aria-label="Patrick White Publishing home">
-            <Image
-              src="/images/Patrick-White-Publishing-logo.webp"
-              alt="Patrick White Publishing"
-              width={220}
-              height={85}
-              priority
-              className="header-logo-image"
-            />
+          {/* TODO: replace this text wordmark with the real Kingsley Direct Publishing logo image */}
+          <Link href="/" className="header-logo brand-wordmark" aria-label="Kingsley Direct Publishing home">
+            <span className="brand-wordmark-name">Kingsley</span>
+            <span className="brand-wordmark-sub">Direct Publishing</span>
           </Link>
 
           {/* Desktop nav */}

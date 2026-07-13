@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-yellow: #C7A45A;
-  --color-brand-yellow-dark: #8E6F2E;
-  --color-brand-gold: #EAD8AA;
+  --color-brand-yellow: #0ea5a0;
+  --color-brand-yellow-dark: #0b7d77;
+  --color-brand-gold: #7fd8d2;
   --color-brand-navy: #003060;
   --color-brand-ink: #0D0D0D;
   --color-brand-gray-1: #343434;
@@ -16,9 +16,9 @@
 }
 
 :root {
-  --brand-yellow: #C7A45A;
-  --brand-yellow-dark: #8E6F2E;
-  --brand-gold: #EAD8AA;
+  --brand-yellow: #0ea5a0;
+  --brand-yellow-dark: #0b7d77;
+  --brand-gold: #7fd8d2;
   --brand-navy: #003060;
   --brand-ink: #0D0D0D;
   --brand-gray-1: #343434;
@@ -339,7 +339,7 @@ button::before {
   width: 100%;
   height: calc(100% + 420px);
   background:
-    radial-gradient(circle at 78% 28%, rgb(199 164 90 / 32%), transparent 24%),
+    radial-gradient(circle at 78% 28%, rgb(14 165 160 / 32%), transparent 24%),
     radial-gradient(circle at 8% 18%, rgba(0, 48, 96, 0.08), transparent 25%),
     linear-gradient(110deg, #F5F8FC 0%, #F5F8FC 52%, #E8F1FA 52%, #F1F6FB 100%);
   background-position: center;
@@ -405,7 +405,7 @@ p.p-head {
   height: 365px;
   border-radius: 50%;
   background: var(--brand-yellow);
-  box-shadow: 0 0 42px rgb(199 164 90 / 45%);
+  box-shadow: 0 0 42px rgb(14 165 160 / 45%);
   z-index: -1;
 }
 
@@ -603,15 +603,15 @@ p.p-head {
   border: 0;
   border-radius: 50%;
   color: #ffffff;
-  background: linear-gradient(180deg, rgba(199, 164, 90, 1) 0%, rgba(142, 111, 46, 1) 100%);
-  box-shadow: 0 22px 55px rgb(199 164 90 / 28%);
+  background: linear-gradient(180deg, rgba(14, 165, 160, 1) 0%, rgba(11, 125, 119, 1) 100%);
+  box-shadow: 0 22px 55px rgb(14 165 160 / 28%);
   transition: 0.6s cubic-bezier(0.615, 0, 0.07, 1);
 }
 
 .section2 .container-box .circle:hover,
 .section2 .container-box .circle:focus-visible {
   transform: translateY(-3px);
-  box-shadow: 0 24px 60px rgb(199 164 90 / 34%);
+  box-shadow: 0 24px 60px rgb(14 165 160 / 34%);
 }
 
 .section2 .container-box .circle::before {
@@ -715,7 +715,7 @@ p.p-head {
 
 .book-cover-3d {
   background:
-    radial-gradient(circle at 50% 42%, rgb(255 255 255 / 88%) 0 38%, rgb(199 164 90 / 18%) 39% 68%, rgb(243 240 232) 69%);
+    radial-gradient(circle at 50% 42%, rgb(255 255 255 / 88%) 0 38%, rgb(14 165 160 / 18%) 39% 68%, rgb(243 240 232) 69%);
 }
 
 .book-cover-3d .book-cover-image {
@@ -782,7 +782,7 @@ p.p-head {
 .index-wrap-2 {
   padding: 90px 0 190px;
   background:
-    radial-gradient(circle at 18% 20%, rgb(199 164 90 / 14%), transparent 24%),
+    radial-gradient(circle at 18% 20%, rgb(14 165 160 / 14%), transparent 24%),
     linear-gradient(180deg, #F1F6FB 0%, #ffffff 100%);
   background-position: bottom;
   background-repeat: no-repeat;
@@ -1018,7 +1018,7 @@ p.p-head {
   overflow: clip;
   padding: 10rem 0 5rem;
   background:
-    radial-gradient(circle at 90% 10%, rgb(199 164 90 / 14%), transparent 28%),
+    radial-gradient(circle at 90% 10%, rgb(14 165 160 / 14%), transparent 28%),
     radial-gradient(circle at 10% 74%, rgb(0 48 96 / 8%), transparent 22%),
     #ffffff;
 }
@@ -1129,7 +1129,7 @@ p.p-head {
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(199 164 90 / 22%), transparent 67%);
+  background: radial-gradient(circle, rgb(14 165 160 / 22%), transparent 67%);
   pointer-events: none;
 }
 
@@ -1211,7 +1211,7 @@ p.p-head {
   height: 100%;
   border-radius: 0 400px 400px 0;
   background:
-    radial-gradient(circle at 77% 46%, rgb(199 164 90 / 12%), transparent 31%),
+    radial-gradient(circle at 77% 46%, rgb(14 165 160 / 12%), transparent 31%),
     linear-gradient(135deg, var(--brand-navy) 0%, #003D75 100%);
   background-attachment: fixed;
   background-position: center;
@@ -1416,7 +1416,7 @@ p.p-head {
   width: 360px;
   height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(199 164 90 / 24%), transparent 68%);
+  background: radial-gradient(circle, rgb(14 165 160 / 24%), transparent 68%);
   pointer-events: none;
 }
 
@@ -1450,7 +1450,7 @@ p.p-head {
   overflow: clip;
   padding: 6rem 0 8rem;
   background:
-    radial-gradient(circle at 90% 2%, rgb(199 164 90 / 10%), transparent 24%),
+    radial-gradient(circle at 90% 2%, rgb(14 165 160 / 10%), transparent 24%),
     radial-gradient(circle at 8% 92%, rgb(0 48 96 / 7%), transparent 26%),
     linear-gradient(180deg, #ffffff 0%, #F1F6FB 100%);
 }
@@ -1516,7 +1516,7 @@ p.p-head {
   justify-content: center;
   overflow: hidden;
   background:
-    radial-gradient(circle at 78% 24%, rgb(199 164 90 / 34%), transparent 20%),
+    radial-gradient(circle at 78% 24%, rgb(14 165 160 / 34%), transparent 20%),
     linear-gradient(135deg, #ffffff 0%, #EEF4FA 100%);
 }
 
@@ -1609,7 +1609,7 @@ p.p-head {
 
 .process-item-2 .process-visual {
   background:
-    radial-gradient(circle at 30% 22%, rgb(199 164 90 / 30%), transparent 20%),
+    radial-gradient(circle at 30% 22%, rgb(14 165 160 / 30%), transparent 20%),
     linear-gradient(135deg, #F1F6FB 0%, #ffffff 100%);
 }
 
@@ -1621,13 +1621,13 @@ p.p-head {
 
 .process-item-4 .process-visual {
   background:
-    radial-gradient(circle at 18% 70%, rgb(199 164 90 / 30%), transparent 24%),
+    radial-gradient(circle at 18% 70%, rgb(14 165 160 / 30%), transparent 24%),
     linear-gradient(135deg, #ffffff 0%, #F1F6FB 100%);
 }
 
 .process-item-5 .process-visual {
   background:
-    radial-gradient(circle at 74% 28%, rgb(199 164 90 / 27%), transparent 21%),
+    radial-gradient(circle at 74% 28%, rgb(14 165 160 / 27%), transparent 21%),
     linear-gradient(135deg, #EEF4FA 0%, #ffffff 100%);
 }
 
@@ -1702,7 +1702,7 @@ p.p-head {
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(199 164 90 / 20%), transparent 67%);
+  background: radial-gradient(circle, rgb(14 165 160 / 20%), transparent 67%);
   pointer-events: none;
 }
 
@@ -2144,7 +2144,7 @@ p.p-head {
   transform: translateY(-10px);
   box-shadow:
     0 18px 48px rgba(0, 0, 0, 0.3),
-    0 0 0 2px rgba(199, 164, 90, 0.82);
+    0 0 0 2px rgba(14, 165, 160, 0.82);
 }
 
 .portfolio-item::after {
@@ -2155,7 +2155,7 @@ p.p-head {
   border-radius: inherit;
   background:
     linear-gradient(180deg, transparent 54%, rgba(0, 48, 96, 0.26) 100%),
-    rgba(199, 164, 90, 0);
+    rgba(14, 165, 160, 0);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -2251,13 +2251,13 @@ p.p-head {
 .index-wrap-6-shade-1 {
   right: -20%;
   top: -20%;
-  background: radial-gradient(circle, rgba(199, 164, 90, 0.07), transparent 67%);
+  background: radial-gradient(circle, rgba(14, 165, 160, 0.07), transparent 67%);
 }
 
 .index-wrap-6-shade-2 {
   left: -20%;
   bottom: -20%;
-  background: radial-gradient(circle, rgba(199, 164, 90, 0.05), transparent 67%);
+  background: radial-gradient(circle, rgba(14, 165, 160, 0.05), transparent 67%);
 }
 
 .index-wrap-6-star-1,
@@ -2417,7 +2417,7 @@ p.p-head {
   overflow: clip;
   padding: 90px 0 70px;
   background:
-    radial-gradient(circle at 92% 14%, rgb(199 164 90 / 30%), transparent 12%),
+    radial-gradient(circle at 92% 14%, rgb(14 165 160 / 30%), transparent 12%),
     linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
 }
 
@@ -2783,7 +2783,7 @@ p.p-head {
 .index-wrap-8 {
   padding: 90px 0 230px;
   background:
-    radial-gradient(circle at 8% 60%, rgb(199 164 90 / 10%), transparent 30%),
+    radial-gradient(circle at 8% 60%, rgb(14 165 160 / 10%), transparent 30%),
     linear-gradient(180deg, #ffffff 0%, #F6FAFD 50%, #F1F6FB 100%);
   background-position: center;
   background-repeat: no-repeat;
@@ -2975,8 +2975,8 @@ details[open] .faq-icon::after {
   position: relative;
   overflow: clip;
   background:
-    radial-gradient(circle at 10% 58%, rgb(199 164 90 / 14%), transparent 24%),
-    radial-gradient(circle at 92% 18%, rgb(199 164 90 / 12%), transparent 22%),
+    radial-gradient(circle at 10% 58%, rgb(14 165 160 / 14%), transparent 24%),
+    radial-gradient(circle at 92% 18%, rgb(14 165 160 / 12%), transparent 22%),
     linear-gradient(180deg, #ffffff 0%, #F1F6FB 100%);
 }
 
@@ -2987,7 +2987,7 @@ details[open] .faq-icon::after {
   left: -12%;
   height: 360px;
   border-radius: 50% 50% 0 0;
-  background: radial-gradient(ellipse at center, rgb(199 164 90 / 28%), transparent 68%);
+  background: radial-gradient(ellipse at center, rgb(14 165 160 / 28%), transparent 68%);
   pointer-events: none;
 }
 
@@ -3763,7 +3763,7 @@ details[open] .faq-icon::after {
   padding: 13rem 0 6rem;
   overflow: clip;
   background:
-    radial-gradient(circle at 80% 20%, rgb(199 164 90 / 18%), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgb(14 165 160 / 18%), transparent 28%),
     linear-gradient(135deg, #F1F6FB 0%, #ffffff 60%, #E6F0FA 100%);
 }
 
@@ -3812,7 +3812,7 @@ details[open] .faq-icon::after {
   border-radius: 50%;
   background: linear-gradient(135deg, var(--brand-navy) 0%, #003D75 100%);
   color: var(--brand-yellow);
-  box-shadow: 0 0 42px rgb(199 164 90 / 28%);
+  box-shadow: 0 0 42px rgb(14 165 160 / 28%);
 }
 
 /* About / long description */
@@ -3881,7 +3881,7 @@ details[open] .faq-icon::after {
 .service-process-section {
   padding: 90px 0;
   background:
-    radial-gradient(circle at 10% 50%, rgb(199 164 90 / 10%), transparent 30%),
+    radial-gradient(circle at 10% 50%, rgb(14 165 160 / 10%), transparent 30%),
     linear-gradient(180deg, #F6FAFD 0%, #ffffff 100%);
 }
 
@@ -3980,7 +3980,7 @@ details[open] .faq-icon::after {
 .service-hero {
   padding: 13rem 0 7rem;
   background:
-    radial-gradient(circle at 78% 28%, rgb(199 164 90 / 32%), transparent 24%),
+    radial-gradient(circle at 78% 28%, rgb(14 165 160 / 32%), transparent 24%),
     linear-gradient(110deg, #F5F8FC 0%, #F5F8FC 52%, #E8F1FA 52%, #F1F6FB 100%);
 }
 
@@ -3992,7 +3992,7 @@ details[open] .faq-icon::after {
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(199 164 90 / 22%), transparent 66%);
+  background: radial-gradient(circle, rgb(14 165 160 / 22%), transparent 66%);
   pointer-events: none;
 }
 
@@ -4049,7 +4049,7 @@ details[open] .faq-icon::after {
   height: 365px;
   border-radius: 50%;
   background: var(--brand-yellow);
-  box-shadow: 0 0 42px rgb(199 164 90 / 45%);
+  box-shadow: 0 0 42px rgb(14 165 160 / 45%);
   z-index: -1;
 }
 
@@ -4221,7 +4221,7 @@ details[open] .faq-icon::after {
   min-height: 430px;
   border-radius: 24px;
   background:
-    radial-gradient(circle at 78% 22%, rgb(199 164 90 / 20%), transparent 32%),
+    radial-gradient(circle at 78% 22%, rgb(14 165 160 / 20%), transparent 32%),
     #F1F6FB;
   box-shadow: 0 13px 37px rgb(0 0 0 / 8%);
   overflow: hidden;
@@ -4231,7 +4231,7 @@ details[open] .faq-icon::after {
   position: relative;
   padding: 90px 0;
   background:
-    radial-gradient(circle at 8% 12%, rgb(199 164 90 / 13%), transparent 26%),
+    radial-gradient(circle at 8% 12%, rgb(14 165 160 / 13%), transparent 26%),
     linear-gradient(180deg, #F1F6FB 0%, #ffffff 100%);
 }
 
@@ -4369,7 +4369,7 @@ details[open] .faq-icon::after {
   width: 92%;
   border-radius: 0 400px 400px 0;
   background:
-    radial-gradient(circle at 78% 40%, rgb(199 164 90 / 12%), transparent 30%),
+    radial-gradient(circle at 78% 40%, rgb(14 165 160 / 12%), transparent 30%),
     var(--brand-navy);
 }
 
@@ -4530,7 +4530,7 @@ details[open] .faq-icon::after {
 
 .subservice-about {
   background:
-    radial-gradient(circle at 88% 10%, rgb(199 164 90 / 12%), transparent 25%),
+    radial-gradient(circle at 88% 10%, rgb(14 165 160 / 12%), transparent 25%),
     #ffffff;
 }
 
@@ -4546,14 +4546,14 @@ details[open] .faq-icon::after {
   content: '';
   position: absolute;
   inset: 24px;
-  border: 2px dashed rgb(199 164 90 / 55%);
+  border: 2px dashed rgb(14 165 160 / 55%);
   border-radius: 20px;
   pointer-events: none;
 }
 
 .subservice-features-section {
   background:
-    radial-gradient(circle at 12% 18%, rgb(199 164 90 / 15%), transparent 28%),
+    radial-gradient(circle at 12% 18%, rgb(14 165 160 / 15%), transparent 28%),
     linear-gradient(180deg, #F1F6FB 0%, #ffffff 100%);
 }
 
@@ -4576,7 +4576,7 @@ details[open] .faq-icon::after {
 
 .subservice-process-section {
   background:
-    radial-gradient(circle at 82% 20%, rgb(199 164 90 / 14%), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgb(14 165 160 / 14%), transparent 24%),
     var(--brand-navy);
 }
 
@@ -5093,7 +5093,7 @@ details[open] .faq-icon::after {
 .site-footer {
   position: relative;
   background:
-    radial-gradient(circle at 0% 20%, rgb(199 164 90 / 12%), transparent 24%),
+    radial-gradient(circle at 0% 20%, rgb(14 165 160 / 12%), transparent 24%),
     linear-gradient(180deg, #FAFCFE 0%, #EEF5FB 100%);
 }
 
@@ -5240,7 +5240,7 @@ details[open] .faq-icon::after {
   padding: 13rem 0 7.5rem;
   overflow: clip;
   background:
-    radial-gradient(circle at 75% 30%, rgb(199 164 90 / 14%), transparent 30%),
+    radial-gradient(circle at 75% 30%, rgb(14 165 160 / 14%), transparent 30%),
     linear-gradient(135deg, #F1F6FB 0%, #ffffff 55%, #E6F0FA 100%);
 }
 
@@ -5422,7 +5422,7 @@ details[open] .faq-icon::after {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(199 164 90 / 12%), transparent 70%);
+  background: radial-gradient(circle, rgb(14 165 160 / 12%), transparent 70%);
   pointer-events: none;
 }
 
@@ -5523,7 +5523,7 @@ details[open] .faq-icon::after {
   overflow: clip;
   padding: 13rem 0 7rem;
   background:
-    radial-gradient(circle at 78% 22%, rgb(199 164 90 / 16%), transparent 28%),
+    radial-gradient(circle at 78% 22%, rgb(14 165 160 / 16%), transparent 28%),
     linear-gradient(135deg, #F1F6FB 0%, #ffffff 56%, #E8F1FA 100%);
 }
 
@@ -5600,7 +5600,7 @@ details[open] .faq-icon::after {
 .contact-detail-card:focus {
   border-color: var(--brand-yellow);
   color: #ffffff;
-  background: rgb(199 164 90 / 12%);
+  background: rgb(14 165 160 / 12%);
   transform: translateY(-3px);
 }
 
@@ -5636,7 +5636,7 @@ details[open] .faq-icon::after {
   position: relative;
   padding: 90px 0;
   background:
-    radial-gradient(circle at 10% 18%, rgb(199 164 90 / 12%), transparent 25%),
+    radial-gradient(circle at 10% 18%, rgb(14 165 160 / 12%), transparent 25%),
     #ffffff;
 }
 
@@ -5762,7 +5762,7 @@ details[open] .faq-icon::after {
   padding: 40px 34px;
   border-radius: 20px;
   background:
-    radial-gradient(circle at 100% 0%, rgb(199 164 90 / 18%), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgb(14 165 160 / 18%), transparent 36%),
     var(--brand-navy);
   box-shadow: 0 13px 37px rgb(0 0 0 / 10%);
 }
@@ -5880,7 +5880,7 @@ details[open] .faq-icon::after {
   overflow: clip;
   padding: 15rem 0 7rem;
   background:
-    radial-gradient(circle at 78% 22%, rgb(199 164 90 / 15%), transparent 28%),
+    radial-gradient(circle at 78% 22%, rgb(14 165 160 / 15%), transparent 28%),
     linear-gradient(135deg, #F1F6FB 0%, #ffffff 56%, #E8F1FA 100%);
 }
 
@@ -5924,7 +5924,7 @@ details[open] .faq-icon::after {
 .legal-content-section {
   padding: 96px 0 120px;
   background:
-    radial-gradient(circle at 10% 18%, rgb(199 164 90 / 10%), transparent 25%),
+    radial-gradient(circle at 10% 18%, rgb(14 165 160 / 10%), transparent 25%),
     #ffffff;
 }
 
@@ -6016,3 +6016,28 @@ details[open] .faq-icon::after {
 
 
 
+
+/* Temporary brand wordmark (placeholder until real Kingsley logo is supplied) */
+.brand-wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.02;
+}
+.brand-wordmark-name {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  color: var(--brand-navy);
+}
+.brand-wordmark-sub {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-yellow-dark);
+}
+.brand-wordmark-light .brand-wordmark-name { color: #ffffff; }
+.brand-wordmark-light .brand-wordmark-sub { color: var(--brand-yellow); }

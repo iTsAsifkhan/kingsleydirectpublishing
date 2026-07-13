@@ -10,15 +10,15 @@ export default function Hero() {
         <div className="home-hero-grid grid items-center gap-10 lg:grid-cols-2">
           <div className="text-center lg:text-left">
             <span className="index-banner-sub-heading inline-flex items-center gap-3 text-sm font-600 text-white sm:text-base">
-              Patrick White Publishing
+              Kingsley Direct Publishing
               <Handshake size={20} aria-hidden="true" />
             </span>
             <h1 className="mb-0 font-700">
               Professional Self-Publishing Services for Author Success
             </h1>
             <p className="p-head mb-0">
-              Think of us as your personal guide on the publishing journey. Patrick
-              White Publishing is here to take your manuscript and transform it
+              Think of us as your personal guide on the publishing journey. Kingsley
+              Direct Publishing is here to take your manuscript and transform it
               into a book you will be proud of, starting with a professional eye
               for editing, a stunning custom cover, and flawless interior
               formatting. Then, we put your book into the hands of readers

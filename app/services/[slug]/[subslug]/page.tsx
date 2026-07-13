@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service || !sub) return {}
 
   const title = sub.title
-  const url = `https://patrickwhitepublishing.com/services/${slug}/${subslug}`
+  const url = `https://kingsleydirectpublishing.com/services/${slug}/${subslug}`
 
   return {
     title,
@@ -83,7 +83,7 @@ export default async function SubServicePage({ params }: Props) {
   const schema = serviceSchema({
     name: sub.title,
     description: sub.shortDescription,
-    url: `https://patrickwhitepublishing.com/services/${slug}/${subslug}`,
+    url: `https://kingsleydirectpublishing.com/services/${slug}/${subslug}`,
   })
 
   return (
@@ -108,7 +108,7 @@ export default async function SubServicePage({ params }: Props) {
           <div className="service-hero-inner">
             <div className="service-hero-content">
               <span className="index-banner-sub-heading service-kicker d-inline-flex align-items-center fw-600 text-white">
-                Patrick White Publishing
+                Kingsley Direct Publishing
                 {ParentIcon && <ParentIcon size={20} strokeWidth={1.7} aria-hidden="true" />}
               </span>
               <h1 className="service-hero-title fw-700">
@@ -315,7 +315,7 @@ export default async function SubServicePage({ params }: Props) {
                 Get A Free Quote
               </Button>
               <a
-                href="tel:+61485976735"
+                href="tel:+442079460000"
                 className="anchor-number-cta align-items-center d-inline-flex"
               >
                 <span className="span-1">
@@ -323,7 +323,7 @@ export default async function SubServicePage({ params }: Props) {
                 </span>
                 <span className="span-2 fw-600 clr-1 d-inline-block">
                   Call Now <br />
-                  <b className="text-white">+61 485 976 735</b>
+                  <b className="text-white">+44 20 7946 0000</b>
                 </span>
               </a>
               <Link href={`/services/${service.slug}`} className="service-all-services-link">

@@ -6,36 +6,25 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Patrick White Publishing',
-    url: 'https://patrickwhitepublishing.com',
-    logo: 'https://patrickwhitepublishing.com/logo.png',
+    name: 'Kingsley Direct Publishing',
+    url: 'https://kingsleydirectpublishing.com',
+    logo: 'https://kingsleydirectpublishing.com/logo.png',
     description: 'Professional book publishing services helping authors bring their manuscripts to life.',
+    // TODO: fill in Kingsley Direct Publishing's real UK registered address.
     address: [
       {
         '@type': 'PostalAddress',
-        streetAddress: '2nd Floor, 118 Liverpool Street',
-        addressLocality: 'Hobart',
-        addressRegion: 'TAS',
-        postalCode: '7000',
-        addressCountry: 'AU',
-      },
-      {
-        '@type': 'PostalAddress',
-        streetAddress: 'Unit A1/35-39 Bourk Road',
-        addressLocality: 'Alexandria',
-        addressRegion: 'NSW',
-        postalCode: '2015',
-        addressCountry: 'AU',
+        addressCountry: 'GB',
       },
     ],
     sameAs: [
-      'https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/',
-      'https://www.instagram.com/patrickwhitepublishinghouse/',
+      'https://facebook.com/',
+      'https://instagram.com/',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+61485976735',
-      email: 'info@patrickwhitepublishing.com',
+      telephone: '+442079460000',
+      email: 'info@kingsleydirectpublishing.com',
       contactType: 'Customer Service',
     },
   }
@@ -56,8 +45,8 @@ export function serviceSchema(service: {
     ...(service.image && { image: service.image }),
     provider: {
       '@type': 'Organization',
-      name: 'Patrick White Publishing',
-      url: 'https://patrickwhitepublishing.com',
+      name: 'Kingsley Direct Publishing',
+      url: 'https://kingsleydirectpublishing.com',
     },
   }
 }

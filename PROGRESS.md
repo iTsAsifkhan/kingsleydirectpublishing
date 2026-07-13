@@ -6,11 +6,26 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**6.0-logo-image** - Replaced logo text placeholders with actual Patrick White Publishing logo image (Patrick-White-Publishing-logo.webp) in Header and Footer components.
+**rebrand-kingsley + recolor-teal** — Rebranded the whole site from Patrick White Publishing (AU)
+to **Kingsley Direct Publishing** (UK), and re-skinned the palette from gold → **teal** so it no
+longer reads as the gold replica. Clean build (41 routes).
 
 ## Currently in progress
 
-Phase 6 - Responsive pass. Start next at **6.1**. (Or build more inner pages: /contact, /blogs)
+Phase 6 - Responsive pass. 6.1 (1601/1537/1441) assessed via headless screenshots — layout sound,
+no fixes needed. Resume at **6.2** (1367/1281px). See "Open placeholders" below.
+
+## Open placeholders (need real Kingsley data before launch)
+
+- **UK phone** — using fictitious `+44 20 7946 0000` (Ofcom drama range). Replace with real number.
+- **Registered office address** — "United Kingdom — address to be confirmed" (contact page + schema).
+- **Company number** — footer says "Registered in England & Wales · Company No. (TBD)".
+- **Email** — `info@kingsleydirectpublishing.com` (set up the mailbox, or change).
+- **Social links** — Footer/schema point to bare facebook.com/instagram.com/wa.me placeholders.
+- **Logo** — Header/Footer use a temporary text wordmark; supply a real Kingsley logo image.
+- **IP content (flagged):** hero marquee uses real bestseller covers (Stephen King, Freida McFadden,
+  etc.) and testimonials are Patrick White's real clients — must be replaced with Kingsley's own /
+  royalty-free placeholders before running ads (violates the project's own CLAUDE.md rule #14).
 
 ## Session log
 
