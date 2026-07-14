@@ -980,6 +980,9 @@ p.p-head {
 
 .index-wrap-counter {
   margin: -5% 0 0%;
+  /* Sit above the Why-Choose-Us stacking context so the overlap isn't clipped. */
+  position: relative;
+  z-index: 20;
 }
 
 .counter-wrap {
@@ -5436,9 +5439,19 @@ details[open] .faq-icon::after {
 
 .about-pillars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   margin-top: 48px;
+}
+@media (max-width: 900px) {
+  .about-pillars-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .about-pillar-card {
@@ -7049,4 +7062,165 @@ body.footer-reveal-on .site-footer {
 .index-wrap-4-cta-circle {
   background: radial-gradient(circle at 40% 35%, #0e8f89, #073f6d 75%) !important;
   box-shadow: 0 30px 70px rgb(0 20 45 / 45%);
+}
+
+/* ============================================================
+   Dark footer — fixes invisible white text on a light background
+   ============================================================ */
+.site-footer {
+  padding: 80px 0 0 !important;
+  background: linear-gradient(180deg, #042a54 0%, var(--brand-navy) 100%);
+  color: #fff;
+}
+.footer-brand-desc {
+  color: rgb(255 255 255 / 72%);
+}
+.footer-list-item h4 {
+  color: #fff;
+}
+.footer-list-item ul li a {
+  color: rgb(255 255 255 / 72%);
+}
+.footer-list-item ul li a:hover,
+.footer-list-item ul li a:focus {
+  color: var(--brand-gold);
+}
+.social-links li a {
+  background: rgb(255 255 255 / 12%);
+  color: #fff;
+}
+.social-links li a:hover,
+.social-links li a:focus {
+  background: var(--brand-yellow);
+  color: #fff;
+}
+.footer-news-row input {
+  background: rgb(255 255 255 / 10%);
+  border-color: rgb(255 255 255 / 22%);
+  color: #fff;
+}
+.copyright-div {
+  background: rgb(0 0 0 / 22%);
+  border-top: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 0;
+  margin-top: 40px;
+}
+
+/* Disable the sticky footer reveal on mobile — a tall footer would otherwise
+   have its top permanently hidden behind the content layer. */
+@media (max-width: 768px) {
+  body.footer-reveal-on .site-content {
+    margin-bottom: 0;
+  }
+  body.footer-reveal-on .site-footer {
+    position: static;
+  }
+}
+
+/* ============================================================
+   GSAP 3D showcase marquee (replaces the flat two-row scroll)
+   ============================================================ */
+.kdp-showcase {
+  position: relative;
+  padding: 44px 0 54px;
+  background: linear-gradient(180deg, #ffffff 0%, #e9f6f4 100%);
+  overflow: hidden;
+  perspective: 1500px;
+}
+.kdp-showcase-viewport {
+  transform: rotateX(9deg);
+  transform-style: preserve-3d;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.kdp-showcase-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  padding: 22px 11px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.kdp-showcase-card {
+  flex: 0 0 auto;
+  width: 210px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #dfe8f0;
+  box-shadow: 0 18px 34px rgb(0 48 96 / 22%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.45s ease,
+    filter 0.45s ease;
+  filter: saturate(0.96);
+}
+.kdp-showcase-card:hover {
+  transform: translateY(-14px) translateZ(70px) scale(1.04);
+  box-shadow: 0 32px 64px rgb(0 48 96 / 32%);
+  filter: saturate(1.08);
+  z-index: 3;
+}
+.kdp-showcase-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kdp-showcase-viewport {
+    transform: none;
+  }
+  .kdp-showcase-card {
+    transition: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .kdp-showcase-viewport {
+    transform: rotateX(6deg);
+  }
+  .kdp-showcase-track {
+    gap: 15px;
+  }
+  .kdp-showcase-card {
+    width: 148px;
+  }
+}
+
+/* ============================================================
+   Service-page bottom CTA — clean contained gradient banner
+   ============================================================ */
+.service-bottom-cta {
+  background: #ffffff !important;
+  padding: 56px 0 !important;
+  overflow: visible !important;
+}
+.service-bottom-cta::before {
+  content: none !important;
+}
+.service-bottom-cta-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  padding: clamp(34px, 5vw, 60px);
+  border-radius: 26px;
+  overflow: hidden;
+  background: linear-gradient(125deg, #042a54 0%, var(--brand-navy) 55%, #0b6b66 135%);
+  box-shadow: 0 30px 70px rgb(0 20 45 / 24%);
+}
+.service-bottom-cta-inner::after {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -80px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgb(14 165 160 / 22%);
+  pointer-events: none;
+}
+.service-bottom-cta-actions {
+  justify-content: center;
+  position: relative;
+  z-index: 1;
 }

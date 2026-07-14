@@ -100,7 +100,6 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="about-hero">
         <span className="about-hero-shade" aria-hidden="true" />
-        <span className="about-hero-star rotation" aria-hidden="true" />
 
         <Container className="relative z-10">
           {/* Breadcrumb */}
@@ -112,9 +111,10 @@ export default function AboutPage() {
 
           <div className="about-hero-inner">
             <div className="about-hero-content">
-              <span className="index-banner-sub-heading inline-flex items-center gap-3 fw-600 text-white">
-                Kingsley Direct Publishing
-                <ShieldCheck size={20} aria-hidden="true" />
+              <span className="kdp-hero-eyebrow">
+                <span className="kdp-hero-eyebrow-dot" aria-hidden="true" />
+                <span>Kingsley Direct Publishing</span>
+                <ShieldCheck size={15} aria-hidden="true" />
               </span>
               <h1 className="about-hero-title fw-700">
                 Leading the Way in{' '}

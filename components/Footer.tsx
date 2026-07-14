@@ -17,7 +17,6 @@ const SOCIAL = [
 const QUICK_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'Our Stories', href: '/stories' },
   { label: 'Blogs', href: '/blogs' },
   { label: 'Contact Us', href: '/contact' },
   { label: 'Privacy Policy', href: '/privacy-policy' },

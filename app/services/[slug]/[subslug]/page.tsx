@@ -13,6 +13,9 @@ interface Props {
   params: Promise<{ slug: string; subslug: string }>
 }
 
+// Real phone not confirmed — show "Call Now" only when a dialable number exists.
+const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
+
 const serviceVisuals: Record<string, { primary: string; secondary: string; tertiary: string }> = {
   ghostwriting: {
     primary: '/images/3d-book-cover (4).webp',
@@ -311,18 +314,20 @@ export default async function SubServicePage({ params }: Props) {
               <Button variant="yellow" href="/contact" icon={ArrowRight}>
                 Get A Free Quote
               </Button>
-              <a
-                href="tel:+442079460000"
-                className="anchor-number-cta align-items-center d-inline-flex"
-              >
-                <span className="span-1">
-                  <PhoneCall aria-hidden="true" className="clr-1" size={18} />
-                </span>
-                <span className="span-2 fw-600 clr-1 d-inline-block">
-                  Call Now <br />
-                  <b className="text-white">+44 20 7946 0000</b>
-                </span>
-              </a>
+              {CONTACT_PHONE && (
+                <a
+                  href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`}
+                  className="anchor-number-cta align-items-center d-inline-flex"
+                >
+                  <span className="span-1">
+                    <PhoneCall aria-hidden="true" className="clr-1" size={18} />
+                  </span>
+                  <span className="span-2 fw-600 clr-1 d-inline-block">
+                    Call Now <br />
+                    <b className="text-white">{CONTACT_PHONE}</b>
+                  </span>
+                </a>
+              )}
               <Link href={`/services/${service.slug}`} className="service-all-services-link">
                 Back to {service.title}
               </Link>
