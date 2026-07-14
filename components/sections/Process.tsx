@@ -62,11 +62,11 @@ export default function Process() {
             <span className="span-tag-border">Process We Follow</span>
             <h2 id="process-heading" className="mb-0 fw-700 pt-3">
               How We Work at{' '}
-              <span className="clr-1">Kingsley Direct Publishing</span>
+              <span className="clr-1">Kimberley Direct Publishing</span>
             </h2>
           </div>
           <p className="mb-0">
-            Kingsley Direct Publishing plays a crucial role in helping authors
+            Kimberley Direct Publishing plays a crucial role in helping authors
             transform their manuscripts into professionally published books by
             managing essential services like editing, book design, marketing,
             and global distribution.

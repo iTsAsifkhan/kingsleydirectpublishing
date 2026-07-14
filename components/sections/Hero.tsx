@@ -10,14 +10,14 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <span className="kdp-hero-eyebrow">
               <span className="kdp-hero-eyebrow-dot" aria-hidden="true" />
-              <span>Kingsley Direct Publishing</span>
+              <span>Kimberley Direct Publishing</span>
               <Handshake size={15} aria-hidden="true" />
             </span>
             <h1 className="mb-0 font-700">
               Professional Self-Publishing Services for Author Success
             </h1>
             <p className="p-head mb-0">
-              Think of us as your personal guide on the publishing journey. Kingsley
+              Think of us as your personal guide on the publishing journey. Kimberley
               Direct Publishing is here to take your manuscript and transform it
               into a book you will be proud of, starting with a professional eye
               for editing, a stunning custom cover, and flawless interior

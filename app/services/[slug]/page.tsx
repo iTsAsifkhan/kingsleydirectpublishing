@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service) return {}
 
   const title = `${service.title} Services`
-  const url = `https://kingsleydirectpublishing.com/services/${service.slug}`
+  const url = `https://kimberleydirectpublishing.com/services/${service.slug}`
 
   return {
     title,
@@ -87,7 +87,7 @@ export default async function ServicePage({ params }: Props) {
   const schema = serviceSchema({
     name: `${service.title} Services`,
     description: service.shortDescription,
-    url: `https://kingsleydirectpublishing.com/services/${service.slug}`,
+    url: `https://kimberleydirectpublishing.com/services/${service.slug}`,
   })
 
   return (
@@ -102,7 +102,7 @@ export default async function ServicePage({ params }: Props) {
           <div className="service-hero-inner">
             <div className="service-hero-content">
               <span className="index-banner-sub-heading service-kicker d-inline-flex align-items-center fw-600 text-white">
-                Kingsley Direct Publishing
+                Kimberley Direct Publishing
                 {Icon && <Icon size={20} strokeWidth={1.7} aria-hidden="true" />}
               </span>
               <h1 className="service-hero-title fw-700">
@@ -189,7 +189,7 @@ export default async function ServicePage({ params }: Props) {
             <div className="service-about-media">
               <Image
                 src={visuals.tertiary}
-                alt={`${service.title} services at Kingsley Direct Publishing`}
+                alt={`${service.title} services at Kimberley Direct Publishing`}
                 fill
                 quality={82}
                 sizes="(min-width: 1024px) 420px, 100vw"

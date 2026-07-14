@@ -69,7 +69,7 @@ export default function MobileNav({ links }: MobileNavProps) {
         >
           <div className="mobile-nav-head">
             <span className="mobile-nav-brand">
-              <span className="mobile-nav-brand-name">Kingsley</span>
+              <span className="mobile-nav-brand-name">Kimberley</span>
               <span className="mobile-nav-brand-sub">Direct Publishing</span>
             </span>
             <button className="mobile-nav-close" aria-label="Close navigation menu" onClick={close}>

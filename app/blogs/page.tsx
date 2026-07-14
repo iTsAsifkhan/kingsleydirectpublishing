@@ -5,8 +5,8 @@ import { ArrowRight, BookOpen, Megaphone, PenTool, Sparkles } from 'lucide-react
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'The Kingsley Journal — practical guides on writing, editing, publishing, and marketing your book. New articles are on the way.',
-  alternates: { canonical: 'https://kingsleydirectpublishing.com/blogs' },
+    'The Kimberley Journal — practical guides on writing, editing, publishing, and marketing your book. New articles are on the way.',
+  alternates: { canonical: 'https://kimberleydirectpublishing.com/blogs' },
 }
 
 const TOPICS = [
@@ -37,7 +37,7 @@ export default function BlogsPage() {
     <main className="min-h-screen bg-white">
       <section className="mx-auto w-full max-w-5xl px-4 pt-40 pb-16 text-center sm:px-6 lg:px-8">
         <span className="inline-flex items-center gap-2 rounded-full border border-brand-yellow/40 bg-brand-yellow/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-yellow-dark">
-          The Kingsley Journal
+          The Kimberley Journal
         </span>
         <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-bold leading-tight text-brand-navy sm:text-5xl">
           Publishing insight, <span className="text-brand-yellow-dark">coming soon</span>

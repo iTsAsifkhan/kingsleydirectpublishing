@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service || !sub) return {}
 
   const title = sub.title
-  const url = `https://kingsleydirectpublishing.com/services/${slug}/${subslug}`
+  const url = `https://kimberleydirectpublishing.com/services/${slug}/${subslug}`
 
   return {
     title,
@@ -86,7 +86,7 @@ export default async function SubServicePage({ params }: Props) {
   const schema = serviceSchema({
     name: sub.title,
     description: sub.shortDescription,
-    url: `https://kingsleydirectpublishing.com/services/${slug}/${subslug}`,
+    url: `https://kimberleydirectpublishing.com/services/${slug}/${subslug}`,
   })
 
   return (
@@ -109,7 +109,7 @@ export default async function SubServicePage({ params }: Props) {
           <div className="service-hero-inner">
             <div className="service-hero-content">
               <span className="index-banner-sub-heading service-kicker d-inline-flex align-items-center fw-600 text-white">
-                Kingsley Direct Publishing
+                Kimberley Direct Publishing
                 {ParentIcon && <ParentIcon size={20} strokeWidth={1.7} aria-hidden="true" />}
               </span>
               <h1 className="service-hero-title fw-700">

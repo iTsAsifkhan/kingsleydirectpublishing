@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronDown, Mail, Phone, X } from 'lucide-react'
@@ -10,7 +11,7 @@ import { MAIN_NAV, type NavItem } from '@/lib/nav'
 // Real phone not confirmed — only shown when a dialable number is configured.
 const PHONE_DISPLAY = process.env.NEXT_PUBLIC_CONTACT_PHONE
 const PHONE_TEL = PHONE_DISPLAY?.replace(/[^\d+]/g, '')
-const EMAIL = 'info@kingsleydirectpublishing.com'
+const EMAIL = 'info@kimberleydirectpublishing.com'
 const PROMO_KEY = 'kdp-promo-dismissed'
 
 /** Re-exported so existing imports of `NAV` keep working. */
@@ -133,9 +134,16 @@ export default function Header() {
       {/* Main bar */}
       <div className="kdp-bar-wrap">
         <div className="kdp-bar">
-          <Link href="/" className="kdp-logo" aria-label="Kingsley Direct Publishing home">
-            <span className="kdp-logo-name">Kingsley</span>
-            <span className="kdp-logo-sub">Direct Publishing</span>
+          <Link href="/" className="kdp-logo" aria-label="Kimberley Direct Publishing home">
+            <Image
+              src="/images/kimberley-logo.svg"
+              alt="Kimberley Direct Publishing"
+              width={169}
+              height={42}
+              priority
+              unoptimized
+              className="kdp-logo-img"
+            />
           </Link>
 
           <div className="kdp-nav-wrap" ref={navRef} onMouseLeave={scheduleClose} onMouseEnter={cancelClose}>

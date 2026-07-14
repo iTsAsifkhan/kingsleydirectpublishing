@@ -3647,6 +3647,11 @@ details[open] .faq-icon::after {
   display: inline-block;
   margin-bottom: 16px;
 }
+.footer-logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+}
 
 .footer-logo-text {
   font-family: var(--font-montserrat), sans-serif;
@@ -6043,7 +6048,7 @@ details[open] .faq-icon::after {
 
 
 
-/* Temporary brand wordmark (placeholder until real Kingsley logo is supplied) */
+/* Temporary brand wordmark (placeholder until real Kimberley logo is supplied) */
 .brand-wordmark {
   display: inline-flex;
   flex-direction: column;
@@ -6179,21 +6184,19 @@ details[open] .faq-icon::after {
 
 .kdp-logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1.05;
+  align-items: center;
   flex: 0 0 auto;
 }
-.kdp-logo-name {
-  font-family: var(--font-montserrat), sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: var(--brand-navy);
+.kdp-logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+  transition: height 0.3s ease;
 }
-.kdp-logo-sub {
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--brand-yellow-dark);
+@media (max-width: 600px) {
+  .kdp-logo-img {
+    height: 34px;
+  }
 }
 
 .kdp-nav-wrap {
@@ -6428,8 +6431,8 @@ details[open] .faq-icon::after {
   width: 30px;
   height: 30px;
 }
-.kdp-header.is-pinned .kdp-logo-sub {
-  display: none;
+.kdp-header.is-pinned .kdp-logo-img {
+  height: 34px;
 }
 
 @media (max-width: 1180px) and (min-width: 992px) {

@@ -23,20 +23,20 @@ import { organizationSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Kingsley Direct Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals with expert editing, cover design, marketing, and global distribution.',
-  alternates: { canonical: 'https://kingsleydirectpublishing.com/about-us' },
+    'Learn about Kimberley Direct Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals with expert editing, cover design, marketing, and global distribution.',
+  alternates: { canonical: 'https://kimberleydirectpublishing.com/about-us' },
   openGraph: {
-    title: 'About Us | Kingsley Direct Publishing',
+    title: 'About Us | Kimberley Direct Publishing',
     description:
-      'Learn about Kingsley Direct Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals with expert editing, cover design, marketing, and global distribution.',
-    url: 'https://kingsleydirectpublishing.com/about-us',
+      'Learn about Kimberley Direct Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals with expert editing, cover design, marketing, and global distribution.',
+    url: 'https://kimberleydirectpublishing.com/about-us',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Us | Kingsley Direct Publishing',
+    title: 'About Us | Kimberley Direct Publishing',
     description:
-      'Learn about Kingsley Direct Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals.',
+      'Learn about Kimberley Direct Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals.',
   },
 }
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
             <div className="about-hero-content">
               <span className="kdp-hero-eyebrow">
                 <span className="kdp-hero-eyebrow-dot" aria-hidden="true" />
-                <span>Kingsley Direct Publishing</span>
+                <span>Kimberley Direct Publishing</span>
                 <ShieldCheck size={15} aria-hidden="true" />
               </span>
               <h1 className="about-hero-title fw-700">
@@ -154,7 +154,7 @@ export default function AboutPage() {
               <div className="about-hero-img-wrap">
                 <Image
                   src="/images/wrap-2-img.webp"
-                  alt="Kingsley Direct Publishing team"
+                  alt="Kimberley Direct Publishing team"
                   fill
                   priority
                   sizes="(min-width: 1024px) 480px, 100vw"
@@ -184,7 +184,7 @@ export default function AboutPage() {
                 <span className="clr-1">Crafting Successful Titles</span>
               </h2>
               <p>
-                Kingsley Direct Publishing was founded on a single belief: every author
+                Kimberley Direct Publishing was founded on a single belief: every author
                 deserves a professional publishing experience regardless of their
                 background or budget. We built a full-service agency that combines
                 the rigor of traditional publishing with the flexibility and
@@ -221,7 +221,7 @@ export default function AboutPage() {
             <span className="span-tag-border-yellow">Why Work With Us</span>
             <h2 className="fw-700 pt-3 text-white">
               Six Reasons Authors Choose{' '}
-              <span className="clr-1">Kingsley Direct Publishing</span>
+              <span className="clr-1">Kimberley Direct Publishing</span>
             </h2>
             <p className="about-pillars-sub">
               We&apos;ve helped over 5,000 authors self-publish with confidence.

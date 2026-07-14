@@ -6,10 +6,16 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**kingsley-redesign-differentiation + bugfix/ux-pass** — Redesigned the site to stop resembling the
-old Patrick White layout, fixed reported bugs, and did a mobile + UX polish pass. Deployed on Vercel
-from GitHub repo `iTsAsifkhan/kingsleydirectpublishing` (remote `kingsley`). Clean production build.
-Latest commit `7187fc6`.
+**rebrand-kimberley** — Renamed the brand from **Kingsley Direct Publishing** to
+**Kimberley Direct Publishing** across all source (name, domain `kimberleydirectpublishing.com`,
+email `info@kimberleydirectpublishing.com`, wordmarks, metadata, JSON-LD, page copy). The `kdp-*`
+CSS class names were kept (same K-D-P initials); `KDP` in the hero refers to Amazon Kindle Direct
+Publishing and was left. Typecheck clean.
+
+Prior work — **kingsley-redesign-differentiation + bugfix/ux-pass** — Redesigned the site to stop
+resembling the old Patrick White layout, fixed reported bugs, and did a mobile + UX polish pass.
+Deployed on Vercel from GitHub repo `iTsAsifkhan/kingsleydirectpublishing` (remote `kingsley`).
+Clean production build. Latest commit `7187fc6`.
 
 Key changes since the teal rebrand:
 - **Header** — mega menu (icons + descriptions + featured card) in State A; glassmorphism floating
@@ -42,18 +48,22 @@ Key changes since the teal rebrand:
 Nothing open. Site is deployed and stable. Next natural work: replace flagged IP content
 (see below), wire real contact/email/logo, and add real blog posts to `/blogs`.
 
-## Open placeholders (need real Kingsley data before launch)
+## Open placeholders (need real Kimberley data before launch)
 
 - **UK phone** — fictitious `+44 20 7946 0000` (Ofcom drama range) is now **env-gated**: it only
   renders when `NEXT_PUBLIC_CONTACT_PHONE` is set (header, contact page, service CTAs, schema).
   Set that env var in Vercel with a real number to surface it.
 - **Registered office address** — env-gated behind `NEXT_PUBLIC_OFFICE_ADDRESS` (contact page + schema).
 - **Company number** — env-gated behind `NEXT_PUBLIC_COMPANY_NUMBER` (footer). No "TBD" ships.
-- **Email** — `info@kingsleydirectpublishing.com` (set up the mailbox, or change).
+- **Email** — `info@kimberleydirectpublishing.com` (set up the mailbox, or change).
 - **Social links** — Footer/schema point to bare facebook.com/instagram.com/wa.me placeholders.
-- **Logo** — Header/Footer use a temporary text wordmark; supply a real Kingsley logo image.
+- **Logo** — ✅ Real horizontal logo wired in. Header uses `public/images/kimberley-logo.svg`
+  (transparent bg, navy wordmark); footer uses `public/images/kimberley-logo-white.svg`
+  (transparent bg, white wordmark). A dark navy-badge variant (`kimberley-logo-dark.svg`) is also
+  in the repo but unused. SVGs were auto-traced from the supplied PNGs via `imagetracerjs` with a
+  forced brand palette. NOTE: the dark badge inherits a "Kim berley" letter-gap from the source PNG.
 - **IP content (flagged, still present):** hero + marquee use real bestseller covers (Stephen King,
-  Freida McFadden, etc.) and testimonials use real client names — must be replaced with Kingsley's
+  Freida McFadden, etc.) and testimonials use real client names — must be replaced with Kimberley's
   own / royalty-free placeholders before running ads (violates CLAUDE.md rule #14).
 - **Newsletter form** — `NewsletterForm` has no backend yet (TODO: wire Resend/Mailchimp).
 - **Contact form** — `submitContactForm` only logs; wire Resend/SendGrid before launch.
@@ -107,6 +117,8 @@ Nothing open. Site is deployed and stable. Next natural work: replace flagged IP
 | 2026-07-14 | 33 | bugfix pass 2 | Centered "Explore More"/Related grids (flex) for any item count; moved base heading colour into `@layer base` so `text-white` wins (fixes invisible white headings on dark sections site-wide); hero bottom padding. Commit `fd2beb7`. |
 | 2026-07-14 | 34 | mobile-menu rebuild | Rebuilt `MobileNav.tsx` as a right-sliding drawer portaled to `document.body` (escapes the header's backdrop-filter containing block that had trapped the fixed overlay): backdrop, full-height white panel, brand header, accordion submenus (grid-rows transition), pinned CTA; scroll-lock + Escape + route-change close, reduced-motion safe. Header bar `space-between` (logo left / hamburger right); compact promo bar on phones (close pinned top-right). Commit `75a49f4`. |
 | 2026-07-14 | 35 | ux polish | Scroll reveal (`ScrollReveal.tsx`) now triggers ~22% viewport before entering (positive IntersectionObserver rootMargin, threshold 0) with a shorter/subtler animation so fast scrolling no longer lands on blank space. Tighter mobile heading line-height (1.15; hero/about 1.1). Drawer close button: cancelled the inherited global `button` left-padding that squished the icon (7px→20px) — solid navy circle, bold white X. Commit `7187fc6`. |
+| 2026-07-14 | 36 | rebrand-kimberley | Renamed brand Kingsley Direct Publishing → **Kimberley Direct Publishing** across all source: name, domain (`kimberleydirectpublishing.com`), email (`info@kimberleydirectpublishing.com`), header/footer/mobile wordmarks, metadata (title/OG/twitter/canonical), sitemap/robots/schema JSON-LD, and page copy (home/about/contact/blogs/privacy/terms/services + sub-services). Kept `kdp-*` CSS class names (same K-D-P initials) and the hero `KDP` reference (Amazon Kindle Direct Publishing). Typecheck clean. |
+| 2026-07-14 | 37 | logo-svg + wire-in | Auto-traced the two supplied PNG logos to clean SVGs via `imagetracerjs` (forced brand palette → flat regions, ~130 KB / ~660 paths each). Added `public/images/kimberley-logo.svg` (navy text), `kimberley-logo-white.svg` (white text, footer), `kimberley-logo-dark.svg` (navy badge, unused). Replaced text wordmarks with `next/image` (`unoptimized`) in `Header.tsx` (light, `priority`, shrinks to 34px when pinned) and `Footer.tsx` (white); sizing CSS via `.kdp-logo-img` / `.footer-logo-img`. Clean production build (42 pages). |
 
 ## Known issues / decisions made
 
@@ -132,19 +144,14 @@ Nothing open. Site is deployed and stable. Next natural work: replace flagged IP
 - FAQ section now follows the reference two-column accordion layout; content uses the reference question set with accessible expandable answers
 - FAQ accordion now allows one open item at a time and uses CSS grid transitions for smoother expand/collapse motion
 
-## Brand details (Patrick White Publishing)
+## Brand details (Kimberley Direct Publishing)
 
-- **Brand:** Patrick White Publishing
-- **Logo mark:** PWP
-- **Domain:** patrickwhitepublishing.com
-- **Phone:** +61 485 976 735
-- **Email:** info@patrickwhitepublishing.com
-- **ABN:** 47 088 124 305
-- **Hobart Office:** 2nd Floor, 118 Liverpool Street, Hobart, TAS 7000
-- **Alexandria Office:** Unit A1/35-39 Bourk Road, Alexandria, NSW 2015
-- **Facebook:** https://www.facebook.com/p/Patrick-White-Publishing-61581158636974/
-- **Instagram:** https://www.instagram.com/patrickwhitepublishinghouse/
-- **WhatsApp:** https://wa.link/q4xswu
+- **Brand:** Kimberley Direct Publishing
+- **Logo mark:** text wordmark "Kimberley / Direct Publishing" (KDP class prefix in CSS)
+- **Domain:** kimberleydirectpublishing.com
+- **Email:** info@kimberleydirectpublishing.com
+- **Phone / registered office / company number:** env-gated placeholders (UK) — see Open placeholders above
+- **Social links:** bare facebook.com / instagram.com / wa.me placeholders (Footer + schema)
 
 ## Blocked on (waiting for assets, info from user, etc.)
 

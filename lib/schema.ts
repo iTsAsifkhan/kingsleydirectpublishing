@@ -6,11 +6,11 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Kingsley Direct Publishing',
-    url: 'https://kingsleydirectpublishing.com',
-    logo: 'https://kingsleydirectpublishing.com/logo.png',
+    name: 'Kimberley Direct Publishing',
+    url: 'https://kimberleydirectpublishing.com',
+    logo: 'https://kimberleydirectpublishing.com/logo.png',
     description: 'Professional book publishing services helping authors bring their manuscripts to life.',
-    // TODO: fill in Kingsley Direct Publishing's real UK registered address.
+    // TODO: fill in Kimberley Direct Publishing's real UK registered address.
     address: [
       {
         '@type': 'PostalAddress',
@@ -27,7 +27,7 @@ export function organizationSchema() {
       ...(process.env.NEXT_PUBLIC_CONTACT_PHONE && {
         telephone: process.env.NEXT_PUBLIC_CONTACT_PHONE,
       }),
-      email: 'info@kingsleydirectpublishing.com',
+      email: 'info@kimberleydirectpublishing.com',
       contactType: 'Customer Service',
     },
   }
@@ -48,8 +48,8 @@ export function serviceSchema(service: {
     ...(service.image && { image: service.image }),
     provider: {
       '@type': 'Organization',
-      name: 'Kingsley Direct Publishing',
-      url: 'https://kingsleydirectpublishing.com',
+      name: 'Kimberley Direct Publishing',
+      url: 'https://kimberleydirectpublishing.com',
     },
   }
 }

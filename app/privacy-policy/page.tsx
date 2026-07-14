@@ -6,13 +6,13 @@ import { Button, Container } from '@/components/ui'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'Read the Kingsley Direct Publishing privacy policy, including how we collect, use, protect, and manage personal information.',
-  alternates: { canonical: 'https://kingsleydirectpublishing.com/privacy-policy' },
+    'Read the Kimberley Direct Publishing privacy policy, including how we collect, use, protect, and manage personal information.',
+  alternates: { canonical: 'https://kimberleydirectpublishing.com/privacy-policy' },
   openGraph: {
-    title: 'Privacy Policy | Kingsley Direct Publishing',
+    title: 'Privacy Policy | Kimberley Direct Publishing',
     description:
-      'Read how Kingsley Direct Publishing collects, uses, protects, and manages personal information.',
-    url: 'https://kingsleydirectpublishing.com/privacy-policy',
+      'Read how Kimberley Direct Publishing collects, uses, protects, and manages personal information.',
+    url: 'https://kimberleydirectpublishing.com/privacy-policy',
     type: 'website',
   },
 }
@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
               Privacy <span className="clr-1">Policy</span>
             </h1>
             <p className="legal-hero-desc">
-              This policy explains how Kingsley Direct Publishing handles personal
+              This policy explains how Kimberley Direct Publishing handles personal
               information collected through our website, enquiries, and publishing
               service engagements.
             </p>
@@ -103,11 +103,11 @@ export default function PrivacyPolicyPage() {
             <section className="legal-block">
               <h2>Who We Are</h2>
               <p>
-                Kingsley Direct Publishing provides book publishing, ghostwriting,
+                Kimberley Direct Publishing provides book publishing, ghostwriting,
                 editing, cover design, marketing, and related author services. For
                 privacy questions, contact us at{' '}
-                <a href="mailto:info@kingsleydirectpublishing.com">
-                  info@kingsleydirectpublishing.com
+                <a href="mailto:info@kimberleydirectpublishing.com">
+                  info@kimberleydirectpublishing.com
                 </a>
                 .
               </p>
@@ -126,9 +126,9 @@ export default function PrivacyPolicyPage() {
               <h2>Contact Us</h2>
               <p>
                 If you have questions about this policy or how your information is
-                handled, contact Kingsley Direct Publishing at{' '}
-                <a href="mailto:info@kingsleydirectpublishing.com">
-                  info@kingsleydirectpublishing.com
+                handled, contact Kimberley Direct Publishing at{' '}
+                <a href="mailto:info@kimberleydirectpublishing.com">
+                  info@kimberleydirectpublishing.com
                 </a>{' '}
                 or call <a href="tel:+442079460000">+44 20 7946 0000</a>.
               </p>

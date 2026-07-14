@@ -51,14 +51,19 @@ export default function Footer() {
         <div className="footer-main">
           {/* Brand column */}
           <div className="footer-brand">
-            {/* TODO: replace this text wordmark with the real Kingsley Direct Publishing logo image */}
             <Link
               href="/"
-              className="footer-logo-link brand-wordmark brand-wordmark-light"
-              aria-label="Kingsley Direct Publishing home"
+              className="footer-logo-link"
+              aria-label="Kimberley Direct Publishing home"
             >
-              <span className="brand-wordmark-name">Kingsley</span>
-              <span className="brand-wordmark-sub">Direct Publishing</span>
+              <Image
+                src="/images/kimberley-logo-white.svg"
+                alt="Kimberley Direct Publishing"
+                width={210}
+                height={52}
+                unoptimized
+                className="footer-logo-img"
+              />
             </Link>
             <p className="footer-brand-desc">
               A professional publishing agency providing top-tier book writing, editing, design,
@@ -118,7 +123,7 @@ export default function Footer() {
         {/* Copyright bar */}
         <div className="copyright-div">
           <p className="fw-500 mb-0">
-            Copyright &copy; 2026 Kingsley Direct Publishing.
+            Copyright &copy; 2026 Kimberley Direct Publishing.
             {COMPANY_NO
               ? ` Registered in England & Wales · Company No. ${COMPANY_NO}`
               : ''}

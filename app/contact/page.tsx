@@ -17,22 +17,22 @@ import FAQ from '@/components/sections/FAQ'
 import { organizationSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Contact Kingsley Direct Publishing | Author Support',
+  title: 'Contact Kimberley Direct Publishing | Author Support',
   description:
-    'Contact Kingsley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support. Speak with our author services team today.',
-  alternates: { canonical: 'https://kingsleydirectpublishing.com/contact' },
+    'Contact Kimberley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support. Speak with our author services team today.',
+  alternates: { canonical: 'https://kimberleydirectpublishing.com/contact' },
   openGraph: {
-    title: 'Contact Kingsley Direct Publishing | Author Support',
+    title: 'Contact Kimberley Direct Publishing | Author Support',
     description:
-      'Contact Kingsley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
-    url: 'https://kingsleydirectpublishing.com/contact',
+      'Contact Kimberley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
+    url: 'https://kimberleydirectpublishing.com/contact',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Kingsley Direct Publishing | Author Support',
+    title: 'Contact Kimberley Direct Publishing | Author Support',
     description:
-      'Contact Kingsley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
+      'Contact Kimberley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
   },
 }
 
@@ -51,8 +51,8 @@ const CONTACT_DETAILS = [
   {
     icon: Mail,
     label: 'Email Us',
-    value: 'info@kingsleydirectpublishing.com',
-    href: 'mailto:info@kingsleydirectpublishing.com',
+    value: 'info@kimberleydirectpublishing.com',
+    href: 'mailto:info@kimberleydirectpublishing.com',
   },
   CONTACT_OFFICE && {
     icon: MapPin,
@@ -88,8 +88,8 @@ const SUPPORT_STEPS = [
 const contactPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Contact Kingsley Direct Publishing',
-  url: 'https://kingsleydirectpublishing.com/contact',
+  name: 'Contact Kimberley Direct Publishing',
+  url: 'https://kimberleydirectpublishing.com/contact',
   mainEntity: organizationSchema(),
 }
 
@@ -126,14 +126,14 @@ export default function ContactPage() {
               </h1>
               <p className="contact-hero-desc">
                 Whether you need ghostwriting, editing, cover design, publishing
-                setup, or marketing support, Kingsley Direct Publishing is ready to
+                setup, or marketing support, Kimberley Direct Publishing is ready to
                 help you move from manuscript to market with confidence.
               </p>
               <div className="service-hero-ctas">
                 <Button variant="yellow" href="tel:+442079460000" icon={Phone}>
                   Call Now
                 </Button>
-                <Button variant="blue" href="mailto:info@kingsleydirectpublishing.com" icon={Mail}>
+                <Button variant="blue" href="mailto:info@kimberleydirectpublishing.com" icon={Mail}>
                   Email Us
                 </Button>
               </div>

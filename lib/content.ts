@@ -352,7 +352,7 @@ export const services: Service[] = [
 export const faqs: FAQ[] = [
   {
     id: '1',
-    question: 'What publishing services does Kingsley Direct Publishing offer?',
+    question: 'What publishing services does Kimberley Direct Publishing offer?',
     answer:
       'We support authors with manuscript review, editing, design, formatting, publishing setup, distribution guidance, and marketing support.',
   },
@@ -412,7 +412,7 @@ export const faqs: FAQ[] = [
   },
 ]
 
-// Testimonials — DUMMY placeholder reviews. Replace with real Kingsley Direct
+// Testimonials — DUMMY placeholder reviews. Replace with real Kimberley Direct
 // Publishing client testimonials (and their book covers) before launch.
 export const testimonials: Testimonial[] = [
   {
@@ -421,7 +421,7 @@ export const testimonials: Testimonial[] = [
     genre: "Children's",
     published: '3',
     quote:
-      'From my first rough draft to a finished book, the Kingsley Direct Publishing team guided me at every step. The editing was thorough and the cover design went beyond what I imagined. I could not be happier with the result.',
+      'From my first rough draft to a finished book, the Kimberley Direct Publishing team guided me at every step. The editing was thorough and the cover design went beyond what I imagined. I could not be happier with the result.',
     amazonUrl: 'https://www.amazon.co.uk',
     photo: '/images/wrap-2-img.webp',
     bookCover: '/images/3d-book-cover (1).webp',
@@ -432,7 +432,7 @@ export const testimonials: Testimonial[] = [
     genre: 'Fiction',
     published: '2',
     quote:
-      'A genuinely professional experience from start to finish. Clear communication, a beautiful layout, and my book was published on time. I would recommend Kingsley Direct Publishing to any first-time author.',
+      'A genuinely professional experience from start to finish. Clear communication, a beautiful layout, and my book was published on time. I would recommend Kimberley Direct Publishing to any first-time author.',
     amazonUrl: 'https://www.amazon.co.uk',
     photo: '/images/wrap-2-img.webp',
     bookCover: '/images/3d-book-cover (2).webp',
@@ -454,7 +454,7 @@ export const testimonials: Testimonial[] = [
     genre: 'Fantasy',
     published: '1',
     quote:
-      'Publishing my book felt daunting until I worked with Kingsley Direct Publishing. Their design and marketing help made all the difference, and the whole process was smooth and transparent.',
+      'Publishing my book felt daunting until I worked with Kimberley Direct Publishing. Their design and marketing help made all the difference, and the whole process was smooth and transparent.',
     amazonUrl: 'https://www.amazon.co.uk',
     photo: '/images/wrap-2-img.webp',
     bookCover: '/images/3d-book-cover (4).webp',
