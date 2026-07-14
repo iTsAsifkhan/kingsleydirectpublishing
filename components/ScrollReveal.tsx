@@ -34,9 +34,9 @@ export default function ScrollReveal() {
       section.dataset.revealSection = ''
       gsap.set(section, {
         autoAlpha: 0,
-        y: section.matches('.index-wrap-1, .service-hero') ? 34 : 72,
-        scale: section.matches('.index-wrap-counter, .service-stats-strip') ? 0.985 : 0.975,
-        filter: 'blur(12px)',
+        y: section.matches('.index-wrap-1, .service-hero') ? 24 : 44,
+        scale: section.matches('.index-wrap-counter, .service-stats-strip') ? 0.99 : 0.985,
+        filter: 'blur(6px)',
         transformOrigin: '50% 60%',
         force3D: true,
       })
@@ -53,7 +53,7 @@ export default function ScrollReveal() {
           child.dataset.revealItem = ''
           gsap.set(child, {
             autoAlpha: 0,
-            y: 38,
+            y: 26,
             force3D: true,
           })
         })
@@ -78,7 +78,7 @@ export default function ScrollReveal() {
         y: 0,
         scale: 1,
         filter: 'blur(0px)',
-        duration: section.matches('.index-wrap-1, .service-hero') ? 1.05 : 1.15,
+        duration: section.matches('.index-wrap-1, .service-hero') ? 0.55 : 0.65,
         clearProps: 'transform,filter,willChange',
       })
 
@@ -88,14 +88,14 @@ export default function ScrollReveal() {
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.95,
+            duration: 0.5,
             stagger: {
-              each: 0.08,
+              each: 0.05,
               from: 'start',
             },
             clearProps: 'transform,willChange',
           },
-          '-=0.78',
+          '-=0.45',
         )
       }
     }
@@ -111,8 +111,11 @@ export default function ScrollReveal() {
         })
       },
       {
-        rootMargin: '0px 0px -18% 0px',
-        threshold: 0.18,
+        // Positive bottom margin: start revealing while the section is still
+        // ~22% of a viewport below the fold, so it's ready before it's seen
+        // (prevents blank space when scrolling quickly).
+        rootMargin: '0px 0px 22% 0px',
+        threshold: 0,
       },
     )
 
@@ -123,8 +126,8 @@ export default function ScrollReveal() {
       nestedFrame = window.requestAnimationFrame(() => {
         sections.forEach((section, index) => {
           const rect = section.getBoundingClientRect()
-          if (rect.top < window.innerHeight * 0.86 && rect.bottom > 0) {
-            window.setTimeout(() => revealSection(section), index === 0 ? 120 : 0)
+          if (rect.top < window.innerHeight * 1.15 && rect.bottom > 0) {
+            window.setTimeout(() => revealSection(section), index === 0 ? 100 : 0)
             return
           }
 
