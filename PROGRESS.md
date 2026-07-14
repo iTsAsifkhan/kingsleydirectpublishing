@@ -6,10 +6,10 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**kingsley-redesign-differentiation + bugfix-pass** — Redesigned the site to stop resembling the
-old Patrick White layout and fixed a round of reported bugs. Deployed on Vercel from GitHub repo
-`iTsAsifkhan/kingsleydirectpublishing` (remote `kingsley`). Clean production build. Latest
-commit `fd2beb7`.
+**kingsley-redesign-differentiation + bugfix/ux-pass** — Redesigned the site to stop resembling the
+old Patrick White layout, fixed reported bugs, and did a mobile + UX polish pass. Deployed on Vercel
+from GitHub repo `iTsAsifkhan/kingsleydirectpublishing` (remote `kingsley`). Clean production build.
+Latest commit `7187fc6`.
 
 Key changes since the teal rebrand:
 - **Header** — mega menu (icons + descriptions + featured card) in State A; glassmorphism floating
@@ -31,6 +31,11 @@ Key changes since the teal rebrand:
   grids for any count; service-page CTA restyled + phone env-gated; removed all decorative stars.
 - **Systemic** — base heading colour moved into `@layer base` so `text-white` wins over it (fixes
   white headings vanishing on dark sections site-wide).
+- **Mobile menu** — `MobileNav.tsx` rebuilt as a right-sliding drawer (portaled to `document.body`
+  to escape the header's backdrop-filter containing block); backdrop, accordion submenus, pinned CTA;
+  header bar `space-between`; compact promo bar; close button padding fix.
+- **UX** — earlier + snappier scroll reveal (no blank space on fast scroll); tighter mobile heading
+  line-height.
 
 ## Currently in progress
 
@@ -100,6 +105,8 @@ Nothing open. Site is deployed and stable. Next natural work: replace flagged IP
 | 2026-07-14 | 31 | ui-feedback pass | Page-agnostic footer reveal via `.site-content` layer; floating tinted-glass navbar; nav no-wrap; pinned-pill CTA fit; glassy hero eyebrow with pulse dot; distinct Why-Choose-Us redesign; PurpleCTA restyle; removed decorative stars. Commits `c21d20b`. |
 | 2026-07-14 | 32 | bugfix pass (PDF) | GSAP 3D showcase marquee (`ShowcaseMarquee.tsx`, removed `BookCoverMarquee`); fixed cropped stats strip (z-index); dark navy footer (visible text) + mobile reveal disabled; balanced about pillars 3-col; service CTA restyle + phone env-gate; `/blogs` page (was 404) + removed `/stories` + sitemap; content/a11y/perf (relabel stats, initials testimonials, alt text, heading levels, image quality). Commit `334688a`. |
 | 2026-07-14 | 33 | bugfix pass 2 | Centered "Explore More"/Related grids (flex) for any item count; moved base heading colour into `@layer base` so `text-white` wins (fixes invisible white headings on dark sections site-wide); hero bottom padding. Commit `fd2beb7`. |
+| 2026-07-14 | 34 | mobile-menu rebuild | Rebuilt `MobileNav.tsx` as a right-sliding drawer portaled to `document.body` (escapes the header's backdrop-filter containing block that had trapped the fixed overlay): backdrop, full-height white panel, brand header, accordion submenus (grid-rows transition), pinned CTA; scroll-lock + Escape + route-change close, reduced-motion safe. Header bar `space-between` (logo left / hamburger right); compact promo bar on phones (close pinned top-right). Commit `75a49f4`. |
+| 2026-07-14 | 35 | ux polish | Scroll reveal (`ScrollReveal.tsx`) now triggers ~22% viewport before entering (positive IntersectionObserver rootMargin, threshold 0) with a shorter/subtler animation so fast scrolling no longer lands on blank space. Tighter mobile heading line-height (1.15; hero/about 1.1). Drawer close button: cancelled the inherited global `button` left-padding that squished the icon (7px→20px) — solid navy circle, bold white X. Commit `7187fc6`. |
 
 ## Known issues / decisions made
 
