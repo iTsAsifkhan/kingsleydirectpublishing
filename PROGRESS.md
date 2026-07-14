@@ -6,26 +6,59 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
-**rebrand-kingsley + recolor-teal** — Rebranded the whole site from Patrick White Publishing (AU)
-to **Kingsley Direct Publishing** (UK), and re-skinned the palette from gold → **teal** so it no
-longer reads as the gold replica. Clean build (41 routes).
+**kingsley-redesign-differentiation + bugfix-pass** — Redesigned the site to stop resembling the
+old Patrick White layout and fixed a round of reported bugs. Deployed on Vercel from GitHub repo
+`iTsAsifkhan/kingsleydirectpublishing` (remote `kingsley`). Clean production build. Latest
+commit `fd2beb7`.
+
+Key changes since the teal rebrand:
+- **Header** — mega menu (icons + descriptions + featured card) in State A; glassmorphism floating
+  pill on scroll (State B); floating tinted-glass navbar bg; accessible mobile drawer; dismissible
+  promo bar. Data in `lib/nav.ts`.
+- **Hero** — new glassy eyebrow chip with pulse dot; added bottom padding.
+- **Marquee** — replaced the reference two-row scroll with a GSAP 3D-perspective single-row
+  showcase (`components/sections/ShowcaseMarquee.tsx`; old `BookCoverMarquee` removed).
+- **Why Choose Us** — reframed image + offset panel + floating "5,000+ authors" badge.
+- **Let's Connect CTA** — two-column premium section wrapping the shared `QuoteForm`.
+- **Shared form** — one `QuoteForm` (home CTA + /contact) with inline validation, service select,
+  loading/success states; old `ContactPageForm` removed.
+- **Footer** — dark navy footer (fixed invisible white text), newsletter signup, "Services"+"Genres"
+  columns; page-agnostic sticky reveal via `.site-content` layer in the layout; reveal disabled on
+  mobile and under reduced-motion.
+- **Buttons** — white text on darkened teal `#0b7d77` for WCAG AA.
+- **/blogs** page added (was 404); dead `/stories` link removed; sitemap updated.
+- **Fixes** — cropped stats strip (z-index); balanced about pillars 3-col; centered "Explore More"
+  grids for any count; service-page CTA restyled + phone env-gated; removed all decorative stars.
+- **Systemic** — base heading colour moved into `@layer base` so `text-white` wins over it (fixes
+  white headings vanishing on dark sections site-wide).
 
 ## Currently in progress
 
-Phase 6 - Responsive pass. 6.1 (1601/1537/1441) assessed via headless screenshots — layout sound,
-no fixes needed. Resume at **6.2** (1367/1281px). See "Open placeholders" below.
+Nothing open. Site is deployed and stable. Next natural work: replace flagged IP content
+(see below), wire real contact/email/logo, and add real blog posts to `/blogs`.
 
 ## Open placeholders (need real Kingsley data before launch)
 
-- **UK phone** — using fictitious `+44 20 7946 0000` (Ofcom drama range). Replace with real number.
-- **Registered office address** — "United Kingdom — address to be confirmed" (contact page + schema).
-- **Company number** — footer says "Registered in England & Wales · Company No. (TBD)".
+- **UK phone** — fictitious `+44 20 7946 0000` (Ofcom drama range) is now **env-gated**: it only
+  renders when `NEXT_PUBLIC_CONTACT_PHONE` is set (header, contact page, service CTAs, schema).
+  Set that env var in Vercel with a real number to surface it.
+- **Registered office address** — env-gated behind `NEXT_PUBLIC_OFFICE_ADDRESS` (contact page + schema).
+- **Company number** — env-gated behind `NEXT_PUBLIC_COMPANY_NUMBER` (footer). No "TBD" ships.
 - **Email** — `info@kingsleydirectpublishing.com` (set up the mailbox, or change).
 - **Social links** — Footer/schema point to bare facebook.com/instagram.com/wa.me placeholders.
 - **Logo** — Header/Footer use a temporary text wordmark; supply a real Kingsley logo image.
-- **IP content (flagged):** hero marquee uses real bestseller covers (Stephen King, Freida McFadden,
-  etc.) and testimonials are Patrick White's real clients — must be replaced with Kingsley's own /
-  royalty-free placeholders before running ads (violates the project's own CLAUDE.md rule #14).
+- **IP content (flagged, still present):** hero + marquee use real bestseller covers (Stephen King,
+  Freida McFadden, etc.) and testimonials use real client names — must be replaced with Kingsley's
+  own / royalty-free placeholders before running ads (violates CLAUDE.md rule #14).
+- **Newsletter form** — `NewsletterForm` has no backend yet (TODO: wire Resend/Mailchimp).
+- **Contact form** — `submitContactForm` only logs; wire Resend/SendGrid before launch.
+
+## Environment / deploy notes
+
+- Repo: `iTsAsifkhan/kingsleydirectpublishing`, branch `master`, remote `kingsley`. Live on Vercel.
+- Local `npm run dev` HMR is unreliable for CSS appended to `globals.css` — verify against
+  `npm run build` / the Vercel deploy, not dev.
+- On Windows/OneDrive, `next build` can hit `EPERM unlink .next` — `rm -rf .next` and rebuild.
 
 ## Session log
 
@@ -62,6 +95,11 @@ no fixes needed. Resume at **6.2** (1367/1281px). See "Open placeholders" below.
 | 2026-05-11 | 26 | brand-rebrand | Full rebrand: replaced all "Book Publishing Partner" / "bookpublishingpartner.com" references with "Patrick White Publishing" / "patrickwhitepublishing.com"; updated phone to +61 485 976 735, email to info@patrickwhitepublishing.com, ABN and office details in footer/contact/schema, social links updated to real Facebook/Instagram/WhatsApp; logo marks changed from BPP to PWP; WhatsApp icon added to SocialIcons.tsx |
 | 2026-05-14 | 27 | 6.0-logo-image | Replaced logo text placeholders with actual Patrick White Publishing logo image (Patrick-White-Publishing-logo.webp, 220×85px in header, 240×93px in footer) in Header and Footer components using next/image |
 | 2026-05-15 | 28 | fix-prebuild | Fixed latent 504/build failure: `sharp` was missing from package.json so Hostinger's `npm install` never installed it, crashing the prebuild step. Made the sharp import graceful (silent exit-0 if not available — all images already .webp in repo). Added `sharp` to devDependencies for local use. |
+| 2026-07-14 | 29 | rebrand-kingsley + recolor-teal | Rebranded Patrick White Publishing (AU, gold) → Kingsley Direct Publishing (UK, teal); domain/name/email/socials/UK details across pages + schema; palette gold→teal in globals.css; removed PWP image assets; text wordmark. Pushed to new repo `iTsAsifkhan/kingsleydirectpublishing` (remote `kingsley`), deployed to Vercel. Commit `1e80af7`. |
+| 2026-07-14 | 30 | ui-redesign (header/CTA/form/footer) | Mega-menu header (State A) + glassmorphism scroll pill (State B) in `lib/nav.ts`+`Header.tsx`+`MobileNav.tsx`; button contrast AA; shared `QuoteForm` (home + /contact, removed `ContactPageForm`); premium "Let's Connect" CTA; footer rebuild (Services+Genres, newsletter, env-gated company no.) + sticky reveal (`FooterReveal.tsx`). Commit `018edf4`. |
+| 2026-07-14 | 31 | ui-feedback pass | Page-agnostic footer reveal via `.site-content` layer; floating tinted-glass navbar; nav no-wrap; pinned-pill CTA fit; glassy hero eyebrow with pulse dot; distinct Why-Choose-Us redesign; PurpleCTA restyle; removed decorative stars. Commits `c21d20b`. |
+| 2026-07-14 | 32 | bugfix pass (PDF) | GSAP 3D showcase marquee (`ShowcaseMarquee.tsx`, removed `BookCoverMarquee`); fixed cropped stats strip (z-index); dark navy footer (visible text) + mobile reveal disabled; balanced about pillars 3-col; service CTA restyle + phone env-gate; `/blogs` page (was 404) + removed `/stories` + sitemap; content/a11y/perf (relabel stats, initials testimonials, alt text, heading levels, image quality). Commit `334688a`. |
+| 2026-07-14 | 33 | bugfix pass 2 | Centered "Explore More"/Related grids (flex) for any item count; moved base heading colour into `@layer base` so `text-white` wins (fixes invisible white headings on dark sections site-wide); hero bottom padding. Commit `fd2beb7`. |
 
 ## Known issues / decisions made
 
