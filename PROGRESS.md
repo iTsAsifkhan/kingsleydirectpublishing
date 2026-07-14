@@ -45,8 +45,10 @@ Key changes since the teal rebrand:
 
 ## Currently in progress
 
-Nothing open. Site is deployed and stable. Next natural work: replace flagged IP content
-(see below), wire real contact/email/logo, and add real blog posts to `/blogs`.
+Nothing open. Kimberley rebrand + real logo committed (`ab830f7`) and pushed to `kingsley/master`;
+Vercel should redeploy automatically. Next natural work: point the Vercel domain to
+`kimberleydirectpublishing.com`, set the env-gated contact details (phone/office/company no.),
+replace flagged IP content (see below), and add real blog posts to `/blogs`.
 
 ## Open placeholders (need real Kimberley data before launch)
 
@@ -118,7 +120,7 @@ Nothing open. Site is deployed and stable. Next natural work: replace flagged IP
 | 2026-07-14 | 34 | mobile-menu rebuild | Rebuilt `MobileNav.tsx` as a right-sliding drawer portaled to `document.body` (escapes the header's backdrop-filter containing block that had trapped the fixed overlay): backdrop, full-height white panel, brand header, accordion submenus (grid-rows transition), pinned CTA; scroll-lock + Escape + route-change close, reduced-motion safe. Header bar `space-between` (logo left / hamburger right); compact promo bar on phones (close pinned top-right). Commit `75a49f4`. |
 | 2026-07-14 | 35 | ux polish | Scroll reveal (`ScrollReveal.tsx`) now triggers ~22% viewport before entering (positive IntersectionObserver rootMargin, threshold 0) with a shorter/subtler animation so fast scrolling no longer lands on blank space. Tighter mobile heading line-height (1.15; hero/about 1.1). Drawer close button: cancelled the inherited global `button` left-padding that squished the icon (7px→20px) — solid navy circle, bold white X. Commit `7187fc6`. |
 | 2026-07-14 | 36 | rebrand-kimberley | Renamed brand Kingsley Direct Publishing → **Kimberley Direct Publishing** across all source: name, domain (`kimberleydirectpublishing.com`), email (`info@kimberleydirectpublishing.com`), header/footer/mobile wordmarks, metadata (title/OG/twitter/canonical), sitemap/robots/schema JSON-LD, and page copy (home/about/contact/blogs/privacy/terms/services + sub-services). Kept `kdp-*` CSS class names (same K-D-P initials) and the hero `KDP` reference (Amazon Kindle Direct Publishing). Typecheck clean. |
-| 2026-07-14 | 37 | logo-svg + wire-in | Auto-traced the two supplied PNG logos to clean SVGs via `imagetracerjs` (forced brand palette → flat regions, ~130 KB / ~660 paths each). Added `public/images/kimberley-logo.svg` (navy text), `kimberley-logo-white.svg` (white text, footer), `kimberley-logo-dark.svg` (navy badge, unused). Replaced text wordmarks with `next/image` (`unoptimized`) in `Header.tsx` (light, `priority`, shrinks to 34px when pinned) and `Footer.tsx` (white); sizing CSS via `.kdp-logo-img` / `.footer-logo-img`. Clean production build (42 pages). |
+| 2026-07-14 | 37 | logo-svg + wire-in | Auto-traced the two supplied PNG logos to clean SVGs via `imagetracerjs` (forced brand palette → flat regions, ~130 KB / ~660 paths each). Added `public/images/kimberley-logo.svg` (navy text), `kimberley-logo-white.svg` (white text, footer), `kimberley-logo-dark.svg` (navy badge, unused). Replaced text wordmarks with `next/image` (`unoptimized`) in `Header.tsx` (light, `priority`, shrinks to 34px when pinned) and `Footer.tsx` (white); sizing CSS via `.kdp-logo-img` / `.footer-logo-img`. Source PNGs moved to `reference/source-logos/`. Clean production build (42 pages). Sessions 36+37 committed together as `ab830f7` and pushed to `kingsley/master` (live Vercel repo). |
 
 ## Known issues / decisions made
 
