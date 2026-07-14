@@ -88,7 +88,19 @@ h5,
 h6 {
   font-family: var(--font-montserrat), sans-serif;
   margin: 0;
-  color: var(--brand-navy);
+}
+
+/* Heading colour lives in @layer base so Tailwind utilities like `text-white`
+   reliably win over it (fixes white headings vanishing on dark sections). */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--brand-navy);
+  }
 }
 
 h2 {
@@ -325,7 +337,7 @@ button::before {
 
 .index-wrap-1 {
   overflow: clip;
-  padding: 13rem 0 0;
+  padding: 13rem 0 4.5rem;
   scrollbar-width: none;
 }
 
@@ -7223,4 +7235,28 @@ body.footer-reveal-on .site-footer {
   justify-content: center;
   position: relative;
   z-index: 1;
+}
+
+/* ============================================================
+   "Explore More" grids — stay centered for any item count (3/4/5)
+   ============================================================ */
+.service-related-grid,
+.subservice-sibling-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px;
+}
+.service-related-grid > .services-item,
+.subservice-sibling-grid > .subservice-sibling-card {
+  flex: 0 1 280px;
+  max-width: 340px;
+  margin: 0;
+}
+@media (max-width: 575.98px) {
+  .service-related-grid > .services-item,
+  .subservice-sibling-grid > .subservice-sibling-card {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
 }
