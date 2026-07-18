@@ -54,7 +54,6 @@ export interface NavItem {
 }
 
 export const MAIN_NAV: NavItem[] = [
-  { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Packages', href: '/packages' },
   {
@@ -148,7 +147,6 @@ export const MAIN_NAV: NavItem[] = [
       cta: 'Build your brand',
     },
   },
-  { label: 'Blogs', href: '/blogs' },
 ]
 
 /** Shared "interested in" options for forms, derived from the service groups. */
