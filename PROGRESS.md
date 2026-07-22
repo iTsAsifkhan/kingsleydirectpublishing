@@ -32,16 +32,26 @@ Done:
 - **A2** — bare-domain social links removed; footer social + schema `sameAs` now
   env-gated on `NEXT_PUBLIC_FACEBOOK_URL` / `NEXT_PUBLIC_INSTAGRAM_URL`.
 - **Q2** — removed phantom `/admin` `/private` disallows from `robots.ts`.
+- **SEC1 (partial)** — security headers via `next.config` `headers()`
+  (X-Content-Type-Options, Referrer-Policy, X-Frame-Options, HSTS,
+  Permissions-Policy). CSP intentionally NOT added — needs live validation
+  against Swiper/GSAP/next-image/third-party FX-geo before it can ship.
+- **P5** — enabled `image/avif` + `image/webp` output formats.
+- **AX1** — visually-hidden "Skip to main content" link + `#main-content`
+  target in `layout.tsx` (Tailwind `sr-only`/`focus:not-sr-only`).
 - Added `.env.example` documenting every var (Resend, contact, social, deferred
   analytics IDs).
+
+Commits on branch `fix/pre-launch-audit`: `1a5d632` (Phase 1) and `f3bfcb8`
+(SEC1/P5/AX1). Local only — not pushed.
 
 Blocked on user: `RESEND_API_KEY`, `NEXT_PUBLIC_COMPANY_NUMBER`,
 `NEXT_PUBLIC_OFFICE_ADDRESS`, real FB/IG URLs, and replacement covers for C4.
 
-Still open (not started): P1 logo weight, S3 `/blogs` thin content, SEC1 security
-headers, AX1 skip link, AX2 contrast audit, D2 currency skeleton, P2 CSS split,
-S4 branded 404/error, Q1 dead-code delete, P3/P4 asset+font pruning, D1 `fw-*`
-retirement, C2 analytics, C5 consent banner, Phase 4 deployed-URL verification.
+Still open (not started): P1 logo weight, S3 `/blogs` thin content, CSP (rest of
+SEC1), AX2 contrast audit, D2 currency skeleton, P2 CSS split, S4 branded
+404/error, Q1 dead-code delete, P3/P4 asset+font pruning, D1 `fw-*` retirement,
+C2 analytics, C5 consent banner, Phase 4 deployed-URL verification.
 
 ---
 
