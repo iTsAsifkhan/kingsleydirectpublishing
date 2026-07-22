@@ -23,7 +23,10 @@ const notoSans = Noto_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://kimberleydirectpublishing.com'),
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
   },
   title: {
     default: 'Kimberley Direct Publishing | Professional Book Publishing Services',
