@@ -1,45 +1,46 @@
 'use client'
 
-import { useState } from 'react'
+import { useActionState } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
+import { subscribeNewsletter } from '@/app/actions'
 
 export default function NewsletterForm() {
-  const [status, setStatus] = useState<'idle' | 'done'>('idle')
-  const [email, setEmail] = useState('')
+  const [state, formAction, isPending] = useActionState(subscribeNewsletter, null)
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    // TODO: wire to a real email provider (Resend/Mailchimp) before launch.
-    setStatus('done')
-  }
-
-  if (status === 'done') {
+  if (state?.success) {
     return (
       <p className="footer-news-done" role="status">
-        <Check size={16} aria-hidden="true" /> You&apos;re subscribed — thank you!
+        <Check size={16} aria-hidden="true" /> {state.message}
       </p>
     )
   }
 
   return (
-    <form className="footer-news" onSubmit={onSubmit}>
+    <form className="footer-news" action={formAction}>
       <label htmlFor="footer-news-email" className="footer-news-label">
         Get publishing tips in your inbox
       </label>
       <div className="footer-news-row">
         <input
           id="footer-news-email"
+          name="email"
           type="email"
           required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
           placeholder="Your email address"
           autoComplete="email"
+          disabled={isPending}
+          aria-invalid={state && !state.success ? true : undefined}
+          aria-describedby={state && !state.success ? 'footer-news-err' : undefined}
         />
-        <button type="submit" aria-label="Subscribe to newsletter">
+        <button type="submit" aria-label="Subscribe to newsletter" disabled={isPending}>
           <ArrowRight size={18} aria-hidden="true" />
         </button>
       </div>
+      {state && !state.success && (
+        <span id="footer-news-err" className="footer-news-error" role="alert">
+          {state.message}
+        </span>
+      )}
     </form>
   )
 }

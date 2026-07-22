@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   },
 }
 
+const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
+
 const TERMS_SECTIONS = [
   {
     title: 'Use Of Our Website',
@@ -144,9 +146,17 @@ export default function TermsConditionsPage() {
                 Questions about these terms can be sent to{' '}
                 <a href="mailto:info@kimberleydirectpublishing.com">
                   info@kimberleydirectpublishing.com
-                </a>{' '}
-                or discussed by calling{' '}
-                <a href="tel:+442079460000">+44 20 7946 0000</a>.
+                </a>
+                {CONTACT_PHONE ? (
+                  <>
+                    {' '}
+                    or discussed by calling{' '}
+                    <a href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`}>
+                      {CONTACT_PHONE}
+                    </a>
+                  </>
+                ) : null}
+                .
               </p>
             </section>
 

@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   },
 }
 
+const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
+
 const PRIVACY_SECTIONS = [
   {
     title: 'Information We Collect',
@@ -49,6 +51,13 @@ const PRIVACY_SECTIONS = [
     title: 'Cookies And Analytics',
     body: [
       'Our website may use cookies, pixels, analytics, and similar technologies to understand visitor activity, improve performance, and support marketing measurement. You can adjust cookie settings through your browser.',
+    ],
+  },
+  {
+    title: 'Third-Party Services And IP-Based Localisation',
+    body: [
+      'To display prices in your local currency, our pricing pages may send your IP address to third-party geolocation and exchange-rate providers — ipwho.is and ipapi.co (to estimate your country and currency) and open.er-api.com and frankfurter.app (to retrieve current exchange rates). These providers process your IP address under their own privacy policies. If localisation is unavailable, prices are shown in US Dollars.',
+      'We do not store your IP address for this purpose beyond the request needed to determine your currency, and your currency preference is kept only in your browser.',
     ],
   },
   {
@@ -129,8 +138,17 @@ export default function PrivacyPolicyPage() {
                 handled, contact Kimberley Direct Publishing at{' '}
                 <a href="mailto:info@kimberleydirectpublishing.com">
                   info@kimberleydirectpublishing.com
-                </a>{' '}
-                or call <a href="tel:+442079460000">+44 20 7946 0000</a>.
+                </a>
+                {CONTACT_PHONE ? (
+                  <>
+                    {' '}
+                    or call{' '}
+                    <a href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`}>
+                      {CONTACT_PHONE}
+                    </a>
+                  </>
+                ) : null}
+                .
               </p>
             </section>
 

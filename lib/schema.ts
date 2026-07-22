@@ -17,10 +17,11 @@ export function organizationSchema() {
         addressCountry: 'GB',
       },
     ],
+    // Only advertise social profiles once real URLs are configured.
     sameAs: [
-      'https://facebook.com/',
-      'https://instagram.com/',
-    ],
+      process.env.NEXT_PUBLIC_FACEBOOK_URL,
+      process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+    ].filter(Boolean),
     contactPoint: {
       '@type': 'ContactPoint',
       // Only advertise a phone once a real, dialable number is configured.

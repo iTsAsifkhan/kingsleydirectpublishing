@@ -8,11 +8,29 @@ import {
   WhatsAppIcon,
 } from '@/components/icons/SocialIcons'
 
+// Contact phone drives the WhatsApp link; the CTA hides when it's unset.
+const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
+const WHATSAPP_DIGITS = CONTACT_PHONE?.replace(/\D/g, '')
+
+// Social profile URLs come from env — links render only when a real URL is set,
+// so we never ship placeholder/bare-domain links.
 const SOCIAL = [
-  { href: 'https://facebook.com/', icon: FacebookIcon, label: 'Facebook' },
-  { href: 'https://instagram.com/', icon: InstagramIcon, label: 'Instagram' },
-  { href: 'https://wa.me/442079460000', icon: WhatsAppIcon, label: 'WhatsApp' },
-]
+  process.env.NEXT_PUBLIC_FACEBOOK_URL && {
+    href: process.env.NEXT_PUBLIC_FACEBOOK_URL,
+    icon: FacebookIcon,
+    label: 'Facebook',
+  },
+  process.env.NEXT_PUBLIC_INSTAGRAM_URL && {
+    href: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+    icon: InstagramIcon,
+    label: 'Instagram',
+  },
+  WHATSAPP_DIGITS && {
+    href: `https://wa.me/${WHATSAPP_DIGITS}`,
+    icon: WhatsAppIcon,
+    label: 'WhatsApp',
+  },
+].filter(Boolean) as { href: string; icon: typeof FacebookIcon; label: string }[]
 
 const QUICK_LINKS = [
   { label: 'Home', href: '/' },
@@ -73,6 +91,7 @@ export default function Footer() {
 
             <NewsletterForm />
 
+            {SOCIAL.length > 0 && (
             <ul className="social-links" aria-label="Social media links">
               {SOCIAL.map(({ href, icon: Icon, label }) => (
                 <li key={label}>
@@ -82,6 +101,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+            )}
           </div>
 
           {/* Quick Links */}

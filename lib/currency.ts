@@ -68,6 +68,17 @@ const RATES_TTL_MS = 24 * 60 * 60 * 1000 // 24h
 
 export type Rates = Record<string, number>
 
+/** Fetch with an abort-timeout so a slow third-party never blocks rendering. */
+async function fetchWithTimeout(url: string, timeoutMs = 4000): Promise<Response> {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
+  try {
+    return await fetch(url, { signal: controller.signal })
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
 interface RatesCache {
   ts: number
   base: string
@@ -132,7 +143,7 @@ function writeCachedRates(rates: Rates): void {
 
 async function fetchFromErApi(): Promise<Rates | null> {
   try {
-    const res = await fetch(`https://open.er-api.com/v6/latest/${BASE_CURRENCY}`)
+    const res = await fetchWithTimeout(`https://open.er-api.com/v6/latest/${BASE_CURRENCY}`)
     if (!res.ok) return null
     const data = await res.json()
     if (data?.result === 'success' && data?.rates) return data.rates as Rates
@@ -145,7 +156,7 @@ async function fetchFromErApi(): Promise<Rates | null> {
 async function fetchFromFrankfurter(): Promise<Rates | null> {
   try {
     const symbols = CURRENCY_CODES.filter((c) => c !== BASE_CURRENCY).join(',')
-    const res = await fetch(
+    const res = await fetchWithTimeout(
       `https://api.frankfurter.app/latest?from=${BASE_CURRENCY}&to=${symbols}`,
     )
     if (!res.ok) return null
@@ -182,7 +193,7 @@ export async function detectCurrency(): Promise<string> {
   // ipwho.is returns a `currency.code` plus `country_code`; ipapi.co is the
   // fallback. Either way we map into our supported set, else default to USD.
   try {
-    const res = await fetch('https://ipwho.is/')
+    const res = await fetchWithTimeout('https://ipwho.is/')
     if (res.ok) {
       const data = await res.json()
       const direct = data?.currency?.code
@@ -195,7 +206,7 @@ export async function detectCurrency(): Promise<string> {
   }
 
   try {
-    const res = await fetch('https://ipapi.co/json/')
+    const res = await fetchWithTimeout('https://ipapi.co/json/')
     if (res.ok) {
       const data = await res.json()
       const direct = data?.currency

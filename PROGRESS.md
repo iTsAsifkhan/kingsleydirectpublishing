@@ -6,6 +6,47 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**pre-launch-audit-phase1** — Executed Phase 1 of `AUDIT_AND_TASKS.md` (plus a few
+safe extras). Per user direction: analytics/ads (C2) deferred, and the copyrighted
+book covers (C4) were **left in place** — still an open legal + Google-Ads
+misrepresentation risk (~103 unique cover images; every genre sampled is a real
+published book: Sarah J. Maas, Elle Kennedy, T L Swan, Shirley Jackson, Dan Brown,
+Freida McFadden). `tsc --noEmit` and `next build` both clean (45 routes).
+
+Done:
+- **C1** — `submitContactForm` + newsletter now send via the Resend REST API
+  (`app/actions.ts`); input HTML-escaped, `reply_to` set, honest `success:false`
+  error on failure or missing `RESEND_API_KEY` (no more false "Message sent").
+  `NewsletterForm.tsx` rewired to a real `subscribeNewsletter` action.
+- **C3** — all `tel:`/`wa.me` links routed through `NEXT_PUBLIC_CONTACT_PHONE`,
+  hidden when unset (Footer WhatsApp, Portfolio, contact hero, privacy, terms).
+  grep for the old drama number returns nothing.
+- **C5 (partial)** — geo/FX providers (ipwho.is, ipapi.co, open.er-api.com,
+  frankfurter.app) disclosed in the privacy policy; all four fetches wrapped in a
+  4s `AbortController` timeout (also closes SEC2). Full consent banner + Consent
+  Mode deferred to travel with C2.
+- **S1** — real 1200×630 `public/og-image.png` generated (brand navy/yellow,
+  open-book mark); existing metadata references now resolve.
+- **S2** — built `app/services/page.tsx` index (metadata + breadcrumb + ItemList
+  JSON-LD); the sitemap `/services` 404 is gone.
+- **A2** — bare-domain social links removed; footer social + schema `sameAs` now
+  env-gated on `NEXT_PUBLIC_FACEBOOK_URL` / `NEXT_PUBLIC_INSTAGRAM_URL`.
+- **Q2** — removed phantom `/admin` `/private` disallows from `robots.ts`.
+- Added `.env.example` documenting every var (Resend, contact, social, deferred
+  analytics IDs).
+
+Blocked on user: `RESEND_API_KEY`, `NEXT_PUBLIC_COMPANY_NUMBER`,
+`NEXT_PUBLIC_OFFICE_ADDRESS`, real FB/IG URLs, and replacement covers for C4.
+
+Still open (not started): P1 logo weight, S3 `/blogs` thin content, SEC1 security
+headers, AX1 skip link, AX2 contrast audit, D2 currency skeleton, P2 CSS split,
+S4 branded 404/error, Q1 dead-code delete, P3/P4 asset+font pruning, D1 `fw-*`
+retirement, C2 analytics, C5 consent banner, Phase 4 deployed-URL verification.
+
+---
+
+## Prior — rebrand-kimberley
+
 **rebrand-kimberley** — Renamed the brand from **Kingsley Direct Publishing** to
 **Kimberley Direct Publishing** across all source (name, domain `kimberleydirectpublishing.com`,
 email `info@kimberleydirectpublishing.com`, wordmarks, metadata, JSON-LD, page copy). The `kdp-*`

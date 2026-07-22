@@ -19,6 +19,8 @@ const TABS: readonly Tab[] = [
 
 const PORTFOLIO_ITEMS_PER_TAB = 8
 
+const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
+
 const portfolioImagesByTab: Record<Tab, string[]> = {
   Fantasy: Array.from(
     { length: 8 },
@@ -123,18 +125,20 @@ export default function Portfolio() {
           <Button variant="yellow" href="/contact" icon={ArrowRight}>
             Get A Quote
           </Button>
-          <a
-            className="anchor-number-cta align-items-center d-inline-flex"
-            href="tel:+442079460000"
-          >
-            <span className="span-1">
-              <PhoneCall aria-hidden="true" className="clr-1" size={16} />
-            </span>
-            <span className="span-2 fw-600 clr-1 d-inline-block">
-              Call Now <br />
-              <b className="text-white">+44 20 7946 0000</b>
-            </span>
-          </a>
+          {CONTACT_PHONE && (
+            <a
+              className="anchor-number-cta align-items-center d-inline-flex"
+              href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`}
+            >
+              <span className="span-1">
+                <PhoneCall aria-hidden="true" className="clr-1" size={16} />
+              </span>
+              <span className="span-2 fw-600 clr-1 d-inline-block">
+                Call Now <br />
+                <b className="text-white">{CONTACT_PHONE}</b>
+              </span>
+            </a>
+          )}
         </div>
       </Container>
     </section>

@@ -130,9 +130,15 @@ export default function ContactPage() {
                 help you move from manuscript to market with confidence.
               </p>
               <div className="service-hero-ctas">
-                <Button variant="yellow" href="tel:+442079460000" icon={Phone}>
-                  Call Now
-                </Button>
+                {CONTACT_PHONE && (
+                  <Button
+                    variant="yellow"
+                    href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`}
+                    icon={Phone}
+                  >
+                    Call Now
+                  </Button>
+                )}
                 <Button variant="blue" href="mailto:info@kimberleydirectpublishing.com" icon={Mail}>
                   Email Us
                 </Button>
