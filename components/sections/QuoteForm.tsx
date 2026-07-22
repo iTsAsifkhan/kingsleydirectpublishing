@@ -1,6 +1,7 @@
 'use client'
 
-import { useActionState, useId, useState } from 'react'
+import { useActionState, useEffect, useId, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Check, ChevronDown, Send } from 'lucide-react'
 import { submitContactForm } from '@/app/actions'
 import { SERVICE_OPTIONS } from '@/lib/nav'
@@ -33,6 +34,15 @@ export default function QuoteForm({ variant = 'page' }: QuoteFormProps) {
   const [state, formAction, isPending] = useActionState(submitContactForm, null)
   const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({})
   const uid = useId()
+  const router = useRouter()
+
+  // On a successful submission, send the visitor to the dedicated thank-you page
+  // (also a clean conversion-tracking target once analytics is wired).
+  useEffect(() => {
+    if (state?.success) {
+      router.push('/thank-you')
+    }
+  }, [state?.success, router])
 
   const setError = (name: FieldName, value: string) =>
     setErrors((prev) => ({ ...prev, [name]: validate(name, value) ?? undefined }))
