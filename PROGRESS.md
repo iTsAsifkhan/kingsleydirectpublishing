@@ -42,8 +42,14 @@ Done:
 - Added `.env.example` documenting every var (Resend, contact, social, deferred
   analytics IDs).
 
-Commits on branch `fix/pre-launch-audit`: `1a5d632` (Phase 1) and `f3bfcb8`
-(SEC1/P5/AX1). Local only — not pushed.
+- **S4** — branded `app/not-found.tsx` (noindex 404) + `app/error.tsx` (client
+  error boundary with reset).
+- **Thank-you page** — `app/thank-you/page.tsx` (noindex); `QuoteForm` now
+  redirects to `/thank-you` on successful submit (also a clean future
+  conversion-tracking target for C2).
+
+Commits on branch `fix/pre-launch-audit`: `1a5d632` (Phase 1), `f3bfcb8`
+(SEC1/P5/AX1), `e3e5270` (docs), `a333a93` (S4 + thank-you). Local only — not pushed.
 
 Blocked on user: `RESEND_API_KEY`, `NEXT_PUBLIC_COMPANY_NUMBER`,
 `NEXT_PUBLIC_OFFICE_ADDRESS`, real FB/IG URLs, and replacement covers for C4.
