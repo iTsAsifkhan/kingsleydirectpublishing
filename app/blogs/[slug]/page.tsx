@@ -1,7 +1,14 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, ArrowLeft, CalendarDays, Clock, CheckCircle2 } from 'lucide-react'
+import {
+  ArrowRight,
+  ArrowLeft,
+  CalendarDays,
+  Clock,
+  CheckCircle2,
+} from 'lucide-react'
 import { Container } from '@/components/ui'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { breadcrumbSchema, faqSchema } from '@/lib/schema'
@@ -11,12 +18,6 @@ interface Props {
 }
 
 const SITE_URL = 'https://kimberleydirectpublishing.com'
-
-const accentGradient: Record<string, string> = {
-  navy: 'from-brand-navy via-brand-navy to-[#2a1170]',
-  yellow: 'from-[#7a5400] via-brand-yellow-dark to-[#a06f00]',
-  teal: 'from-[#0d3b40] via-[#155e66] to-[#0d3b40]',
-}
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }))
@@ -103,18 +104,32 @@ export default async function BlogPostPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([articleSchema, breadcrumb, faqSchema(post.faqs)]),
+          __html: JSON.stringify([
+            articleSchema,
+            breadcrumb,
+            faqSchema(post.faqs),
+          ]),
         }}
       />
 
       {/* Header / hero */}
-      <header
-        className={`bg-gradient-to-br ${accentGradient[post.accent]} pt-36 pb-16 text-white`}
-      >
-        <Container>
+      <header className="relative isolate overflow-hidden bg-brand-navy pt-36 pb-16 text-white sm:pb-20">
+        <Image
+          src={post.featuredImage}
+          alt={post.featuredImageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-brand-navy/72" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/82 to-brand-navy/44" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand-navy/35 to-transparent" />
+
+        <Container className="relative z-10">
           <nav
             aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-2 text-sm text-white/70"
+            className="flex flex-wrap items-center gap-2 text-sm text-white/78"
           >
             <Link href="/" className="transition-colors hover:text-white">
               Home
@@ -129,15 +144,15 @@ export default async function BlogPostPage({ params }: Props) {
             </span>
           </nav>
 
-          <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em]">
+          <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white shadow-[0px_10px_30px_rgb(0_0_0_/_16%)] backdrop-blur-sm">
             {post.category}
           </span>
 
-          <h1 className="mt-5 max-w-3xl font-heading text-3xl font-bold leading-tight sm:text-4xl lg:text-[2.75rem]">
+          <h1 className="mt-6 max-w-4xl break-words font-heading text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[2.85rem]">
             {post.title}
           </h1>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/80">
+          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/86">
             <span>{post.author}</span>
             <span className="inline-flex items-center gap-1.5">
               <CalendarDays size={16} aria-hidden="true" />
@@ -156,7 +171,12 @@ export default async function BlogPostPage({ params }: Props) {
         <article className="mx-auto max-w-3xl py-14">
           <div className="space-y-5 text-lg leading-relaxed text-brand-gray-2">
             {post.intro.map((para, i) => (
-              <p key={i} className={i === 0 ? 'text-xl font-medium text-brand-ink' : undefined}>
+              <p
+                key={i}
+                className={
+                  i === 0 ? 'text-xl font-medium text-brand-ink' : undefined
+                }
+              >
                 {para}
               </p>
             ))}
@@ -168,7 +188,10 @@ export default async function BlogPostPage({ params }: Props) {
                 {section.heading}
               </h2>
               {section.paragraphs?.map((para, i) => (
-                <p key={i} className="mt-4 text-base leading-relaxed text-brand-gray-2">
+                <p
+                  key={i}
+                  className="mt-4 text-base leading-relaxed text-brand-gray-2"
+                >
                   {para}
                 </p>
               ))}
@@ -201,10 +224,15 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Key takeaways */}
           <aside className="mt-14 rounded-2xl border border-brand-navy/10 bg-brand-navy/[0.03] p-7">
-            <h2 className="font-heading text-lg font-bold text-brand-navy">Key takeaways</h2>
+            <h2 className="font-heading text-lg font-bold text-brand-navy">
+              Key takeaways
+            </h2>
             <ul className="mt-4 space-y-3">
               {post.keyTakeaways.map((point) => (
-                <li key={point} className="flex items-start gap-3 text-base text-brand-gray-2">
+                <li
+                  key={point}
+                  className="flex items-start gap-3 text-base text-brand-gray-2"
+                >
                   <CheckCircle2
                     size={20}
                     className="mt-0.5 shrink-0 text-brand-yellow-dark"
@@ -230,7 +258,9 @@ export default async function BlogPostPage({ params }: Props) {
                   <h3 className="font-heading text-base font-semibold text-brand-navy">
                     {faq.question}
                   </h3>
-                  <p className="mt-2 text-base leading-relaxed text-brand-gray-2">{faq.answer}</p>
+                  <p className="mt-2 text-base leading-relaxed text-brand-gray-2">
+                    {faq.answer}
+                  </p>
                 </div>
               ))}
             </div>
@@ -238,12 +268,18 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Related internal links */}
           <section className="mt-14 rounded-2xl bg-brand-navy p-8 text-white">
-            <h2 className="font-heading text-xl font-bold">Ready to take the next step?</h2>
+            <h2 className="font-heading text-xl font-bold">
+              Ready to take the next step?
+            </h2>
             <p className="mt-3 text-white/80">
-              Kimberley Direct Publishing supports authors from manuscript to launch. Explore{' '}
+              Kimberley Direct Publishing supports authors from manuscript to
+              launch. Explore{' '}
               {post.related.map((link, i) => (
                 <span key={link.href}>
-                  <Link href={link.href} className="font-semibold text-brand-yellow underline-offset-4 hover:underline">
+                  <Link
+                    href={link.href}
+                    className="font-semibold text-brand-yellow underline-offset-4 hover:underline"
+                  >
                     {link.label}
                   </Link>
                   {i < post.related.length - 2

@@ -31,6 +31,9 @@ export interface BlogPost {
   category: string
   /** Accent used for the gradient cover + category chip. */
   accent: 'navy' | 'yellow' | 'teal'
+  /** Featured image used by index cards and the post hero. */
+  featuredImage: string
+  featuredImageAlt: string
   author: string
   /** ISO date for <time> + schema datePublished. */
   date: string
@@ -56,6 +59,9 @@ export const blogPosts: BlogPost[] = [
       'From a finished manuscript to a book readers can buy on Amazon — the eight stages of self-publishing, what each one really involves, and where authors get stuck.',
     category: 'Self-Publishing',
     accent: 'navy',
+    featuredImage: '/images/Step-by-Step%20Guide.jpg',
+    featuredImageAlt:
+      'Publishing desk with manuscript pages, book layout software, and finished paperbacks',
     author: 'The Kimberley Editorial Team',
     date: '2026-07-08',
     dateLabel: '8 July 2026',
@@ -168,6 +174,9 @@ export const blogPosts: BlogPost[] = [
       'Editing, cover, formatting, ISBNs, marketing — a transparent breakdown of what self-publishing actually costs in 2026, and how to spend where it matters.',
     category: 'Publishing Costs',
     accent: 'yellow',
+    featuredImage: '/images/Cost%20to%20Self-Publish%20a%20Book%20in%202026.jpg',
+    featuredImageAlt:
+      'Publishing budget workspace with a laptop, manuscript pages, calculator, and books',
     author: 'The Kimberley Editorial Team',
     date: '2026-07-15',
     dateLabel: '15 July 2026',
@@ -272,6 +281,9 @@ export const blogPosts: BlogPost[] = [
       'Developmental, line, copy, and proofreading are not interchangeable. Here’s what each editing pass actually does, in what order — and which ones your book needs.',
     category: 'Editing',
     accent: 'teal',
+    featuredImage: '/images/Types%20of%20Book%20Editing.jpg',
+    featuredImageAlt:
+      'Editor reviewing marked-up manuscript pages beside a laptop',
     author: 'The Kimberley Editorial Team',
     date: '2026-07-22',
     dateLabel: '22 July 2026',
