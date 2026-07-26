@@ -7,7 +7,7 @@ import type { LucideIcon } from 'lucide-react'
 import { ArrowRight, CheckCircle, MessageCircle, PhoneCall } from 'lucide-react'
 import { Button, Container, ServiceCard } from '@/components/ui'
 import { services } from '@/lib/content'
-import { serviceSchema } from '@/lib/schema'
+import { serviceSchema, breadcrumbSchema } from '@/lib/schema'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -90,11 +90,20 @@ export default async function ServicePage({ params }: Props) {
     url: `https://kimberleydirectpublishing.com/services/${service.slug}`,
   })
 
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Home', url: 'https://kimberleydirectpublishing.com' },
+    { name: 'Services', url: 'https://kimberleydirectpublishing.com/services' },
+    {
+      name: `${service.title} Services`,
+      url: `https://kimberleydirectpublishing.com/services/${service.slug}`,
+    },
+  ])
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([schema, breadcrumb]) }}
       />
 
       <section className="service-hero">

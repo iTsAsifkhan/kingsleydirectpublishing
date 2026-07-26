@@ -6,6 +6,34 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**seo-finalization (Phase 7 pass)** — Ran the site through `SEO_CHECKLIST.md`.
+Fixed a real structured-data bug and closed two gaps; `tsc --noEmit` and
+`next build` both clean (46 routes), verified against the built HTML.
+
+Done:
+- **Org schema logo 404** — `organizationSchema()` pointed `logo` at
+  `/logo.png`, which does not exist (would fail Rich Results / validator.schema.org).
+  Repointed to the real `/images/kimberley-logo.svg`; also added `image`
+  (og-image.png) and `areaServed: United Kingdom` for UK-local intent. This
+  schema is consumed by the homepage, `/contact`, and `/about-us`, so the fix
+  propagates everywhere.
+- **BreadcrumbList JSON-LD** — added to `services/[slug]` (Home › Services ›
+  X Services) and `services/[slug]/[subslug]` (Home › Services › Parent › Sub).
+  These pages already had `Service` schema (and the sub-service page a visual
+  breadcrumb) but no `BreadcrumbList` — the bit Google needs to render breadcrumb
+  trails in results. Emitted as an array alongside the existing service schema.
+
+Audit result — otherwise clean: every page exports `metadata` with unique
+title/description + self-canonical + OG/Twitter; one `<h1>` per page; homepage
+has Organization + WebSite (+ FAQPage from the FAQ section); services index and
+packages carry ItemList/OfferCatalog + Breadcrumb; sitemap/robots correct; 404
++ thank-you noindexed. Still open from prior notes: S3 `/blogs` thin content,
+AX2 contrast, per-page OG images (currently inherit the site default — acceptable).
+
+---
+
+## Prior — pre-launch-audit-phase1
+
 **pre-launch-audit-phase1** — Executed Phase 1 of `AUDIT_AND_TASKS.md` (plus a few
 safe extras). Per user direction: analytics/ads (C2) deferred, and the copyrighted
 book covers (C4) were **left in place** — still an open legal + Google-Ads

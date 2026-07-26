@@ -8,8 +8,13 @@ export function organizationSchema() {
     '@type': 'Organization',
     name: 'Kimberley Direct Publishing',
     url: 'https://kimberleydirectpublishing.com',
-    logo: 'https://kimberleydirectpublishing.com/logo.png',
+    logo: 'https://kimberleydirectpublishing.com/images/kimberley-logo.svg',
+    image: 'https://kimberleydirectpublishing.com/og-image.png',
     description: 'Professional book publishing services helping authors bring their manuscripts to life.',
+    areaServed: {
+      '@type': 'Country',
+      name: 'United Kingdom',
+    },
     // TODO: fill in Kimberley Direct Publishing's real UK registered address.
     address: [
       {
