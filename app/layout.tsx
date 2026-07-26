@@ -7,6 +7,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
 import FooterReveal from '@/components/FooterReveal'
+import TawkChat from '@/components/TawkChat'
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -73,7 +74,10 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.variable} ${notoSans.variable} scroll-smooth`}
     >
-      <head />
+      <head>
+        <link rel="preconnect" href="https://embed.tawk.to" />
+        <link rel="dns-prefetch" href="https://embed.tawk.to" />
+      </head>
       <body className="bg-white text-brand-ink font-body" suppressHydrationWarning>
         <a
           href="#main-content"
@@ -88,6 +92,7 @@ export default function RootLayout({
         <Footer />
         <ScrollReveal />
         <FooterReveal />
+        <TawkChat />
       </body>
     </html>
   )
