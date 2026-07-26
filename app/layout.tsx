@@ -62,6 +62,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://kimberleydirectpublishing.com',
   },
+  verification: {
+    // Google Search Console — HTML-tag verification (public token, safe to commit).
+    google: 'lpvLd9f573rsbB1XRmptxhA-A4rFid-7x02i2ojFRlw',
+  },
 }
 
 export default function RootLayout({
