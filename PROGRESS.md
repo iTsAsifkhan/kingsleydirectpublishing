@@ -6,6 +6,32 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**blog-launch (S3 closed)** — Replaced the "coming soon" `/blogs` placeholder with
+a real blog: 3 SEO-optimised, keyword-targeted posts + individual post routes.
+`tsc --noEmit` and `next build` both clean (49 routes), verified in built HTML
+(one h1/post, BlogPosting + BreadcrumbList + FAQPage schema, self-canonical, in sitemap).
+
+Done:
+- **`lib/blog.ts`** — typed `BlogPost` model (structured blocks, not raw HTML, so
+  the renderer emits a clean h1→h2→h3 hierarchy and the visible FAQ copy matches
+  the FAQPage JSON-LD). 3 posts, each with intro, sections, key takeaways, 3 FAQs,
+  and descriptive internal links to the relevant service/package pages:
+  - `how-to-self-publish-a-book` (kw: self-publish a book)
+  - `how-much-does-it-cost-to-self-publish-a-book` (kw: cost to self-publish a book)
+  - `types-of-book-editing-explained` (kw: types of book editing)
+- **`app/blogs/[slug]/page.tsx`** — static params + per-post `generateMetadata`
+  (article OG type, publishedTime, self-canonical); renders BlogPosting +
+  BreadcrumbList + FAQPage JSON-LD; gradient cover (no IP imagery — CLAUDE.md #14).
+- **`app/blogs/page.tsx`** — rewritten from "coming soon" to a real index (featured
+  + card grid) with Blog + BreadcrumbList schema.
+- **`app/sitemap.ts`** — blog posts added (priority 0.6, lastModified = post date).
+- Byline is "The Kimberley Editorial Team" and schema author/publisher = the
+  Organization (no fabricated person). Covers are CSS gradients, not book images.
+
+---
+
+## Prior — seo-finalization (Phase 7 pass)
+
 **seo-finalization (Phase 7 pass)** — Ran the site through `SEO_CHECKLIST.md`.
 Fixed a real structured-data bug and closed two gaps; `tsc --noEmit` and
 `next build` both clean (46 routes), verified against the built HTML.

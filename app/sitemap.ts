@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { services } from '@/lib/content'
+import { getAllPosts } from '@/lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://kimberleydirectpublishing.com'
@@ -71,5 +72,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   )
 
-  return [...staticPages, ...servicePages, ...subServicePages]
+  const blogPages: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${baseUrl}/blogs/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  return [...staticPages, ...servicePages, ...subServicePages, ...blogPages]
 }
