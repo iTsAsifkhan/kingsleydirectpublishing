@@ -11,7 +11,7 @@
 
 export const BASE_CURRENCY = 'USD' as const
 
-export type PriceUnit = 'one-time' | 'per word' | 'per illustration'
+export type PriceUnit = 'one-time' | 'per word' | 'per illustration' | 'per month'
 
 export interface Price {
   /** Amount in USD (base currency). */
@@ -37,39 +37,93 @@ export interface ServicePackage {
   features: string[]
 }
 
-/** Two flagship publishing tiers. */
+/** Three flagship publishing tiers — a Debut → Bestseller → Legacy ladder. */
 export const TIERS: Tier[] = [
   {
-    id: 'standard-book-publishing',
-    name: 'Standard Book Publishing',
+    id: 'debut-publishing',
+    name: 'Debut Publishing',
     price: { amount: 799, unit: 'one-time' },
     tagline:
-      'Complete Amazon KDP package that formats, designs, optimises and publishes your book while you keep 100% rights and royalties.',
+      'Everything you need to format, design and publish your book on Amazon KDP — while keeping 100% of your rights and royalties.',
     features: [
-      'Professional book formatting',
-      'Custom book cover design',
-      'Metadata & listing optimisation',
-      'Full Amazon KDP publishing setup',
+      'Professional interior formatting (paperback & Kindle)',
+      'Custom front & back cover design',
+      'Proofreading & page layout',
+      'Amazon KDP account setup & publishing',
+      'Kindle & paperback publishing',
+      'Book description formatting',
+      'Keyword & category optimization',
       'ISBN guidance',
-      'Dedicated publishing support',
-      '100% satisfaction & money-back guarantee',
+      'Final quality check before publication',
+      'Dedicated publishing consultant',
+      '100% ownership of your book',
+      '100% royalties paid directly to you',
     ],
   },
   {
-    id: 'premium-book-publishing',
-    name: 'Premium Book Publishing',
-    price: { amount: 1399, unit: 'one-time' },
-    tagline: 'Advanced package with distribution across 10+ major platforms.',
+    id: 'bestseller-publishing',
+    name: 'Bestseller Publishing',
+    price: { amount: 1499, unit: 'one-time' },
+    tagline:
+      'Reach readers everywhere with distribution across 10+ major bookstores, richer metadata and multiple revision rounds.',
     popular: true,
-    lead: 'Everything in Standard, plus:',
+    lead: 'Everything in Debut, plus:',
     features: [
-      'Publishing on 10+ platforms (Amazon, Barnes & Noble, Kobo, Draft2Digital, Google Books, Apple Books & more)',
-      'Author profile & page optimisation',
-      'ISBN guidance',
-      '100% satisfaction & money-back guarantee',
+      'Distribution to 10+ major online bookstores',
+      'Basic editing',
+      'Publishing on Amazon, Apple Books, Google Play, Kobo, Barnes & Noble, Draft2Digital, Smashwords, Lulu, Everand (Scribd) & more',
+      'Enhanced metadata optimization',
+      'Author profile setup & optimization',
+      'eBook conversion for all major devices',
+      'Multiple revision rounds before publishing',
+      'Publishing consultation & launch guidance',
+      'Ongoing publishing support',
+    ],
+  },
+  {
+    id: 'legacy-publishing',
+    name: 'Legacy Publishing',
+    price: { amount: 3499, unit: 'one-time' },
+    tagline:
+      'Our flagship package — premium editing, hardcover formatting and worldwide distribution to 4,000+ retailers, libraries and stores.',
+    lead: 'Everything in Bestseller, plus:',
+    features: [
+      'Professional editing & proofreading',
+      'Hardcover, paperback & eBook formatting',
+      'Premium front, back & spine cover design',
+      'Worldwide distribution to 4,000+ retailers, libraries & stores',
+      'Print on Demand (POD) setup',
+      'ISBN provided by us',
+      'Copyright page creation',
+      'Expanded distribution eligibility',
+      'Dedicated publishing project manager',
+      'Post-publication & priority support',
+      '100% ownership & 100% royalties — no hidden fees',
     ],
   },
 ]
+
+/** Ongoing, monthly author marketing retainer (rendered as its own band). */
+export const MARKETING_PACKAGE: Tier = {
+  id: 'author-spotlight-marketing',
+  name: 'Author Spotlight',
+  price: { amount: 2500, unit: 'per month' },
+  tagline:
+    'A dedicated marketing engine for your book — content, ads and strategy managed month over month by a dedicated marketing manager.',
+  features: [
+    'Social media management (up to 3 platforms)',
+    '3 custom social media posts per week',
+    '2 professional book trailers or promo videos (30s) per month',
+    'Custom promotional graphics & branded creatives',
+    'Author landing page with book purchase links',
+    'Monthly content calendar',
+    'Meta (Facebook & Instagram) ad management — optional (ad spend not included)',
+    'Monthly performance report',
+    'Dedicated marketing manager',
+    'Priority email & chat support',
+    'Ongoing marketing strategy & campaign optimization',
+  ],
+}
 
 /** À-la-carte individual services. */
 export const SERVICE_PACKAGES: ServicePackage[] = [
@@ -126,17 +180,6 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       '2–3 initial mockups',
       'Story-based sketching & design',
       'Unlimited revisions',
-    ],
-  },
-  {
-    id: 'book-marketing',
-    name: 'Book Marketing',
-    price: { amount: 899, unit: 'one-time' },
-    features: [
-      'Social media campaigns',
-      'Press release distribution',
-      'Book reviews',
-      'Launch strategy',
     ],
   },
   {

@@ -6,7 +6,7 @@ import PackagesPricing from '@/components/sections/PackagesPricing'
 import PurpleCTA from '@/components/sections/PurpleCTA'
 import FAQ from '@/components/sections/FAQ'
 import { organizationSchema, breadcrumbSchema } from '@/lib/schema'
-import { BASE_CURRENCY, TIERS, SERVICE_PACKAGES, type Price } from '@/lib/packages'
+import { BASE_CURRENCY, TIERS, SERVICE_PACKAGES, MARKETING_PACKAGE, type Price } from '@/lib/packages'
 
 const SITE = 'https://kimberleydirectpublishing.com'
 
@@ -55,6 +55,7 @@ const offerCatalogSchema = {
   url: `${SITE}/packages`,
   itemListElement: [
     ...TIERS.map((t) => offer(t.name, t.price)),
+    offer(MARKETING_PACKAGE.name, MARKETING_PACKAGE.price),
     ...SERVICE_PACKAGES.map((s) => offer(s.name, s.price)),
   ],
 }

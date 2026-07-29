@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, Check, ChevronDown, Globe, Sparkles, Star } from 'lucide-react'
-import { TIERS, SERVICE_PACKAGES, type Price } from '@/lib/packages'
+import { ArrowRight, Check, ChevronDown, Globe, Megaphone, Sparkles, Star } from 'lucide-react'
+import { TIERS, SERVICE_PACKAGES, MARKETING_PACKAGE, type Price } from '@/lib/packages'
 import { CURRENCY_CODES, SUPPORTED_CURRENCIES, unitLabel } from '@/lib/currency'
 import { useCurrency } from '@/hooks/useCurrency'
 
@@ -89,6 +89,36 @@ export default function PackagesPricing() {
             </Link>
           </article>
         ))}
+      </div>
+
+      {/* Ongoing marketing retainer */}
+      <div className="pkg-marketing">
+        <div className="pkg-marketing-head">
+          <span className="pkg-marketing-eyebrow">
+            <Megaphone size={15} aria-hidden="true" />
+            Ongoing Marketing
+          </span>
+          <h2 className="pkg-marketing-name fw-700">{MARKETING_PACKAGE.name}</h2>
+          <PriceTag price={MARKETING_PACKAGE.price} tone="light" />
+          <p className="pkg-marketing-tagline">{MARKETING_PACKAGE.tagline}</p>
+          <Link href="/contact" className="btn btn-yellow pkg-cta pkg-marketing-cta">
+            <span className="span-1">Start your campaign</span>
+            <span className="span-2" aria-hidden="true">
+              <ArrowRight size={18} />
+            </span>
+          </Link>
+        </div>
+
+        <ul className="pkg-feature-list pkg-marketing-features">
+          {MARKETING_PACKAGE.features.map((f) => (
+            <li key={f} className="pkg-feature">
+              <span className="pkg-check" aria-hidden="true">
+                <Check size={14} strokeWidth={3} />
+              </span>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* À-la-carte services */}

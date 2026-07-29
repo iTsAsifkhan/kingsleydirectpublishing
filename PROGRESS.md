@@ -6,6 +6,29 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**contact-details-live** — Wired the real, confirmed business phone
+(`+44 7344 765433`) and registered office (`29 Cambray Place, Cheltenham, GL50 1JX,
+United Kingdom`) into the site. Because `.env*` is gitignored and the site deploys
+via git → Hostinger, the values now ship as **code defaults in `lib/contact.ts`**
+(env vars still override per-environment) instead of being env-gated to hidden.
+- New `lib/contact.ts` — single source of truth: `CONTACT_PHONE`, `CONTACT_PHONE_TEL`,
+  `CONTACT_PHONE_DIGITS`, `OFFICE_ADDRESS`, `OFFICE_ADDRESS_PARTS` (structured for
+  schema), `CONTACT_EMAIL`. All 10 consumers refactored to import from it
+  (Header, Footer, contact, PurpleCTA, Portfolio, service + sub-service pages,
+  privacy, terms, schema).
+- `lib/schema.ts` — Organization now carries a real `telephone` + full
+  `PostalAddress` (street/locality/region/postcode/GB) instead of the empty
+  `addressCountry`-only stub; `contactPoint` gains `areaServed`/`availableLanguage`.
+- Verified in built HTML: `telephone` + `streetAddress`/`postalCode` in homepage
+  JSON-LD, phone + address rendered on `/contact`, `tel:+447344765433` /
+  `wa.me/447344765433` links present, no stale fake numbers. `tsc --noEmit` +
+  `next build` clean (49 routes); sitemap regenerated (42 URLs).
+- Company number + social URLs stay env-gated (still no real data).
+
+---
+
+## Prior — blog-launch (S3 closed)
+
 **blog-launch (S3 closed)** — Replaced the "coming soon" `/blogs` placeholder with
 a real blog: 3 SEO-optimised, keyword-targeted posts + individual post routes.
 `tsc --noEmit` and `next build` both clean (49 routes), verified in built HTML
@@ -163,10 +186,12 @@ replace flagged IP content (see below), and add real blog posts to `/blogs`.
 
 ## Open placeholders (need real Kimberley data before launch)
 
-- **UK phone** — fictitious `+44 20 7946 0000` (Ofcom drama range) is now **env-gated**: it only
-  renders when `NEXT_PUBLIC_CONTACT_PHONE` is set (header, contact page, service CTAs, schema).
-  Set that env var in Vercel with a real number to surface it.
-- **Registered office address** — env-gated behind `NEXT_PUBLIC_OFFICE_ADDRESS` (contact page + schema).
+- **UK phone** — ✅ RESOLVED. Real number `+44 7344 765433` ships as the code default in
+  `lib/contact.ts` (renders in header, contact page, service CTAs, footer WhatsApp, schema).
+  Set `NEXT_PUBLIC_CONTACT_PHONE` only to override.
+- **Registered office address** — ✅ RESOLVED. `29 Cambray Place, Cheltenham, GL50 1JX, UK`
+  ships as the code default (contact page + structured PostalAddress in schema).
+  Override via `NEXT_PUBLIC_OFFICE_ADDRESS`.
 - **Company number** — env-gated behind `NEXT_PUBLIC_COMPANY_NUMBER` (footer). No "TBD" ships.
 - **Email** — `info@kimberleydirectpublishing.com` (set up the mailbox, or change).
 - **Social links** — Footer/schema point to bare facebook.com/instagram.com/wa.me placeholders.
@@ -180,9 +205,10 @@ replace flagged IP content (see below), and add real blog posts to `/blogs`.
   own / royalty-free placeholders before running ads (violates CLAUDE.md rule #14).
 - **Newsletter form** — `NewsletterForm` has no backend yet (TODO: wire Resend/Mailchimp).
 - **Contact form** — `submitContactForm` only logs; wire Resend/SendGrid before launch.
-- **Package prices** — the amounts in `lib/packages.ts` are placeholders to be updated
-  later (base currency USD). Edit that one file; every card + JSON-LD offer + the live
-  currency conversion update automatically.
+- **Package prices** — ✅ Set to the client's real tiers (Debut $799 / Bestseller $1,499 /
+  Legacy $3,499 one-time + Author Spotlight $2,500/month) in `lib/packages.ts` (base USD).
+  Edit that one file; every card + JSON-LD offer + the live currency conversion update
+  automatically.
 
 ## Environment / deploy notes
 
@@ -236,6 +262,8 @@ replace flagged IP content (see below), and add real blog posts to `/blogs`.
 | 2026-07-14 | 36 | rebrand-kimberley | Renamed brand Kingsley Direct Publishing → **Kimberley Direct Publishing** across all source: name, domain (`kimberleydirectpublishing.com`), email (`info@kimberleydirectpublishing.com`), header/footer/mobile wordmarks, metadata (title/OG/twitter/canonical), sitemap/robots/schema JSON-LD, and page copy (home/about/contact/blogs/privacy/terms/services + sub-services). Kept `kdp-*` CSS class names (same K-D-P initials) and the hero `KDP` reference (Amazon Kindle Direct Publishing). Typecheck clean. |
 | 2026-07-18 | 38 | packages-page | New `/packages` page. Pricing data in `lib/packages.ts` (base USD, `unit` per price: one-time / per word / per illustration): two flagship tiers (Standard $799, Premium $1,399 = Most Popular) + 7 à-la-carte services + a "Need something tailored?" custom card. **Dynamic currency**: reusable `lib/currency.ts` (IP geo-detect via ipwho.is→ipapi.co, live rates from open.er-api.com→frankfurter fallback, 24h localStorage cache, `roundNice` marketing rounding, Intl formatting for USD/EUR/GBP/AUD/CAD/PKR/INR/AED) + `hooks/useCurrency.ts` + client `PackagesPricing.tsx` with a manual currency dropdown persisted to localStorage. SSR renders USD (no hydration mismatch, never blocks). OfferCatalog + Breadcrumb JSON-LD; full metadata; wired into `MAIN_NAV`, footer quick links, and sitemap (priority 0.9). Clean production build (43 pages), verified /packages 200 + live conversion produces clean values. |
 | 2026-07-14 | 37 | logo-svg + wire-in | Auto-traced the two supplied PNG logos to clean SVGs via `imagetracerjs` (forced brand palette → flat regions, ~130 KB / ~660 paths each). Added `public/images/kimberley-logo.svg` (navy text), `kimberley-logo-white.svg` (white text, footer), `kimberley-logo-dark.svg` (navy badge, unused). Replaced text wordmarks with `next/image` (`unoptimized`) in `Header.tsx` (light, `priority`, shrinks to 34px when pinned) and `Footer.tsx` (white); sizing CSS via `.kdp-logo-img` / `.footer-logo-img`. Source PNGs moved to `reference/source-logos/`. Clean production build (42 pages). Sessions 36+37 committed together as `ab830f7` and pushed to `kingsley/master` (live Vercel repo). |
+| 2026-07-29 | 41 | packages-refresh | Reworked `/packages`: 2 tiers → **3 uniquely-named publishing tiers** — Debut ($799) / Bestseller ($1,499, popular) / Legacy ($3,499) — with the client's real feature lists, plus a dedicated monthly **Author Spotlight** marketing band ($2,500/month). New `MARKETING_PACKAGE` export + `'per month'` PriceUnit; removed redundant à-la-carte "Book Marketing". `.pkg-tiers` now 3-col (2-col tablet, 1-col mobile); new `.pkg-marketing` navy band w/ 2-col feature grid. OfferCatalog JSON-LD updated. `tsc`+`next build` clean; verified names/prices/`per month`/offers in built HTML. Not yet committed. |
+| 2026-07-29 | 40 | contact-details-live | Wired real phone `+44 7344 765433` + registered office `29 Cambray Place, Cheltenham GL50 1JX, UK` as code defaults in new `lib/contact.ts` (env override retained); refactored 10 consumers; Organization schema gains real `telephone` + full `PostalAddress`. Verified in built HTML; `tsc`+`next build` clean (49 routes, 42-URL sitemap). Not yet committed. |
 | 2026-07-22 | 39 | favicon-fix | Replaced the leftover PWP-era favicon (which literally drew the letter **"P"**) with the brand open-book symbol. Hand-built a crisp vector open-book icon in brand colours (navy `#140545` covers, yellow `#FFB210` + teal `#3F7C84` pages, ruled page lines) as `public/favicon.svg` + `app/icon.svg`; regenerated `app/favicon.ico` as a real multi-size ICO (16/32/48/64 PNG entries) from that SVG via a one-off `sharp` script. Pointed `app/layout.tsx` metadata `icons` at `/favicon.ico` (sizes any) + `/icon.svg`. Clean production build (44 pages). Commit `ee81ba6`, pushed to `kingsley/master` (Hostinger auto-deploy). Note: `origin` push URL is intentionally disabled (`DISABLED_no_push_patrick_white_hostinger`); the live remote is `kingsley`. |
 
 ## Known issues / decisions made

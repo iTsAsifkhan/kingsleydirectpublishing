@@ -7672,15 +7672,22 @@ body.footer-reveal-on .site-footer {
 /* ---- Flagship tiers ---- */
 .pkg-tiers {
   display: grid;
-  gap: 28px;
+  gap: 24px;
   align-items: stretch;
-  max-width: 940px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 700px) and (max-width: 999px) {
   .pkg-tiers {
     grid-template-columns: 1fr 1fr;
+    max-width: 780px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .pkg-tiers {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -7708,7 +7715,7 @@ body.footer-reveal-on .site-footer {
   box-shadow: 0 20px 50px rgba(0, 48, 96, 0.28);
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1000px) {
   .pkg-tier-popular {
     transform: scale(1.035);
   }
@@ -7867,6 +7874,89 @@ body.footer-reveal-on .site-footer {
   width: 100%;
   justify-content: center;
   margin-top: auto;
+}
+
+/* ---- Marketing retainer band ---- */
+.pkg-marketing {
+  margin: 84px auto 0;
+  max-width: 1180px;
+  display: grid;
+  gap: 30px 44px;
+  align-items: start;
+  padding: 44px;
+  border-radius: 28px;
+  background: linear-gradient(150deg, #063a6b 0%, var(--brand-navy) 100%);
+  box-shadow: 0 22px 54px rgba(0, 48, 96, 0.28);
+  color: #ffffff;
+}
+
+@media (min-width: 900px) {
+  .pkg-marketing {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+}
+
+.pkg-marketing-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-yellow);
+}
+
+.pkg-marketing-name {
+  margin-top: 14px;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.pkg-marketing .pkg-price {
+  margin-top: 6px;
+}
+
+.pkg-marketing-tagline {
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.pkg-marketing-cta {
+  margin-top: 22px;
+  max-width: 260px;
+}
+
+.pkg-marketing-features {
+  margin: 0;
+}
+
+@media (min-width: 620px) {
+  .pkg-marketing-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 26px;
+  }
+}
+
+.pkg-marketing-features .pkg-feature {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pkg-marketing-features .pkg-check {
+  background: rgb(255 255 255 / 16%);
+  color: #ffffff;
+}
+
+@media (max-width: 575px) {
+  .pkg-marketing {
+    padding: 30px 22px;
+  }
+  .pkg-marketing-name {
+    font-size: 25px;
+  }
 }
 
 /* ---- À-la-carte ---- */
