@@ -8,13 +8,11 @@ import { ArrowRight, CheckCircle, ChevronRight, MessageCircle, PhoneCall } from 
 import { Button, Container, ServiceCard } from '@/components/ui'
 import { services } from '@/lib/content'
 import { serviceSchema, breadcrumbSchema } from '@/lib/schema'
+import { CONTACT_PHONE } from '@/lib/contact'
 
 interface Props {
   params: Promise<{ slug: string; subslug: string }>
 }
-
-// Real phone not confirmed — show "Call Now" only when a dialable number exists.
-const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
 
 const serviceVisuals: Record<string, { primary: string; secondary: string; tertiary: string }> = {
   ghostwriting: {

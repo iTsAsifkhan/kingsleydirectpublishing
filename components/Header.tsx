@@ -7,11 +7,11 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronDown, Mail, Phone, X } from 'lucide-react'
 import MobileNav from './MobileNav'
 import { MAIN_NAV, type NavItem } from '@/lib/nav'
-
-// Real phone not confirmed — only shown when a dialable number is configured.
-const PHONE_DISPLAY = process.env.NEXT_PUBLIC_CONTACT_PHONE
-const PHONE_TEL = PHONE_DISPLAY?.replace(/[^\d+]/g, '')
-const EMAIL = 'info@kimberleydirectpublishing.com'
+import {
+  CONTACT_PHONE as PHONE_DISPLAY,
+  CONTACT_PHONE_TEL as PHONE_TEL,
+  CONTACT_EMAIL as EMAIL,
+} from '@/lib/contact'
 const PROMO_KEY = 'kdp-promo-dismissed'
 
 /** Re-exported so existing imports of `NAV` keep working. */

@@ -15,6 +15,7 @@ import { Button, Container } from '@/components/ui'
 import QuoteForm from '@/components/sections/QuoteForm'
 import FAQ from '@/components/sections/FAQ'
 import { organizationSchema } from '@/lib/schema'
+import { CONTACT_PHONE, CONTACT_PHONE_TEL, OFFICE_ADDRESS } from '@/lib/contact'
 
 export const metadata: Metadata = {
   title: 'Contact Kimberley Direct Publishing | Author Support',
@@ -36,17 +37,12 @@ export const metadata: Metadata = {
   },
 }
 
-// Real phone + registered address are not confirmed yet. They only render once
-// the matching env vars are set, so no placeholder / "TBD" ships to production.
-const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
-const CONTACT_OFFICE = process.env.NEXT_PUBLIC_OFFICE_ADDRESS
-
 const CONTACT_DETAILS = [
-  CONTACT_PHONE && {
+  {
     icon: Phone,
     label: 'Call Us',
     value: CONTACT_PHONE,
-    href: `tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`,
+    href: `tel:${CONTACT_PHONE_TEL}`,
   },
   {
     icon: Mail,
@@ -54,18 +50,13 @@ const CONTACT_DETAILS = [
     value: 'info@kimberleydirectpublishing.com',
     href: 'mailto:info@kimberleydirectpublishing.com',
   },
-  CONTACT_OFFICE && {
+  {
     icon: MapPin,
     label: 'Registered Office',
-    value: CONTACT_OFFICE,
-    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_OFFICE)}`,
+    value: OFFICE_ADDRESS,
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS)}`,
   },
-].filter(Boolean) as {
-  icon: typeof Phone
-  label: string
-  value: string
-  href: string
-}[]
+]
 
 const SUPPORT_STEPS = [
   {

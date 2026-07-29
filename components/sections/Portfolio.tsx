@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { ArrowRight, PhoneCall } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
+import { CONTACT_PHONE } from '@/lib/contact'
 
 type Tab = 'Fantasy' | 'Fiction' | 'Romance' | 'Horror' | 'Cook Books' | 'Adventure' | 'Mystery'
 
@@ -18,8 +19,6 @@ const TABS: readonly Tab[] = [
 ]
 
 const PORTFOLIO_ITEMS_PER_TAB = 8
-
-const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
 
 const portfolioImagesByTab: Record<Tab, string[]> = {
   Fantasy: Array.from(

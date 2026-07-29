@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import { ArrowRight, MessageCircle, PhoneCall } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
-
-// Real phone not confirmed — show "Call Now" only when a dialable number exists.
-const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
+import { CONTACT_PHONE } from '@/lib/contact'
 
 export default function PurpleCTA() {
   return (

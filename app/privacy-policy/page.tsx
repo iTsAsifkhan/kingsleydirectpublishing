@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ChevronRight, ShieldCheck } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
+import { CONTACT_PHONE } from '@/lib/contact'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -16,8 +17,6 @@ export const metadata: Metadata = {
     type: 'website',
   },
 }
-
-const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
 
 const PRIVACY_SECTIONS = [
   {

@@ -2,6 +2,8 @@
  * JSON-LD schema helpers for SEO and structured data.
  */
 
+import { CONTACT_PHONE, CONTACT_EMAIL, OFFICE_ADDRESS_PARTS } from './contact'
+
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
@@ -15,13 +17,11 @@ export function organizationSchema() {
       '@type': 'Country',
       name: 'United Kingdom',
     },
-    // TODO: fill in Kimberley Direct Publishing's real UK registered address.
-    address: [
-      {
-        '@type': 'PostalAddress',
-        addressCountry: 'GB',
-      },
-    ],
+    telephone: CONTACT_PHONE,
+    address: {
+      '@type': 'PostalAddress',
+      ...OFFICE_ADDRESS_PARTS,
+    },
     // Only advertise social profiles once real URLs are configured.
     sameAs: [
       process.env.NEXT_PUBLIC_FACEBOOK_URL,
@@ -29,12 +29,11 @@ export function organizationSchema() {
     ].filter(Boolean),
     contactPoint: {
       '@type': 'ContactPoint',
-      // Only advertise a phone once a real, dialable number is configured.
-      ...(process.env.NEXT_PUBLIC_CONTACT_PHONE && {
-        telephone: process.env.NEXT_PUBLIC_CONTACT_PHONE,
-      }),
-      email: 'info@kimberleydirectpublishing.com',
+      telephone: CONTACT_PHONE,
+      email: CONTACT_EMAIL,
       contactType: 'Customer Service',
+      areaServed: 'GB',
+      availableLanguage: 'English',
     },
   }
 }

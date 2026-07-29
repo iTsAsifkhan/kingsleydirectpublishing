@@ -7,10 +7,7 @@ import {
   InstagramIcon,
   WhatsAppIcon,
 } from '@/components/icons/SocialIcons'
-
-// Contact phone drives the WhatsApp link; the CTA hides when it's unset.
-const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE
-const WHATSAPP_DIGITS = CONTACT_PHONE?.replace(/\D/g, '')
+import { CONTACT_PHONE, CONTACT_PHONE_DIGITS as WHATSAPP_DIGITS } from '@/lib/contact'
 
 // Social profile URLs come from env — links render only when a real URL is set,
 // so we never ship placeholder/bare-domain links.
