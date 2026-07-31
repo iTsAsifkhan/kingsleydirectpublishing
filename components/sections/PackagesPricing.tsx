@@ -40,7 +40,7 @@ export default function PackagesPricing() {
           >
             {CURRENCY_CODES.map((code) => (
               <option key={code} value={code}>
-                {code} — {SUPPORTED_CURRENCIES[code].label}
+                {code}, {SUPPORTED_CURRENCIES[code].label}
               </option>
             ))}
           </select>
@@ -130,7 +130,7 @@ export default function PackagesPricing() {
           </h2>
           <p className="pkg-section-sub">
             Need just one piece of the puzzle? Pick exactly the service your book
-            requires — no bundle necessary.
+            requires, no bundle necessary.
           </p>
         </div>
 

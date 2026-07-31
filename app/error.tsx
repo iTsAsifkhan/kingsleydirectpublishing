@@ -29,7 +29,7 @@ export default function Error({
               We Hit an <span className="clr-1">Unexpected Error</span>
             </h1>
             <p className="service-hero-desc">
-              Sorry — something broke on our end. You can try again, or head back home and
+              Sorry, something broke on our end. You can try again, or head back home and
               pick up where you left off.
             </p>
             <div className="service-hero-ctas">

@@ -6,6 +6,47 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**content-fixes-pdf (Website changes.pdf)** — Batch of client-requested copy/pricing
+edits. `tsc --noEmit` + `next build` clean (49 routes); every change verified in the
+built HTML. **Not yet committed.**
+- **FAQ timeline** rewritten (3 business days / 2 to 6 weeks) in `lib/content.ts`.
+- **Packages → AUD.** `BASE_CURRENCY` switched `USD → AUD` in `lib/packages.ts` (the
+  live currency converter now treats AUD as base; `priceCurrency: AUD` in OfferCatalog
+  JSON-LD, confirmed). Tiers renamed + repriced: Debut→**Basic Publishing Package** A$550,
+  Bestseller→**Best Seller Publishing Package** A$1,450, Legacy→**Global Distribution**
+  A$3,500 (page-13 name won over page-7 "Global Publishing Package" per user). Marketing
+  band Author Spotlight→**Marketing Package** A$2,500/mo. À-la-carte: Book Publication
+  A$300, Book Cover A$200, Video Trailer A$750; unspecified ones converted USD→AUD
+  (Ghostwriting A$3,900, Editorial A$0.30/word, Illustration A$100).
+- **Package features:** Bestseller "10+ major publishing platforms" (bookstores→platforms);
+  Global Distribution first feature "Professional editing" (dropped "& proofreading");
+  "4,000+ retailers" → "4,000+ platforms".
+- **About-us:** "A Proven Track Record" copy swapped; "Modern Publishing" AI-assisted removed;
+  new emotional **Our Story** section (Kimberley/Direct narrative from the PDF) + reworded
+  mission; hero/mission stat boxes de-numbered.
+- **Stat boxes site-wide de-numbered** (qualitative labels): homepage `stats`
+  (Loved/Five-Star/Global/Proven), about MISSION_STATS (Proven/Decades/Bestselling/Expert),
+  about hero badge (Trusted), WhyChooseUs badge (Trusted worldwide), "over 5,000 authors"
+  → "countless authors".
+- **author → writer** on the Book Writing sub-service copy (`content.ts`).
+- **Italy office added** as secondary in `lib/contact.ts`
+  (`CONTACT_PHONE_SECONDARY +39 376 128 3409`, `OFFICE_ADDRESS_SECONDARY Via Trieste, 1,
+  35121 Padova PD, Italy`, structured `IT` parts) + rendered on `/contact` (UK stays primary,
+  relabelled "Call Us (UK)" / "Registered Office (UK)").
+- **Em-dashes removed from copy site-wide** (sed sweep " — " → ", " across app/components/lib,
+  then hand-fixed the comma-splices/headings it produced in `lib/blog.ts`, `content.ts`,
+  service/blog metadata — colons/full stops where clauses were independent). No em/en dashes
+  left in rendered copy.
+- ⚠️ **Heads-up (unresolved):** the client's screenshots (live site) show *different* prices
+  ($5,000 / $2,150 / $430 / $290 / $3,600) than this repo had — the live
+  kimberleydirectpublishing.com deploy appears to be a different/newer build than this
+  codebase. These edits target this repo; confirm this repo is what deploys before expecting
+  them live.
+
+---
+
+## Prior — contact-details-live
+
 **contact-details-live** — Wired the real, confirmed business phone
 (`+44 7344 765433`) and registered office (`29 Cambray Place, Cheltenham, GL50 1JX,
 United Kingdom`) into the site. Because `.env*` is gitignored and the site deploys

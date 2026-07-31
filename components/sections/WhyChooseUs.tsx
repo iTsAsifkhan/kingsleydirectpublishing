@@ -31,8 +31,8 @@ export default function WhyChooseUs() {
                   <Star key={i} size={13} fill="currentColor" strokeWidth={0} />
                 ))}
               </span>
-              <b>5,000+ authors</b>
-              <span>published worldwide</span>
+              <b>Trusted worldwide</b>
+              <span>by published authors</span>
             </span>
           </div>
 

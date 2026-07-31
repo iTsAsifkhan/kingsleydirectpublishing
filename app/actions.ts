@@ -15,7 +15,7 @@ const LEAD_FROM =
   process.env.LEAD_FROM ?? 'Kimberley Direct Publishing <onboarding@resend.dev>'
 
 const GENERIC_ERROR =
-  'Sorry — something went wrong sending your message. Please try again, or email us directly.'
+  'Sorry, something went wrong sending your message. Please try again, or email us directly.'
 
 /** Escape user-supplied text before interpolating into the notification HTML. */
 function esc(value: string): string {
@@ -39,7 +39,7 @@ async function sendEmail(opts: {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) {
     console.error(
-      '[lead] RESEND_API_KEY is not set — lead not delivered:',
+      '[lead] RESEND_API_KEY is not set, lead not delivered:',
       opts.subject,
     )
     return false
@@ -101,7 +101,7 @@ export async function submitContactForm(
   `
 
   const delivered = await sendEmail({
-    subject: `New quote request — ${name}`,
+    subject: `New quote request, ${name}`,
     html,
     replyTo: email,
   })
@@ -112,7 +112,7 @@ export async function submitContactForm(
 
   return {
     success: true,
-    message: "Thank you! Your details are on their way — we'll reply within 24 hours.",
+    message: "Thank you! Your details are on their way, we'll reply within 24 hours.",
   }
 }
 
@@ -132,7 +132,7 @@ export async function subscribeNewsletter(
   }
 
   const delivered = await sendEmail({
-    subject: `Newsletter signup — ${email}`,
+    subject: `Newsletter signup, ${email}`,
     html: `<p>New newsletter subscriber: <strong>${esc(email)}</strong></p>`,
     replyTo: email,
   })
@@ -140,9 +140,9 @@ export async function subscribeNewsletter(
   if (!delivered) {
     return {
       success: false,
-      message: 'Sorry — could not subscribe you right now. Please try again.',
+      message: 'Sorry, could not subscribe you right now. Please try again.',
     }
   }
 
-  return { success: true, message: "You're subscribed — thank you!" }
+  return { success: true, message: "You're subscribed, thank you!" }
 }

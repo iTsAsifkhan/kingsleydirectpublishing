@@ -15,7 +15,14 @@ import { Button, Container } from '@/components/ui'
 import QuoteForm from '@/components/sections/QuoteForm'
 import FAQ from '@/components/sections/FAQ'
 import { organizationSchema } from '@/lib/schema'
-import { CONTACT_PHONE, CONTACT_PHONE_TEL, OFFICE_ADDRESS } from '@/lib/contact'
+import {
+  CONTACT_PHONE,
+  CONTACT_PHONE_TEL,
+  OFFICE_ADDRESS,
+  CONTACT_PHONE_SECONDARY,
+  CONTACT_PHONE_SECONDARY_TEL,
+  OFFICE_ADDRESS_SECONDARY,
+} from '@/lib/contact'
 
 export const metadata: Metadata = {
   title: 'Contact Kimberley Direct Publishing | Author Support',
@@ -40,7 +47,7 @@ export const metadata: Metadata = {
 const CONTACT_DETAILS = [
   {
     icon: Phone,
-    label: 'Call Us',
+    label: 'Call Us (UK)',
     value: CONTACT_PHONE,
     href: `tel:${CONTACT_PHONE_TEL}`,
   },
@@ -52,9 +59,21 @@ const CONTACT_DETAILS = [
   },
   {
     icon: MapPin,
-    label: 'Registered Office',
+    label: 'Registered Office (UK)',
     value: OFFICE_ADDRESS,
     href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS)}`,
+  },
+  {
+    icon: MapPin,
+    label: 'Italy Office',
+    value: OFFICE_ADDRESS_SECONDARY,
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS_SECONDARY)}`,
+  },
+  {
+    icon: Phone,
+    label: 'Call Us (Italy)',
+    value: CONTACT_PHONE_SECONDARY,
+    href: `tel:${CONTACT_PHONE_SECONDARY_TEL}`,
   },
 ]
 

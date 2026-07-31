@@ -9,7 +9,7 @@ import {
 } from '@/components/icons/SocialIcons'
 import { CONTACT_PHONE, CONTACT_PHONE_DIGITS as WHATSAPP_DIGITS } from '@/lib/contact'
 
-// Social profile URLs come from env — links render only when a real URL is set,
+// Social profile URLs come from env, links render only when a real URL is set,
 // so we never ship placeholder/bare-domain links.
 const SOCIAL = [
   process.env.NEXT_PUBLIC_FACEBOOK_URL && {
@@ -83,7 +83,7 @@ export default function Footer() {
             </Link>
             <p className="footer-brand-desc">
               A professional publishing agency providing top-tier book writing, editing, design,
-              and marketing services — from manuscript to global launch.
+              and marketing services, from manuscript to global launch.
             </p>
 
             <NewsletterForm />

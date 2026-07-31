@@ -21,7 +21,7 @@ export default function ThankYouPage() {
               <CheckCircle size={20} strokeWidth={1.7} aria-hidden="true" />
             </span>
             <h1 className="service-hero-title fw-700">
-              Thank You — <span className="clr-1">We&apos;ve Got Your Details</span>
+              Thank You, <span className="clr-1">We&apos;ve Got Your Details</span>
             </h1>
             <p className="service-hero-desc">
               Your enquiry is on its way to our team. A publishing specialist will review

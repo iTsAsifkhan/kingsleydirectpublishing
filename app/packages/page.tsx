@@ -13,7 +13,7 @@ const SITE = 'https://kimberleydirectpublishing.com'
 export const metadata: Metadata = {
   title: 'Publishing Packages & Pricing | Kimberley Direct Publishing',
   description:
-    'Transparent book publishing packages and à-la-carte pricing — from Amazon KDP setup and cover design to ghostwriting, editing, marketing, and distribution across 10+ platforms. Prices shown in your local currency.',
+    'Transparent book publishing packages and à-la-carte pricing, from Amazon KDP setup and cover design to ghostwriting, editing, marketing, and distribution across 10+ platforms. Prices shown in your local currency.',
   alternates: { canonical: `${SITE}/packages` },
   openGraph: {
     title: 'Publishing Packages & Pricing | Kimberley Direct Publishing',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
 }
 
-/** Offer JSON-LD in the base currency (USD) for every priced item. */
+/** Offer JSON-LD in the base currency (AUD) for every priced item. */
 function offer(name: string, price: Price) {
   return {
     '@type': 'Offer',
@@ -51,7 +51,7 @@ function offer(name: string, price: Price) {
 const offerCatalogSchema = {
   '@context': 'https://schema.org',
   '@type': 'OfferCatalog',
-  name: 'Kimberley Direct Publishing — Packages & Services',
+  name: 'Kimberley Direct Publishing, Packages & Services',
   url: `${SITE}/packages`,
   itemListElement: [
     ...TIERS.map((t) => offer(t.name, t.price)),
@@ -98,7 +98,7 @@ export default function PackagesPage() {
             </h1>
             <p className="packages-hero-desc">
               Choose an all-in-one flagship tier or hand-pick individual services.
-              Every package keeps you in full control of your rights and royalties —
+              Every package keeps you in full control of your rights and royalties,
               backed by a 100% satisfaction, money-back guarantee.
             </p>
             <div className="service-hero-ctas">
@@ -110,7 +110,7 @@ export default function PackagesPage() {
         </Container>
       </section>
 
-      {/* Pricing (client — dynamic currency) */}
+      {/* Pricing (client, dynamic currency) */}
       <section className="packages-pricing-section">
         <Container>
           <PackagesPricing />

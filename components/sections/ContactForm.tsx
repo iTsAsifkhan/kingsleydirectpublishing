@@ -21,7 +21,7 @@ export default function ContactForm() {
             </h2>
             <p className="kdp-connect-lede">
               Tell us where you are in the journey and a publishing consultant will come back
-              with clear, practical next steps — no pressure, no obligation.
+              with clear, practical next steps, no pressure, no obligation.
             </p>
 
             <ul className="kdp-connect-trust">

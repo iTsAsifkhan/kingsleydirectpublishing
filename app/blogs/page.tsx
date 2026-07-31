@@ -11,12 +11,12 @@ const SITE_URL = 'https://kimberleydirectpublishing.com'
 export const metadata: Metadata = {
   title: 'Publishing Blog',
   description:
-    'The Kimberley Journal — practical, no-fluff guides on writing, editing, self-publishing, and marketing your book, drawn from real author projects.',
+    'The Kimberley Journal: practical, no-fluff guides on writing, editing, self-publishing, and marketing your book, drawn from real author projects.',
   alternates: { canonical: `${SITE_URL}/blogs` },
   openGraph: {
     title: 'The Kimberley Journal | Book Publishing Blog',
     description:
-      'Practical guides on writing, editing, self-publishing, and marketing your book — from the team at Kimberley Direct Publishing.',
+      'Practical guides on writing, editing, self-publishing, and marketing your book, from the team at Kimberley Direct Publishing.',
     url: `${SITE_URL}/blogs`,
     type: 'website',
   },
@@ -74,7 +74,7 @@ export default function BlogsPage() {
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brand-gray-2">
             Practical, no-fluff advice on writing, editing, self-publishing, and
-            marketing your book — drawn from real author projects, from first
+            marketing your book, drawn from real author projects, from first
             draft to global launch.
           </p>
         </section>

@@ -99,7 +99,7 @@ export default function Portfolio() {
           ))}
         </ul>
 
-        {/* Portfolio grid — key forces re-animation on tab change */}
+        {/* Portfolio grid, key forces re-animation on tab change */}
         <div
           key={activeTab}
           className="portfolio-grid"

@@ -1,8 +1,8 @@
 /**
- * Currency utilities — framework-agnostic, reusable across any page.
+ * Currency utilities, framework-agnostic, reusable across any page.
  *
  * Responsibilities:
- *  - Describe the set of supported currencies (easy to extend — add a row).
+ *  - Describe the set of supported currencies (easy to extend, add a row).
  *  - Detect the visitor's currency from IP geolocation (no permission prompt).
  *  - Fetch + cache live USD exchange rates (localStorage, 24h TTL).
  *  - Convert base-USD amounts to a target currency with "clean" marketing rounding.
@@ -23,7 +23,7 @@ export interface CurrencyMeta {
 }
 
 /**
- * Supported currencies. Add a row to extend — detection, conversion and
+ * Supported currencies. Add a row to extend, detection, conversion and
  * formatting all read from this map, so nothing else needs to change.
  */
 export const SUPPORTED_CURRENCIES: Record<string, CurrencyMeta> = {
@@ -104,7 +104,7 @@ export function writeOverride(code: string): void {
   try {
     window.localStorage.setItem(OVERRIDE_KEY, code)
   } catch {
-    /* storage unavailable — non-fatal */
+    /* storage unavailable, non-fatal */
   }
 }
 

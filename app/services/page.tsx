@@ -9,7 +9,7 @@ const URL = 'https://kimberleydirectpublishing.com/services'
 export const metadata: Metadata = {
   title: 'Publishing Services',
   description:
-    'Explore Kimberley Direct Publishing services — ghostwriting, editing, book cover design, publishing, and marketing — everything authors need to go from manuscript to market.',
+    'Explore Kimberley Direct Publishing services: ghostwriting, editing, book cover design, publishing, and marketing. Everything authors need to go from manuscript to market.',
   alternates: { canonical: URL },
   openGraph: {
     title: 'Publishing Services | Kimberley Direct Publishing',
@@ -92,8 +92,8 @@ export default function ServicesIndexPage() {
               </h2>
             </div>
             <p className="mb-0">
-              Professional editing, formatting, cover design, and global distribution —
-              we make your publishing journey simple and successful.
+              Professional editing, formatting, cover design, and global distribution.
+              We make your publishing journey simple and successful.
             </p>
           </div>
 

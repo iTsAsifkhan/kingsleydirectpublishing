@@ -108,7 +108,7 @@ export default function Header() {
         <div className="kdp-promo" role="region" aria-label="Announcement">
           <p className="kdp-promo-text">
             <span className="kdp-promo-badge">Offer</span>
-            <span>20% off your first publishing package — limited time.</span>
+            <span>20% off your first publishing package, limited time.</span>
             <Link href="/contact" className="kdp-promo-link">
               Claim now
             </Link>

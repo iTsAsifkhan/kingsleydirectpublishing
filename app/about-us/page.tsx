@@ -48,10 +48,10 @@ const PLATFORM_LOGOS = [
 ]
 
 const MISSION_STATS = [
-  { value: '93%', label: 'Success Rate' },
-  { value: '10+', label: 'Years of Experience' },
-  { value: '150+', label: 'National Bestsellers' },
-  { value: '50+', label: 'Industry Experts' },
+  { value: 'Proven', label: 'Success Rate' },
+  { value: 'Decades', label: 'of Experience' },
+  { value: 'Bestselling', label: 'National Titles' },
+  { value: 'Expert', label: 'Industry Team' },
 ]
 
 const PILLARS = [
@@ -78,12 +78,12 @@ const PILLARS = [
   {
     icon: Rocket,
     title: 'Modern Publishing',
-    desc: 'We combine traditional publishing craftsmanship with cutting-edge digital tools - from AI-assisted proofreading to data-driven Amazon marketing campaigns.',
+    desc: 'We combine traditional publishing craftsmanship with cutting-edge digital tools, from professional proofreading to data-driven Amazon marketing campaigns.',
   },
   {
     icon: Award,
     title: 'A Proven Track Record',
-    desc: 'With over 5,000 satisfied authors, 150+ national bestsellers, and a 97% satisfaction rate, our results speak louder than any promise we could make.',
+    desc: 'We have helped authors successfully bring their books to market through a professional publishing process focused on quality, transparency, and attention to detail.',
   },
 ]
 
@@ -162,8 +162,8 @@ export default function AboutPage() {
                 />
               </div>
               <span className="about-hero-badge">
-                <span className="about-hero-badge-num clr-1 fw-700">5K+</span>
-                <span>Published Authors</span>
+                <span className="about-hero-badge-num clr-1 fw-700">Trusted</span>
+                <span>by Authors Worldwide</span>
               </span>
             </div>
           </div>
@@ -173,9 +173,42 @@ export default function AboutPage() {
       {/* Stats strip */}
       <StatsStrip className="about-stats-strip" />
 
-      {/* Mission / value proposition */}
+      {/* Our Story */}
       <section className="about-mission">
         <Container>
+          <div className="about-story-intro mb-5">
+            <span className="span-tag-border">Our Story</span>
+            <h2 className="fw-700 pt-3">
+              Every Book Begins With a Story,{' '}
+              <span className="clr-1">and So Does Ours</span>
+            </h2>
+            <p>
+              The name <strong>Kimberley</strong> is inspired by a place known for its
+              enduring landscapes, rich heritage, and timeless character. It reflects
+              strength and a sense of legacy, the same values we hope every book carries
+              long after it reaches its readers. A well-written book is more than words
+              on a page. It preserves ideas, shares experiences, and leaves something
+              meaningful behind.
+            </p>
+            <p>
+              The word <strong>Direct</strong> reflects our philosophy. We believe
+              publishing should be simple, honest, and built around the author. From your
+              first manuscript to your final published book, we are committed to providing
+              professional guidance, clear communication, and the highest standards of
+              quality at every stage.
+            </p>
+            <p>
+              At Kimberley Direct Publishing, we know that behind every manuscript is a
+              dream, years of dedication, and the courage to share a unique voice with the
+              world. That is why we treat every project with the same care and respect we
+              would give our own.
+            </p>
+            <p className="fw-700 clr-1">
+              Because every story deserves more than to be published. It deserves to be
+              remembered.
+            </p>
+          </div>
+
           <div className="about-mission-grid">
             <div className="about-mission-copy">
               <span className="span-tag-border">Our Mission</span>
@@ -184,16 +217,15 @@ export default function AboutPage() {
                 <span className="clr-1">Crafting Successful Titles</span>
               </h2>
               <p>
-                Kimberley Direct Publishing was founded on a single belief: every author
-                deserves a professional publishing experience regardless of their
-                background or budget. We built a full-service agency that combines
-                the rigor of traditional publishing with the flexibility and
-                transparency of modern self-publishing.
+                Our mission is simple: to help authors create books that are not only
+                professionally published, but remembered for years to come. Every story
+                deserves the opportunity to leave a lasting legacy.
               </p>
               <p>
-                Our team of editors, designers, marketers, and publishing strategists
-                work side-by-side with you to transform your manuscript into a
-                polished, market-ready book - and then ensure it reaches readers
+                Whether it is your first book or your fifth, our editors, designers,
+                marketers, and publishing strategists work side-by-side with you,
+                bringing the rigor of traditional publishing together with the
+                transparency of modern self-publishing so your voice reaches readers
                 across the globe.
               </p>
               <Button variant="yellow" href="/contact" icon={ArrowRight}>
@@ -224,7 +256,7 @@ export default function AboutPage() {
               <span className="clr-1">Kimberley Direct Publishing</span>
             </h2>
             <p className="about-pillars-sub">
-              We&apos;ve helped over 5,000 authors self-publish with confidence.
+              We&apos;ve helped countless authors self-publish with confidence.
               Here&apos;s what sets us apart.
             </p>
           </div>

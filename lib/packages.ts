@@ -1,20 +1,20 @@
 /**
  * Single source of truth for Packages page pricing.
  *
- * All amounts are stored in the base currency (USD). The Packages page converts
- * these to the visitor's currency at render time via `hooks/useCurrency` — edit
+ * All amounts are stored in the base currency (AUD). The Packages page converts
+ * these to the visitor's currency at render time via `hooks/useCurrency`. Edit
  * the numbers here and every card + JSON-LD offer updates automatically.
  *
  * `unit` keeps the pricing model attached to each amount so the UI can render
  * the right label ("one-time" / "per word" / "per illustration") after conversion.
  */
 
-export const BASE_CURRENCY = 'USD' as const
+export const BASE_CURRENCY = 'AUD' as const
 
 export type PriceUnit = 'one-time' | 'per word' | 'per illustration' | 'per month'
 
 export interface Price {
-  /** Amount in USD (base currency). */
+  /** Amount in AUD (base currency). */
   amount: number
   unit: PriceUnit
 }
@@ -37,14 +37,14 @@ export interface ServicePackage {
   features: string[]
 }
 
-/** Three flagship publishing tiers — a Debut → Bestseller → Legacy ladder. */
+/** Three flagship publishing tiers: a Basic → Best Seller → Global ladder. */
 export const TIERS: Tier[] = [
   {
-    id: 'debut-publishing',
-    name: 'Debut Publishing',
-    price: { amount: 799, unit: 'one-time' },
+    id: 'basic-publishing',
+    name: 'Basic Publishing Package',
+    price: { amount: 550, unit: 'one-time' },
     tagline:
-      'Everything you need to format, design and publish your book on Amazon KDP — while keeping 100% of your rights and royalties.',
+      'Everything you need to format, design and publish your book on Amazon KDP, while keeping 100% of your rights and royalties.',
     features: [
       'Professional interior formatting (paperback & Kindle)',
       'Custom front & back cover design',
@@ -61,15 +61,15 @@ export const TIERS: Tier[] = [
     ],
   },
   {
-    id: 'bestseller-publishing',
-    name: 'Bestseller Publishing',
-    price: { amount: 1499, unit: 'one-time' },
+    id: 'best-seller-publishing',
+    name: 'Best Seller Publishing Package',
+    price: { amount: 1450, unit: 'one-time' },
     tagline:
-      'Reach readers everywhere with distribution across 10+ major bookstores, richer metadata and multiple revision rounds.',
+      'Reach readers everywhere with distribution across 10+ major publishing platforms, richer metadata and multiple revision rounds.',
     popular: true,
-    lead: 'Everything in Debut, plus:',
+    lead: 'Everything in Basic, plus:',
     features: [
-      'Distribution to 10+ major online bookstores',
+      'Distribution to 10+ major online publishing platforms',
       'Basic editing',
       'Publishing on Amazon, Apple Books, Google Play, Kobo, Barnes & Noble, Draft2Digital, Smashwords, Lulu, Everand (Scribd) & more',
       'Enhanced metadata optimization',
@@ -81,35 +81,35 @@ export const TIERS: Tier[] = [
     ],
   },
   {
-    id: 'legacy-publishing',
-    name: 'Legacy Publishing',
-    price: { amount: 3499, unit: 'one-time' },
+    id: 'global-distribution',
+    name: 'Global Distribution',
+    price: { amount: 3500, unit: 'one-time' },
     tagline:
-      'Our flagship package — premium editing, hardcover formatting and worldwide distribution to 4,000+ retailers, libraries and stores.',
-    lead: 'Everything in Bestseller, plus:',
+      'Our flagship package with premium editing, hardcover formatting and worldwide distribution to 4,000+ platforms, libraries and stores.',
+    lead: 'Everything in Best Seller, plus:',
     features: [
-      'Professional editing & proofreading',
+      'Professional editing',
       'Hardcover, paperback & eBook formatting',
       'Premium front, back & spine cover design',
-      'Worldwide distribution to 4,000+ retailers, libraries & stores',
+      'Worldwide distribution to 4,000+ platforms, libraries & stores',
       'Print on Demand (POD) setup',
       'ISBN provided by us',
       'Copyright page creation',
       'Expanded distribution eligibility',
       'Dedicated publishing project manager',
       'Post-publication & priority support',
-      '100% ownership & 100% royalties — no hidden fees',
+      '100% ownership & 100% royalties, no hidden fees',
     ],
   },
 ]
 
 /** Ongoing, monthly author marketing retainer (rendered as its own band). */
 export const MARKETING_PACKAGE: Tier = {
-  id: 'author-spotlight-marketing',
-  name: 'Author Spotlight',
+  id: 'marketing-package',
+  name: 'Marketing Package',
   price: { amount: 2500, unit: 'per month' },
   tagline:
-    'A dedicated marketing engine for your book — content, ads and strategy managed month over month by a dedicated marketing manager.',
+    'A dedicated marketing engine for your book, with content, ads and strategy managed month over month by a dedicated marketing manager.',
   features: [
     'Social media management (up to 3 platforms)',
     '3 custom social media posts per week',
@@ -117,7 +117,7 @@ export const MARKETING_PACKAGE: Tier = {
     'Custom promotional graphics & branded creatives',
     'Author landing page with book purchase links',
     'Monthly content calendar',
-    'Meta (Facebook & Instagram) ad management — optional (ad spend not included)',
+    'Meta (Facebook & Instagram) ad management, optional (ad spend not included)',
     'Monthly performance report',
     'Dedicated marketing manager',
     'Priority email & chat support',
@@ -130,7 +130,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
   {
     id: 'book-publication',
     name: 'Book Publication',
-    price: { amount: 299, unit: 'one-time' },
+    price: { amount: 300, unit: 'one-time' },
     features: [
       'Professional formatting',
       'ISBN assignment',
@@ -141,7 +141,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
   {
     id: 'book-cover',
     name: 'Book Cover',
-    price: { amount: 199, unit: 'one-time' },
+    price: { amount: 200, unit: 'one-time' },
     features: [
       'Custom artwork',
       'Multiple concepts',
@@ -152,7 +152,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
   {
     id: 'ghostwriting',
     name: 'Ghostwriting',
-    price: { amount: 2500, unit: 'one-time' },
+    price: { amount: 3900, unit: 'one-time' },
     features: [
       'Custom content creation',
       'Genre-specific expertise',
@@ -163,7 +163,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
   {
     id: 'editorial-services',
     name: 'Editorial Services',
-    price: { amount: 0.2, unit: 'per word' },
+    price: { amount: 0.3, unit: 'per word' },
     features: [
       'Developmental editing',
       'Copy editing',
@@ -174,10 +174,10 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
   {
     id: 'custom-illustration',
     name: 'Custom Illustration',
-    price: { amount: 65, unit: 'per illustration' },
+    price: { amount: 100, unit: 'per illustration' },
     features: [
       'Multiple style samples',
-      '2–3 initial mockups',
+      '2 to 3 initial mockups',
       'Story-based sketching & design',
       'Unlimited revisions',
     ],
@@ -185,7 +185,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
   {
     id: 'video-trailer',
     name: 'Video Trailer',
-    price: { amount: 999, unit: 'one-time' },
+    price: { amount: 750, unit: 'one-time' },
     features: [
       'Professional production',
       'Custom animations',

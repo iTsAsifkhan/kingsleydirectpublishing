@@ -55,7 +55,7 @@ const PRIVACY_SECTIONS = [
   {
     title: 'Third-Party Services And IP-Based Localisation',
     body: [
-      'To display prices in your local currency, our pricing pages may send your IP address to third-party geolocation and exchange-rate providers — ipwho.is and ipapi.co (to estimate your country and currency) and open.er-api.com and frankfurter.app (to retrieve current exchange rates). These providers process your IP address under their own privacy policies. If localisation is unavailable, prices are shown in US Dollars.',
+      'To display prices in your local currency, our pricing pages may send your IP address to third-party geolocation and exchange-rate providers, ipwho.is and ipapi.co (to estimate your country and currency) and open.er-api.com and frankfurter.app (to retrieve current exchange rates). These providers process your IP address under their own privacy policies. If localisation is unavailable, prices are shown in US Dollars.',
       'We do not store your IP address for this purpose beyond the request needed to determine your currency, and your currency preference is kept only in your browser.',
     ],
   },
