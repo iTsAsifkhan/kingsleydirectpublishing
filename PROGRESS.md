@@ -6,6 +6,28 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**content-fixes-pdf-remediation** — Fixed the follow-up issues the client flagged
+after the first pass. `tsc` + `next build` clean (49 routes); verified in built HTML.
+- **Stat boxes redesigned (no numbers, but professional).** The earlier de-numbering
+  dropped bare words into number-shaped cards (overflowed / wrapped ugly). Replaced with
+  consistent **icon + label trust badges** everywhere: homepage/about navy strip
+  (`Stat` model changed to `{ id, icon, label }`, `StatsStrip.tsx` renders a lucide icon
+  in a tinted circle), About mission cards (`about-stat-icon`), About hero badge (star
+  icon pill), and the service + sub-service `service-stats-strip` (was hard-coded
+  `5K+`/`97%+` — the inconsistency the client spotted). New CSS: `.counter-icon`,
+  `.about-stat-icon`, `.about-hero-badge-icon`, `.service-stat-icon`.
+- **About "Our Story" restyled.** Was an unstyled wall of text jammed above the mission
+  grid. Now its own `.about-story` section (centred, max-width, eyebrow pill, heading,
+  highlighted closing callout) that matches the site's section rhythm. Mission section
+  restored to a clean 2-col.
+- **Testimonials mobile empty space fixed.** `spaceBetween` was a flat `92` (huge gap on
+  phones) → responsive breakpoints (20 mobile / 48 tablet / 92 desktop); `.review-slide`
+  `min-height` reset to 0 under 992px so short cards don't leave dead space.
+
+---
+
+## Prior — content-fixes-pdf
+
 **content-fixes-pdf (Website changes.pdf)** — Batch of client-requested copy/pricing
 edits. `tsc --noEmit` + `next build` clean (49 routes); every change verified in the
 built HTML. **Not yet committed.**

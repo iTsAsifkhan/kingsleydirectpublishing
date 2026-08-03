@@ -1,8 +1,16 @@
+import { BadgeCheck, Globe, ShieldCheck, Star, type LucideIcon } from 'lucide-react'
 import { Container } from '@/components/ui'
 import { stats } from '@/lib/content'
 
 interface StatsStripProps {
   className?: string
+}
+
+const ICONS: Record<string, LucideIcon> = {
+  BadgeCheck,
+  Star,
+  Globe,
+  ShieldCheck,
 }
 
 export default function StatsStrip({ className = '' }: StatsStripProps) {
@@ -11,15 +19,17 @@ export default function StatsStrip({ className = '' }: StatsStripProps) {
       <Container>
         <div className="counter-wrap">
           <div className="counter-grid">
-            {stats.map((stat) => (
-              <div className="counter-item" key={stat.id}>
-                <p className="counter-value mb-0 font-700 text-white">
-                  {stat.value}
-                  <span className="clr-1">{stat.suffix}</span>
-                </p>
-                <p className="mb-0">{stat.label}</p>
-              </div>
-            ))}
+            {stats.map((stat) => {
+              const Icon = ICONS[stat.icon] ?? BadgeCheck
+              return (
+                <div className="counter-item" key={stat.id}>
+                  <span className="counter-icon" aria-hidden="true">
+                    <Icon size={28} strokeWidth={2} />
+                  </span>
+                  <p className="mb-0">{stat.label}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </Container>

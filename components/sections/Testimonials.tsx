@@ -43,7 +43,11 @@ export default function Testimonials() {
           slidesPerView="auto"
           centeredSlides
           loop
-          spaceBetween={92}
+          spaceBetween={20}
+          breakpoints={{
+            768: { spaceBetween: 48 },
+            1024: { spaceBetween: 92 },
+          }}
           autoplay={{
             delay: 5000,
             pauseOnMouseEnter: true,

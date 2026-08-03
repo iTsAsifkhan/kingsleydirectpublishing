@@ -174,22 +174,22 @@ export default async function SubServicePage({ params }: Props) {
         <Container>
           <div className="service-stats-grid">
             <div>
-              <strong>
-                5K<span>+</span>
-              </strong>
-              <p>Published Happy Clients</p>
+              <span className="service-stat-icon" aria-hidden="true">
+                <LucideIcons.BadgeCheck size={30} strokeWidth={2} />
+              </span>
+              <p>Trusted by Authors</p>
             </div>
             <div>
-              <strong>
-                100<span>+</span>
-              </strong>
-              <p>Five out of Five Reviews</p>
+              <span className="service-stat-icon" aria-hidden="true">
+                <LucideIcons.Star size={30} strokeWidth={2} />
+              </span>
+              <p>Five-Star Reviews</p>
             </div>
             <div>
-              <strong>
-                97%<span>+</span>
-              </strong>
-              <p>Satisfaction Rate</p>
+              <span className="service-stat-icon" aria-hidden="true">
+                <LucideIcons.ShieldCheck size={30} strokeWidth={2} />
+              </span>
+              <p>Proven Satisfaction</p>
             </div>
           </div>
         </Container>

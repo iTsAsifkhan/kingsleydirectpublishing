@@ -52,8 +52,7 @@ export interface ProcessStep {
 
 export interface Stat {
   id: string
-  value: string
-  suffix: string
+  icon: string // lucide icon name
   label: string
 }
 
@@ -464,28 +463,24 @@ export const testimonials: Testimonial[] = [
 // Homepage stats
 export const stats: Stat[] = [
   {
-    id: 'published-clients',
-    value: 'Loved',
-    suffix: '',
-    label: 'by Happy Authors',
+    id: 'trusted-authors',
+    icon: 'BadgeCheck',
+    label: 'Trusted by Authors',
   },
   {
     id: 'five-star-reviews',
-    value: 'Five-Star',
-    suffix: '',
-    label: 'Reader Reviews',
+    icon: 'Star',
+    label: 'Five-Star Reviews',
   },
   {
-    id: 'partners-worldwide',
-    value: 'Global',
-    suffix: '',
-    label: 'Retail & Library Reach',
+    id: 'global-reach',
+    icon: 'Globe',
+    label: 'Global Distribution',
   },
   {
-    id: 'satisfaction-rate',
-    value: 'Proven',
-    suffix: '',
-    label: 'Satisfaction Rate',
+    id: 'proven-satisfaction',
+    icon: 'ShieldCheck',
+    label: 'Proven Satisfaction',
   },
 ]
 

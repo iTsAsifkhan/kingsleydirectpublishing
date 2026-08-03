@@ -1014,10 +1014,16 @@ p.p-head {
   color: #ffffff;
 }
 
-.counter-wrap .counter-value {
-  color: #ffffff;
-  font-size: 45px;
-  line-height: 1;
+.counter-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: rgba(255, 178, 16, 0.14);
+  color: var(--brand-yellow);
+  border: 1px solid rgba(255, 178, 16, 0.35);
 }
 
 .counter-wrap p {
@@ -2704,6 +2710,7 @@ p.p-head {
 @media (max-width: 991.98px) {
   .review-slide {
     grid-template-columns: 1fr;
+    min-height: 0;
     padding: 32px 28px;
     gap: 36px;
     border-radius: 30px;
@@ -4201,6 +4208,18 @@ details[open] .faq-icon::after {
   color: var(--brand-yellow);
 }
 
+.service-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 178, 16, 0.14);
+  color: var(--brand-yellow);
+  border: 1px solid rgba(255, 178, 16, 0.35);
+}
+
 .service-stats-grid p {
   max-width: 190px;
   margin: 12px auto 0;
@@ -5360,19 +5379,28 @@ details[open] .faq-icon::after {
   background: var(--brand-navy);
   color: #fff;
   border-radius: 14px;
-  padding: 16px 22px;
+  padding: 14px 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  font-size: 13px;
-  font-weight: 500;
+  gap: 12px;
+  max-width: 230px;
+  font-size: 14px;
+  font-weight: 600;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   line-height: 1.3;
 }
 
-.about-hero-badge-num {
-  font-size: 32px;
-  line-height: 1;
+.about-hero-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 178, 16, 0.16);
+  color: var(--brand-yellow);
 }
 
 /* Mission section */
@@ -5417,15 +5445,67 @@ details[open] .faq-icon::after {
   box-shadow: 0 14px 40px rgba(0,0,0,0.1);
 }
 
-.about-stat-num {
-  font-size: 48px;
-  line-height: 1;
-  margin-bottom: 8px;
+.about-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  background: rgba(255, 178, 16, 0.14);
+  color: var(--brand-yellow);
+  border: 1px solid rgba(255, 178, 16, 0.32);
 }
 
 .about-mission-stat-card p {
   color: var(--brand-navy);
   font-size: 15px;
+}
+
+/* Our Story section */
+.about-story {
+  padding: 90px 0 30px;
+  background: #ffffff;
+}
+
+.about-story-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-story-title {
+  color: var(--brand-navy);
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.about-story-inner > p {
+  color: #4b4b4b;
+  font-size: 16.5px;
+  line-height: 1.85;
+  margin: 18px 0 0;
+}
+
+.about-story-closing {
+  margin-top: 30px;
+  padding: 22px 30px;
+  border-radius: 16px;
+  background: #F6FAFD;
+  border-left: 4px solid var(--brand-yellow);
+  color: var(--brand-navy);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .about-story { padding: 60px 0 20px; }
+  .about-story-title { font-size: 28px; }
+  .about-story-inner > p { font-size: 15.5px; }
+  .about-story-closing { font-size: 17px; padding: 18px 22px; }
 }
 
 /* Pillars section */

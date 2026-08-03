@@ -7,10 +7,12 @@ import {
   BookOpen,
   ChevronRight,
   Globe,
+  GraduationCap,
   Headphones,
   MessageCircle,
   Rocket,
   ShieldCheck,
+  Star,
   Users,
 } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
@@ -48,10 +50,10 @@ const PLATFORM_LOGOS = [
 ]
 
 const MISSION_STATS = [
-  { value: 'Proven', label: 'Success Rate' },
-  { value: 'Decades', label: 'of Experience' },
-  { value: 'Bestselling', label: 'National Titles' },
-  { value: 'Expert', label: 'Industry Team' },
+  { icon: Award, label: 'Proven Track Record' },
+  { icon: GraduationCap, label: 'Experienced Team' },
+  { icon: BookOpen, label: 'Bestselling Titles' },
+  { icon: Users, label: 'Expert Publishing Team' },
 ]
 
 const PILLARS = [
@@ -162,8 +164,10 @@ export default function AboutPage() {
                 />
               </div>
               <span className="about-hero-badge">
-                <span className="about-hero-badge-num clr-1 fw-700">Trusted</span>
-                <span>by Authors Worldwide</span>
+                <span className="about-hero-badge-icon" aria-hidden="true">
+                  <Star size={20} fill="currentColor" strokeWidth={0} />
+                </span>
+                <span>Trusted by Authors Worldwide</span>
               </span>
             </div>
           </div>
@@ -174,11 +178,11 @@ export default function AboutPage() {
       <StatsStrip className="about-stats-strip" />
 
       {/* Our Story */}
-      <section className="about-mission">
+      <section className="about-story">
         <Container>
-          <div className="about-story-intro mb-5">
+          <div className="about-story-inner">
             <span className="span-tag-border">Our Story</span>
-            <h2 className="fw-700 pt-3">
+            <h2 className="about-story-title fw-700 pt-3">
               Every Book Begins With a Story,{' '}
               <span className="clr-1">and So Does Ours</span>
             </h2>
@@ -203,12 +207,17 @@ export default function AboutPage() {
               world. That is why we treat every project with the same care and respect we
               would give our own.
             </p>
-            <p className="fw-700 clr-1">
+            <p className="about-story-closing">
               Because every story deserves more than to be published. It deserves to be
               remembered.
             </p>
           </div>
+        </Container>
+      </section>
 
+      {/* Mission */}
+      <section className="about-mission">
+        <Container>
           <div className="about-mission-grid">
             <div className="about-mission-copy">
               <span className="span-tag-border">Our Mission</span>
@@ -234,10 +243,12 @@ export default function AboutPage() {
             </div>
 
             <div className="about-mission-stats-grid">
-              {MISSION_STATS.map((s) => (
-                <div className="about-mission-stat-card" key={s.label}>
-                  <h3 className="about-stat-num clr-1 fw-700 mb-0">{s.value}</h3>
-                  <p className="mb-0 fw-600">{s.label}</p>
+              {MISSION_STATS.map(({ icon: Icon, label }) => (
+                <div className="about-mission-stat-card" key={label}>
+                  <span className="about-stat-icon" aria-hidden="true">
+                    <Icon size={26} aria-hidden="true" />
+                  </span>
+                  <p className="mb-0 fw-600">{label}</p>
                 </div>
               ))}
             </div>
