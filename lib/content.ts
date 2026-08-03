@@ -63,7 +63,7 @@ export const services: Service[] = [
     slug: 'ghostwriting',
     title: 'Ghostwriting',
     shortDescription:
-      'Have an idea for a potential bestseller? Our professional ghostwriters turn rough concepts, plots, and notes into a polished manuscript ready for publication.',
+      'Got the story but not the time to write it? Our ghostwriters shape your ideas, outlines, and half-finished drafts into a complete manuscript that still sounds unmistakably like you.',
     description:
       'Our ghostwriting services help you transform your ideas into a compelling manuscript through research, outlining, drafting, revisions, and final polish.',
     longDescription:
@@ -147,7 +147,7 @@ export const services: Service[] = [
     slug: 'editing',
     title: 'Editing',
     shortDescription:
-      'Turn your first draft into a polished, publication-ready book with professional editing, proofreading, structural feedback, and line-level refinement.',
+      'From the big-picture structure down to the final comma, our editors polish your draft until it reads like a professionally published book, never flattening your voice in the process.',
     description:
       'Comprehensive editing and proofreading to refine your manuscript with copy editing, line editing, developmental notes, and final proofreading.',
     longDescription:
@@ -189,7 +189,7 @@ export const services: Service[] = [
     slug: 'publishing',
     title: 'Publishing',
     shortDescription:
-      'Move from completed manuscript to published author with formatting, cover support, platform setup, distribution guidance, and launch preparation.',
+      'We take on the technical maze, interior formatting, platform setup, ISBNs, and distribution, so your finished manuscript arrives on Amazon and beyond as a real, buyable book.',
     description:
       'Complete publishing support including formatting, cover design, book descriptions, platform setup, distribution, and launch strategy.',
     longDescription:
@@ -238,7 +238,7 @@ export const services: Service[] = [
     slug: 'marketing',
     title: 'Marketing',
     shortDescription:
-      'Build visibility for your published book with tailored marketing strategy, optimized listings, launch campaigns, and promotional materials.',
+      'A great book still needs readers to find it. We craft the launch plan, sharpen your listings, and run campaigns that put your title in front of the people most likely to buy it.',
     description:
       'Strategic marketing campaigns to increase your book visibility, improve listings, support launches, and connect your work with readers.',
     longDescription:
@@ -301,7 +301,7 @@ export const services: Service[] = [
     slug: 'cover-design',
     title: 'Book Cover Design',
     shortDescription:
-      'Get a custom-designed book cover that captures your story, looks professional across formats, and helps your book stand out to readers.',
+      'Your cover is your first and best sales pitch. We design genre-smart covers that hold their own next to the bestsellers and make readers stop mid-scroll.',
     description:
       'Professional cover design that captures your book\'s essence, supports print and digital formats, and attracts readers.',
     longDescription:
