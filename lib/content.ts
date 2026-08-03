@@ -489,49 +489,49 @@ export const processSteps: ProcessStep[] = [
   {
     id: '1',
     number: 1,
-    title: 'Manuscript Review and Assessment',
+    title: 'Manuscript Review',
     description:
-      'Our expert team performs a detailed review of your manuscript, providing insightful feedback and actionable recommendations to improve its market potential and ensure it is fully prepared for publication.',
+      'We read your manuscript closely and come back with honest, specific feedback, what is working, what needs attention, and exactly what it takes to get it ready for readers.',
     icon: 'FileSearch',
   },
   {
     id: '2',
     number: 2,
-    title: 'Editing and Proofreading Services',
+    title: 'Editing & Proofreading',
     description:
-      'Our experienced editors carefully refine your manuscript, enhancing its content, grammar, and style to deliver a flawless final version that aligns with industry standards.',
+      'Your editor refines the structure, tightens the prose, and clears out every error, so the finished book reads smoothly and holds together from first page to last.',
     icon: 'Wand2',
   },
   {
     id: '3',
     number: 3,
-    title: 'Book Design and Formatting',
+    title: 'Design & Formatting',
     description:
-      'Our design experts create eye-catching book covers and format the interior layout, ensuring a visually appealing and reader-friendly presentation that complements your book genre and message.',
+      'We craft a cover that fits your genre and lay out clean, professional interiors for print and digital, so your book looks the part on every device and every shelf.',
     icon: 'LayoutTemplate',
   },
   {
     id: '4',
     number: 4,
-    title: 'Printing and Production Services',
+    title: 'Printing & Production',
     description:
-      'We use premium printing and production methods to bring your book to life in physical form, ensuring it has the polished, professional look of traditionally published titles.',
+      'Using quality print-on-demand production, we turn your files into a physical book with the finish and feel of a traditionally published title.',
     icon: 'Printer',
   },
   {
     id: '5',
     number: 5,
-    title: 'Distribution and Marketing Solutions',
+    title: 'Distribution & Marketing',
     description:
-      'We offer wide-reaching distribution, ensuring your book is available through leading online retailers and bookstores while targeted campaigns connect with your ideal audience.',
+      'We push your book out to major retailers and libraries, then run targeted campaigns that help the right readers actually discover it.',
     icon: 'Megaphone',
   },
   {
     id: '6',
     number: 6,
-    title: 'Royalties and Sales Tracking',
+    title: 'Royalties & Reporting',
     description:
-      'As your book reaches a global audience, we offer clear royalty reporting and payment visibility so you can monitor success and enjoy the rewards of your literary accomplishment.',
+      'Once your book is live, you get clear royalty reporting and payment visibility, so you can track sales and enjoy the rewards of your work.',
     icon: 'BadgeDollarSign',
   },
 ]
