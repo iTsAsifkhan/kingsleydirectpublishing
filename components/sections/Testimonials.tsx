@@ -1,11 +1,5 @@
-'use client'
-
 import Image from 'next/image'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Quote } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 import { testimonials } from '@/lib/content'
 
@@ -19,100 +13,54 @@ const PARTNER_LOGOS = [
   { src: '/images/7.webp', alt: 'Publishing partner' },
 ]
 
+function initials(name: string) {
+  return name
+    .split(' ')
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('')
+}
+
 export default function Testimonials() {
   return (
-    <section className="index-wrap-7 position-relative">
-
+    <section className="home-reviews position-relative">
       <Container className="relative z-10">
-        <div className="index-wrap-7-heading">
-          <h2 className="mb-0 fw-700">
-            Client Testimonials About{' '}
-            <span className="clr-1">Our Book Publishing</span> Partner
+        <div className="home-reviews-head">
+          <span className="span-tag-border">Author Stories</span>
+          <h2 className="home-reviews-title fw-700 pt-3">
+            What Our Authors Say After{' '}
+            <span className="clr-1">Publishing With Us</span>
           </h2>
-          <div className="hidden lg:flex justify-end">
-            <Button variant="yellow" href="/contact" icon={ArrowRight}>
-              Get A Quote
-            </Button>
-          </div>
+          <p>
+            A few words from writers who trusted us with their manuscripts, and
+            now have a finished book on the shelf.
+          </p>
         </div>
-      </Container>
 
-      <div className="review-swiper-wrap">
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          slidesPerView="auto"
-          centeredSlides
-          loop
-          spaceBetween={20}
-          breakpoints={{
-            768: { spaceBetween: 48 },
-            1024: { spaceBetween: 92 },
-          }}
-          autoplay={{
-            delay: 5000,
-            pauseOnMouseEnter: true,
-            disableOnInteraction: false,
-          }}
-          pagination={{ clickable: true }}
-          className="review-swiper"
-        >
+        <div className="home-reviews-grid">
           {testimonials.map((t) => (
-            <SwiperSlide key={t.id}>
-              <div className="review-slide">
-                <div className="review-slide-left">
-                  <div className="review-book-backdrop" aria-hidden="true" />
-                  <div className="review-main-book">
-                    <Image
-                      src={t.bookCover}
-                      alt={`${t.name}'s published book`}
-                      fill
-                      sizes="(min-width: 1024px) 320px, 75vw"
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
-
-                <div className="review-slide-right">
-                  <div className="review-profile-row">
-                    <div className="review-author-avatar" aria-hidden="true">
-                      {t.name
-                        .split(' ')
-                        .map((w) => w[0])
-                        .slice(0, 2)
-                        .join('')}
-                    </div>
-                    <div>
-                      <h3 className="review-author-name">{t.name}</h3>
-                      <p className="review-author-role">Verified author</p>
-                    </div>
-                  </div>
-
-                  <p className="review-quote">{t.quote}</p>
-
-                  <div className="review-detail-row">
-                    <div className="review-detail">
-                      <h4>Genre</h4>
-                      <p>{t.genre}</p>
-                    </div>
-                    <div className="review-detail">
-                      <h4>Books Published</h4>
-                      <p>{t.published}</p>
-                    </div>
-                    <span className="review-verified-tag">
-                      <span aria-hidden="true">
-                        <ArrowRight size={16} />
-                      </span>
-                      Verified review
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
+            <figure className="review-card" key={t.id}>
+              <Quote className="review-card-mark" size={30} aria-hidden="true" />
+              <blockquote className="review-card-quote">{t.quote}</blockquote>
+              <figcaption className="review-card-foot">
+                <span className="review-card-avatar" aria-hidden="true">
+                  {initials(t.name)}
+                </span>
+                <span className="review-card-who">
+                  <b>{t.name}</b>
+                  <span>{t.genre} author · Verified</span>
+                </span>
+              </figcaption>
+            </figure>
           ))}
-        </Swiper>
-      </div>
+        </div>
 
-      <Container className="relative z-10">
+        <div className="home-reviews-cta">
+          <Button variant="yellow" href="/contact" icon={ArrowRight}>
+            Start Your Book
+          </Button>
+        </div>
+
         <ul className="partners-ul" aria-label="Publishing partners and platforms">
           {PARTNER_LOGOS.map((logo) => (
             <li key={logo.src}>
