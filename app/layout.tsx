@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Montserrat, Noto_Sans } from 'next/font/google'
+import { Fraunces, Inter } from 'next/font/google'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import './globals.css'
@@ -9,16 +9,19 @@ import ScrollReveal from '@/components/ScrollReveal'
 import FooterReveal from '@/components/FooterReveal'
 import TawkChat from '@/components/TawkChat'
 
-const montserrat = Montserrat({
-  variable: '--font-montserrat',
+// Editorial serif for headings + clean grotesque for body/UI. The CSS still
+// references --font-montserrat / --font-noto; those are aliased to Inter in
+// globals.css :root, while headings use --font-fraunces.
+const fraunces = Fraunces({
+  variable: '--font-fraunces',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  display: 'swap',
 })
 
-const notoSans = Noto_Sans({
-  variable: '--font-noto',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -76,7 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${notoSans.variable} scroll-smooth`}
+      className={`${fraunces.variable} ${inter.variable} scroll-smooth`}
     >
       <head>
         <link rel="preconnect" href="https://embed.tawk.to" />
