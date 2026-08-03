@@ -213,6 +213,17 @@ export default function AboutPage() {
               remembered.
             </p>
           </div>
+
+          <div className="about-story-media">
+            <Image
+              src="/images/scene-reading-field.webp"
+              alt="A reader enjoying a book outdoors"
+              width={1400}
+              height={760}
+              sizes="(min-width: 1024px) 980px, 100vw"
+              className="about-story-media-img"
+            />
+          </div>
         </Container>
       </section>
 

@@ -9,6 +9,7 @@ import {
   PurpleCTA,
   Services,
   StatsStrip,
+  StoryBand,
   Testimonials,
   WhyChooseUs,
 } from '@/components/sections'
@@ -68,6 +69,7 @@ export default function Home() {
       <StatsStrip />
       <HeroMarquee />
       <Testimonials />
+      <StoryBand />
       <Process />
       <PurpleCTA />
       <FAQ />
