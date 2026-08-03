@@ -155,12 +155,13 @@ export default function AboutPage() {
             <div className="about-hero-visual" aria-hidden="true">
               <div className="about-hero-img-wrap">
                 <Image
-                  src="/images/wrap-2-img.webp"
-                  alt="Kimberley Direct Publishing team"
+                  src="/images/scene-library-study.webp"
+                  alt="Author surrounded by books in a library"
                   fill
                   priority
                   sizes="(min-width: 1024px) 480px, 100vw"
-                  className="section-placeholder-image clean-contain"
+                  className="section-placeholder-image"
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
               <span className="about-hero-badge">

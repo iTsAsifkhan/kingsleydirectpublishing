@@ -4,23 +4,8 @@ import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
-// A curated mix of mockups + portfolio covers.
-const COVERS = [
-  '/images/3d-book-cover (1).webp',
-  '/images/showcase-cover (3).webp',
-  '/images/3d-book-cover (4).webp',
-  '/images/showcase-cover (7).webp',
-  '/images/3d-book-cover (2).webp',
-  '/images/showcase-cover (12).webp',
-  '/images/3d-book-cover (6).webp',
-  '/images/showcase-cover (18).webp',
-  '/images/3d-book-cover (3).webp',
-  '/images/showcase-cover (21).webp',
-  '/images/3d-book-cover (8).webp',
-  '/images/showcase-cover (26).webp',
-  '/images/3d-book-cover (5).webp',
-  '/images/showcase-cover (30).webp',
-]
+// Kimberley's own cover set (22 designs).
+const COVERS = Array.from({ length: 22 }, (_, i) => `/images/kdp-cover-${i + 1}.webp`)
 
 export default function ShowcaseMarquee() {
   const trackRef = useRef<HTMLDivElement>(null)

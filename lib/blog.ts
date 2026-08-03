@@ -59,7 +59,7 @@ export const blogPosts: BlogPost[] = [
       'From a finished manuscript to a book readers can buy on Amazon, the eight stages of self-publishing, what each one really involves, and where authors get stuck.',
     category: 'Self-Publishing',
     accent: 'navy',
-    featuredImage: '/images/Step-by-Step%20Guide.jpg',
+    featuredImage: '/images/scene-open-book-fanned.webp',
     featuredImageAlt:
       'Publishing desk with manuscript pages, book layout software, and finished paperbacks',
     author: 'The Kimberley Editorial Team',
@@ -174,7 +174,7 @@ export const blogPosts: BlogPost[] = [
       'Editing, cover, formatting, ISBNs, marketing, a transparent breakdown of what self-publishing actually costs in 2026, and how to spend where it matters.',
     category: 'Publishing Costs',
     accent: 'yellow',
-    featuredImage: '/images/Cost%20to%20Self-Publish%20a%20Book%20in%202026.jpg',
+    featuredImage: '/images/scene-reading-desk.webp',
     featuredImageAlt:
       'Publishing budget workspace with a laptop, manuscript pages, calculator, and books',
     author: 'The Kimberley Editorial Team',
@@ -281,7 +281,7 @@ export const blogPosts: BlogPost[] = [
       'Developmental, line, copy, and proofreading are not interchangeable. Here’s what each editing pass actually does, in what order, and which ones your book needs.',
     category: 'Editing',
     accent: 'teal',
-    featuredImage: '/images/Types%20of%20Book%20Editing.jpg',
+    featuredImage: '/images/scene-reading-lamp.webp',
     featuredImageAlt:
       'Editor reviewing marked-up manuscript pages beside a laptop',
     author: 'The Kimberley Editorial Team',

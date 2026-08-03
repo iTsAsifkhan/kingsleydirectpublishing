@@ -211,8 +211,8 @@ export default function Footer() {
           <Image
             src="/images/payment.webp"
             alt="Accepted payment methods: Visa, Mastercard, American Express, PayPal"
-            width={280}
-            height={32}
+            width={200}
+            height={35}
             className="object-contain"
           />
         </div>

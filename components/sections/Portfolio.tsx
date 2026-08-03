@@ -18,14 +18,21 @@ const TABS: readonly Tab[] = [
   'Mystery',
 ]
 
+// Kimberley's own cover set (22 designs). Each genre shows a distinct rotating
+// window of the pool so switching tabs feels fresh without needing 8 unique
+// covers per genre.
+const COVER_POOL = Array.from({ length: 22 }, (_, i) => `/images/kdp-cover-${i + 1}.webp`)
+const tabCovers = (offset: number, count = 6) =>
+  Array.from({ length: count }, (_, i) => COVER_POOL[(offset + i) % COVER_POOL.length])
+
 const portfolioImagesByTab: Record<Tab, string[]> = {
-  Fantasy: Array.from({ length: 8 }, (_, i) => `/images/fantasy (${i + 1}).webp`),
-  Fiction: Array.from({ length: 8 }, (_, i) => `/images/fiction (${i + 1}).webp`),
-  Romance: Array.from({ length: 8 }, (_, i) => `/images/romance (${i + 1}).webp`),
-  Horror: Array.from({ length: 8 }, (_, i) => `/images/horror (${i + 1}).webp`),
-  'Cook Books': Array.from({ length: 8 }, (_, i) => `/images/Cookbook (${i + 1}).webp`),
-  Adventure: Array.from({ length: 8 }, (_, i) => `/images/adeventure (${i + 1}).webp`),
-  Mystery: Array.from({ length: 8 }, (_, i) => `/images/mystery (${i + 1}).webp`),
+  Fantasy: tabCovers(0),
+  Fiction: tabCovers(3),
+  Romance: tabCovers(6),
+  Horror: tabCovers(9),
+  'Cook Books': tabCovers(12),
+  Adventure: tabCovers(15),
+  Mystery: tabCovers(18),
 }
 
 export default function Portfolio() {
