@@ -351,63 +351,63 @@ export const services: Service[] = [
 export const faqs: FAQ[] = [
   {
     id: '1',
-    question: 'What publishing services does Kimberley Direct Publishing offer?',
+    question: 'Which publishing services do you actually cover?',
     answer:
-      'We support authors with manuscript review, editing, design, formatting, publishing setup, distribution guidance, and marketing support.',
+      'We handle the whole journey: manuscript assessment, editing, cover and interior design, formatting, publishing setup, distribution, and marketing. Take the full package, or just the one piece you need.',
   },
   {
     id: '2',
-    question: 'How can I submit my manuscript for publishing?',
+    question: 'How do I get my manuscript to you?',
     answer:
-      'You can contact our team with your manuscript details, goals, and preferred publishing services. We will review the project and recommend the next steps.',
+      'Just reach out with your manuscript, your goals, and where you are in the process. We review it and come back with a clear recommendation for the next steps.',
   },
   {
     id: '3',
-    question: 'Do you offer self-publishing services?',
+    question: 'Can I self-publish and still keep control?',
     answer:
-      'Yes. We help authors prepare their books for self-publishing across print and digital platforms while maintaining creative control.',
+      'Absolutely. We prepare your book for self-publishing across print and digital platforms while you keep full creative control and ownership.',
   },
   {
     id: '4',
-    question: 'What is the typical timeline for publishing a book?',
+    question: 'How long does it take to publish a book?',
     answer:
       'The timeline depends on the condition of your manuscript. If your book is fully edited, formatted, and ready for publication, it can be published in as little as 3 business days. If editing, formatting, cover design, illustrations, or revisions are required, the process typically takes 2 to 6 weeks, depending on the scope of work and approval turnaround.',
   },
   {
     id: '5',
-    question: 'Do I need a literary agent to publish my book?',
+    question: 'Do I need a literary agent first?',
     answer:
-      'No. Many authors publish successfully without a literary agent, especially through self-publishing or hybrid publishing routes.',
+      'Not at all. Plenty of authors publish successfully without an agent, especially through self-publishing or hybrid routes, which is exactly what we specialise in.',
   },
   {
     id: '6',
-    question: 'What is the royalty structure for authors?',
+    question: 'How do royalties work for authors?',
     answer:
-      'Royalty structure depends on the publishing platform, book format, price, and distribution model. We help authors understand the available options.',
+      'It depends on the platform, format, price, and distribution model you choose. We walk you through the options so you can pick the setup that pays you best.',
   },
   {
     id: '7',
-    question: 'Can I retain the copyright of my book?',
+    question: 'Do I keep the copyright to my book?',
     answer:
-      'Yes. You retain copyright ownership of your book unless you choose a specific publishing arrangement that states otherwise.',
+      'Yes. The copyright stays with you unless you deliberately choose a publishing arrangement that states otherwise.',
   },
   {
     id: '8',
-    question: 'How will you help with book marketing and promotion?',
+    question: 'What do you do to help my book sell?',
     answer:
-      'We can support launch planning, listing optimization, promotional content, campaign strategy, and reader visibility across relevant channels.',
+      'We can plan your launch, sharpen your listings, create promotional content, and run campaigns that put your book in front of the readers most likely to buy it.',
   },
   {
     id: '9',
-    question: 'What types of books do you publish?',
+    question: 'What kinds of books do you take on?',
     answer:
-      'We support many categories including fiction, nonfiction, children books, memoirs, business books, fantasy, romance, mystery, and more.',
+      'Most of them: fiction, non-fiction, children\'s books, memoir, business, fantasy, romance, mystery, and plenty more.',
   },
   {
     id: '10',
-    question: 'What are the costs involved in book publishing?',
+    question: 'What will it cost to publish my book?',
     answer:
-      'Costs vary by manuscript length, editing needs, design requirements, publishing format, and marketing scope. We provide estimates after reviewing your project.',
+      'It depends on length, editing needs, design, format, and how much marketing you want. Once we have seen your project, we give you a clear, itemised estimate with no surprises.',
   },
 ]
 
