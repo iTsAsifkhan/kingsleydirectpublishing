@@ -62,14 +62,14 @@ export default function Home() {
         }}
       />
       <Hero />
-      <HeroMarquee />
+      <Services />
+      <Portfolio />
       <WhyChooseUs />
       <StatsStrip />
-      <Services />
-      <PurpleCTA />
-      <Process />
-      <Portfolio />
+      <HeroMarquee />
       <Testimonials />
+      <Process />
+      <PurpleCTA />
       <FAQ />
       <ContactForm />
     </main>
