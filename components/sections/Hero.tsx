@@ -1,75 +1,58 @@
-import Image from 'next/image'
-import { ArrowRight, Handshake, MessageCircle } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, ArrowUpRight, BadgeCheck, Globe, Sparkles, Star } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
+
+const TRUST = [
+  { icon: BadgeCheck, label: 'Trusted by Authors' },
+  { icon: Star, label: 'Five-Star Reviews' },
+  { icon: Globe, label: 'Global Distribution' },
+]
 
 export default function Hero() {
   return (
-    <section className="index-wrap-1 relative">
+    <section className="hero-band">
+      <span className="hero-band-glow" aria-hidden="true" />
+      <span className="hero-band-grid" aria-hidden="true" />
+
       <Container className="relative z-10">
-        <div className="home-hero-grid grid items-center gap-10 lg:grid-cols-2">
-          <div className="text-center lg:text-left">
-            <span className="kdp-hero-eyebrow">
-              <span className="kdp-hero-eyebrow-dot" aria-hidden="true" />
-              <span>Kimberley Direct Publishing</span>
-              <Handshake size={15} aria-hidden="true" />
-            </span>
-            <h1 className="mb-0 font-700">
-              Professional Self-Publishing Services for Author Success
-            </h1>
-            <p className="p-head mb-0">
-              Think of us as your personal guide on the publishing journey. Kimberley
-              Direct Publishing is here to take your manuscript and transform it
-              into a book you will be proud of, starting with a professional eye
-              for editing, a stunning custom cover, and flawless interior
-              formatting. Then, we put your book into the hands of readers
-              worldwide through major retailers like Amazon and KDP.
-            </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-              <Button variant="yellow" href="/contact" icon={ArrowRight}>
-                Get A Quote
-              </Button>
-              <Button variant="blue" href="/contact" icon={MessageCircle}>
-                Talk to an Expert
-              </Button>
-            </div>
+        <div className="hero-band-inner">
+          <span className="hero-eyebrow">
+            <span className="hero-eyebrow-dot" aria-hidden="true" />
+            <span>Kimberley Direct Publishing</span>
+            <Sparkles size={14} aria-hidden="true" />
+          </span>
+
+          <h1 className="hero-headline">
+            Your Manuscript Deserves to Become a Book the{' '}
+            <span className="hero-accent">World Remembers</span>
+          </h1>
+
+          <p className="hero-sub">
+            We take you from raw draft to shelf-ready: sharp editing, a cover that
+            sells, clean formatting, and distribution across Amazon and every major
+            platform. You keep the rights. You keep the royalties.
+          </p>
+
+          <div className="hero-ctas">
+            <Button variant="yellow" href="/contact" icon={ArrowRight}>
+              Start Your Book
+            </Button>
+            <Link href="/contact" className="hero-ghost-cta">
+              <span>Talk to a Publisher</span>
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </Link>
           </div>
 
-          <div className="relative hidden lg:block">
-            <div className="home-hero-visual ml-auto" aria-label="Featured published books">
-              <span className="home-hero-cover home-hero-cover-primary">
-                <Image
-                  src="/images/3d-book-cover (1).webp"
-                  alt="Featured 3D book cover mockup"
-                  fill
-                  priority
-                  quality={82}
-                  sizes="285px"
-                  className="section-placeholder-image clean-contain"
-                />
-              </span>
-              <span className="home-hero-cover home-hero-cover-secondary">
-                <Image
-                  src="/images/3d-book-cover (2).webp"
-                  alt="Featured 3D book cover mockup"
-                  fill
-                  quality={82}
-                  sizes="220px"
-                  className="section-placeholder-image clean-contain"
-                />
-              </span>
-              <span className="home-hero-cover home-hero-cover-tertiary">
-                <Image
-                  src="/images/3d-book-cover (3).webp"
-                  alt="Featured 3D book cover mockup"
-                  fill
-                  quality={82}
-                  sizes="220px"
-                  className="section-placeholder-image clean-contain"
-                />
-              </span>
-              <span className="home-hero-badge">Published Worldwide</span>
-            </div>
-          </div>
+          <ul className="hero-trust" aria-label="Why authors trust us">
+            {TRUST.map(({ icon: Icon, label }) => (
+              <li key={label}>
+                <span className="hero-trust-icon" aria-hidden="true">
+                  <Icon size={18} strokeWidth={2} />
+                </span>
+                {label}
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </section>
