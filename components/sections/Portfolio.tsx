@@ -18,111 +18,76 @@ const TABS: readonly Tab[] = [
   'Mystery',
 ]
 
-const PORTFOLIO_ITEMS_PER_TAB = 8
-
 const portfolioImagesByTab: Record<Tab, string[]> = {
-  Fantasy: Array.from(
-    { length: 8 },
-    (_, index) => `/images/fantasy (${index + 1}).webp`,
-  ),
-  Fiction: Array.from(
-    { length: 8 },
-    (_, index) => `/images/fiction (${index + 1}).webp`,
-  ),
-  Romance: Array.from(
-    { length: 8 },
-    (_, index) => `/images/romance (${index + 1}).webp`,
-  ),
-  Horror: Array.from(
-    { length: 8 },
-    (_, index) => `/images/horror (${index + 1}).webp`,
-  ),
-  'Cook Books': Array.from(
-    { length: 8 },
-    (_, index) => `/images/Cookbook (${index + 1}).webp`,
-  ),
-  Adventure: Array.from(
-    { length: 8 },
-    (_, index) => `/images/adeventure (${index + 1}).webp`,
-  ),
-  Mystery: Array.from(
-    { length: 8 },
-    (_, index) => `/images/mystery (${index + 1}).webp`,
-  ),
+  Fantasy: Array.from({ length: 8 }, (_, i) => `/images/fantasy (${i + 1}).webp`),
+  Fiction: Array.from({ length: 8 }, (_, i) => `/images/fiction (${i + 1}).webp`),
+  Romance: Array.from({ length: 8 }, (_, i) => `/images/romance (${i + 1}).webp`),
+  Horror: Array.from({ length: 8 }, (_, i) => `/images/horror (${i + 1}).webp`),
+  'Cook Books': Array.from({ length: 8 }, (_, i) => `/images/Cookbook (${i + 1}).webp`),
+  Adventure: Array.from({ length: 8 }, (_, i) => `/images/adeventure (${i + 1}).webp`),
+  Mystery: Array.from({ length: 8 }, (_, i) => `/images/mystery (${i + 1}).webp`),
 }
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState<Tab>('Fantasy')
-  const activePortfolioImages = portfolioImagesByTab[activeTab].slice(
-    0,
-    PORTFOLIO_ITEMS_PER_TAB,
-  )
+  const covers = portfolioImagesByTab[activeTab]
 
   return (
-    <section className="index-wrap-6 position-relative">
-      <span className="index-wrap-6-shade-1" aria-hidden="true" />
-      <span className="index-wrap-6-shade-2" aria-hidden="true" />
-
+    <section className="home-portfolio position-relative">
       <Container className="relative z-10">
-        {/* Section header */}
-        <div className="index-wrap-6-header">
-          <div>
-            <span className="span-tag-border-yellow">Our Portfolio</span>
-            <h2 className="mb-0 fw-700 pt-3">An Overview of Recent Projects</h2>
-          </div>
-          <p className="mb-0 index-wrap-6-desc">
-            Explore our latest projects, showcasing high-quality work across industries.
-            From innovative book publishing to successful marketing campaigns, we deliver
-            excellence and help clients stand out in a competitive market.
+        <div className="home-portfolio-head">
+          <span className="span-tag-border-yellow">Recent Work</span>
+          <h2 className="home-portfolio-title fw-700 pt-3">
+            Books We&apos;ve Helped <span className="clr-1">Bring to Life</span>
+          </h2>
+          <p>
+            A look across the genres we work in, from fantasy and romance to
+            cookbooks and memoir. Every cover here started as someone&apos;s
+            manuscript.
           </p>
         </div>
 
-        {/* Genre tabs */}
-        <ul className="index-wrap-6-tabs" role="tablist" aria-label="Portfolio genre tabs">
+        <div className="home-portfolio-tabs" role="tablist" aria-label="Portfolio genres">
           {TABS.map((tab) => (
-            <li
+            <button
               key={tab}
+              type="button"
               role="tab"
               aria-selected={activeTab === tab}
-              className={activeTab === tab ? 'active' : ''}
+              className={`pf-tab${activeTab === tab ? ' is-active' : ''}`}
               onClick={() => setActiveTab(tab)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault()
-                  setActiveTab(tab)
-                }
-              }}
-              tabIndex={0}
             >
               {tab}
-            </li>
-          ))}
-        </ul>
-
-        {/* Portfolio grid, key forces re-animation on tab change */}
-        <div
-          key={activeTab}
-          className="portfolio-grid"
-          role="tabpanel"
-          aria-label={`${activeTab} portfolio items`}
-        >
-          {activePortfolioImages.map((imageSrc, i) => (
-            <div key={imageSrc} className="portfolio-item">
-              <Image
-                src={imageSrc}
-                alt={`${activeTab} portfolio sample ${i + 1}`}
-                fill
-                sizes="(min-width: 768px) 25vw, 50vw"
-                className="portfolio-cover-image"
-              />
-            </div>
+            </button>
           ))}
         </div>
+      </Container>
 
-        {/* Bottom CTA row */}
-        <div className="portfolio-cta">
+      <div className="home-portfolio-rail-wrap">
+        <div
+          key={activeTab}
+          className="home-portfolio-rail"
+          role="tabpanel"
+          aria-label={`${activeTab} projects`}
+        >
+          {covers.map((src, i) => (
+            <figure className="pf-cover" key={src}>
+              <Image
+                src={src}
+                alt={`${activeTab} book cover sample ${i + 1}`}
+                fill
+                sizes="230px"
+                className="pf-cover-img"
+              />
+            </figure>
+          ))}
+        </div>
+      </div>
+
+      <Container className="relative z-10">
+        <div className="home-portfolio-cta">
           <Button variant="yellow" href="/contact" icon={ArrowRight}>
-            Get A Quote
+            Start Your Book
           </Button>
           {CONTACT_PHONE && (
             <a

@@ -944,6 +944,150 @@ p.p-head {
   }
 }
 
+/* ============================================================
+   Homepage portfolio — horizontal cover rail (redesign)
+   ============================================================ */
+.home-portfolio {
+  padding: clamp(70px, 9vw, 118px) 0;
+  background: #ffffff;
+  overflow: clip;
+}
+
+.home-portfolio-head {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.home-portfolio-title {
+  margin: 0 0 16px;
+  color: var(--brand-navy);
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.home-portfolio-head > p {
+  margin: 0 auto;
+  max-width: 56ch;
+  color: var(--brand-gray-2);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.home-portfolio-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 840px;
+  margin: 32px auto 0;
+}
+.pf-tab {
+  padding: 9px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-navy);
+  background: #ffffff;
+  border: 1px solid #dbe7f5;
+  cursor: pointer;
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.pf-tab:hover {
+  border-color: var(--brand-yellow);
+  color: var(--brand-yellow-dark);
+}
+.pf-tab.is-active {
+  background: var(--brand-navy);
+  color: #ffffff;
+  border-color: var(--brand-navy);
+}
+
+.home-portfolio-rail-wrap {
+  position: relative;
+  margin-top: 40px;
+}
+.home-portfolio-rail-wrap::before,
+.home-portfolio-rail-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 24px;
+  width: 56px;
+  z-index: 2;
+  pointer-events: none;
+}
+.home-portfolio-rail-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, #ffffff, transparent);
+}
+.home-portfolio-rail-wrap::after {
+  right: 0;
+  background: linear-gradient(270deg, #ffffff, transparent);
+}
+
+.home-portfolio-rail {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 6px clamp(16px, 4vw, 32px) 24px;
+  scrollbar-width: none;
+  animation: pfRailFade 0.5s ease;
+}
+.home-portfolio-rail::-webkit-scrollbar {
+  display: none;
+}
+@keyframes pfRailFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.pf-cover {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(158px, 22vw, 228px);
+  aspect-ratio: 2 / 3;
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 14px 34px rgba(0, 48, 96, 0.14);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.pf-cover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 46px rgba(0, 48, 96, 0.22);
+}
+.pf-cover-img {
+  object-fit: cover;
+}
+
+.home-portfolio-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px 28px;
+  margin-top: 30px;
+}
+
+@media (max-width: 575px) {
+  .home-portfolio-rail {
+    gap: 14px;
+  }
+  .home-portfolio-rail-wrap::before,
+  .home-portfolio-rail-wrap::after {
+    width: 28px;
+  }
+}
+
 .placeholder-book {
   position: relative;
   width: 230px;
