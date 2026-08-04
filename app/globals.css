@@ -60,9 +60,8 @@ html {
   height: 100%;
   font-family: var(--font-noto), sans-serif;
   scroll-behavior: smooth;
-  /* clip (not hidden) prevents horizontal scroll without turning the root into
-     a scroll container — that side effect is what breaks `position: sticky`. */
-  overflow-x: clip;
+  /* No overflow on the root: root-level overflow:clip/hidden can break the
+     fixed-footer reveal in Chrome. The horizontal clip lives on <body> below. */
 }
 
 body {
@@ -71,6 +70,8 @@ body {
   color: var(--brand-ink);
   background: #ffffff;
   font-weight: 400;
+  /* clip (not hidden) stops horizontal scroll without making <body> a scroll
+     container — hidden would, and that breaks `position: sticky`. */
   overflow-x: clip;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -543,143 +544,55 @@ p.p-head {
   mask-image: radial-gradient(circle at 50% 38%, #000 0%, transparent 72%);
 }
 
-/* ---- Animated hero background: aurora orbs + beam + particles ---- */
+/* ---- Ambient hero aurora: two soft, slow glows on the navy field ---- */
 .hero-aurora {
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 55%, transparent 100%);
-  mask-image: radial-gradient(120% 100% at 50% 0%, #000 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(130% 100% at 50% 0%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(130% 100% at 50% 0%, #000 60%, transparent 100%);
 }
 .hero-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.55;
-  mix-blend-mode: screen;
+  filter: blur(90px);
   will-change: transform;
 }
 .hero-orb-1 {
-  top: -12%;
-  left: 8%;
-  width: 42vw;
-  min-width: 340px;
-  height: 42vw;
-  min-height: 340px;
-  background: radial-gradient(circle at 50% 50%, #12b3ac, transparent 62%);
-  animation: heroOrbDrift1 18s ease-in-out infinite;
-}
-.hero-orb-2 {
-  top: -6%;
-  right: 4%;
-  width: 36vw;
-  min-width: 300px;
-  height: 36vw;
-  min-height: 300px;
-  background: radial-gradient(circle at 50% 50%, #7fd8d2, transparent 60%);
-  opacity: 0.4;
-  animation: heroOrbDrift2 22s ease-in-out infinite;
-}
-.hero-orb-3 {
-  bottom: -18%;
-  left: 34%;
+  top: -20%;
+  left: 14%;
   width: 46vw;
   min-width: 360px;
   height: 46vw;
   min-height: 360px;
-  background: radial-gradient(circle at 50% 50%, #ffb210, transparent 66%);
-  opacity: 0.22;
-  animation: heroOrbDrift3 26s ease-in-out infinite;
+  background: radial-gradient(circle at 50% 50%, rgba(20, 179, 172, 0.5), transparent 66%);
+  animation: heroOrbDrift1 22s ease-in-out infinite alternate;
 }
-
-/* A slow sweeping light beam across the top */
-.hero-beam {
-  position: absolute;
-  inset: -40% -10% auto -10%;
-  height: 90%;
-  z-index: -1;
-  pointer-events: none;
-  background: conic-gradient(
-    from 210deg at 50% 0%,
-    transparent 0deg,
-    rgba(127, 216, 210, 0.12) 40deg,
-    transparent 90deg,
-    rgba(255, 178, 16, 0.1) 150deg,
-    transparent 210deg
-  );
-  -webkit-mask-image: radial-gradient(70% 80% at 50% 0%, #000, transparent 75%);
-  mask-image: radial-gradient(70% 80% at 50% 0%, #000, transparent 75%);
-  animation: heroBeamSpin 28s linear infinite;
-  transform-origin: 50% 0%;
+.hero-orb-2 {
+  top: -10%;
+  right: 10%;
+  width: 40vw;
+  min-width: 320px;
+  height: 40vw;
+  min-height: 320px;
+  background: radial-gradient(circle at 50% 50%, rgba(127, 216, 210, 0.28), transparent 64%);
+  animation: heroOrbDrift2 27s ease-in-out infinite alternate;
 }
-
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-.hero-particle {
-  position: absolute;
-  bottom: -10px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: rgba(127, 216, 210, 0.9);
-  box-shadow: 0 0 8px rgba(127, 216, 210, 0.8);
-  opacity: 0;
-  animation: heroParticleRise linear infinite;
-}
-.hero-particle-1  { left: 6%;  width: 3px; height: 3px; animation-duration: 15s; animation-delay: 0s;   }
-.hero-particle-2  { left: 14%; animation-duration: 19s; animation-delay: 3s;   background: rgba(255,178,16,0.8); box-shadow: 0 0 8px rgba(255,178,16,0.7); }
-.hero-particle-3  { left: 22%; width: 2px; height: 2px; animation-duration: 13s; animation-delay: 6s; }
-.hero-particle-4  { left: 30%; animation-duration: 21s; animation-delay: 1s;   }
-.hero-particle-5  { left: 38%; width: 5px; height: 5px; animation-duration: 17s; animation-delay: 4s; }
-.hero-particle-6  { left: 46%; animation-duration: 14s; animation-delay: 7s;   }
-.hero-particle-7  { left: 54%; width: 3px; height: 3px; animation-duration: 20s; animation-delay: 2s; }
-.hero-particle-8  { left: 62%; animation-duration: 16s; animation-delay: 5s;   background: rgba(255,178,16,0.8); box-shadow: 0 0 8px rgba(255,178,16,0.7); }
-.hero-particle-9  { left: 70%; width: 2px; height: 2px; animation-duration: 18s; animation-delay: 8s; }
-.hero-particle-10 { left: 78%; animation-duration: 15s; animation-delay: 3.5s; }
-.hero-particle-11 { left: 84%; width: 5px; height: 5px; animation-duration: 22s; animation-delay: 6.5s; }
-.hero-particle-12 { left: 90%; animation-duration: 17s; animation-delay: 1.5s; }
-.hero-particle-13 { left: 50%; width: 2px; height: 2px; animation-duration: 19s; animation-delay: 9s; }
-.hero-particle-14 { left: 96%; animation-duration: 14s; animation-delay: 4.5s; }
 
 @keyframes heroOrbDrift1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(6%, 8%) scale(1.12); }
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(5%, 6%) scale(1.08); }
 }
 @keyframes heroOrbDrift2 {
-  0%, 100% { transform: translate(0, 0) scale(1.05); }
-  50%      { transform: translate(-8%, 6%) scale(0.92); }
-}
-@keyframes heroOrbDrift3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(-6%, -8%) scale(1.15); }
-}
-@keyframes heroBeamSpin {
-  from { transform: rotate(-14deg); }
-  50%  { transform: rotate(14deg); }
-  to   { transform: rotate(-14deg); }
-}
-@keyframes heroParticleRise {
-  0%   { transform: translateY(0) translateX(0); opacity: 0; }
-  10%  { opacity: 0.9; }
-  90%  { opacity: 0.7; }
-  100% { transform: translateY(-88vh) translateX(14px); opacity: 0; }
+  from { transform: translate(0, 0) scale(1.04); }
+  to   { transform: translate(-6%, 4%) scale(0.96); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-orb,
-  .hero-beam,
-  .hero-particle {
+  .hero-orb {
     animation: none !important;
-  }
-  .hero-particles {
-    display: none;
   }
 }
 

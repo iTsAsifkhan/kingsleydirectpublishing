@@ -14,18 +14,11 @@ export default function Hero() {
       <span className="hero-band-glow" aria-hidden="true" />
       <span className="hero-band-grid" aria-hidden="true" />
 
-      {/* Animated aurora + drifting orbs + floating particles */}
+      {/* Ambient aurora glow (calm, slow, reduced-motion aware) */}
       <div className="hero-aurora" aria-hidden="true">
         <span className="hero-orb hero-orb-1" />
         <span className="hero-orb hero-orb-2" />
-        <span className="hero-orb hero-orb-3" />
       </div>
-      <div className="hero-particles" aria-hidden="true">
-        {Array.from({ length: 14 }).map((_, i) => (
-          <span key={i} className={`hero-particle hero-particle-${i + 1}`} />
-        ))}
-      </div>
-      <span className="hero-beam" aria-hidden="true" />
 
       <Container className="relative z-10">
         <div className="hero-band-inner">
