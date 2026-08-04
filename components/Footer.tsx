@@ -17,23 +17,31 @@ import {
   OFFICE_ADDRESS_SECONDARY,
 } from '@/lib/contact'
 
-// Social profile URLs come from env, links render only when a real URL is set,
-// so we never ship placeholder/bare-domain links.
+// Social profile URLs. WhatsApp is built from the confirmed UK business number;
+// Facebook/Instagram default to the brand handles and can be overridden per
+// environment via env vars if the official handles differ.
+const FACEBOOK_URL =
+  process.env.NEXT_PUBLIC_FACEBOOK_URL ??
+  'https://www.facebook.com/kimberleydirectpublishing'
+const INSTAGRAM_URL =
+  process.env.NEXT_PUBLIC_INSTAGRAM_URL ??
+  'https://www.instagram.com/kimberleydirectpublishing'
+
 const SOCIAL = [
-  process.env.NEXT_PUBLIC_FACEBOOK_URL && {
-    href: process.env.NEXT_PUBLIC_FACEBOOK_URL,
-    icon: FacebookIcon,
-    label: 'Facebook',
-  },
-  process.env.NEXT_PUBLIC_INSTAGRAM_URL && {
-    href: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
-    icon: InstagramIcon,
-    label: 'Instagram',
-  },
   WHATSAPP_DIGITS && {
     href: `https://wa.me/${WHATSAPP_DIGITS}`,
     icon: WhatsAppIcon,
     label: 'WhatsApp',
+  },
+  FACEBOOK_URL && {
+    href: FACEBOOK_URL,
+    icon: FacebookIcon,
+    label: 'Facebook',
+  },
+  INSTAGRAM_URL && {
+    href: INSTAGRAM_URL,
+    icon: InstagramIcon,
+    label: 'Instagram',
   },
 ].filter(Boolean) as { href: string; icon: typeof FacebookIcon; label: string }[]
 
@@ -130,11 +138,10 @@ export default function Footer() {
               aria-label="Kimberley Direct Publishing home"
             >
               <Image
-                src="/images/kimberley-logo-white.svg"
+                src="/images/kimberley-logo-white.webp"
                 alt="Kimberley Direct Publishing"
-                width={210}
+                width={212}
                 height={52}
-                unoptimized
                 className="footer-logo-img"
               />
             </Link>

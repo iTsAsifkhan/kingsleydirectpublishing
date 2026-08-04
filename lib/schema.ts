@@ -10,7 +10,7 @@ export function organizationSchema() {
     '@type': 'Organization',
     name: 'Kimberley Direct Publishing',
     url: 'https://kimberleydirectpublishing.com',
-    logo: 'https://kimberleydirectpublishing.com/images/kimberley-logo.svg',
+    logo: 'https://kimberleydirectpublishing.com/images/kimberley-logo.png',
     image: 'https://kimberleydirectpublishing.com/og-image.png',
     description: 'Professional book publishing services helping authors bring their manuscripts to life.',
     areaServed: {

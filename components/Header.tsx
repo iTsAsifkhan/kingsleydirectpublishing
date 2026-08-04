@@ -136,12 +136,11 @@ export default function Header() {
         <div className="kdp-bar">
           <Link href="/" className="kdp-logo" aria-label="Kimberley Direct Publishing home">
             <Image
-              src="/images/kimberley-logo.svg"
+              src="/images/kimberley-logo.webp"
               alt="Kimberley Direct Publishing"
-              width={169}
+              width={172}
               height={42}
               priority
-              unoptimized
               className="kdp-logo-img"
             />
           </Link>
