@@ -424,8 +424,8 @@ export default function Hero({
             </motion.p>
 
             <h1
-              className="m-0 max-w-[17ch] text-[clamp(50px,10.4vw,190px)] font-normal leading-[0.88] tracking-[-0.035em]"
-              style={{ ...serif, textWrap: "balance" } as CSSProperties}
+              className="m-0 max-w-[20ch] text-[clamp(34px,5.4vw,84px)] font-normal leading-[0.98] tracking-[-0.03em]"
+              style={{ ...serif, color: INK, textWrap: "balance" } as CSSProperties}
             >
               {headlineLines.map((line) => (
                 <motion.span key={line} variants={rise} className="block">
