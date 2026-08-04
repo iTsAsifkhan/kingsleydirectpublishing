@@ -402,7 +402,7 @@ export default function Hero({
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-[3] grid min-h-screen grid-rows-[1fr_auto] gap-9 p-[clamp(22px,3.4vw,54px)]"
+        className="relative z-[3] mx-auto grid min-h-screen w-full max-w-7xl grid-rows-[1fr_auto] gap-9 px-4 py-[clamp(22px,3.4vw,54px)] sm:px-6 lg:px-8"
       >
         <div className="flex flex-wrap items-center justify-between gap-[clamp(36px,5vw,96px)] pt-[clamp(104px,14vh,150px)]">
           <div className="grid max-w-[1100px] flex-[1_1_560px] content-center">
