@@ -514,10 +514,145 @@ p.p-head {
   position: relative;
   overflow: clip;
   isolation: isolate;
-  padding: clamp(150px, 19vw, 208px) 0 clamp(72px, 9vw, 116px);
+  padding: clamp(128px, 15vw, 184px) 0 clamp(64px, 8vw, 104px);
   background: radial-gradient(125% 125% at 50% -12%, #0a3f74 0%, #003060 46%, #002247 100%);
   color: #fff;
-  text-align: center;
+}
+
+/* Two-column hero: copy + framed author photo */
+.hero-grid {
+  display: grid;
+  gap: 44px;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+  }
+}
+.hero-copy {
+  text-align: left;
+}
+
+/* Right column — floating 3D book-cover fan with glass stat chips */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.hero-stage {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: clamp(400px, 52vw, 500px);
+  perspective: 1400px;
+}
+.hero-glow-blob {
+  position: absolute;
+  inset: 4% 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, rgba(14, 165, 160, 0.5), transparent 62%);
+  filter: blur(56px);
+  z-index: 0;
+}
+.hero-book {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(148px, 19vw, 208px);
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 14, 30, 0.55);
+  will-change: transform;
+}
+.hero-book img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+.hero-book-left {
+  transform: translate(-94%, -50%) rotate(-11deg);
+  z-index: 1;
+  filter: saturate(0.95) brightness(0.9);
+  animation: heroBookFloatA 7s ease-in-out infinite;
+}
+.hero-book-right {
+  transform: translate(-6%, -44%) rotate(11deg);
+  z-index: 1;
+  filter: saturate(0.95) brightness(0.9);
+  animation: heroBookFloatB 8s ease-in-out infinite;
+}
+.hero-book-center {
+  width: clamp(160px, 21vw, 224px);
+  transform: translate(-50%, -52%);
+  z-index: 2;
+  box-shadow: 0 44px 84px rgba(0, 14, 30, 0.62);
+  animation: heroBookFloatC 6.5s ease-in-out infinite;
+}
+@keyframes heroBookFloatA {
+  0%, 100% { transform: translate(-94%, -50%) rotate(-11deg); }
+  50%      { transform: translate(-94%, -56%) rotate(-11deg); }
+}
+@keyframes heroBookFloatB {
+  0%, 100% { transform: translate(-6%, -44%) rotate(11deg); }
+  50%      { transform: translate(-6%, -38%) rotate(11deg); }
+}
+@keyframes heroBookFloatC {
+  0%, 100% { transform: translate(-50%, -52%); }
+  50%      { transform: translate(-50%, -58%); }
+}
+
+/* Glass stat chips */
+.hero-chip {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 15px;
+  border-radius: 14px;
+  background: rgba(9, 32, 58, 0.74);
+  border: 1px solid rgba(127, 216, 210, 0.28);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px rgba(0, 14, 30, 0.5);
+}
+.hero-chip b {
+  display: block;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.1;
+}
+.hero-chip span {
+  font-size: 12px;
+  color: #c3d4e6;
+}
+.hero-chip-ico {
+  display: inline-flex;
+  color: var(--brand-gold);
+}
+.hero-chip-top {
+  top: 4%;
+  right: 0;
+}
+.hero-chip-bottom {
+  bottom: 3%;
+  left: 0;
+}
+@media (max-width: 991px) {
+  .hero-stage {
+    margin-top: 6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-book {
+    animation: none !important;
+  }
 }
 
 .hero-band-glow {

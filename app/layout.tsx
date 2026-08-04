@@ -6,7 +6,6 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
-import FooterReveal from '@/components/FooterReveal'
 import TawkChat from '@/components/TawkChat'
 
 // Editorial serif for headings + clean grotesque for body/UI. The CSS still
@@ -26,12 +25,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kimberleydirectpublishing.com'),
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-  },
+  // Icons are generated from the file-based conventions: app/favicon.ico,
+  // app/icon.png, and app/apple-icon.png (the Kimberley book mark).
   title: {
     default: 'Kimberley Direct Publishing | Professional Book Publishing Services',
     template: '%s | Kimberley Direct Publishing',
@@ -98,7 +93,6 @@ export default function RootLayout({
         </div>
         <Footer />
         <ScrollReveal />
-        <FooterReveal />
         <TawkChat />
       </body>
     </html>
