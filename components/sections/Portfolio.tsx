@@ -98,15 +98,15 @@ export default function Portfolio() {
           </Button>
           {CONTACT_PHONE && (
             <a
-              className="anchor-number-cta align-items-center d-inline-flex"
+              className="anchor-number-cta anchor-number-cta--light align-items-center d-inline-flex"
               href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`}
             >
               <span className="span-1">
-                <PhoneCall aria-hidden="true" className="clr-1" size={16} />
+                <PhoneCall aria-hidden="true" size={16} />
               </span>
-              <span className="span-2 fw-600 clr-1 d-inline-block">
-                Call Now <br />
-                <b className="text-white">{CONTACT_PHONE}</b>
+              <span className="span-2 fw-600 d-inline-block">
+                Call Now
+                <b>{CONTACT_PHONE}</b>
               </span>
             </a>
           )}

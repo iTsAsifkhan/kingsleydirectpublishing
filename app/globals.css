@@ -60,8 +60,9 @@ html {
   height: 100%;
   font-family: var(--font-noto), sans-serif;
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* clip (not hidden) prevents horizontal scroll without turning the root into
+     a scroll container — that side effect is what breaks `position: sticky`. */
+  overflow-x: clip;
 }
 
 body {
@@ -70,8 +71,7 @@ body {
   color: var(--brand-ink);
   background: #ffffff;
   font-weight: 400;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
@@ -543,12 +543,154 @@ p.p-head {
   mask-image: radial-gradient(circle at 50% 38%, #000 0%, transparent 72%);
 }
 
+/* ---- Animated hero background: aurora orbs + beam + particles ---- */
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(120% 100% at 50% 0%, #000 55%, transparent 100%);
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.hero-orb-1 {
+  top: -12%;
+  left: 8%;
+  width: 42vw;
+  min-width: 340px;
+  height: 42vw;
+  min-height: 340px;
+  background: radial-gradient(circle at 50% 50%, #12b3ac, transparent 62%);
+  animation: heroOrbDrift1 18s ease-in-out infinite;
+}
+.hero-orb-2 {
+  top: -6%;
+  right: 4%;
+  width: 36vw;
+  min-width: 300px;
+  height: 36vw;
+  min-height: 300px;
+  background: radial-gradient(circle at 50% 50%, #7fd8d2, transparent 60%);
+  opacity: 0.4;
+  animation: heroOrbDrift2 22s ease-in-out infinite;
+}
+.hero-orb-3 {
+  bottom: -18%;
+  left: 34%;
+  width: 46vw;
+  min-width: 360px;
+  height: 46vw;
+  min-height: 360px;
+  background: radial-gradient(circle at 50% 50%, #ffb210, transparent 66%);
+  opacity: 0.22;
+  animation: heroOrbDrift3 26s ease-in-out infinite;
+}
+
+/* A slow sweeping light beam across the top */
+.hero-beam {
+  position: absolute;
+  inset: -40% -10% auto -10%;
+  height: 90%;
+  z-index: -1;
+  pointer-events: none;
+  background: conic-gradient(
+    from 210deg at 50% 0%,
+    transparent 0deg,
+    rgba(127, 216, 210, 0.12) 40deg,
+    transparent 90deg,
+    rgba(255, 178, 16, 0.1) 150deg,
+    transparent 210deg
+  );
+  -webkit-mask-image: radial-gradient(70% 80% at 50% 0%, #000, transparent 75%);
+  mask-image: radial-gradient(70% 80% at 50% 0%, #000, transparent 75%);
+  animation: heroBeamSpin 28s linear infinite;
+  transform-origin: 50% 0%;
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-particle {
+  position: absolute;
+  bottom: -10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(127, 216, 210, 0.9);
+  box-shadow: 0 0 8px rgba(127, 216, 210, 0.8);
+  opacity: 0;
+  animation: heroParticleRise linear infinite;
+}
+.hero-particle-1  { left: 6%;  width: 3px; height: 3px; animation-duration: 15s; animation-delay: 0s;   }
+.hero-particle-2  { left: 14%; animation-duration: 19s; animation-delay: 3s;   background: rgba(255,178,16,0.8); box-shadow: 0 0 8px rgba(255,178,16,0.7); }
+.hero-particle-3  { left: 22%; width: 2px; height: 2px; animation-duration: 13s; animation-delay: 6s; }
+.hero-particle-4  { left: 30%; animation-duration: 21s; animation-delay: 1s;   }
+.hero-particle-5  { left: 38%; width: 5px; height: 5px; animation-duration: 17s; animation-delay: 4s; }
+.hero-particle-6  { left: 46%; animation-duration: 14s; animation-delay: 7s;   }
+.hero-particle-7  { left: 54%; width: 3px; height: 3px; animation-duration: 20s; animation-delay: 2s; }
+.hero-particle-8  { left: 62%; animation-duration: 16s; animation-delay: 5s;   background: rgba(255,178,16,0.8); box-shadow: 0 0 8px rgba(255,178,16,0.7); }
+.hero-particle-9  { left: 70%; width: 2px; height: 2px; animation-duration: 18s; animation-delay: 8s; }
+.hero-particle-10 { left: 78%; animation-duration: 15s; animation-delay: 3.5s; }
+.hero-particle-11 { left: 84%; width: 5px; height: 5px; animation-duration: 22s; animation-delay: 6.5s; }
+.hero-particle-12 { left: 90%; animation-duration: 17s; animation-delay: 1.5s; }
+.hero-particle-13 { left: 50%; width: 2px; height: 2px; animation-duration: 19s; animation-delay: 9s; }
+.hero-particle-14 { left: 96%; animation-duration: 14s; animation-delay: 4.5s; }
+
+@keyframes heroOrbDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(6%, 8%) scale(1.12); }
+}
+@keyframes heroOrbDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1.05); }
+  50%      { transform: translate(-8%, 6%) scale(0.92); }
+}
+@keyframes heroOrbDrift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-6%, -8%) scale(1.15); }
+}
+@keyframes heroBeamSpin {
+  from { transform: rotate(-14deg); }
+  50%  { transform: rotate(14deg); }
+  to   { transform: rotate(-14deg); }
+}
+@keyframes heroParticleRise {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  10%  { opacity: 0.9; }
+  90%  { opacity: 0.7; }
+  100% { transform: translateY(-88vh) translateX(14px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb,
+  .hero-beam,
+  .hero-particle {
+    animation: none !important;
+  }
+  .hero-particles {
+    display: none;
+  }
+}
+
 .hero-band-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 900px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-eyebrow {
@@ -844,10 +986,35 @@ p.p-head {
   line-height: 1.8;
 }
 
-.timeline {
+.timeline-wrap {
   position: relative;
   max-width: 780px;
   margin: 0 auto;
+}
+
+/* Single continuous track behind the markers, filled as the user scrolls. */
+.timeline-track {
+  position: absolute;
+  left: 28px;
+  width: 3px;
+  border-radius: 3px;
+  background: rgba(0, 48, 96, 0.12);
+  z-index: 0;
+  pointer-events: none;
+}
+.timeline-track-fill {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--brand-gold), #0ea5a0);
+  box-shadow: 0 0 12px rgba(255, 178, 16, 0.5);
+  transition: height 0.25s ease-out;
+}
+
+.timeline {
+  position: relative;
+  z-index: 1;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -862,19 +1029,6 @@ p.p-head {
 .timeline-item:last-child {
   padding-bottom: 0;
 }
-/* connector line between markers */
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 28px;
-  top: 60px;
-  bottom: -2px;
-  width: 2px;
-  background: linear-gradient(var(--brand-gold), rgba(14, 165, 160, 0.16));
-}
-.timeline-item:last-child::before {
-  display: none;
-}
 
 .timeline-marker {
   position: relative;
@@ -882,6 +1036,7 @@ p.p-head {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: start;
   width: 58px;
   height: 58px;
   border-radius: 50%;
@@ -891,6 +1046,23 @@ p.p-head {
   font-weight: 800;
   font-size: 18px;
   box-shadow: 0 8px 20px rgba(0, 48, 96, 0.18);
+  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Active (scrolled-past) steps light up. */
+.timeline-item.is-active .timeline-marker {
+  background: linear-gradient(150deg, var(--brand-gold), var(--brand-yellow-dark));
+  color: var(--brand-navy);
+  transform: scale(1.08);
+  box-shadow: 0 10px 26px rgba(255, 178, 16, 0.45);
+}
+.timeline-item.is-active .timeline-icon {
+  background: rgba(255, 178, 16, 0.18);
+  color: var(--brand-yellow-dark);
+}
+.timeline-item.is-active .timeline-card {
+  border-color: rgba(255, 178, 16, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 48, 96, 0.1);
 }
 
 .timeline-card {
@@ -938,9 +1110,8 @@ p.p-head {
     grid-template-columns: 46px 1fr;
     gap: 14px;
   }
-  .timeline-item::before {
+  .timeline-track {
     left: 22px;
-    top: 48px;
   }
   .timeline-marker {
     width: 46px;
@@ -958,7 +1129,7 @@ p.p-head {
    Homepage portfolio — horizontal cover rail (redesign)
    ============================================================ */
 .home-portfolio {
-  padding: clamp(70px, 9vw, 118px) 0;
+  padding: clamp(70px, 9vw, 118px) 0 clamp(52px, 6vw, 78px);
   background: #ffffff;
   overflow: clip;
 }
@@ -1076,7 +1247,11 @@ p.p-head {
   box-shadow: 0 22px 46px rgba(0, 48, 96, 0.22);
 }
 .pf-cover-img {
-  object-fit: cover;
+  /* `contain` shows the whole cover (no zoom/crop) on a soft matte, so every
+     card reads at a consistent height regardless of the artwork's ratio. */
+  object-fit: contain;
+  background: linear-gradient(160deg, #eef4fb 0%, #dbe7f5 100%);
+  padding: 0;
 }
 
 .home-portfolio-cta {
@@ -1086,6 +1261,37 @@ p.p-head {
   justify-content: center;
   gap: 20px 28px;
   margin-top: 30px;
+}
+
+/* Light-background variant of the phone CTA — the base rules paint it white
+   (for dark heroes), which is invisible on the white portfolio section. */
+.anchor-number-cta--light {
+  color: var(--brand-navy);
+}
+.anchor-number-cta--light:hover,
+.anchor-number-cta--light:focus {
+  color: var(--brand-navy);
+}
+.anchor-number-cta--light .span-1 {
+  border-color: #cddbeb;
+  color: var(--brand-yellow-dark);
+  background: rgba(14, 165, 160, 0.1);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.anchor-number-cta--light:hover .span-1,
+.anchor-number-cta--light:focus .span-1 {
+  background: var(--brand-navy);
+  border-color: var(--brand-navy);
+  color: #ffffff;
+}
+.anchor-number-cta--light .span-2 {
+  color: var(--brand-gray-2);
+}
+.anchor-number-cta--light .span-2 b {
+  display: block;
+  margin-top: 1px;
+  color: var(--brand-navy);
+  font-size: 15px;
 }
 
 @media (max-width: 575px) {
@@ -1545,8 +1751,10 @@ p.p-head {
   position: relative;
   z-index: 1;
   overflow: clip;
-  padding: 44px 0 56px;
-  background: #ffffff;
+  padding: 0;
+  /* Continuous soft band so the navy stats card above seats into a surface
+     instead of floating on a hard white gap. */
+  background: linear-gradient(180deg, #eef4fb 0%, #ffffff 40%);
   scrollbar-width: none;
 }
 
@@ -7645,6 +7853,13 @@ a.footer-contact-item:hover b {
   }
 }
 
+/* Hide the promo/offer bar entirely on mobile — it crowds the small viewport. */
+@media (max-width: 767.98px) {
+  .kdp-promo {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .kdp-bar-wrap,
   .kdp-bar,
@@ -8260,9 +8475,29 @@ body.footer-reveal-on .site-footer {
    Dark footer — fixes invisible white text on a light background
    ============================================================ */
 .site-footer {
-  padding: 80px 0 0 !important;
+  padding: 48px 0 0 !important;
   background: linear-gradient(180deg, #042a54 0%, var(--brand-navy) 100%);
   color: #fff;
+}
+/* Contact strip on the dark footer — the base rules colour this text navy,
+   which is invisible here. Re-map to light tones and tighten the gap below. */
+.footer-contact {
+  padding: 0 0 20px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid rgb(255 255 255 / 14%);
+}
+.footer-contact-icon {
+  background: rgb(127 216 210 / 16%);
+  color: var(--brand-gold);
+}
+.footer-contact-text .lbl {
+  color: rgb(255 255 255 / 62%);
+}
+.footer-contact-text b {
+  color: #fff;
+}
+a.footer-contact-item:hover b {
+  color: var(--brand-gold);
 }
 .footer-brand-desc {
   color: rgb(255 255 255 / 72%);
@@ -8314,8 +8549,8 @@ body.footer-reveal-on .site-footer {
    ============================================================ */
 .kdp-showcase {
   position: relative;
-  padding: 44px 0 54px;
-  background: linear-gradient(180deg, #ffffff 0%, #e9f6f4 100%);
+  padding: 40px 0 56px;
+  background: transparent;
   overflow: hidden;
   perspective: 1500px;
 }
@@ -8336,9 +8571,10 @@ body.footer-reveal-on .site-footer {
 .kdp-showcase-card {
   flex: 0 0 auto;
   width: 210px;
+  aspect-ratio: 2 / 3;
   border-radius: 12px;
   overflow: hidden;
-  background: #dfe8f0;
+  background: linear-gradient(160deg, #ffffff 0%, #e4eefa 100%);
   box-shadow: 0 18px 34px rgb(0 48 96 / 22%);
   transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.45s ease,
     filter 0.45s ease;
@@ -8353,8 +8589,9 @@ body.footer-reveal-on .site-footer {
 .kdp-showcase-img {
   display: block;
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 100%;
+  /* whole cover visible, uniform card height — no zoom/crop */
+  object-fit: contain;
 }
 @media (prefers-reduced-motion: reduce) {
   .kdp-showcase-viewport {
@@ -9280,4 +9517,153 @@ body.footer-reveal-on .site-footer {
   .pkg-currency-select-wrap select {
     width: 100%;
   }
+}
+
+/* ============================================================
+   Inner-page heroes — unified premium dark treatment.
+   Brings About / Services / Packages / Contact / Legal heroes in
+   line with the redesigned home hero: deep-navy field, teal + gold
+   aurora glow, light type. Centralised here so it's easy to tune.
+   ============================================================ */
+.service-hero,
+.about-hero,
+.packages-hero,
+.contact-hero,
+.legal-hero {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+  background:
+    radial-gradient(125% 125% at 50% -12%, #0a3f74 0%, #003060 46%, #002247 100%)
+      !important;
+  color: #fff;
+}
+
+/* Slow-drifting aurora behind the copy (CSS-only, reduced-motion aware). */
+.service-hero::before,
+.about-hero::before,
+.packages-hero::before,
+.contact-hero::before,
+.legal-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 55% at 50% 2%, rgba(14, 165, 160, 0.3), transparent 70%),
+    radial-gradient(30% 40% at 84% 22%, rgba(127, 216, 210, 0.18), transparent 70%),
+    radial-gradient(34% 46% at 12% 84%, rgba(255, 178, 16, 0.12), transparent 70%);
+  animation: heroInnerGlow 16s ease-in-out infinite alternate;
+}
+@keyframes heroInnerGlow {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.85;
+  }
+  to {
+    transform: translate3d(0, -2%, 0) scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* Subtle grid, mirrors the home hero. */
+.service-hero::after,
+.about-hero::after,
+.packages-hero::after,
+.contact-hero::after,
+.legal-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* reset leftovers from the old .service-hero::after decorative circle */
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 72%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-hero::before,
+  .about-hero::before,
+  .packages-hero::before,
+  .contact-hero::before,
+  .legal-hero::before {
+    animation: none;
+  }
+}
+
+/* Drop the light-mode decorative shades/stars that don't read on navy. */
+.about-hero-shade,
+.contact-hero-shade,
+.packages-hero-shade,
+.legal-hero-shade,
+.about-hero-star,
+.contact-hero-star {
+  display: none !important;
+}
+
+/* Keep all hero content above the glow + grid layers. */
+.service-hero-inner,
+.about-hero-inner,
+.packages-hero-inner,
+.contact-hero-grid,
+.legal-hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+/* Headlines → white; the .clr-1 accent stays gold and still reads. */
+.service-hero-title,
+.about-hero-title,
+.packages-hero-title,
+.contact-hero-title,
+.legal-hero-title {
+  color: #fff !important;
+}
+/* Body copy → soft light blue. */
+.service-hero-desc,
+.about-hero-desc,
+.packages-hero-desc,
+.contact-hero-desc,
+.legal-hero-desc {
+  color: #c3d4e6 !important;
+}
+
+/* Eyebrows restyled for the dark field. */
+.service-hero .service-kicker {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff !important;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.about-hero .kdp-hero-eyebrow,
+.packages-hero .kdp-hero-eyebrow,
+.contact-hero .kdp-hero-eyebrow {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: #dbe7f5 !important;
+}
+
+/* Legal hero: turn its white reading card into a dark glass panel. */
+.legal-hero-copy {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(127, 216, 210, 0.18) !important;
+}
+.legal-hero-copy .legal-updated {
+  color: #dbe7f5;
+}
+
+/* Contact hero: keep the details/form panel distinct from the field. */
+.contact-hero-panel {
+  background: linear-gradient(160deg, #06325f, #041f3d) !important;
+  border: 1px solid rgba(127, 216, 210, 0.22);
 }
