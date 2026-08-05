@@ -422,8 +422,8 @@ export const testimonials: Testimonial[] = [
     quote:
       'From my first rough draft to a finished book, the Kimberley Direct Publishing team guided me at every step. The editing was thorough and the cover design went beyond what I imagined. I could not be happier with the result.',
     amazonUrl: 'https://www.amazon.co.uk',
-    photo: '/images/wrap-2-img.webp',
-    bookCover: '/images/3d-book-cover (1).webp',
+    photo: '/images/scene-reading-home.webp',
+    bookCover: '/images/ayaan and little village light.webp',
   },
   {
     id: '2',
@@ -433,8 +433,8 @@ export const testimonials: Testimonial[] = [
     quote:
       'A genuinely professional experience from start to finish. Clear communication, a beautiful layout, and my book was published on time. I would recommend Kimberley Direct Publishing to any first-time author.',
     amazonUrl: 'https://www.amazon.co.uk',
-    photo: '/images/wrap-2-img.webp',
-    bookCover: '/images/3d-book-cover (2).webp',
+    photo: '/images/scene-reading-home.webp',
+    bookCover: '/images/ayaan and little village light.webp',
   },
   {
     id: '3',
@@ -444,7 +444,7 @@ export const testimonials: Testimonial[] = [
     quote:
       'They took the stress out of publishing. The team was responsive, patient with my revisions, and delivered a polished book I am proud to share. Wonderful support throughout the whole journey.',
     amazonUrl: 'https://www.amazon.co.uk',
-    photo: '/images/wrap-2-img.webp',
+    photo: '/images/scene-reading-home.webp',
     bookCover: '/images/3d-book-cover (3).webp',
   },
   {
@@ -455,7 +455,7 @@ export const testimonials: Testimonial[] = [
     quote:
       'Publishing my book felt daunting until I worked with Kimberley Direct Publishing. Their design and marketing help made all the difference, and the whole process was smooth and transparent.',
     amazonUrl: 'https://www.amazon.co.uk',
-    photo: '/images/wrap-2-img.webp',
+    photo: '/images/scene-reading-home.webp',
     bookCover: '/images/3d-book-cover (4).webp',
   },
   {
@@ -466,8 +466,8 @@ export const testimonials: Testimonial[] = [
     quote:
       'I worked with Kimberley Direct Publishing for the marketing of my book and also ordered printed copies. Sid was the person I dealt with from the beginning, and he was always helpful, kind, and patient, even when I had lots of little questions. Mike managed the project and kept me updated throughout the process. The printed books arrived looking great, and I was really happy with how everything was handled. Overall, it was a smooth experience, and I am glad I chose to work with them.',
     amazonUrl: 'https://www.amazon.co.uk',
-    photo: '/images/wrap-2-img.webp',
-    bookCover: '/images/3d-book-cover (1).webp',
+    photo: '/images/scene-reading-home.webp',
+    bookCover: '/images/ayaan and little village light.webp',
   },
   {
     id: '6',
@@ -477,8 +477,8 @@ export const testimonials: Testimonial[] = [
     quote:
       'Had a great experience working with them. The process was simple and easy to follow, and their team was very helpful throughout, especially Sid. They also have really good illustrators who understood my ideas and brought my story to life beautifully. I am happy with how everything turned out.',
     amazonUrl: 'https://www.amazon.co.uk',
-    photo: '/images/wrap-2-img.webp',
-    bookCover: '/images/3d-book-cover (2).webp',
+    photo: '/images/scene-reading-home.webp',
+    bookCover: '/images/ayaan and little village light.webp',
   },
 ]
 

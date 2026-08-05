@@ -30,14 +30,14 @@ export interface VideoTestimonial {
 
 export const videoTestimonials: VideoTestimonial[] = [
   {
-    id: 'zunethida-ileahani',
-    author: 'Zunethida Ileahani',
+    id: 'ermelinda-hashani',
+    author: 'Ermelinda Hashani',
     role: 'Children’s Author',
     bookTitle: 'Ayaan and the Little Village Light',
     intro:
-      'Watch Zunethida share her journey, from manuscript to holding her finished children’s book, with the Kimberley Direct Publishing team.',
-    video: '/testimonials/zunethida-ileahani.mp4',
-    image: '/testimonials/zunethida-ileahani.jpg',
+      'Watch Ermelinda share her journey, from manuscript to holding her finished children’s book, with the Kimberley Direct Publishing team.',
+    video: '/testimonials/ermelinda-hashani.mp4',
+    image: '/testimonials/ermelinda-hashani.jpg',
     duration: '1:21',
   },
 ]

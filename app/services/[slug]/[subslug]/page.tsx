@@ -16,27 +16,27 @@ interface Props {
 
 const serviceVisuals: Record<string, { primary: string; secondary: string; tertiary: string }> = {
   ghostwriting: {
-    primary: '/images/3d-book-cover (4).webp',
+    primary: '/images/ayaan and little village light.webp',
     secondary: '/images/3d-book-cover (5).webp',
     tertiary: '/images/3d-book-cover (6).webp',
   },
   editing: {
-    primary: '/images/3d-book-cover (7).webp',
+    primary: '/images/ayaan and little village light.webp',
     secondary: '/images/3d-book-cover (8).webp',
     tertiary: '/images/3d-book-cover (9).webp',
   },
   publishing: {
-    primary: '/images/3d-book-cover (10).webp',
+    primary: '/images/ayaan and little village light.webp',
     secondary: '/images/3d-book-cover (11).webp',
     tertiary: '/images/3d-book-cover (12).webp',
   },
   marketing: {
-    primary: '/images/3d-book-cover (1).webp',
+    primary: '/images/ayaan and little village light.webp',
     secondary: '/images/3d-book-cover (6).webp',
     tertiary: '/images/3d-book-cover (10).webp',
   },
   'cover-design': {
-    primary: '/images/3d-book-cover (2).webp',
+    primary: '/images/ayaan and little village light.webp',
     secondary: '/images/3d-book-cover (8).webp',
     tertiary: '/images/3d-book-cover (12).webp',
   },
