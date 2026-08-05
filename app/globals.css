@@ -8314,15 +8314,22 @@ a.footer-contact-item:hover b {
   z-index: 1;
   background: #fff;
 }
-body.footer-reveal-on .site-content {
-  margin-bottom: var(--footer-h, 520px);
-}
-body.footer-reveal-on .site-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
+/* Desktop-only flourish. The fixed-position footer is gated behind a real
+   desktop viewport + fine pointer, because iOS Safari's dynamic toolbar
+   mis-positions `position: fixed; bottom: 0` elements and leaves a viewport of
+   blank space below the revealed footer. Touch devices (phones AND tablets)
+   keep a normal in-flow footer. */
+@media (min-width: 1025px) and (pointer: fine) {
+  body.footer-reveal-on .site-content {
+    margin-bottom: var(--footer-h, 520px);
+  }
+  body.footer-reveal-on .site-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   body.footer-reveal-on .site-content {
