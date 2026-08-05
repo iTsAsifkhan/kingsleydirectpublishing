@@ -342,7 +342,7 @@ function KineticWord({ words, interval, accent }: { words: string[]; interval: n
 
 export default function Hero({
   eyebrowLeft = "Kimberley Direct Publishing",
-  eyebrowRight = "UK · Worldwide",
+  eyebrowRight,
   headlineLines = ["We publish", "books the world"],
   words = ["remembers.", "keeps.", "rereads.", "talks about."],
   wordInterval = 3200,
@@ -412,15 +412,19 @@ export default function Hero({
               style={{ color: DIM }}
             >
               <span>{eyebrowLeft}</span>
-              <motion.span
-                aria-hidden
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                className="h-px w-[clamp(30px,5vw,70px)] origin-left"
-                style={{ background: "rgba(255,255,255,0.2)" }}
-              />
-              <span>{eyebrowRight}</span>
+              {eyebrowRight && (
+                <>
+                  <motion.span
+                    aria-hidden
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                    className="h-px w-[clamp(30px,5vw,70px)] origin-left"
+                    style={{ background: "rgba(255,255,255,0.2)" }}
+                  />
+                  <span>{eyebrowRight}</span>
+                </>
+              )}
             </motion.p>
 
             <h1

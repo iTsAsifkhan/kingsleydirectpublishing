@@ -5831,11 +5831,12 @@ a.footer-contact-item:hover b {
   gap: 6px;
   margin-bottom: 32px;
   font-size: 14px;
-  color: var(--brand-gray-2);
+  /* Hero is a dark navy field — keep the trail light so it stays legible. */
+  color: #9fb6cf;
 }
 
 .subservice-breadcrumb a {
-  color: var(--brand-navy);
+  color: #ffffff;
   font-weight: 500;
 }
 
@@ -7605,8 +7606,10 @@ a.footer-contact-item:hover b {
   gap: clamp(12px, 1.6vw, 24px);
   padding: 10px 14px 10px 22px;
   border-radius: 18px;
-  /* Floating tinted-glass navbar so it no longer reads as a flat transparent bar */
-  background: linear-gradient(118deg, rgb(14 165 160 / 12%) 0%, rgb(255 255 255 / 82%) 46%, rgb(255 255 255 / 90%) 100%);
+  /* Floating tinted-glass navbar. Gradient flipped so the near-transparent
+     teal tint sits at the RIGHT end (over the CTA) and the left stays opaque
+     white, keeping the navy logo legible over dark hero backgrounds. */
+  background: linear-gradient(118deg, rgb(255 255 255 / 92%) 0%, rgb(255 255 255 / 84%) 54%, rgb(14 165 160 / 12%) 100%);
   -webkit-backdrop-filter: blur(10px) saturate(1.25);
   backdrop-filter: blur(10px) saturate(1.25);
   border: 1px solid rgb(255 255 255 / 60%);
@@ -7889,6 +7892,11 @@ a.footer-contact-item:hover b {
   }
   .kdp-bar {
     padding: 8px 6px 8px 12px;
+  }
+  /* With the desktop nav hidden, keep the logo left and the hamburger pinned
+     to the right edge instead of clustering both against the left. */
+  .kdp-actions {
+    margin-left: auto;
   }
 }
 
@@ -8519,6 +8527,30 @@ body.footer-reveal-on .site-footer {
   box-shadow: 0 30px 70px rgb(0 20 45 / 45%);
 }
 
+/* Centered CTA band — floating book images removed for a cleaner, calmer look. */
+.index-wrap-4--centered {
+  padding: 76px 0 !important;
+}
+.index-wrap-4--centered::before {
+  content: none !important;
+}
+.index-wrap-4--centered::after {
+  left: 50%;
+  bottom: -120px;
+  transform: translateX(-50%);
+}
+.index-wrap-4-content--center {
+  max-width: 800px;
+  margin-inline: auto;
+  text-align: center;
+}
+.index-wrap-4-content--center p {
+  margin-inline: auto;
+}
+.index-wrap-4--centered .index-wrap-4-actions {
+  justify-content: center;
+}
+
 /* ============================================================
    Dark footer — fixes invisible white text on a light background
    ============================================================ */
@@ -8783,6 +8815,9 @@ a.footer-contact-item:hover b {
   inset: 0;
   z-index: 200;
   visibility: hidden;
+  /* Clip the off-canvas panel (translateX(100%)) so it can't add page width
+     and trigger a horizontal scrollbar while the drawer is closed. */
+  overflow: hidden;
 }
 .mobile-nav-root.is-open {
   visibility: visible;

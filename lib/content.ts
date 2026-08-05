@@ -458,6 +458,28 @@ export const testimonials: Testimonial[] = [
     photo: '/images/wrap-2-img.webp',
     bookCover: '/images/3d-book-cover (4).webp',
   },
+  {
+    id: '5',
+    name: 'Rebecca Coleman',
+    genre: 'Non-Fiction',
+    published: '1',
+    quote:
+      'I worked with Kimberley Direct Publishing for the marketing of my book and also ordered printed copies. Sid was the person I dealt with from the beginning, and he was always helpful, kind, and patient, even when I had lots of little questions. Mike managed the project and kept me updated throughout the process. The printed books arrived looking great, and I was really happy with how everything was handled. Overall, it was a smooth experience, and I am glad I chose to work with them.',
+    amazonUrl: 'https://www.amazon.co.uk',
+    photo: '/images/wrap-2-img.webp',
+    bookCover: '/images/3d-book-cover (1).webp',
+  },
+  {
+    id: '6',
+    name: 'Thomas Hartley',
+    genre: "Children's",
+    published: '1',
+    quote:
+      'Had a great experience working with them. The process was simple and easy to follow, and their team was very helpful throughout, especially Sid. They also have really good illustrators who understood my ideas and brought my story to life beautifully. I am happy with how everything turned out.',
+    amazonUrl: 'https://www.amazon.co.uk',
+    photo: '/images/wrap-2-img.webp',
+    bookCover: '/images/3d-book-cover (2).webp',
+  },
 ]
 
 // Homepage stats

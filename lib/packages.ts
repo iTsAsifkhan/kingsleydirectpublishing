@@ -41,7 +41,7 @@ export interface ServicePackage {
 export const TIERS: Tier[] = [
   {
     id: 'basic-publishing',
-    name: 'Basic Publishing Package',
+    name: 'Starter Package',
     price: { amount: 550, unit: 'one-time' },
     tagline:
       'Everything you need to format, design and publish your book on Amazon KDP, while keeping 100% of your rights and royalties.',
@@ -62,12 +62,12 @@ export const TIERS: Tier[] = [
   },
   {
     id: 'best-seller-publishing',
-    name: 'Best Seller Publishing Package',
+    name: 'Professional Package',
     price: { amount: 1450, unit: 'one-time' },
     tagline:
       'Reach readers everywhere with distribution across 10+ major publishing platforms, richer metadata and multiple revision rounds.',
     popular: true,
-    lead: 'Everything in Basic, plus:',
+    lead: 'Everything in Starter, plus:',
     features: [
       'Distribution to 10+ major online publishing platforms',
       'Basic editing',
@@ -82,11 +82,11 @@ export const TIERS: Tier[] = [
   },
   {
     id: 'global-distribution',
-    name: 'Global Distribution',
+    name: 'Premium Plus — Best Seller',
     price: { amount: 3500, unit: 'one-time' },
     tagline:
       'Our flagship package with premium editing, hardcover formatting and worldwide distribution to 4,000+ platforms, libraries and stores.',
-    lead: 'Everything in Best Seller, plus:',
+    lead: 'Everything in Professional, plus:',
     features: [
       'Professional editing',
       'Hardcover, paperback & eBook formatting',

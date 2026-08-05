@@ -22,7 +22,7 @@ import {
 // environment via env vars if the official handles differ.
 const FACEBOOK_URL =
   process.env.NEXT_PUBLIC_FACEBOOK_URL ??
-  'https://www.facebook.com/kimberleydirectpublishing'
+  'https://www.facebook.com/share/19Fvf9oHe5/?mibextid=wwXIfr'
 const INSTAGRAM_URL =
   process.env.NEXT_PUBLIC_INSTAGRAM_URL ??
   'https://www.instagram.com/kimberleydirectpublishing'

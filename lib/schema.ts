@@ -22,10 +22,12 @@ export function organizationSchema() {
       '@type': 'PostalAddress',
       ...OFFICE_ADDRESS_PARTS,
     },
-    // Only advertise social profiles once real URLs are configured.
+    // Confirmed Kimberley Direct Publishing social profiles (env-overridable).
     sameAs: [
-      process.env.NEXT_PUBLIC_FACEBOOK_URL,
-      process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+      process.env.NEXT_PUBLIC_FACEBOOK_URL ??
+        'https://www.facebook.com/share/19Fvf9oHe5/?mibextid=wwXIfr',
+      process.env.NEXT_PUBLIC_INSTAGRAM_URL ??
+        'https://www.instagram.com/kimberleydirectpublishing',
     ].filter(Boolean),
     contactPoint: {
       '@type': 'ContactPoint',
