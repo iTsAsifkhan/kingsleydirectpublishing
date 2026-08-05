@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import {
+  AuthorSpotlight,
   ContactForm,
   FAQ,
   Hero,
@@ -69,6 +70,7 @@ export default function Home() {
       <StatsStrip />
       <HeroMarquee />
       <Testimonials />
+      <AuthorSpotlight />
       <StoryBand />
       <Process />
       <PurpleCTA />

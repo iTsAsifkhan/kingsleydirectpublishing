@@ -9757,3 +9757,322 @@ a.footer-contact-item:hover b {
   background: linear-gradient(160deg, #06325f, #041f3d) !important;
   border: 1px solid rgba(127, 216, 210, 0.22);
 }
+
+/* ============================================================
+   Author Spotlight — video testimonials (cinematic dark band)
+   ============================================================ */
+.author-spotlight {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 84px 0;
+  background: linear-gradient(135deg, #041d3a 0%, var(--brand-navy) 48%, #0b6b66 130%);
+  color: #fff;
+}
+.spotlight-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 50% at 82% 8%, rgba(14, 165, 160, 0.28), transparent 70%),
+    radial-gradient(30% 42% at 6% 92%, rgba(255, 178, 16, 0.12), transparent 70%);
+}
+
+.spotlight-head {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.spotlight-eyebrow {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(127, 216, 210, 0.4) !important;
+  color: var(--brand-gold) !important;
+}
+.spotlight-title {
+  color: #fff;
+  font-size: clamp(30px, 3.4vw, 46px);
+  line-height: 1.12;
+}
+.spotlight-sub {
+  margin: 16px auto 0;
+  max-width: 560px;
+  color: #c3d4e6;
+  line-height: 1.6;
+}
+
+/* Featured spotlight: media collage + copy */
+.spotlight-featured {
+  display: grid;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .spotlight-featured {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+/* Collage is height-driven so the 3:4 photo and 9:16 reel align cleanly. */
+.spotlight-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(360px, 44vw, 480px);
+}
+.spotlight-photo {
+  position: relative;
+  height: 86%;
+  aspect-ratio: 3 / 4;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 26px 60px rgba(0, 16, 38, 0.5);
+  transform: rotate(-5deg);
+  background: #0a2540;
+}
+.spotlight-photo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+.spotlight-photo-tag {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--brand-navy);
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.spotlight-photo-tag svg {
+  flex: 0 0 auto;
+  color: var(--brand-yellow-dark);
+}
+
+/* Vertical reel player */
+.spotlight-reel {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #05182f;
+  box-shadow: 0 30px 70px rgba(0, 16, 38, 0.55);
+}
+.spotlight-reel--featured {
+  height: 100%;
+  margin-left: -7%;
+  transform: rotate(4deg);
+  z-index: 2;
+  border: 5px solid rgba(255, 255, 255, 0.9);
+}
+.spotlight-reel-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #05182f;
+}
+.spotlight-reel-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background:
+    radial-gradient(60% 60% at 50% 42%, rgba(14, 165, 160, 0.22), transparent 70%),
+    linear-gradient(180deg, rgba(4, 18, 36, 0.35) 0%, rgba(4, 18, 36, 0.7) 100%);
+}
+.spotlight-reel-cover:hover {
+  transform: none;
+  box-shadow: none;
+}
+.spotlight-reel-cover::before {
+  content: none;
+}
+.spotlight-reel-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  padding-left: 4px;
+  border-radius: 50%;
+  color: var(--brand-navy);
+  background: var(--brand-yellow);
+  box-shadow: 0 10px 30px rgba(255, 178, 16, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.spotlight-reel-cover:hover .spotlight-reel-play,
+.spotlight-reel-cover:focus-visible .spotlight-reel-play {
+  transform: scale(1.08);
+  box-shadow: 0 14px 40px rgba(255, 178, 16, 0.65);
+}
+.spotlight-reel-meta {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.spotlight-reel-eyebrow {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.spotlight-reel-time {
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand-navy);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Copy column */
+.spotlight-copy-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+}
+.spotlight-copy-name {
+  margin: 10px 0 4px;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: clamp(26px, 2.6vw, 36px);
+  color: #fff;
+}
+.spotlight-copy-role {
+  margin: 0 0 18px;
+  font-weight: 500;
+  color: #9fd7d1;
+}
+.spotlight-copy-role span {
+  color: #c3d4e6;
+}
+.spotlight-copy-intro {
+  margin: 0 0 28px;
+  max-width: 46ch;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #d6e3f0;
+}
+.spotlight-copy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 18px;
+}
+.spotlight-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 26px;
+  border-radius: 50px;
+  font-weight: 600;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.spotlight-ghost:hover,
+.spotlight-ghost:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Additional videos row (renders automatically when more entries exist) */
+.spotlight-more {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 22px;
+  margin: 56px 0 0;
+  padding: 40px 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.spotlight-more-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.spotlight-reel--card {
+  width: 100%;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+}
+.spotlight-more-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+.spotlight-more-meta b {
+  font-size: 15px;
+  color: #fff;
+}
+.spotlight-more-meta span {
+  font-size: 13px;
+  color: #9fb6cf;
+}
+
+/* Mobile: unstack the collage, drop the rotations/overlap. */
+@media (max-width: 680px) {
+  .author-spotlight {
+    padding: 60px 0;
+  }
+  .spotlight-stage {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .spotlight-photo,
+  .spotlight-reel--featured {
+    height: auto;
+    margin: 0;
+    transform: none;
+    flex: 1 1 44%;
+    min-width: 148px;
+    max-width: 220px;
+  }
+  .spotlight-photo {
+    aspect-ratio: 3 / 4;
+  }
+  .spotlight-copy {
+    text-align: center;
+  }
+  .spotlight-copy-intro {
+    margin-inline: auto;
+  }
+  .spotlight-copy-actions {
+    justify-content: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-photo,
+  .spotlight-reel--featured {
+    transform: none;
+  }
+}
