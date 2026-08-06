@@ -26,6 +26,8 @@ export interface VideoTestimonial {
   image: string
   /** Human-readable clip length, e.g. "1:21". */
   duration?: string
+  /** Public link to buy the finished book (e.g. the Amazon product page). */
+  bookUrl?: string
 }
 
 export const videoTestimonials: VideoTestimonial[] = [
@@ -39,5 +41,6 @@ export const videoTestimonials: VideoTestimonial[] = [
     video: '/testimonials/ermelinda-hashani.mp4',
     image: '/testimonials/ermelinda-hashani.jpg',
     duration: '1:21',
+    bookUrl: 'https://amzn.asia/d/07uFn76G',
   },
 ]

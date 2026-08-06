@@ -1,17 +1,7 @@
 import Image from 'next/image'
-import { ArrowRight, ExternalLink, Quote } from 'lucide-react'
+import { ArrowRight, Quote } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 import { testimonials } from '@/lib/content'
-
-// A testimonial links out to its book only when it points to a real product
-// page — the bare storefront homepages used as placeholders are skipped.
-function hasRealBookLink(url: string) {
-  try {
-    return new URL(url).pathname.replace(/\/+$/, '') !== ''
-  } catch {
-    return false
-  }
-}
 
 const PARTNER_LOGOS = [
   { src: '/images/1.webp', alt: 'Trustpilot' },
@@ -61,17 +51,6 @@ export default function Testimonials() {
                   <span>{t.genre} author · Verified</span>
                 </span>
               </figcaption>
-              {hasRealBookLink(t.amazonUrl) && (
-                <a
-                  className="review-card-book-link"
-                  href={t.amazonUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View the book on Amazon
-                  <ExternalLink size={14} aria-hidden="true" />
-                </a>
-              )}
             </figure>
           ))}
         </div>

@@ -476,7 +476,7 @@ export const testimonials: Testimonial[] = [
     published: '1',
     quote:
       'Had a great experience working with them. The process was simple and easy to follow, and their team was very helpful throughout, especially Sid. They also have really good illustrators who understood my ideas and brought my story to life beautifully. I am happy with how everything turned out.',
-    amazonUrl: 'https://amzn.asia/d/07uFn76G',
+    amazonUrl: 'https://amzn.asia/d/03w35WYo',
     photo: '/images/scene-reading-home.webp',
     bookCover: '/images/ayaan and little village light.webp',
   },

@@ -121,9 +121,20 @@ export default function AuthorSpotlight() {
               <Button variant="yellow" href="/contact" icon={ArrowRight}>
                 Start Your Book
               </Button>
-              <Link href="/packages" className="spotlight-ghost">
-                View Packages
-              </Link>
+              {featured.bookUrl ? (
+                <a
+                  href={featured.bookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="spotlight-ghost"
+                >
+                  View the Book on Amazon
+                </a>
+              ) : (
+                <Link href="/packages" className="spotlight-ghost">
+                  View Packages
+                </Link>
+              )}
             </div>
           </div>
         </div>
