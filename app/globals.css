@@ -1448,6 +1448,19 @@ p.p-head {
   color: var(--brand-gray-3);
   font-size: 13px;
 }
+.review-card-book-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  color: var(--brand-yellow-dark);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.review-card-book-link:hover {
+  color: var(--brand-navy);
+}
 
 .home-reviews-cta {
   display: flex;
