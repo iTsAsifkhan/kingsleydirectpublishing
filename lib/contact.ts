@@ -57,5 +57,22 @@ export const OFFICE_ADDRESS_SECONDARY_PARTS = {
   addressCountry: 'IT',
 }
 
+/**
+ * Tertiary (Pakistan) office. An additional regional presence shown alongside
+ * the UK and Italy details.
+ */
+export const OFFICE_ADDRESS_TERTIARY =
+  process.env.NEXT_PUBLIC_OFFICE_ADDRESS_TERTIARY ??
+  '5th Floor Emirates Tower, F-7, Islamabad, Pakistan'
+
+/** Structured form for the tertiary schema.org PostalAddress. */
+export const OFFICE_ADDRESS_TERTIARY_PARTS = {
+  streetAddress: '5th Floor Emirates Tower, F-7',
+  addressLocality: 'Islamabad',
+  addressRegion: 'Islamabad Capital Territory',
+  postalCode: '44000',
+  addressCountry: 'PK',
+}
+
 /** Primary contact email. */
 export const CONTACT_EMAIL = 'info@kimberleydirectpublishing.com'

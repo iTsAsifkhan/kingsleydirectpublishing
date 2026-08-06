@@ -12,9 +12,12 @@ import {
   CONTACT_PHONE,
   CONTACT_PHONE_TEL,
   CONTACT_PHONE_DIGITS as WHATSAPP_DIGITS,
+  CONTACT_PHONE_SECONDARY,
+  CONTACT_PHONE_SECONDARY_TEL,
   CONTACT_EMAIL,
   OFFICE_ADDRESS,
   OFFICE_ADDRESS_SECONDARY,
+  OFFICE_ADDRESS_TERTIARY,
 } from '@/lib/contact'
 
 // Social profile URLs. WhatsApp is built from the confirmed UK business number;
@@ -48,9 +51,15 @@ const SOCIAL = [
 const CONTACT = [
   {
     icon: Phone,
-    label: 'Call us',
+    label: 'Call us (UK)',
     value: CONTACT_PHONE,
     href: `tel:${CONTACT_PHONE_TEL}`,
+  },
+  {
+    icon: Phone,
+    label: 'Call us (Italy)',
+    value: CONTACT_PHONE_SECONDARY,
+    href: `tel:${CONTACT_PHONE_SECONDARY_TEL}`,
   },
   {
     icon: Mail,
@@ -67,6 +76,11 @@ const CONTACT = [
     icon: MapPin,
     label: 'Italy office',
     value: OFFICE_ADDRESS_SECONDARY,
+  },
+  {
+    icon: MapPin,
+    label: 'Pakistan office',
+    value: OFFICE_ADDRESS_TERTIARY,
   },
 ]
 
