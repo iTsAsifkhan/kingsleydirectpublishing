@@ -8,7 +8,7 @@ export default function SectionHeading({ tag, title, subtitle }: SectionHeadingP
   return (
     <div className="mb-12 flex flex-col items-center text-center">
       {tag && (
-        <div className="mb-4 inline-flex items-center rounded-pill bg-brand-yellow px-5 py-2 text-sm font-500 uppercase tracking-wider text-brand-navy">
+        <div className="mb-4 inline-flex items-center rounded-pill bg-brand-yellow px-5 py-2 text-sm font-500 uppercase tracking-wider text-white">
           {tag}
         </div>
       )}

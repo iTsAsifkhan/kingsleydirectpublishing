@@ -3,13 +3,16 @@ import Script from 'next/script'
 /**
  * Tawk.to live chat widget.
  *
- * Loaded with `strategy="afterInteractive"` so the third-party embed never
- * blocks first paint or hydration (protects LCP / INP). The property/widget
- * IDs are the live Kimberley Direct Publishing Tawk.to inbox.
+ * Loaded with `strategy="lazyOnload"` so the (large) third-party embed is
+ * deferred to browser idle after the page has finished loading — it never
+ * blocks first paint, hydration, or the critical path (protects LCP / INP and
+ * cuts initial-load JS on mobile). Trade-off: the chat bubble appears a moment
+ * later. The property/widget IDs are the live Kimberley Direct Publishing
+ * Tawk.to inbox.
  */
 export default function TawkChat() {
   return (
-    <Script id="tawk-to" strategy="afterInteractive">
+    <Script id="tawk-to" strategy="lazyOnload">
       {`
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
         (function(){

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { ArrowRight, PhoneCall } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 import { CONTACT_PHONE } from '@/lib/contact'
@@ -39,6 +39,29 @@ export default function Portfolio() {
   const [activeTab, setActiveTab] = useState<Tab>('Fantasy')
   const covers = portfolioImagesByTab[activeTab]
 
+  // Mouse click-and-drag to scroll the cover rail (touch already swipes natively).
+  const railRef = useRef<HTMLDivElement>(null)
+  const drag = useRef({ down: false, startX: 0, startLeft: 0 })
+
+  const onRailDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== 'mouse') return
+    const el = railRef.current
+    if (!el) return
+    drag.current = { down: true, startX: e.clientX, startLeft: el.scrollLeft }
+    el.classList.add('is-dragging')
+  }
+  const onRailMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = railRef.current
+    if (!el || !drag.current.down) return
+    el.scrollLeft = drag.current.startLeft - (e.clientX - drag.current.startX)
+  }
+  const onRailUp = () => {
+    const el = railRef.current
+    if (!el) return
+    drag.current.down = false
+    el.classList.remove('is-dragging')
+  }
+
   return (
     <section className="home-portfolio position-relative">
       <Container className="relative z-10">
@@ -73,9 +96,14 @@ export default function Portfolio() {
       <div className="home-portfolio-rail-wrap">
         <div
           key={activeTab}
+          ref={railRef}
           className="home-portfolio-rail"
           role="tabpanel"
           aria-label={`${activeTab} projects`}
+          onPointerDown={onRailDown}
+          onPointerMove={onRailMove}
+          onPointerUp={onRailUp}
+          onPointerLeave={onRailUp}
         >
           {covers.map((src, i) => (
             <figure className="pf-cover" key={src}>

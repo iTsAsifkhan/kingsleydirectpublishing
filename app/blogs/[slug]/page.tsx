@@ -292,7 +292,7 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-yellow px-7 py-3 font-heading text-sm font-semibold text-brand-navy transition-transform hover:scale-105"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-yellow px-7 py-3 font-heading text-sm font-semibold text-white transition-transform hover:scale-105"
             >
               Talk to our team
               <ArrowRight size={18} aria-hidden="true" />

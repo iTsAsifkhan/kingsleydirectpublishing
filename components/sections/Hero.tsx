@@ -293,7 +293,7 @@ function MagneticCta({
       ref={ref}
       href={href}
       variants={rise}
-      style={{ x, y, background: accent, color: "#0D0D0D", willChange: "transform" }}
+      style={{ x, y, background: accent, color: "#FFFFFF", willChange: "transform" }}
       whileHover={{ boxShadow: `0 20px 54px -18px ${accent}bf` }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
