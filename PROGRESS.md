@@ -6,6 +6,39 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**teal-contrast-and-perf** — Fixed dark-on-teal contrast site-wide and did a first
+(safe) performance pass. Committed `7f05aa4` and pushed to `kingsley/master` (live).
+`tsc` + `next build` clean (50 routes).
+- **White foreground on the `#0ea5a0` teal accent** (client request — the accent is
+  confusingly stored as `--brand-yellow`). Changed dark text/icons → white on: the hero
+  CTA (`Hero.tsx` `MagneticCta`, `#0D0D0D` → `#FFFFFF`), the mega-menu icons
+  (`.kdp-mega-ico` — navy → white, and its gradient flipped `brand-gold → brand-yellow`
+  to `brand-yellow → brand-yellow-dark` so the white glyph actually reads), portfolio
+  tabs (`.index-wrap-6-tabs` `#000` → `#fff`), mobile hamburger hover, the section-heading
+  pill (`SectionHeading.tsx` `text-brand-navy` → `text-white`), and the blog CTA button.
+  Left decorative teal (stars/shades/dots/scrollbar/pagination/book-covers) and the
+  contact-form "Let's Connect" panel (dark heading on teal is already high-contrast) alone.
+  ⚠️ Note: white on `#0ea5a0` is ~2.8:1 (below WCAG AA for small text) — accepted as a
+  brand/style call by the client.
+- **Perf (first pass):** Tawk.to chat `strategy` `afterInteractive` → **`lazyOnload`**
+  (`TawkChat.tsx`) so the large third-party embed defers to browser idle instead of the
+  critical path. This commit also carried the previously in-progress **portfolio cover-rail
+  mouse drag-to-scroll** (`Portfolio.tsx` + `.is-dragging`/`cursor:grab` CSS) — it was
+  entangled in `globals.css` and couldn't be split out.
+- Live-verified: `/favicon.ico` fast (TTFB ~0.6s), deploy serving `lazyOnload`.
+- ⚠️ **OPEN — bigger PageSpeed items (not started, need trade-off calls):** reduce unused
+  JS ~673 KiB (Swiper ×3 carousels + GSAP marquee + motion hero — candidate for lazy-loading
+  the below-the-fold carousel sections, keeping SSR on); render-blocking CSS ~710 ms mobile
+  (the single ~7,700-line `globals.css` ships on every page); legacy JS ~18 KiB (add a modern
+  `browserslist`); image delivery / LCP (need the exact page the PSI report was run on).
+  Tooling note: exact scores are pullable via the **PageSpeed Insights API**
+  (`googleapis.com/pagespeedonline/v5/runPagespeed`), but it 429s without an API key — ask
+  the client for a free PSI key to track before/after.
+
+---
+
+## Prior — seo-favicon-crawlability-audit
+
 **seo-favicon-crawlability-audit** — Audited favicon + the 8 GSC "Discovered, currently
 not indexed" URLs, and updated the Premium Plus package copy. `tsc` + `next build` clean
 (50 routes); all changes verified in built static HTML + against the live Hostinger deploy.
