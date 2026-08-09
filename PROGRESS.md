@@ -6,6 +6,30 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**seo-favicon-crawlability-audit** — Audited favicon + the 8 GSC "Discovered, currently
+not indexed" URLs, and updated the Premium Plus package copy. `tsc` + `next build` clean
+(50 routes); all changes verified in built static HTML + against the live Hostinger deploy.
+- **Favicon: no code change needed.** Already the clean App Router file-convention setup
+  (`app/favicon.ico` valid multi-size ICO 16/32/48, `app/icon.png` 512, `app/apple-icon.png`
+  180; no `public/favicon.ico`, no manual `<link>`, no middleware/redirects). Live
+  `/favicon.ico` SHA256 == local (new favicon already deployed), served `image/x-icon`, 200.
+  The `?favicon.<hash>.ico` query string is normal Next.js cache-busting, not a bug. Google
+  showing the old icon = Google's independent favicon cache lag only.
+- **8 URLs all technically correct** (200, self-referencing absolute HTTPS canonicals, no
+  noindex/X-Robots, in sitemap). "Discovered, not indexed / Last crawled: N/A" = new-site
+  crawl lag, not an error. Strengthened genuinely-weak internal links (all were JS/hover-gated
+  or sitemap-only): parent service pages now render a static parent→child sub-services grid
+  (`app/services/[slug]/page.tsx`, reuses `.subservice-sibling-*`); "View All Services" link
+  fixed `/` → `/services`; added `/services` to the footer Company column (`Footer.tsx`).
+- **Premium Plus** (`lib/packages.ts`): name kept as `Premium Plus — Best Seller` (per client);
+  tagline → "Our flagship package with professional editing, hardcover formatting and worldwide
+  distribution to 6000+ online retailers, book stores and libraries." Feature bullet also updated
+  4,000+ → "6000+ online retailers, book stores & libraries" to remove the conflict. Not yet committed.
+
+---
+
+## Prior — content-fixes-pdf-remediation
+
 **content-fixes-pdf-remediation** — Fixed the follow-up issues the client flagged
 after the first pass. `tsc` + `next build` clean (49 routes); verified in built HTML.
 - **Stat boxes redesigned (no numbers, but professional).** The earlier de-numbering

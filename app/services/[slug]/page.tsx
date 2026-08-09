@@ -253,6 +253,35 @@ export default async function ServicePage({ params }: Props) {
         </Container>
       </section>
 
+      {service.subServices.length > 0 && (
+        <section className="service-related subservice-siblings-section">
+          <Container>
+            <div className="service-related-header">
+              <span className="span-tag-border">{service.title} Services</span>
+              <h2 className="fw-700 pt-3">Explore Our {service.title} Options</h2>
+            </div>
+            <div className="subservice-sibling-grid">
+              {service.subServices.map((sub, i) => (
+                <Link
+                  key={sub.slug}
+                  href={`/services/${service.slug}/${sub.slug}`}
+                  className="subservice-sibling-card"
+                >
+                  <span className="subservice-sibling-number">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="subservice-sibling-title fw-600">{sub.title}</h3>
+                  <p className="subservice-sibling-desc">{sub.shortDescription}</p>
+                  <span className="subservice-sibling-cta">
+                    Learn More <ArrowRight size={16} aria-hidden="true" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
       <section className="service-related">
         <Container>
           <div className="service-related-header">
@@ -297,7 +326,7 @@ export default async function ServicePage({ params }: Props) {
                   </span>
                 </a>
               )}
-              <Link href="/" className="service-all-services-link">
+              <Link href="/services" className="service-all-services-link">
                 View All Services
               </Link>
             </div>

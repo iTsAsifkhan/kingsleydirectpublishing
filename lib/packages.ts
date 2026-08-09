@@ -85,13 +85,13 @@ export const TIERS: Tier[] = [
     name: 'Premium Plus — Best Seller',
     price: { amount: 3500, unit: 'one-time' },
     tagline:
-      'Our flagship package with premium editing, hardcover formatting and worldwide distribution to 4,000+ platforms, libraries and stores.',
+      'Our flagship package with professional editing, hardcover formatting and worldwide distribution to 6000+ online retailers, book stores and libraries.',
     lead: 'Everything in Professional, plus:',
     features: [
       'Professional editing',
       'Hardcover, paperback & eBook formatting',
       'Premium front, back & spine cover design',
-      'Worldwide distribution to 4,000+ platforms, libraries & stores',
+      'Worldwide distribution to 6000+ online retailers, book stores & libraries',
       'Print on Demand (POD) setup',
       'ISBN provided by us',
       'Copyright page creation',
