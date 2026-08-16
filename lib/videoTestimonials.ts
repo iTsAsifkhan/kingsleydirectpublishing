@@ -24,6 +24,11 @@ export interface VideoTestimonial {
   video: string
   /** Still photo of the author (ideally holding the finished book). */
   image: string
+  /**
+   * Thumbnail shown on the player before playback (the video `poster`). Falls
+   * back to `image` when omitted.
+   */
+  poster?: string
   /** Human-readable clip length, e.g. "1:21". */
   duration?: string
   /** Public link to buy the finished book (e.g. the Amazon product page). */

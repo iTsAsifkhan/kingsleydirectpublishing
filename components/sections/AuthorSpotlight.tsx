@@ -41,6 +41,7 @@ function ReelPlayer({
       <video
         ref={ref}
         src={item.video}
+        poster={item.poster ?? item.image}
         className="spotlight-reel-video"
         playsInline
         preload="none"

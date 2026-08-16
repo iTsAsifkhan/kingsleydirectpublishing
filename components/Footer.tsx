@@ -48,39 +48,26 @@ const SOCIAL = [
   },
 ].filter(Boolean) as { href: string; icon: typeof FacebookIcon; label: string }[]
 
-const CONTACT = [
+// Each office groups its phone and address together so the country's full
+// contact details read as one block. Pakistan has no dedicated phone line.
+const LOCATIONS = [
   {
-    icon: Phone,
-    label: 'Call us (UK)',
-    value: CONTACT_PHONE,
-    href: `tel:${CONTACT_PHONE_TEL}`,
+    country: 'United Kingdom',
+    phone: CONTACT_PHONE,
+    phoneTel: CONTACT_PHONE_TEL,
+    address: OFFICE_ADDRESS,
   },
   {
-    icon: Phone,
-    label: 'Call us (Italy)',
-    value: CONTACT_PHONE_SECONDARY,
-    href: `tel:${CONTACT_PHONE_SECONDARY_TEL}`,
+    country: 'Italy',
+    phone: CONTACT_PHONE_SECONDARY,
+    phoneTel: CONTACT_PHONE_SECONDARY_TEL,
+    address: OFFICE_ADDRESS_SECONDARY,
   },
   {
-    icon: Mail,
-    label: 'Email us',
-    value: CONTACT_EMAIL,
-    href: `mailto:${CONTACT_EMAIL}`,
-  },
-  {
-    icon: MapPin,
-    label: 'UK office',
-    value: OFFICE_ADDRESS,
-  },
-  {
-    icon: MapPin,
-    label: 'Italy office',
-    value: OFFICE_ADDRESS_SECONDARY,
-  },
-  {
-    icon: MapPin,
-    label: 'Pakistan office',
-    value: OFFICE_ADDRESS_TERTIARY,
+    country: 'Pakistan',
+    phone: null,
+    phoneTel: null,
+    address: OFFICE_ADDRESS_TERTIARY,
   },
 ]
 
@@ -118,30 +105,35 @@ export default function Footer() {
   return (
     <footer className="site-footer relative">
       <Container className="relative z-10">
-        {/* Contact strip */}
+        <div className="footer-inner">
+        {/* Contact strip — one box per office (phone + address together) */}
         <div className="footer-contact">
-          {CONTACT.map(({ icon: Icon, label, value, href }) => {
-            const body = (
-              <>
-                <span className="footer-contact-icon" aria-hidden="true">
-                  <Icon size={18} strokeWidth={2} />
-                </span>
-                <span className="footer-contact-text">
-                  <span className="lbl">{label}</span>
-                  <b>{value}</b>
-                </span>
-              </>
-            )
-            return href ? (
-              <a className="footer-contact-item" href={href} key={label}>
-                {body}
-              </a>
-            ) : (
-              <div className="footer-contact-item" key={label}>
-                {body}
-              </div>
-            )
-          })}
+          {LOCATIONS.map(({ country, phone, phoneTel, address }) => (
+            <div className="footer-contact-item" key={country}>
+              <span className="footer-contact-icon" aria-hidden="true">
+                <MapPin size={18} strokeWidth={2} />
+              </span>
+              <span className="footer-contact-text">
+                <span className="lbl">{country}</span>
+                {phone && (
+                  <a className="footer-contact-link" href={`tel:${phoneTel}`}>
+                    <Phone size={13} strokeWidth={2.2} aria-hidden="true" />
+                    {phone}
+                  </a>
+                )}
+                <span className="footer-contact-addr">{address}</span>
+              </span>
+            </div>
+          ))}
+          <a className="footer-contact-item" href={`mailto:${CONTACT_EMAIL}`}>
+            <span className="footer-contact-icon" aria-hidden="true">
+              <Mail size={18} strokeWidth={2} />
+            </span>
+            <span className="footer-contact-text">
+              <span className="lbl">Email us</span>
+              <b>{CONTACT_EMAIL}</b>
+            </span>
+          </a>
         </div>
 
         <div className="footer-main">
@@ -237,6 +229,7 @@ export default function Footer() {
             height={35}
             className="object-contain"
           />
+        </div>
         </div>
       </Container>
     </footer>

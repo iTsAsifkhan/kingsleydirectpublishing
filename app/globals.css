@@ -1099,10 +1099,10 @@ p.p-head {
 
 /* Active (scrolled-past) steps light up. */
 .timeline-item.is-active .timeline-marker {
-  background: linear-gradient(150deg, var(--brand-gold), var(--brand-yellow-dark));
-  color: var(--brand-navy);
+  background: linear-gradient(150deg, #0ea5a0, var(--brand-yellow-dark));
+  color: #fff;
   transform: scale(1.08);
-  box-shadow: 0 10px 26px rgba(255, 178, 16, 0.45);
+  box-shadow: 0 10px 26px rgba(11, 125, 119, 0.4);
 }
 .timeline-item.is-active .timeline-icon {
   background: rgba(255, 178, 16, 0.18);
@@ -8595,6 +8595,59 @@ a.footer-contact-item:hover b {
 }
 a.footer-contact-item:hover b {
   color: var(--brand-gold);
+}
+/* Grouped office box: phone line + address stacked under the country label. */
+.footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+  transition: color 0.2s ease;
+}
+.footer-contact-link:hover {
+  color: var(--brand-gold);
+}
+.footer-contact-link svg {
+  flex: 0 0 auto;
+  color: var(--brand-gold);
+}
+.footer-contact-addr {
+  display: block;
+  margin-top: 5px;
+  color: rgb(255 255 255 / 72%);
+  font-size: 13px;
+  line-height: 1.5;
+}
+/* Footer stacking order: on mobile the brand/logo column comes first and the
+   contact strip drops below it; on desktop the strip returns to the top band. */
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+}
+.footer-main {
+  order: 1;
+}
+.footer-contact {
+  order: 2;
+  margin: 0;
+  padding: 24px 0 0;
+  border-top: 1px solid rgb(255 255 255 / 14%);
+  border-bottom: none;
+}
+.copyright-div {
+  order: 3;
+}
+@media (min-width: 992px) {
+  .footer-contact {
+    order: 0;
+    padding: 0 0 20px;
+    margin-bottom: 26px;
+    border-top: none;
+    border-bottom: 1px solid rgb(255 255 255 / 14%);
+  }
 }
 .footer-brand-desc {
   color: rgb(255 255 255 / 72%);
