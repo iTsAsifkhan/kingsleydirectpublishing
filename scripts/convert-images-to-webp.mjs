@@ -15,15 +15,20 @@ const WEBP_QUALITY = 82
 
 async function needsConversion(sourcePath, outputPath) {
   try {
-    const [sourceStats, outputStats] = await Promise.all([
-      fs.stat(sourcePath),
-      fs.stat(outputPath),
-    ])
+    const outputStats = await fs.stat(outputPath)
 
+    // Fast path: if the .webp already exists, skip it. Every committed image
+    // ships with its .webp, so on a fresh CI/deploy clone this makes the whole
+    // step a no-op — avoiding a parallel re-encode of hundreds of images that
+    // exhausts build memory (OOM). Set FORCE_WEBP=1 locally to re-encode a
+    // source you've edited in place.
+    if (!process.env.FORCE_WEBP) return false
+
+    const sourceStats = await fs.stat(sourcePath)
     return sourceStats.mtimeMs > outputStats.mtimeMs
   } catch (error) {
     if (error.code === 'ENOENT') {
-      return true
+      return true // no .webp yet → a genuinely new image, convert it
     }
 
     throw error
@@ -51,7 +56,17 @@ async function convertImage(fileName) {
 
 async function main() {
   const files = await fs.readdir(IMAGE_DIR)
-  const results = await Promise.all(files.map(convertImage))
+
+  // Process in small batches instead of all at once — encoding hundreds of
+  // large images in parallel with sharp can spike memory past a build
+  // container's limit and get the process OOM-killed.
+  const BATCH_SIZE = 4
+  const results = []
+  for (let i = 0; i < files.length; i += BATCH_SIZE) {
+    const batch = files.slice(i, i + BATCH_SIZE)
+    results.push(...(await Promise.all(batch.map(convertImage))))
+  }
+
   const converted = results.filter((result) => result === 'converted').length
   const unchanged = results.filter((result) => result === 'unchanged').length
 
