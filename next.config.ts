@@ -31,6 +31,25 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // Canonicalise the host: permanently redirect the www subdomain to the
+  // non-www apex (the canonical origin used in metadata + sitemap). Without
+  // this, www serves a duplicate copy of the site and can surface its own
+  // crawl errors in Search Console.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.kimberleydirectpublishing.com",
+          },
+        ],
+        destination: "https://kimberleydirectpublishing.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
