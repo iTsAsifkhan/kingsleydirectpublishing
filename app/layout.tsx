@@ -25,8 +25,17 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kimberleydirectpublishing.com'),
-  // Icons are generated from the file-based conventions: app/favicon.ico,
-  // app/icon.png, and app/apple-icon.png (the Kimberley book mark).
+  // Icons are served from public/ at STABLE, unhashed URLs. Do NOT move these
+  // back to app/ file-based metadata: that appends a per-build content hash
+  // (e.g. /favicon.ico?favicon.<hash>.ico) that changes every deploy, which
+  // resets Google's slow favicon-refresh pipeline and keeps a stale SERP icon.
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any', type: 'image/x-icon' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+  },
   title: {
     default: 'Kimberley Direct Publishing | Professional Book Publishing Services',
     template: '%s | Kimberley Direct Publishing',
