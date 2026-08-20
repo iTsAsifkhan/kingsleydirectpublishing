@@ -11,20 +11,21 @@ import { BASE_CURRENCY, TIERS, SERVICE_PACKAGES, MARKETING_PACKAGE, type Price }
 const SITE = 'https://kimberleydirectpublishing.com'
 
 export const metadata: Metadata = {
-  title: 'Publishing Packages & Pricing | Kimberley Direct Publishing',
+  title: 'Book Publishing Packages & Pricing (UK)',
   description:
-    'Transparent book publishing packages and à-la-carte pricing, from Amazon KDP setup and cover design to ghostwriting, editing, marketing, and distribution across 10+ platforms. Prices shown in your local currency.',
+    'Compare UK book publishing packages and à-la-carte pricing, from Amazon KDP setup and cover design to editing, ghostwriting, and global distribution.',
   alternates: { canonical: `${SITE}/packages` },
   openGraph: {
-    title: 'Publishing Packages & Pricing | Kimberley Direct Publishing',
+    title: 'Book Publishing Packages & Pricing (UK) | Kimberley Direct Publishing',
     description:
       'Flagship publishing tiers plus à-la-carte services with transparent, currency-aware pricing.',
     url: `${SITE}/packages`,
     type: 'website',
+    siteName: 'Kimberley Direct Publishing',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Publishing Packages & Pricing | Kimberley Direct Publishing',
+    title: 'Book Publishing Packages & Pricing (UK) | Kimberley Direct Publishing',
     description:
       'Flagship publishing tiers plus à-la-carte services with transparent, currency-aware pricing.',
   },

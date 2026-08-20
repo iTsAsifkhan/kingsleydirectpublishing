@@ -7,20 +7,21 @@ import { breadcrumbSchema } from '@/lib/schema'
 const URL = 'https://kimberleydirectpublishing.com/services'
 
 export const metadata: Metadata = {
-  title: 'Publishing Services',
+  title: 'Book Publishing Services for Authors',
   description:
-    'Explore Kimberley Direct Publishing services: ghostwriting, editing, book cover design, publishing, and marketing. Everything authors need to go from manuscript to market.',
+    'Explore UK book publishing services: ghostwriting, editing, cover design, publishing, and marketing, everything authors need from manuscript to market.',
   alternates: { canonical: URL },
   openGraph: {
-    title: 'Publishing Services | Kimberley Direct Publishing',
+    title: 'Book Publishing Services for Authors | Kimberley Direct Publishing',
     description:
       'Ghostwriting, editing, cover design, publishing, and marketing services for authors.',
     url: URL,
     type: 'website',
+    siteName: 'Kimberley Direct Publishing',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Publishing Services | Kimberley Direct Publishing',
+    title: 'Book Publishing Services for Authors | Kimberley Direct Publishing',
     description:
       'Ghostwriting, editing, cover design, publishing, and marketing services for authors.',
   },

@@ -7,6 +7,8 @@
 export interface SubService {
   slug: string
   title: string
+  /** Optional <title> override (e.g. to add UK targeting); falls back to `title`. */
+  metaTitle?: string
   shortDescription: string
   longDescription: string
   features: string[]
@@ -16,7 +18,11 @@ export interface Service {
   id: string
   slug: string
   title: string
+  /** Optional <title> override to avoid duplicate titles; falls back to `${title} Services`. */
+  metaTitle?: string
   shortDescription: string
+  /** Optional trimmed meta description (≤158 chars); falls back to `shortDescription`. */
+  metaDescription?: string
   description: string
   longDescription: string
   icon: string // lucide icon name
@@ -62,6 +68,8 @@ export const services: Service[] = [
     id: '1',
     slug: 'ghostwriting',
     title: 'Ghostwriting',
+    metaDescription:
+      'Professional ghostwriting services that turn your ideas, outlines, and rough drafts into a complete, publication-ready manuscript that still sounds like you.',
     shortDescription:
       'Got the story but not the time to write it? Our ghostwriters shape your ideas, outlines, and half-finished drafts into a complete manuscript that still sounds unmistakably like you.',
     description:
@@ -146,6 +154,8 @@ export const services: Service[] = [
     id: '2',
     slug: 'editing',
     title: 'Editing',
+    metaDescription:
+      'Professional book editing services, from developmental structure to line-level polish, that make your manuscript read like a professionally published book.',
     shortDescription:
       'From the big-picture structure down to the final comma, our editors polish your draft until it reads like a professionally published book, never flattening your voice in the process.',
     description:
@@ -188,6 +198,9 @@ export const services: Service[] = [
     id: '3',
     slug: 'publishing',
     title: 'Publishing',
+    metaTitle: 'Self-Publishing & Global Distribution Services',
+    metaDescription:
+      'Complete book publishing services, formatting, ISBNs, platform setup, and global distribution, that turn your finished manuscript into a real, buyable book.',
     shortDescription:
       'We take on the technical maze, interior formatting, platform setup, ISBNs, and distribution, so your finished manuscript arrives on Amazon and beyond as a real, buyable book.',
     description:
@@ -213,6 +226,7 @@ export const services: Service[] = [
       {
         slug: 'self-publishing',
         title: 'Self-Publishing Services',
+        metaTitle: 'Self-Publishing Services UK',
         shortDescription: 'Publish your book independently and keep full control of your rights, royalties, and publishing timeline with our end-to-end self-publishing support.',
         longDescription: 'Self-publishing gives authors the freedom to publish on their own schedule, earn higher royalties, and retain complete ownership of their work. But the process involves dozens of technical and strategic decisions that can overwhelm first-time authors. Our self-publishing team simplifies every step.\n\nFrom manuscript preparation and cover design to ISBN registration, platform setup, and distribution, we handle the operational side of publishing so you can stay focused on writing and connecting with readers.',
         features: ['Full rights & royalty retention', 'Multi-platform distribution', 'ISBN assignment & registration', 'Amazon KDP & IngramSpark setup'],
@@ -237,6 +251,8 @@ export const services: Service[] = [
     id: '4',
     slug: 'marketing',
     title: 'Marketing',
+    metaDescription:
+      'Strategic book marketing services that boost visibility, sharpen your listings, and run campaigns putting your book in front of readers ready to buy it.',
     shortDescription:
       'A great book still needs readers to find it. We craft the launch plan, sharpen your listings, and run campaigns that put your title in front of the people most likely to buy it.',
     description:

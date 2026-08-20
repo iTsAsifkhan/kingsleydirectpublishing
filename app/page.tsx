@@ -17,18 +17,19 @@ import {
 import { organizationSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Kimberley Direct Publishing | Professional Book Publishing Services',
+  title: 'Book Publishing Services UK | Kimberley Direct Publishing',
   description:
     'Kimberley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
   alternates: {
     canonical: 'https://kimberleydirectpublishing.com',
   },
   openGraph: {
-    title: 'Kimberley Direct Publishing | Professional Book Publishing Services',
+    title: 'Book Publishing Services UK | Kimberley Direct Publishing',
     description:
       'Kimberley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
     url: 'https://kimberleydirectpublishing.com',
     type: 'website',
+    siteName: 'Kimberley Direct Publishing',
     images: [
       {
         url: 'https://kimberleydirectpublishing.com/og-image.png',
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kimberley Direct Publishing | Professional Book Publishing Services',
+    title: 'Book Publishing Services UK | Kimberley Direct Publishing',
     description:
       'Kimberley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
     images: ['https://kimberleydirectpublishing.com/og-image.png'],

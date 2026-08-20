@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       'Read the Kimberley Direct Publishing terms of service for website use and publishing service engagements.',
     url: 'https://kimberleydirectpublishing.com/terms-conditions',
     type: 'website',
+    siteName: 'Kimberley Direct Publishing',
   },
 }
 

@@ -7,12 +7,15 @@ import { CONTACT_PHONE, CONTACT_EMAIL, OFFICE_ADDRESS_PARTS } from './contact'
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    // ProfessionalService is a subtype of Organization/LocalBusiness that
+    // supports priceRange and geo, improving UK local-pack relevance.
+    '@type': 'ProfessionalService',
     name: 'Kimberley Direct Publishing',
     url: 'https://kimberleydirectpublishing.com',
     logo: 'https://kimberleydirectpublishing.com/images/kimberley-logo.png',
     image: 'https://kimberleydirectpublishing.com/og-image.png',
     description: 'Professional book publishing services helping authors bring their manuscripts to life.',
+    priceRange: '££',
     areaServed: {
       '@type': 'Country',
       name: 'United Kingdom',

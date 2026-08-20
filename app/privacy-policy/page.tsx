@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       'Read how Kimberley Direct Publishing collects, uses, protects, and manages personal information.',
     url: 'https://kimberleydirectpublishing.com/privacy-policy',
     type: 'website',
+    siteName: 'Kimberley Direct Publishing',
   },
 }
 

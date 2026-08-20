@@ -7,8 +7,18 @@ import type { LucideIcon } from 'lucide-react'
 import { ArrowRight, CheckCircle, MessageCircle, PhoneCall } from 'lucide-react'
 import { Button, Container, ServiceCard } from '@/components/ui'
 import { services } from '@/lib/content'
+import { getPostBySlug } from '@/lib/blog'
 import { serviceSchema, breadcrumbSchema } from '@/lib/schema'
 import { CONTACT_PHONE } from '@/lib/contact'
+
+// Service -> supporting blog post. Feeds internal link equity down from the
+// service pages into the long-form posts (the direction the SEO audit flagged
+// as missing). Only rendered when a post exists for that service.
+const servicePostSlug: Record<string, string> = {
+  ghostwriting: 'how-much-does-a-ghostwriter-cost',
+  publishing: 'how-to-self-publish-a-book',
+  editing: 'types-of-book-editing-explained',
+}
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -51,23 +61,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = services.find((s) => s.slug === slug)
   if (!service) return {}
 
-  const title = `${service.title} Services`
+  const title = service.metaTitle ?? `${service.title} Services`
+  const description = service.metaDescription ?? service.shortDescription
   const url = `https://kimberleydirectpublishing.com/services/${service.slug}`
 
   return {
     title,
-    description: service.shortDescription,
+    description,
     alternates: { canonical: url },
     openGraph: {
-      title,
-      description: service.shortDescription,
+      title: `${title} | Kimberley Direct Publishing`,
+      description,
       url,
       type: 'website',
+      siteName: 'Kimberley Direct Publishing',
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description: service.shortDescription,
+      title: `${title} | Kimberley Direct Publishing`,
+      description,
     },
   }
 }
@@ -79,6 +91,9 @@ export default async function ServicePage({ params }: Props) {
 
   const Icon = LucideIcons[service.icon as keyof typeof LucideIcons] as LucideIcon | undefined
   const related = services.filter((s) => s.slug !== service.slug).slice(0, 3)
+  const relatedPost = servicePostSlug[service.slug]
+    ? getPostBySlug(servicePostSlug[service.slug])
+    : undefined
   const descParagraphs = service.longDescription.split('\n\n')
   const visuals = serviceVisuals[service.slug] ?? serviceVisuals.publishing
 
@@ -131,7 +146,7 @@ export default async function ServicePage({ params }: Props) {
                 <span className="service-visual-cover service-visual-cover-primary">
                   <Image
                     src={visuals.primary}
-                    alt=""
+                    alt={`Book cover mockup illustrating Kimberley Direct Publishing ${service.title.toLowerCase()} services`}
                     fill
                     priority
                     quality={82}
@@ -142,7 +157,7 @@ export default async function ServicePage({ params }: Props) {
                 <span className="service-visual-cover service-visual-cover-secondary">
                   <Image
                     src={visuals.secondary}
-                    alt=""
+                    alt={`Published book cover from the Kimberley Direct Publishing ${service.title.toLowerCase()} portfolio`}
                     fill
                     quality={82}
                     sizes="210px"
@@ -278,6 +293,25 @@ export default async function ServicePage({ params }: Props) {
                 </Link>
               ))}
             </div>
+          </Container>
+        </section>
+      )}
+
+      {relatedPost && (
+        <section className="service-related">
+          <Container>
+            <div className="service-related-header">
+              <span className="span-tag-border">From the Blog</span>
+              <h2 className="fw-700 pt-3">Learn More About {service.title}</h2>
+            </div>
+            <Link href={`/blogs/${relatedPost.slug}`} className="service-blog-link">
+              <span className="service-blog-link-label">{relatedPost.category}</span>
+              <span className="service-blog-link-title fw-700">{relatedPost.title}</span>
+              <span className="service-blog-link-desc">{relatedPost.excerpt}</span>
+              <span className="service-blog-link-cta fw-600">
+                Read the guide <ArrowRight size={16} aria-hidden="true" />
+              </span>
+            </Link>
           </Container>
         </section>
       )}

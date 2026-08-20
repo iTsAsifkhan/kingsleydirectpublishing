@@ -20,19 +20,20 @@ import StatsStrip from '@/components/sections/StatsStrip'
 import Testimonials from '@/components/sections/Testimonials'
 import FAQ from '@/components/sections/FAQ'
 import PurpleCTA from '@/components/sections/PurpleCTA'
-import { organizationSchema } from '@/lib/schema'
+import { organizationSchema, breadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Kimberley Direct Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals with expert editing, cover design, marketing, and global distribution.',
+    'Meet Kimberley Direct Publishing, a UK publishing partner helping authors edit, design, publish, and market books that reach readers worldwide.',
   alternates: { canonical: 'https://kimberleydirectpublishing.com/about-us' },
   openGraph: {
     title: 'About Us | Kimberley Direct Publishing',
     description:
-      'Learn about Kimberley Direct Publishing - a professional publishing agency dedicated to helping authors achieve their publishing goals with expert editing, cover design, marketing, and global distribution.',
+      'Meet Kimberley Direct Publishing, a UK publishing partner helping authors edit, design, publish, and market books that reach readers worldwide.',
     url: 'https://kimberleydirectpublishing.com/about-us',
     type: 'website',
+    siteName: 'Kimberley Direct Publishing',
   },
   twitter: {
     card: 'summary_large_image',
@@ -91,12 +92,17 @@ const PILLARS = [
 
 const schema = organizationSchema()
 
+const aboutBreadcrumb = breadcrumbSchema([
+  { name: 'Home', url: 'https://kimberleydirectpublishing.com' },
+  { name: 'About Us', url: 'https://kimberleydirectpublishing.com/about-us' },
+])
+
 export default function AboutPage() {
   return (
     <main className="about-page min-h-screen bg-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([schema, aboutBreadcrumb]) }}
       />
 
       {/* Hero */}

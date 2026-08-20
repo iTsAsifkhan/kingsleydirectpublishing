@@ -6,6 +6,86 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**uk-self-publishing-post** — Wrote the second commissioned post (audit's Post 2). `tsc` clean,
+blog files lint clean; not yet committed.
+- New post `self-publishing-uk-guide` in `lib/blog.ts` (dated 2026-08-20 → now the featured
+  post on `/blogs`). ~2,600 words, deliberately UK-only so it does NOT cannibalise
+  `how-to-self-publish-a-book`: VAT-on-ebooks change, Nielsen vs free KDP ISBN (linked table),
+  British Library legal deposit + the 5 other deposit libraries, HMRC Self Assessment + the
+  30%→0% US withholding via the KDP tax interview, UK distribution (IngramSpark/Gardners/
+  Nielsen/Waterstones), POD vs offset crossover, UK marketing, and a DIY-vs-partner comparison
+  table. 10-Q FAQ (FAQPage schema). Funnels to `/services/publishing/self-publishing`,
+  `/services/publishing/global-publishing`, `/packages`.
+- Sitemap needs no edit (auto-generated from `getAllPosts()`); **site is now 44 URLs** (was 42).
+  Re-ping the sitemap in GSC after deploy so Google discovers both new posts.
+- ⏳ **Needs an image:** `public/images/self-publishing-uk.jpg` (or .png) → prebuild converts to
+  `self-publishing-uk.webp`. Brief handed to client. Same image rules as the ghostwriter post.
+
+**ghostwriter-cost-post** — Wrote the first commissioned post to close the ghostwriting
+content-cluster gap. `tsc --noEmit` clean; not yet committed.
+- New post `how-much-does-a-ghostwriter-cost` in `lib/blog.ts` (dated 2026-08-19, so it is
+  now the featured/latest post on `/blogs`). ~2,900 words: intro answer-first, pricing-model
+  table, **book-type table whose 9 rows each link to one ghostwriting sub-page** (the
+  internal-link engine), price-driver + UK-vs-US + included-vs-add-on sections, red flags,
+  worked budget example, 8-question FAQ (FAQPage schema), and money-page `related` links.
+- Extended the blog model + renderer to support tables: added `BlogTable`/`BlogTableRow`
+  to `lib/blog.ts` and a linked, horizontally-scrollable `<table>` block in
+  `app/blogs/[slug]/page.tsx`. Row labels with an `href` render as internal links.
+- Wired the reverse direction: added `ghostwriting` to `servicePostSlug` in the service
+  `[slug]` route, and added the same "From the Blog" block + `servicePostSlug` map to the
+  `[slug]/[subslug]` route, so `/services/ghostwriting` **and all 9 sub-pages** now link to
+  the post. (Uses the existing `.service-blog-link` styles.)
+- ⏳ **Needs an image:** drop a hero into `public/images/ghostwriter-cost.jpg` (or .png) — the
+  prebuild converts it to `ghostwriter-cost.webp`, which the post references. Until then the
+  featured image 404s. Brief handed to the client.
+
+---
+
+**kdp-seo-audit-fixes** — Applied the P0/P1 + partial-P2 code fixes from `kdpseoaudit.md`.
+`tsc --noEmit` + `eslint` both clean. Not yet committed/pushed.
+- **P0.1 title brand duplication:** `/packages` and `/contact` titles hardcoded the brand
+  *and* got the layout `%s | Kimberley Direct Publishing` template → doubled. Fixed by
+  giving child pages bare titles (template supplies the suffix). New: `/packages` →
+  "Book Publishing Packages & Pricing (UK)", `/contact` → "Contact Us".
+- **P0.2 duplicate title:** `/services` (hub) and `/services/publishing` (category) both read
+  "Publishing Services". Differentiated: hub → "Book Publishing Services for Authors";
+  publishing service → `metaTitle` override "Self-Publishing & Global Distribution Services"
+  (new optional `Service.metaTitle` in `lib/content.ts`).
+- **P0.3 og:site_name:** was only on the root layout; child pages that define their own
+  `openGraph` dropped it (Next doesn't deep-merge og). Added `siteName` to every page's
+  openGraph (home, packages, contact, services, about, blogs, privacy, terms, service +
+  subservice + blog dynamic routes). This is the SERP "site name shows the bare domain" fix.
+- **P0.4 alt text:** filled empty/decorative `alt`s that the crawler flagged —
+  `ShowcaseMarquee` duplicate covers, service + subservice hero visuals
+  (`section-placeholder-image`), and the `StoryBand` background. All sit under
+  `aria-hidden`, so descriptive alt aids image SEO without screen-reader double-reads.
+- **P1.6 meta descriptions:** trimmed the 7 over-160 descriptions to ≤158
+  (packages, about, services, and editing/ghostwriting/marketing/publishing via a new
+  optional `Service.metaDescription` that decouples meta copy from the visible hero text).
+- **P1.7 long blog titles:** blog posts now use `title: { absolute: post.metaTitle }` to skip
+  the brand-suffix template (site-name row already shows the brand).
+- **P1.8 breadcrumb schema:** added `BreadcrumbList` to `/about-us` and `/contact`.
+- **P1.5 internal linking (partial):** post→post "Related reading" block on each blog post;
+  service→post "From the Blog" link on `/services/publishing` and `/services/editing`
+  (`servicePostSlug` map + new `.service-blog-link` styles in `globals.css`).
+- **P2.11 UK targeting:** worked "UK" into the homepage title
+  ("Book Publishing Services UK | ..."), `/packages`, `/services`, and the self-publishing
+  subservice `metaTitle` ("Self-Publishing Services UK"); upgraded the Organization JSON-LD
+  node to `ProfessionalService` + `priceRange`.
+- **P2.13:** tawk.to already deferred (`lazyOnload`) from the previous session — no change.
+
+### Still open (need content / decisions, not done)
+- **P1.9** named human author + `/authors/{slug}` pages + `Person` author schema — needs a
+  real author identity/bio from the client.
+- **P1.10** `AggregateRating`/`Review` schema — needs genuine, on-site verifiable reviews
+  (fabricated review markup is a manual-action risk; audit warns against it).
+- **P2.12 + bottom of audit:** the two commissioned posts ("How Much Does a Ghostwriter Cost"
+  and "Self-Publishing in the UK") — net-new long-form content.
+- **P2.13** JS weight: audit's own note says run PageSpeed first; the two 761 KB chunks need
+  a bundle-analyzer look before touching.
+
+---
+
 **teal-contrast-and-perf** — Fixed dark-on-teal contrast site-wide and did a first
 (safe) performance pass. Committed `7f05aa4` and pushed to `kingsley/master` (live).
 `tsc` + `next build` clean (50 routes).

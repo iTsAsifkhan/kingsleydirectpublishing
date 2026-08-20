@@ -47,7 +47,7 @@ export default function ShowcaseMarquee() {
             <div className="kdp-showcase-card" key={i}>
               <Image
                 src={src}
-                alt={i < COVERS.length ? 'Book cover from the Kimberley portfolio' : ''}
+                alt={`Book cover design from the Kimberley Direct Publishing portfolio, design ${(i % COVERS.length) + 1}`}
                 aria-hidden={i >= COVERS.length}
                 width={210}
                 height={310}

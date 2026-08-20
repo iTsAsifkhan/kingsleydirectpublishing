@@ -7,8 +7,18 @@ import type { LucideIcon } from 'lucide-react'
 import { ArrowRight, CheckCircle, ChevronRight, MessageCircle, PhoneCall } from 'lucide-react'
 import { Button, Container, ServiceCard } from '@/components/ui'
 import { services } from '@/lib/content'
+import { getPostBySlug } from '@/lib/blog'
 import { serviceSchema, breadcrumbSchema } from '@/lib/schema'
 import { CONTACT_PHONE } from '@/lib/contact'
+
+// Parent service -> supporting blog post, so every sub-page links back to the
+// post that supports its cluster (the internal-linking direction the SEO audit
+// flagged as missing). Only rendered when a post exists for that service.
+const servicePostSlug: Record<string, string> = {
+  ghostwriting: 'how-much-does-a-ghostwriter-cost',
+  publishing: 'how-to-self-publish-a-book',
+  editing: 'types-of-book-editing-explained',
+}
 
 interface Props {
   params: Promise<{ slug: string; subslug: string }>
@@ -57,15 +67,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const sub = service?.subServices.find((s) => s.slug === subslug)
   if (!service || !sub) return {}
 
-  const title = sub.title
+  const title = sub.metaTitle ?? sub.title
   const url = `https://kimberleydirectpublishing.com/services/${slug}/${subslug}`
 
   return {
     title,
     description: sub.shortDescription,
     alternates: { canonical: url },
-    openGraph: { title, description: sub.shortDescription, url, type: 'website' },
-    twitter: { card: 'summary_large_image', title, description: sub.shortDescription },
+    openGraph: {
+      title: `${title} | Kimberley Direct Publishing`,
+      description: sub.shortDescription,
+      url,
+      type: 'website',
+      siteName: 'Kimberley Direct Publishing',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | Kimberley Direct Publishing`,
+      description: sub.shortDescription,
+    },
   }
 }
 
@@ -79,6 +99,9 @@ export default async function SubServicePage({ params }: Props) {
   const descParagraphs = sub.longDescription.split('\n\n')
   const otherSubs = service.subServices.filter((s) => s.slug !== subslug).slice(0, 6)
   const relatedServices = services.filter((s) => s.slug !== slug).slice(0, 3)
+  const relatedPost = servicePostSlug[service.slug]
+    ? getPostBySlug(servicePostSlug[service.slug])
+    : undefined
   const visuals = serviceVisuals[service.slug] ?? serviceVisuals.publishing
 
   const schema = serviceSchema({
@@ -142,7 +165,7 @@ export default async function SubServicePage({ params }: Props) {
                 <span className="service-visual-cover service-visual-cover-primary">
                   <Image
                     src={visuals.primary}
-                    alt=""
+                    alt={`Book cover mockup illustrating ${sub.title} at Kimberley Direct Publishing`}
                     fill
                     priority
                     quality={82}
@@ -153,7 +176,7 @@ export default async function SubServicePage({ params }: Props) {
                 <span className="service-visual-cover service-visual-cover-secondary">
                   <Image
                     src={visuals.secondary}
-                    alt=""
+                    alt={`Published book cover from the Kimberley Direct Publishing ${service.title.toLowerCase()} portfolio`}
                     fill
                     quality={82}
                     sizes="210px"
@@ -213,7 +236,7 @@ export default async function SubServicePage({ params }: Props) {
             <div className="service-about-media subservice-about-media" aria-hidden="true">
               <Image
                 src={visuals.tertiary}
-                alt=""
+                alt={`${sub.title} example from Kimberley Direct Publishing`}
                 fill
                 quality={82}
                 sizes="(min-width: 1024px) 420px, 100vw"
@@ -292,6 +315,25 @@ export default async function SubServicePage({ params }: Props) {
                 </Link>
               ))}
             </div>
+          </Container>
+        </section>
+      )}
+
+      {relatedPost && (
+        <section className="service-related subservice-blog-related">
+          <Container>
+            <div className="service-related-header">
+              <span className="span-tag-border">From the Blog</span>
+              <h2 className="fw-700 pt-3">Learn More About {service.title}</h2>
+            </div>
+            <Link href={`/blogs/${relatedPost.slug}`} className="service-blog-link">
+              <span className="service-blog-link-label">{relatedPost.category}</span>
+              <span className="service-blog-link-title fw-700">{relatedPost.title}</span>
+              <span className="service-blog-link-desc">{relatedPost.excerpt}</span>
+              <span className="service-blog-link-cta fw-600">
+                Read the guide <ArrowRight size={16} aria-hidden="true" />
+              </span>
+            </Link>
           </Container>
         </section>
       )}

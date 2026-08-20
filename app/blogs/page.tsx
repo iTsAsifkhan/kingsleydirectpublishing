@@ -19,6 +19,7 @@ export const metadata: Metadata = {
       'Practical guides on writing, editing, self-publishing, and marketing your book, from the team at Kimberley Direct Publishing.',
     url: `${SITE_URL}/blogs`,
     type: 'website',
+    siteName: 'Kimberley Direct Publishing',
   },
 }
 

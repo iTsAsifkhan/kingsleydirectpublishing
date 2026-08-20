@@ -8,7 +8,7 @@ export default function StoryBand() {
     <section className="home-band" aria-label="From manuscript to published book">
       <Image
         src="/images/scene-reading-plants.webp"
-        alt=""
+        alt="Reader enjoying a published book in a calm, plant-filled reading nook"
         fill
         aria-hidden="true"
         sizes="100vw"

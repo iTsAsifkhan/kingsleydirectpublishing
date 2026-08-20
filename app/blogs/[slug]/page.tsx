@@ -31,7 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `${SITE_URL}/blogs/${post.slug}`
 
   return {
-    title: post.metaTitle,
+    // `absolute` skips the layout's `| Kimberley Direct Publishing` template so
+    // the blog title stays under the SERP cut (the site-name row already shows the brand).
+    title: { absolute: post.metaTitle },
     description: post.description,
     alternates: { canonical: url },
     openGraph: {
@@ -39,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       url,
       type: 'article',
+      siteName: 'Kimberley Direct Publishing',
       publishedTime: post.date,
       authors: [post.author],
       images: [
@@ -64,6 +67,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound()
 
   const url = `${SITE_URL}/blogs/${post.slug}`
+  const relatedPosts = getAllPosts().filter((p) => p.slug !== post.slug)
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -219,6 +223,62 @@ export default async function BlogPostPage({ params }: Props) {
                     ))}
                   </ul>
                 ))}
+
+              {section.table && (
+                <>
+                  <div className="mt-6 overflow-x-auto rounded-2xl border border-brand-navy/10">
+                    <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
+                      <thead>
+                        <tr className="bg-brand-navy/[0.04]">
+                          {section.table.columns.map((col) => (
+                            <th
+                              key={col}
+                              scope="col"
+                              className="border-b border-brand-navy/10 px-4 py-3 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-brand-navy"
+                            >
+                              {col}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {section.table.rows.map((row) => (
+                          <tr key={row.label} className="align-top">
+                            <th
+                              scope="row"
+                              className="border-b border-brand-navy/[0.07] px-4 py-3 font-semibold text-brand-navy"
+                            >
+                              {row.href ? (
+                                <Link
+                                  href={row.href}
+                                  className="text-brand-navy underline decoration-brand-yellow-dark/40 underline-offset-4 transition-colors hover:text-brand-yellow-dark"
+                                >
+                                  {row.label}
+                                </Link>
+                              ) : (
+                                row.label
+                              )}
+                            </th>
+                            {row.cells.map((cell, ci) => (
+                              <td
+                                key={ci}
+                                className="border-b border-brand-navy/[0.07] px-4 py-3 text-brand-gray-2"
+                              >
+                                {cell}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {section.table.note && (
+                    <p className="mt-3 text-sm italic leading-relaxed text-brand-gray-3">
+                      {section.table.note}
+                    </p>
+                  )}
+                </>
+              )}
             </section>
           ))}
 
@@ -265,6 +325,38 @@ export default async function BlogPostPage({ params }: Props) {
               ))}
             </div>
           </section>
+
+          {/* Related reading (post -> post internal links) */}
+          {relatedPosts.length > 0 && (
+            <section className="mt-14">
+              <h2 className="font-heading text-2xl font-bold text-brand-navy">
+                Related reading
+              </h2>
+              <div className="mt-6 grid gap-5 sm:grid-cols-2">
+                {relatedPosts.map((rp) => (
+                  <Link
+                    key={rp.slug}
+                    href={`/blogs/${rp.slug}`}
+                    className="group flex flex-col rounded-2xl border border-brand-navy/10 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0px_18px_45px_rgb(0_48_96_/_12%)]"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-yellow-dark">
+                      {rp.category}
+                    </span>
+                    <h3 className="mt-3 font-heading text-lg font-semibold leading-snug text-brand-navy transition-colors group-hover:text-brand-yellow-dark">
+                      {rp.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-brand-gray-2">
+                      {rp.excerpt}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-2 font-heading text-sm font-semibold text-brand-navy">
+                      Read article
+                      <ArrowRight size={15} aria-hidden="true" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Related internal links */}
           <section className="mt-14 rounded-2xl bg-brand-navy p-8 text-white">

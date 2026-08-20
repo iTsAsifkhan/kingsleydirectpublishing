@@ -14,7 +14,7 @@ import {
 import { Button, Container } from '@/components/ui'
 import QuoteForm from '@/components/sections/QuoteForm'
 import FAQ from '@/components/sections/FAQ'
-import { organizationSchema } from '@/lib/schema'
+import { organizationSchema, breadcrumbSchema } from '@/lib/schema'
 import {
   CONTACT_PHONE,
   CONTACT_PHONE_TEL,
@@ -25,20 +25,21 @@ import {
 } from '@/lib/contact'
 
 export const metadata: Metadata = {
-  title: 'Contact Kimberley Direct Publishing | Author Support',
+  title: 'Contact Us',
   description:
     'Contact Kimberley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support. Speak with our author services team today.',
   alternates: { canonical: 'https://kimberleydirectpublishing.com/contact' },
   openGraph: {
-    title: 'Contact Kimberley Direct Publishing | Author Support',
+    title: 'Contact Us | Kimberley Direct Publishing',
     description:
       'Contact Kimberley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
     url: 'https://kimberleydirectpublishing.com/contact',
     type: 'website',
+    siteName: 'Kimberley Direct Publishing',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Kimberley Direct Publishing | Author Support',
+    title: 'Contact Us | Kimberley Direct Publishing',
     description:
       'Contact Kimberley Direct Publishing for book publishing, editing, design, ghostwriting, and marketing support.',
   },
@@ -103,13 +104,18 @@ const contactPageSchema = {
   mainEntity: organizationSchema(),
 }
 
+const contactBreadcrumb = breadcrumbSchema([
+  { name: 'Home', url: 'https://kimberleydirectpublishing.com' },
+  { name: 'Contact Us', url: 'https://kimberleydirectpublishing.com/contact' },
+])
+
 export default function ContactPage() {
   return (
     <main className="contact-page bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([organizationSchema(), contactPageSchema]),
+          __html: JSON.stringify([organizationSchema(), contactPageSchema, contactBreadcrumb]),
         }}
       />
 
