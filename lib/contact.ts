@@ -22,14 +22,14 @@ export const CONTACT_PHONE_DIGITS = CONTACT_PHONE.replace(/\D/g, '')
 /** Registered office address (single-line display form). */
 export const OFFICE_ADDRESS =
   process.env.NEXT_PUBLIC_OFFICE_ADDRESS ??
-  '29 Cambray Place, Cheltenham, GL50 1JX, United Kingdom'
+  'Star Lodge, Montpellier Dr, Cheltenham, GL50 1TY, United Kingdom'
 
 /** Structured form for schema.org PostalAddress. */
 export const OFFICE_ADDRESS_PARTS = {
-  streetAddress: '29 Cambray Place',
+  streetAddress: 'Star Lodge, Montpellier Dr',
   addressLocality: 'Cheltenham',
   addressRegion: 'Gloucestershire',
-  postalCode: 'GL50 1JX',
+  postalCode: 'GL50 1TY',
   addressCountry: 'GB',
 }
 
