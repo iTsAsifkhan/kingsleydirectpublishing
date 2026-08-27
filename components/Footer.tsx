@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { MapPin, Phone } from 'lucide-react'
 import { Container } from '@/components/ui'
 import NewsletterForm from './NewsletterForm'
 import {
@@ -16,7 +16,6 @@ import {
   CONTACT_PHONE_SECONDARY_TEL,
   CONTACT_PHONE_QUATERNARY,
   CONTACT_PHONE_QUATERNARY_TEL,
-  CONTACT_EMAIL,
   OFFICE_ADDRESS,
   OFFICE_ADDRESS_SECONDARY,
   OFFICE_ADDRESS_TERTIARY,
@@ -61,10 +60,10 @@ const LOCATIONS = [
     address: OFFICE_ADDRESS,
   },
   {
-    country: 'Italy',
-    phone: CONTACT_PHONE_SECONDARY,
-    phoneTel: CONTACT_PHONE_SECONDARY_TEL,
-    address: OFFICE_ADDRESS_SECONDARY,
+    country: 'Australia',
+    phone: CONTACT_PHONE_QUATERNARY,
+    phoneTel: CONTACT_PHONE_QUATERNARY_TEL,
+    address: OFFICE_ADDRESS_QUATERNARY,
   },
   {
     country: 'Pakistan',
@@ -73,10 +72,10 @@ const LOCATIONS = [
     address: OFFICE_ADDRESS_TERTIARY,
   },
   {
-    country: 'Australia',
-    phone: CONTACT_PHONE_QUATERNARY,
-    phoneTel: CONTACT_PHONE_QUATERNARY_TEL,
-    address: OFFICE_ADDRESS_QUATERNARY,
+    country: 'Italy',
+    phone: CONTACT_PHONE_SECONDARY,
+    phoneTel: CONTACT_PHONE_SECONDARY_TEL,
+    address: OFFICE_ADDRESS_SECONDARY,
   },
 ]
 
@@ -134,15 +133,6 @@ export default function Footer() {
               </span>
             </div>
           ))}
-          <a className="footer-contact-item" href={`mailto:${CONTACT_EMAIL}`}>
-            <span className="footer-contact-icon" aria-hidden="true">
-              <Mail size={18} strokeWidth={2} />
-            </span>
-            <span className="footer-contact-text">
-              <span className="lbl">Email us</span>
-              <b>{CONTACT_EMAIL}</b>
-            </span>
-          </a>
         </div>
 
         <div className="footer-main">

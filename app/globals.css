@@ -8130,6 +8130,42 @@ a.footer-contact-item:hover b {
   color: #a9c2dd;
   font-size: 13px;
 }
+.kdp-connect-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 0;
+  text-decoration: none;
+}
+.kdp-connect-email-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--brand-yellow);
+}
+.kdp-connect-email-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.kdp-connect-email-copy span {
+  color: #a9c2dd;
+  font-size: 13px;
+}
+.kdp-connect-email-copy strong {
+  color: #fff;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+.kdp-connect-email:hover .kdp-connect-email-copy strong {
+  color: var(--brand-yellow);
+}
 .kdp-connect-quote {
   margin: 28px 0 0;
   padding: 18px 20px;

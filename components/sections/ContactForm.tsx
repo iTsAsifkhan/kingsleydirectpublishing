@@ -1,5 +1,6 @@
-import { Clock, ShieldCheck, Star } from 'lucide-react'
+import { Clock, ShieldCheck, Star, Mail } from 'lucide-react'
 import { Container } from '@/components/ui'
+import { CONTACT_EMAIL } from '@/lib/contact'
 import QuoteForm from './QuoteForm'
 
 const TRUST = [
@@ -37,6 +38,16 @@ export default function ContactForm() {
                 </li>
               ))}
             </ul>
+
+            <a className="kdp-connect-email" href={`mailto:${CONTACT_EMAIL}`}>
+              <span className="kdp-connect-email-ico" aria-hidden="true">
+                <Mail size={18} />
+              </span>
+              <span className="kdp-connect-email-copy">
+                <span>Email us directly</span>
+                <strong>{CONTACT_EMAIL}</strong>
+              </span>
+            </a>
 
             <figure className="kdp-connect-quote">
               <span className="kdp-connect-stars" aria-hidden="true">
