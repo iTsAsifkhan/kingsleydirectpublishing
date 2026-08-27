@@ -14,10 +14,13 @@ import {
   CONTACT_PHONE_DIGITS as WHATSAPP_DIGITS,
   CONTACT_PHONE_SECONDARY,
   CONTACT_PHONE_SECONDARY_TEL,
+  CONTACT_PHONE_QUATERNARY,
+  CONTACT_PHONE_QUATERNARY_TEL,
   CONTACT_EMAIL,
   OFFICE_ADDRESS,
   OFFICE_ADDRESS_SECONDARY,
   OFFICE_ADDRESS_TERTIARY,
+  OFFICE_ADDRESS_QUATERNARY,
 } from '@/lib/contact'
 
 // Social profile URLs. WhatsApp is built from the confirmed UK business number;
@@ -68,6 +71,12 @@ const LOCATIONS = [
     phone: null,
     phoneTel: null,
     address: OFFICE_ADDRESS_TERTIARY,
+  },
+  {
+    country: 'Australia',
+    phone: CONTACT_PHONE_QUATERNARY,
+    phoneTel: CONTACT_PHONE_QUATERNARY_TEL,
+    address: OFFICE_ADDRESS_QUATERNARY,
   },
 ]
 

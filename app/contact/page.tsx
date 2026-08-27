@@ -22,6 +22,9 @@ import {
   CONTACT_PHONE_SECONDARY,
   CONTACT_PHONE_SECONDARY_TEL,
   OFFICE_ADDRESS_SECONDARY,
+  CONTACT_PHONE_QUATERNARY,
+  CONTACT_PHONE_QUATERNARY_TEL,
+  OFFICE_ADDRESS_QUATERNARY,
 } from '@/lib/contact'
 
 export const metadata: Metadata = {
@@ -75,6 +78,18 @@ const CONTACT_DETAILS = [
     label: 'Call Us (Italy)',
     value: CONTACT_PHONE_SECONDARY,
     href: `tel:${CONTACT_PHONE_SECONDARY_TEL}`,
+  },
+  {
+    icon: MapPin,
+    label: 'Australia Office',
+    value: OFFICE_ADDRESS_QUATERNARY,
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS_QUATERNARY)}`,
+  },
+  {
+    icon: Phone,
+    label: 'Call Us (Australia)',
+    value: CONTACT_PHONE_QUATERNARY,
+    href: `tel:${CONTACT_PHONE_QUATERNARY_TEL}`,
   },
 ]
 

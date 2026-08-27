@@ -74,5 +74,29 @@ export const OFFICE_ADDRESS_TERTIARY_PARTS = {
   addressCountry: 'PK',
 }
 
+/**
+ * Quaternary (Australia) office. An additional regional presence shown
+ * alongside the UK, Italy, and Pakistan details.
+ */
+export const CONTACT_PHONE_QUATERNARY =
+  process.env.NEXT_PUBLIC_CONTACT_PHONE_QUATERNARY ?? '+61 480 008 029'
+
+/** `+` and digits only, for `tel:` links. */
+export const CONTACT_PHONE_QUATERNARY_TEL = CONTACT_PHONE_QUATERNARY.replace(/[^\d+]/g, '')
+
+/** Quaternary (Australia) office address (single-line display form). */
+export const OFFICE_ADDRESS_QUATERNARY =
+  process.env.NEXT_PUBLIC_OFFICE_ADDRESS_QUATERNARY ??
+  '19 Smith St, Darwin City NT 0800, Australia'
+
+/** Structured form for the quaternary schema.org PostalAddress. */
+export const OFFICE_ADDRESS_QUATERNARY_PARTS = {
+  streetAddress: '19 Smith St',
+  addressLocality: 'Darwin City',
+  addressRegion: 'NT',
+  postalCode: '0800',
+  addressCountry: 'AU',
+}
+
 /** Primary contact email. */
 export const CONTACT_EMAIL = 'info@kimberleydirectpublishing.com'
