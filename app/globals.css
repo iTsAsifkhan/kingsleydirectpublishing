@@ -5057,20 +5057,13 @@ a.footer-contact-item:hover b {
   color: #ffffff;
 }
 
-.footer-legal-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  text-align: center;
-}
-
 .footer-legal-entity {
-  margin: 0;
+  margin: 34px auto;
+  text-align: center;
   font-size: 11.5px;
   line-height: 1.6;
-  color: rgb(255 255 255 / 48%);
-  max-width: 560px;
+  color: rgb(255 255 255 / 55%);
+  max-width: 680px;
 }
 
 @media (min-width: 1024px) {
@@ -8879,8 +8872,8 @@ a.footer-contact-item:hover b {
 .copyright-div {
   background: rgb(0 0 0 / 22%);
   border-top: 1px solid rgb(255 255 255 / 12%);
-  border-radius: 0;
-  margin-top: 40px;
+  border-radius: 20px 20px 0 0;
+  margin-top: 0;
 }
 
 /* Disable the sticky footer reveal on mobile — a tall footer would otherwise

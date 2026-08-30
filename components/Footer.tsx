@@ -210,23 +210,22 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Legal entity disclosure — centered above the copyright bar
+            (full registered-office details are on Terms, Privacy & Contact) */}
+        <p className="footer-legal-entity mb-0">
+          {COMPANY_TRADING_NAME} is a trading name of {COMPANY_LEGAL_NAME},
+          registered in {COMPANY_JURISDICTION} (company no. {COMPANY_NUMBER}).
+        </p>
+
         {/* Copyright bar */}
         <div className="copyright-div">
           <p className="fw-500 mb-0">
             Copyright &copy; 2026 {COMPANY_LEGAL_NAME}.
           </p>
-          <div className="footer-legal-group">
-            {/* Legal entity disclosure (required by UK company law; full
-                registered-office details are on the Terms, Privacy & Contact pages) */}
-            <p className="footer-legal-entity mb-0">
-              {COMPANY_TRADING_NAME} is a trading name of {COMPANY_LEGAL_NAME},
-              registered in {COMPANY_JURISDICTION} (company no. {COMPANY_NUMBER}).
-            </p>
-            <nav className="footer-legal" aria-label="Legal">
-              <Link href="/privacy-policy">Privacy Policy</Link>
-              <Link href="/terms-conditions">Terms of Service</Link>
-            </nav>
-          </div>
+          <nav className="footer-legal" aria-label="Legal">
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms-conditions">Terms of Service</Link>
+          </nav>
           <Image
             src="/images/payment.webp"
             alt="Accepted payment methods: Visa, Mastercard, American Express, PayPal"
