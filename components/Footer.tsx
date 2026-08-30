@@ -24,7 +24,6 @@ import {
   COMPANY_TRADING_NAME,
   COMPANY_JURISDICTION,
   COMPANY_NUMBER,
-  REGISTERED_OFFICE_ADDRESS,
 } from '@/lib/contact'
 
 // Social profile URLs. WhatsApp is built from the confirmed UK business number;
@@ -211,11 +210,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Legal entity disclosure (required by UK company law) */}
+        {/* Legal entity disclosure (required by UK company law; full
+            registered-office details are on the Terms, Privacy & Contact pages) */}
         <p className="footer-legal-entity mb-0">
           {COMPANY_TRADING_NAME} is a trading name of {COMPANY_LEGAL_NAME},
-          registered in {COMPANY_JURISDICTION}, company no. {COMPANY_NUMBER}.
-          Registered office: {REGISTERED_OFFICE_ADDRESS}.
+          registered in {COMPANY_JURISDICTION} (company no. {COMPANY_NUMBER}).
         </p>
 
         {/* Copyright bar */}
