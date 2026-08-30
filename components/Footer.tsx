@@ -20,6 +20,11 @@ import {
   OFFICE_ADDRESS_SECONDARY,
   OFFICE_ADDRESS_TERTIARY,
   OFFICE_ADDRESS_QUATERNARY,
+  COMPANY_LEGAL_NAME,
+  COMPANY_TRADING_NAME,
+  COMPANY_JURISDICTION,
+  COMPANY_NUMBER,
+  REGISTERED_OFFICE_ADDRESS,
 } from '@/lib/contact'
 
 // Social profile URLs. WhatsApp is built from the confirmed UK business number;
@@ -105,9 +110,6 @@ const WRITING = [
   { label: 'Non-Fiction', href: '/services/ghostwriting/non-fiction-writing' },
   { label: "Children's Book", href: '/services/ghostwriting/children-book-writing' },
 ]
-
-// Only render the registration line once a real company number is provided.
-const COMPANY_NO = process.env.NEXT_PUBLIC_COMPANY_NUMBER
 
 export default function Footer() {
   return (
@@ -209,13 +211,17 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Legal entity disclosure (required by UK company law) */}
+        <p className="footer-legal-entity mb-0">
+          {COMPANY_TRADING_NAME} is a trading name of {COMPANY_LEGAL_NAME},
+          registered in {COMPANY_JURISDICTION}, company no. {COMPANY_NUMBER}.
+          Registered office: {REGISTERED_OFFICE_ADDRESS}.
+        </p>
+
         {/* Copyright bar */}
         <div className="copyright-div">
           <p className="fw-500 mb-0">
-            Copyright &copy; 2026 Kimberley Direct Publishing.
-            {COMPANY_NO
-              ? ` Registered in England & Wales · Company No. ${COMPANY_NO}`
-              : ''}
+            Copyright &copy; 2026 {COMPANY_LEGAL_NAME}.
           </p>
           <nav className="footer-legal" aria-label="Legal">
             <Link href="/privacy-policy">Privacy Policy</Link>

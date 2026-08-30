@@ -2,7 +2,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ChevronRight, FileText } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
-import { CONTACT_PHONE } from '@/lib/contact'
+import {
+  CONTACT_PHONE,
+  CONTACT_EMAIL,
+  COMPANY_LEGAL_NAME,
+  COMPANY_TRADING_NAME,
+  COMPANY_JURISDICTION,
+  COMPANY_NUMBER,
+  REGISTERED_OFFICE_ADDRESS,
+} from '@/lib/contact'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -19,74 +27,7 @@ export const metadata: Metadata = {
   },
 }
 
-const TERMS_SECTIONS = [
-  {
-    title: 'Use Of Our Website',
-    body: [
-      'You agree to use this website lawfully and respectfully. You must not attempt to interfere with site security, copy content in a way that infringes rights, submit harmful code, or use the website for fraudulent or misleading activity.',
-    ],
-  },
-  {
-    title: 'Services And Quotes',
-    body: [
-      'Our services may include ghostwriting, editing, proofreading, formatting, cover design, illustration, publishing support, audiobook support, marketing, author websites, and related publishing assistance.',
-      'Quotes, timelines, inclusions, deliverables, and revision limits are confirmed in writing before work begins. Any extra work outside the agreed scope may require a revised quote or additional approval.',
-    ],
-  },
-  {
-    title: 'Client Responsibilities',
-    body: [
-      'You are responsible for providing accurate project information, timely feedback, required approvals, and any materials needed for the service. Delays in feedback, approvals, or source materials may affect project timelines.',
-      'You confirm that any content, images, manuscripts, or other materials you provide are owned by you or properly licensed for use in your project.',
-    ],
-  },
-  {
-    title: 'Payments, Cancellations, And Refunds',
-    body: [
-      'Fees, payment schedules, and payment methods are confirmed in your quote or service agreement. Work may pause if required payments are overdue.',
-      'Cancellation and refund eligibility depends on the service type, project stage, completed work, third-party costs, and the terms agreed for your project. Nothing in these terms limits rights that cannot be excluded under applicable consumer law.',
-    ],
-  },
-  {
-    title: 'Revisions And Approvals',
-    body: [
-      'Revision rounds are limited to the number and type agreed for your service. Revision requests should be clear, consolidated, and related to the approved scope.',
-      'Once you approve a deliverable, later changes may be treated as new work unless required to correct an error within the agreed scope.',
-    ],
-  },
-  {
-    title: 'Intellectual Property',
-    body: [
-      'Unless otherwise agreed, rights in final paid deliverables transfer to you after full payment is received. We may retain ownership of internal tools, templates, methods, draft concepts not selected, and pre-existing materials.',
-      'You remain responsible for the originality, accuracy, legality, and permissions for materials you provide, including any quotes, images, names, likenesses, trademarks, or third-party content.',
-    ],
-  },
-  {
-    title: 'Publishing And Marketing Outcomes',
-    body: [
-      'Publishing platforms, distributors, retailers, search engines, advertising networks, and social platforms are operated by third parties. Their rules, review processes, timelines, fees, and decisions are outside our control.',
-      'Marketing services are designed to improve presentation, visibility, and campaign quality, but we do not guarantee sales, rankings, reviews, media coverage, platform acceptance, or specific commercial results.',
-    ],
-  },
-  {
-    title: 'Confidentiality',
-    body: [
-      'We treat manuscripts, business information, and unpublished project materials as confidential and use them only for the purpose of providing agreed services, unless you give permission or disclosure is legally required.',
-    ],
-  },
-  {
-    title: 'Limitation Of Liability',
-    body: [
-      'To the extent permitted by law, Kimberley Direct Publishing is not liable for indirect, incidental, consequential, or loss-of-profit damages arising from website use or services. Our liability for a paid service is limited to the amount paid for that service, except where the law does not permit such limitation.',
-    ],
-  },
-  {
-    title: 'Changes To These Terms',
-    body: [
-      'We may update these terms from time to time. The updated version will be posted on this page with a revised date. Continued use of our website or services after an update means you accept the updated terms.',
-    ],
-  },
-]
+const PHONE_TEL = CONTACT_PHONE.replace(/[^\d+]/g, '')
 
 export default function TermsConditionsPage() {
   return (
@@ -111,9 +52,9 @@ export default function TermsConditionsPage() {
             <p className="legal-hero-desc">
               These terms explain how our website and publishing services may be
               used, how project work is managed, and what clients can expect when
-              working with Kimberley Direct Publishing.
+              working with {COMPANY_TRADING_NAME}.
             </p>
-            <p className="legal-updated mb-0">Last updated: May 14, 2026</p>
+            <p className="legal-updated mb-0">Last updated: 29 August 2026</p>
           </div>
         </Container>
       </section>
@@ -121,43 +62,305 @@ export default function TermsConditionsPage() {
       <section className="legal-content-section">
         <Container>
           <div className="legal-content-card">
+            {/* Intro / who provides the services */}
             <section className="legal-block">
-              <h2>Agreement To These Terms</h2>
+              <h2>About These Terms</h2>
               <p>
-                By using this website, contacting us, requesting a quote, or
-                purchasing services from Kimberley Direct Publishing, you agree to
-                these Terms of Service and any written service agreement or quote
-                that applies to your project.
+                These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the website
+                kimberleydirectpublishing.com (the &ldquo;Site&rdquo;) and any publishing,
+                editing, ghostwriting, design, or marketing services (the
+                &ldquo;Services&rdquo;) provided by:
+              </p>
+              <div className="legal-entity-box">
+                <p className="legal-entity-name">{COMPANY_LEGAL_NAME}</p>
+                <p>
+                  Registered in {COMPANY_JURISDICTION}, company number {COMPANY_NUMBER}
+                </p>
+                <p>Registered office: {REGISTERED_OFFICE_ADDRESS}</p>
+                <p>
+                  Trading as {COMPANY_TRADING_NAME} (&ldquo;we&rdquo;, &ldquo;us&rdquo;,
+                  &ldquo;our&rdquo;, the &ldquo;Company&rdquo;)
+                </p>
+              </div>
+              <p>
+                By accessing the Site, submitting an enquiry, or engaging our Services, you
+                (&ldquo;you&rdquo;, &ldquo;Client&rdquo;, &ldquo;Author&rdquo;) agree to be
+                bound by these Terms. If you do not agree, please do not use the Site or our
+                Services.
               </p>
             </section>
 
-            {TERMS_SECTIONS.map((section) => (
-              <section className="legal-block" key={section.title}>
-                <h2>{section.title}</h2>
-                {section.body.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </section>
-            ))}
+            {/* 1 */}
+            <section className="legal-block">
+              <h2>Our Services</h2>
+              <p>
+                We provide book publishing support services, which may include: manuscript
+                assessment, ghostwriting, editing and proofreading, cover and interior
+                design, formatting, ISBN assignment and publishing setup, distribution,
+                marketing, and author website creation. The specific services included in
+                any engagement will be set out in a separate quote, invoice, or service
+                agreement (&ldquo;Order&rdquo;).
+              </p>
+            </section>
 
+            {/* 2 */}
+            <section className="legal-block">
+              <h2>Quotes, Orders, And Pricing</h2>
+              <ul>
+                <li>
+                  All prices are provided as a personalised quote based on your
+                  project&rsquo;s scope, length, and requirements.
+                </li>
+                <li>A quote is valid for the period stated in it, or 14 days if no period is stated.</li>
+                <li>
+                  An Order is confirmed once you accept a quote and, where applicable, pay
+                  the required deposit.
+                </li>
+                <li>
+                  We reserve the right to amend pricing for additional work not covered in
+                  the original scope (e.g. major manuscript changes, extra rounds of
+                  revision).
+                </li>
+              </ul>
+            </section>
+
+            {/* 3 */}
+            <section className="legal-block">
+              <h2>Payment Terms</h2>
+              <p>
+                We accept payment via the methods listed on the Site (currently Visa,
+                Mastercard, American Express, Bank Transfer, Apple Pay, Stripe and PayPal).
+              </p>
+              <p>
+                Unless otherwise agreed in writing, the Client shall pay the required
+                deposit prior to the commencement of the Services. If the Client cancels or
+                terminates the Services, the Service Provider may deduct from the deposit
+                the value of all work performed and costs incurred or committed up to the
+                effective date of cancellation, and any remaining balance shall be refunded
+                to the Client.
+              </p>
+              <p>We reserve the right to pause work on any project where payment is overdue.</p>
+              <p>
+                All prices are quoted in the currency stated on your invoice and are
+                exclusive of any applicable taxes unless stated otherwise.
+              </p>
+            </section>
+
+            {/* 4 */}
+            <section className="legal-block">
+              <h2>Cancellations And Refunds</h2>
+              <ul>
+                <li>You may cancel your Order at any time by notifying us in writing.</li>
+                <li>
+                  Any deposit paid is refundable. If any work has already been completed,
+                  the cost of that work will be deducted, and the remaining deposit will be
+                  refunded to the Client.
+                </li>
+                <li>
+                  If you cancel after work has begun, you will be charged for all work
+                  completed up to the point of cancellation, calculated on a pro-rata basis
+                  against the total Order value.
+                </li>
+                <li>
+                  Refunds, where due, will be processed within 14 business days to the
+                  original payment method.
+                </li>
+              </ul>
+              <p>
+                This section does not affect your statutory rights as a consumer under the
+                Consumer Rights Act 2015, where applicable.
+              </p>
+            </section>
+
+            {/* 5 */}
+            <section className="legal-block">
+              <h2>Manuscript Submission And Client Responsibilities</h2>
+              <p>By submitting a manuscript or other material to us, you confirm that:</p>
+              <ul>
+                <li>
+                  You are the original author of the work, or you hold all necessary rights
+                  and permissions to submit it for editing, design, and publishing;
+                </li>
+                <li>
+                  The material does not infringe any third party&rsquo;s copyright,
+                  trademark, or other intellectual property rights;
+                </li>
+                <li>
+                  The material does not contain anything unlawful, defamatory, obscene, or
+                  otherwise in breach of applicable law.
+                </li>
+              </ul>
+              <p>
+                You are responsible for providing accurate information and timely feedback
+                during the review and approval stages of your project. Delays in feedback
+                may affect delivery timelines.
+              </p>
+            </section>
+
+            {/* 6 */}
+            <section className="legal-block">
+              <h2>Intellectual Property And Ownership</h2>
+              <ul>
+                <li>
+                  You retain full ownership of the copyright in your manuscript and the
+                  finished book at all times.
+                </li>
+                <li>
+                  You retain 100% of your royalties from sales, as set out on our Site,
+                  unless a different arrangement is separately agreed in writing.
+                </li>
+                <li>
+                  Cover designs, illustrations, and formatted interior files created
+                  specifically for your project are licensed to you for use in connection
+                  with the publication and sale of your book once paid for in full. We
+                  retain the right to display such work in our portfolio, subject to
+                  &ldquo;Portfolio, Testimonials, And Marketing Use&rdquo;.
+                </li>
+                <li>
+                  We do not claim any ownership interest in your underlying story, ideas, or
+                  manuscript content.
+                </li>
+              </ul>
+            </section>
+
+            {/* 7 */}
+            <section className="legal-block">
+              <h2>Portfolio, Testimonials, And Marketing Use</h2>
+              <p>
+                Unless you tell us otherwise in writing, we may feature your book cover,
+                title, genre, and a brief description in our portfolio, website, and
+                marketing materials. We may also feature testimonials or reviews you
+                provide, attributed to you by first name and surname initial (or as you
+                specify), for promotional purposes.
+              </p>
+              <p>
+                You may opt out of this at any time by emailing{' '}
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+              </p>
+            </section>
+
+            {/* 8 */}
+            <section className="legal-block">
+              <h2>Delivery Timelines</h2>
+              <p>
+                Estimated delivery timelines are provided in good faith based on the scope
+                of work and your responsiveness during revisions. Timelines are estimates,
+                not guarantees, and may be affected by factors including the condition of
+                the manuscript, the scope of edits required, and the speed of client
+                feedback.
+              </p>
+            </section>
+
+            {/* 9 */}
+            <section className="legal-block">
+              <h2>Third-Party Platforms</h2>
+              <p>
+                Publishing, distribution, and printing may involve third-party platforms
+                (including but not limited to Amazon KDP, IngramSpark, Apple Books, Barnes
+                &amp; Noble, and Lulu). We are not responsible for the policies,
+                availability, pricing structures, or service interruptions of these
+                third-party platforms, which are governed by their own terms and conditions.
+              </p>
+            </section>
+
+            {/* 10 */}
+            <section className="legal-block">
+              <h2>Limitation Of Liability</h2>
+              <ul>
+                <li>
+                  We provide our Services with reasonable skill and care, but we do not
+                  guarantee any specific sales results, royalty income, review outcomes, or
+                  commercial success for your book.
+                </li>
+                <li>
+                  To the fullest extent permitted by law, our total liability to you in
+                  connection with any Order shall not exceed the total amount paid by you
+                  for that Order.
+                </li>
+                <li>
+                  We are not liable for indirect or consequential losses, including loss of
+                  profits, loss of opportunity, or reputational harm.
+                </li>
+                <li>
+                  Nothing in these Terms limits or excludes liability for death or personal
+                  injury caused by negligence, fraud, or any other liability that cannot be
+                  limited or excluded under English law.
+                </li>
+              </ul>
+            </section>
+
+            {/* 11 */}
+            <section className="legal-block">
+              <h2>Confidentiality</h2>
+              <p>
+                We treat all manuscripts and project materials as confidential and will not
+                share them with third parties other than the freelancers, editors,
+                designers, or platforms directly involved in delivering your project, or as
+                required by law.
+              </p>
+            </section>
+
+            {/* 12 */}
+            <section className="legal-block">
+              <h2>Termination</h2>
+              <p>We reserve the right to suspend or terminate an Order if:</p>
+              <ul>
+                <li>Payment is not received as agreed;</li>
+                <li>You submit material that is unlawful, infringing, or in breach of these Terms;</li>
+                <li>
+                  Continued performance becomes impossible due to circumstances outside our
+                  reasonable control.
+                </li>
+              </ul>
+            </section>
+
+            {/* 13 */}
+            <section className="legal-block">
+              <h2>Force Majeure</h2>
+              <p>
+                We are not liable for any delay or failure to perform our obligations
+                resulting from causes beyond our reasonable control, including but not
+                limited to acts of God, internet or platform outages, or third-party
+                service failures.
+              </p>
+            </section>
+
+            {/* 14 */}
+            <section className="legal-block">
+              <h2>Governing Law And Disputes</h2>
+              <p>
+                These Terms are governed by the laws of {COMPANY_JURISDICTION}. Any disputes
+                arising from these Terms or our Services shall be subject to the exclusive
+                jurisdiction of the courts of {COMPANY_JURISDICTION}.
+              </p>
+            </section>
+
+            {/* 15 */}
+            <section className="legal-block">
+              <h2>Changes To These Terms</h2>
+              <p>
+                We may update these Terms from time to time. The &ldquo;Last updated&rdquo;
+                date at the top of this page reflects the most recent revision. Continued
+                use of our Services after changes are posted constitutes acceptance of the
+                updated Terms.
+              </p>
+            </section>
+
+            {/* 16 */}
             <section className="legal-block">
               <h2>Contact Us</h2>
-              <p>
-                Questions about these terms can be sent to{' '}
-                <a href="mailto:info@kimberleydirectpublishing.com">
-                  info@kimberleydirectpublishing.com
-                </a>
-                {CONTACT_PHONE ? (
-                  <>
-                    {' '}
-                    or discussed by calling{' '}
-                    <a href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, '')}`}>
-                      {CONTACT_PHONE}
-                    </a>
-                  </>
-                ) : null}
-                .
-              </p>
+              <div className="legal-entity-box">
+                <p className="legal-entity-name">
+                  {COMPANY_LEGAL_NAME} (trading as {COMPANY_TRADING_NAME})
+                </p>
+                <p>{REGISTERED_OFFICE_ADDRESS}</p>
+                <p>
+                  Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                </p>
+                <p>
+                  Phone: <a href={`tel:${PHONE_TEL}`}>{CONTACT_PHONE}</a>
+                </p>
+              </div>
             </section>
 
             <div className="legal-cta-row">

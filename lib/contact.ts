@@ -100,3 +100,30 @@ export const OFFICE_ADDRESS_QUATERNARY_PARTS = {
 
 /** Primary contact email. */
 export const CONTACT_EMAIL = 'info@kimberleydirectpublishing.com'
+
+/**
+ * Legal entity details. "Kimberley Direct Publishing" is a trading name; the
+ * registered company is the entity below. UK law (Companies Act 2006, the
+ * Company, Limited Liability Partnership and Business (Names and Trading
+ * Disclosures) Regulations 2015) requires these to be shown where visitors can
+ * reasonably find them, and UK GDPR requires the legal entity to be named as
+ * data controller. Confirmed permanent facts, shipped as defaults.
+ */
+export const COMPANY_LEGAL_NAME =
+  process.env.NEXT_PUBLIC_COMPANY_LEGAL_NAME ??
+  'Kimberley Design & Publishing Limited'
+
+/** Registered trading name shown to the public. */
+export const COMPANY_TRADING_NAME = 'Kimberley Direct Publishing'
+
+/** Companies House registration number. */
+export const COMPANY_NUMBER =
+  process.env.NEXT_PUBLIC_COMPANY_NUMBER ?? '17422144'
+
+/** Jurisdiction of incorporation. */
+export const COMPANY_JURISDICTION = 'England and Wales'
+
+/** Registered office (full display form — uses "Drive" per Companies House). */
+export const REGISTERED_OFFICE_ADDRESS =
+  process.env.NEXT_PUBLIC_REGISTERED_OFFICE_ADDRESS ??
+  'Star Lodge, Montpellier Drive, Cheltenham, GL50 1TY, United Kingdom'

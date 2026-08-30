@@ -16,6 +16,13 @@ import {
   Users,
 } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
+import {
+  COMPANY_LEGAL_NAME,
+  COMPANY_TRADING_NAME,
+  COMPANY_JURISDICTION,
+  COMPANY_NUMBER,
+  REGISTERED_OFFICE_ADDRESS,
+} from '@/lib/contact'
 import StatsStrip from '@/components/sections/StatsStrip'
 import Testimonials from '@/components/sections/Testimonials'
 import FAQ from '@/components/sections/FAQ'
@@ -217,6 +224,12 @@ export default function AboutPage() {
             <p className="about-story-closing">
               Because every story deserves more than to be published. It deserves to be
               remembered.
+            </p>
+
+            <p className="about-story-registration">
+              {COMPANY_TRADING_NAME} is a trading name of {COMPANY_LEGAL_NAME}, a company
+              registered in {COMPANY_JURISDICTION} under company number {COMPANY_NUMBER},
+              with its registered office at {REGISTERED_OFFICE_ADDRESS}.
             </p>
           </div>
 

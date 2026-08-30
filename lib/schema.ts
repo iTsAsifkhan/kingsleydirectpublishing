@@ -2,7 +2,12 @@
  * JSON-LD schema helpers for SEO and structured data.
  */
 
-import { CONTACT_PHONE, CONTACT_EMAIL, OFFICE_ADDRESS_PARTS } from './contact'
+import {
+  CONTACT_PHONE,
+  CONTACT_EMAIL,
+  OFFICE_ADDRESS_PARTS,
+  COMPANY_LEGAL_NAME,
+} from './contact'
 
 export function organizationSchema() {
   return {
@@ -11,6 +16,7 @@ export function organizationSchema() {
     // supports priceRange and geo, improving UK local-pack relevance.
     '@type': 'ProfessionalService',
     name: 'Kimberley Direct Publishing',
+    legalName: COMPANY_LEGAL_NAME,
     url: 'https://kimberleydirectpublishing.com',
     logo: 'https://kimberleydirectpublishing.com/images/kimberley-logo.png',
     image: 'https://kimberleydirectpublishing.com/og-image.png',
