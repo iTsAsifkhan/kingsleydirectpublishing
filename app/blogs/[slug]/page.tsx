@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       authors: [post.author],
       images: [
         {
-          url: `${SITE_URL}/og-image.png`,
+          url: `${SITE_URL}/og-image-v2.png`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
     dateModified: post.date,
     url,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}/og-image-v2.png`,
     keywords: post.primaryKeyword,
     articleSection: post.category,
     author: {

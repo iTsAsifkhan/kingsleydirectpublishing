@@ -52,7 +52,7 @@ export const metadata: Metadata = {
       'Kimberley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
     images: [
       {
-        url: 'https://kimberleydirectpublishing.com/og-image.png',
+        url: 'https://kimberleydirectpublishing.com/og-image-v2.png',
         width: 1200,
         height: 630,
         alt: 'Kimberley Direct Publishing',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: 'Kimberley Direct Publishing | Professional Book Publishing Services',
     description:
       'Kimberley Direct Publishing helps authors edit, design, publish, and market books with professional self-publishing services from manuscript to launch.',
-    images: ['https://kimberleydirectpublishing.com/og-image.png'],
+    images: ['https://kimberleydirectpublishing.com/og-image-v2.png'],
   },
   alternates: {
     canonical: 'https://kimberleydirectpublishing.com',

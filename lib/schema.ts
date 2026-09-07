@@ -19,7 +19,7 @@ export function organizationSchema() {
     legalName: COMPANY_LEGAL_NAME,
     url: 'https://kimberleydirectpublishing.com',
     logo: 'https://kimberleydirectpublishing.com/images/kimberley-logo.png',
-    image: 'https://kimberleydirectpublishing.com/og-image.png',
+    image: 'https://kimberleydirectpublishing.com/og-image-v2.png',
     description: 'Professional book publishing services helping authors bring their manuscripts to life.',
     priceRange: '££',
     areaServed: {
