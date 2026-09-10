@@ -14,6 +14,7 @@ import {
   Testimonials,
   WhyChooseUs,
 } from '@/components/sections'
+import LeadPopup from '@/components/LeadPopup'
 import { organizationSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -77,6 +78,7 @@ export default function Home() {
       <PurpleCTA />
       <FAQ />
       <ContactForm />
+      <LeadPopup />
     </main>
   )
 }
