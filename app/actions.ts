@@ -79,10 +79,10 @@ export async function submitContactForm(
   const name = (formData.get('name') as string)?.trim()
   const phone = (formData.get('phone') as string)?.trim()
   const email = (formData.get('email') as string)?.trim()
-  const message = (formData.get('message') as string)?.trim()
+  const message = (formData.get('message') as string)?.trim() || ''
   const service = (formData.get('service') as string)?.trim() || 'Not specified'
 
-  if (!name || !phone || !email || !message) {
+  if (!name || !phone || !email) {
     return { success: false, message: 'Please complete all required fields.' }
   }
   if (!EMAIL_RE.test(email)) {
@@ -96,7 +96,7 @@ export async function submitContactForm(
       <tr><td><strong>Phone</strong></td><td>${esc(phone)}</td></tr>
       <tr><td><strong>Email</strong></td><td>${esc(email)}</td></tr>
       <tr><td><strong>Service</strong></td><td>${esc(service)}</td></tr>
-      <tr><td valign="top"><strong>Message</strong></td><td>${esc(message).replace(/\n/g, '<br>')}</td></tr>
+      <tr><td valign="top"><strong>Message</strong></td><td>${message ? esc(message).replace(/\n/g, '<br>') : '<em>Not provided</em>'}</td></tr>
     </table>
   `
 

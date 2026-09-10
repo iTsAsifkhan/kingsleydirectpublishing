@@ -32,7 +32,8 @@ function validate(name: FieldName, value: string): string | null {
         ? 'Please enter a valid phone number.'
         : null
     case 'message':
-      return v.length < 10 ? 'Please tell us a little about your book.' : null
+      // Optional — only flag if they typed a stray character or two.
+      return v.length > 0 && v.length < 3 ? 'Please add a little more detail.' : null
   }
 }
 
@@ -116,7 +117,7 @@ export default function LeadPopup() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const form = e.currentTarget
     const next: Partial<Record<FieldName, string>> = {}
-    ;(['name', 'email', 'phone', 'message'] as FieldName[]).forEach((n) => {
+    ;(['name', 'email', 'phone'] as FieldName[]).forEach((n) => {
       const el = form.elements.namedItem(n) as
         | HTMLInputElement
         | HTMLTextAreaElement
@@ -240,9 +241,9 @@ export default function LeadPopup() {
                 id={fieldId('message')}
                 name="message"
                 rows={3}
-                placeholder="About your book"
+                placeholder="About your book (optional)"
                 disabled={isPending}
-                aria-label="About your book"
+                aria-label="About your book (optional)"
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? errId('message') : undefined}
                 onBlur={(e) => setError('message', e.target.value)}
