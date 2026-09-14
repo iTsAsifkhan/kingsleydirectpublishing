@@ -46,7 +46,7 @@ export const TIERS: Tier[] = [
     tagline:
       'Everything you need to format, design and publish your book on Amazon KDP, while keeping 100% of your rights and royalties.',
     features: [
-      'Professional interior formatting (paperback & Kindle)',
+      'Kindle (ebook) publishing',
       'Custom front & back cover design',
       'Proofreading & page layout',
       'Amazon KDP account setup & publishing',
@@ -69,9 +69,8 @@ export const TIERS: Tier[] = [
     popular: true,
     lead: 'Everything in Starter, plus:',
     features: [
-      'Distribution to 10+ major online publishing platforms',
+      'Publishing & available for distribution on more than 10 platforms like (Amazon, Barnes & Nobles, Draft2Digital, Smashwords & Lulu etc)',
       'Basic editing',
-      'Publishing on Amazon, Apple Books, Google Play, Kobo, Barnes & Noble, Draft2Digital, Smashwords, Lulu, Everand (Scribd) & more',
       'Enhanced metadata optimization',
       'Author profile setup & optimization',
       'eBook conversion for all major devices',
