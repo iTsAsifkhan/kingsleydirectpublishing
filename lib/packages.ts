@@ -46,11 +46,11 @@ export const TIERS: Tier[] = [
     tagline:
       'Everything you need to format, design and publish your book on Amazon KDP, while keeping 100% of your rights and royalties.',
     features: [
-      'Kindle (ebook) publishing',
+      'Professional formatting',
       'Custom front & back cover design',
       'Proofreading & page layout',
       'Amazon KDP account setup & publishing',
-      'Kindle & paperback publishing',
+      'Kindle (ebook) publishing',
       'Book description formatting',
       'Keyword & category optimization',
       'ISBN guidance',
@@ -70,7 +70,6 @@ export const TIERS: Tier[] = [
     lead: 'Everything in Starter, plus:',
     features: [
       'Publishing & available for distribution on more than 10 platforms like (Amazon, Barnes & Nobles, Draft2Digital, Smashwords & Lulu etc)',
-      'Basic editing',
       'Enhanced metadata optimization',
       'Author profile setup & optimization',
       'eBook conversion for all major devices',
@@ -84,13 +83,12 @@ export const TIERS: Tier[] = [
     name: 'Premium Plus — Best Seller',
     price: { amount: 3500, unit: 'one-time' },
     tagline:
-      'Our flagship package with professional editing, hardcover formatting and worldwide distribution to 6000+ online retailers, book stores and libraries.',
+      'Our flagship package with hardcover formatting and worldwide distribution to 6000+ online retailers, book stores and libraries.',
     lead: 'Everything in Professional, plus:',
     features: [
-      'Professional editing',
       'Hardcover, paperback & eBook formatting',
       'Premium front, back & spine cover design',
-      'Worldwide Distribution: Availability through 6,000+ Online Retailers, Bookstores & Libraries',
+      'Publishing and make it available for distribution on more than 6000 online Retailers, Bookstores & Libraries',
       'Print on Demand (POD) setup',
       'ISBN provided by us',
       'Copyright page creation',
