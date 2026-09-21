@@ -34,32 +34,8 @@ export const OFFICE_ADDRESS_PARTS = {
 }
 
 /**
- * Secondary (Italy) office. The UK details above remain the primary contact;
- * these are shown alongside as an additional presence.
- */
-export const CONTACT_PHONE_SECONDARY =
-  process.env.NEXT_PUBLIC_CONTACT_PHONE_SECONDARY ?? '+39 376 128 3409'
-
-/** `+` and digits only, for `tel:` links. */
-export const CONTACT_PHONE_SECONDARY_TEL = CONTACT_PHONE_SECONDARY.replace(/[^\d+]/g, '')
-
-/** Secondary (Italy) office address (single-line display form). */
-export const OFFICE_ADDRESS_SECONDARY =
-  process.env.NEXT_PUBLIC_OFFICE_ADDRESS_SECONDARY ??
-  'Via Trieste, 1, 35121 Padova PD, Italy'
-
-/** Structured form for the secondary schema.org PostalAddress. */
-export const OFFICE_ADDRESS_SECONDARY_PARTS = {
-  streetAddress: 'Via Trieste, 1',
-  addressLocality: 'Padova',
-  addressRegion: 'PD',
-  postalCode: '35121',
-  addressCountry: 'IT',
-}
-
-/**
  * Tertiary (Pakistan) office. An additional regional presence shown alongside
- * the UK and Italy details.
+ * the UK details.
  */
 export const OFFICE_ADDRESS_TERTIARY =
   process.env.NEXT_PUBLIC_OFFICE_ADDRESS_TERTIARY ??
@@ -76,7 +52,7 @@ export const OFFICE_ADDRESS_TERTIARY_PARTS = {
 
 /**
  * Quaternary (Australia) office. An additional regional presence shown
- * alongside the UK, Italy, and Pakistan details.
+ * alongside the UK and Pakistan details.
  */
 export const CONTACT_PHONE_QUATERNARY =
   process.env.NEXT_PUBLIC_CONTACT_PHONE_QUATERNARY ?? '+61 480 008 029'

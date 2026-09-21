@@ -246,7 +246,7 @@ export default function PrivacyPolicyPage() {
               <h2>International Transfers</h2>
               <p>
                 We operate internationally and have team members and offices in the United
-                Kingdom, Australia, Pakistan, and Italy. As a result, your personal data
+                Kingdom, Australia, and Pakistan. As a result, your personal data
                 may be accessed or processed outside the UK.
               </p>
               <p>
