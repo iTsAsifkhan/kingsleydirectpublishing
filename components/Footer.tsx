@@ -15,6 +15,7 @@ import {
   CONTACT_PHONE_QUATERNARY,
   CONTACT_PHONE_QUATERNARY_TEL,
   OFFICE_ADDRESS,
+  OFFICE_ADDRESS_SECONDARY,
   OFFICE_ADDRESS_TERTIARY,
   OFFICE_ADDRESS_QUATERNARY,
   COMPANY_LEGAL_NAME,
@@ -52,13 +53,20 @@ const SOCIAL = [
 ].filter(Boolean) as { href: string; icon: typeof FacebookIcon; label: string }[]
 
 // Each office groups its phone and address together so the country's full
-// contact details read as one block. Pakistan has no dedicated phone line.
+// contact details read as one block. The Netherlands and Pakistan offices have
+// no dedicated phone line.
 const LOCATIONS = [
   {
     country: 'United Kingdom',
     phone: CONTACT_PHONE,
     phoneTel: CONTACT_PHONE_TEL,
     address: OFFICE_ADDRESS,
+  },
+  {
+    country: 'Netherlands',
+    phone: null,
+    phoneTel: null,
+    address: OFFICE_ADDRESS_SECONDARY,
   },
   {
     country: 'Australia',

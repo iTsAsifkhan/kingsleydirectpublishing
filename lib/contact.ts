@@ -34,8 +34,25 @@ export const OFFICE_ADDRESS_PARTS = {
 }
 
 /**
+ * Secondary (Netherlands) office. The UK details above remain the primary
+ * contact; this is shown alongside as an additional presence.
+ */
+export const OFFICE_ADDRESS_SECONDARY =
+  process.env.NEXT_PUBLIC_OFFICE_ADDRESS_SECONDARY ??
+  'Vinkenburgstraat 2A, 3512 AB Utrecht, Netherlands'
+
+/** Structured form for the secondary schema.org PostalAddress. */
+export const OFFICE_ADDRESS_SECONDARY_PARTS = {
+  streetAddress: 'Vinkenburgstraat 2A',
+  addressLocality: 'Utrecht',
+  addressRegion: 'Utrecht',
+  postalCode: '3512 AB',
+  addressCountry: 'NL',
+}
+
+/**
  * Tertiary (Pakistan) office. An additional regional presence shown alongside
- * the UK details.
+ * the UK and Netherlands details.
  */
 export const OFFICE_ADDRESS_TERTIARY =
   process.env.NEXT_PUBLIC_OFFICE_ADDRESS_TERTIARY ??
@@ -52,7 +69,7 @@ export const OFFICE_ADDRESS_TERTIARY_PARTS = {
 
 /**
  * Quaternary (Australia) office. An additional regional presence shown
- * alongside the UK and Pakistan details.
+ * alongside the UK, Netherlands, and Pakistan details.
  */
 export const CONTACT_PHONE_QUATERNARY =
   process.env.NEXT_PUBLIC_CONTACT_PHONE_QUATERNARY ?? '+61 480 008 029'

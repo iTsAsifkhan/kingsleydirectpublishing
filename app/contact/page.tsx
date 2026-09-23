@@ -19,6 +19,7 @@ import {
   CONTACT_PHONE,
   CONTACT_PHONE_TEL,
   OFFICE_ADDRESS,
+  OFFICE_ADDRESS_SECONDARY,
   CONTACT_PHONE_QUATERNARY,
   CONTACT_PHONE_QUATERNARY_TEL,
   OFFICE_ADDRESS_QUATERNARY,
@@ -63,6 +64,12 @@ const CONTACT_DETAILS = [
     label: 'Registered Office (UK)',
     value: OFFICE_ADDRESS,
     href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS)}`,
+  },
+  {
+    icon: MapPin,
+    label: 'Netherlands Office',
+    value: OFFICE_ADDRESS_SECONDARY,
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS_SECONDARY)}`,
   },
   {
     icon: MapPin,
