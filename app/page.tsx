@@ -3,6 +3,7 @@ import {
   AuthorSpotlight,
   ContactForm,
   FAQ,
+  FeaturedReview,
   Hero,
   HeroMarquee,
   Portfolio,
@@ -71,6 +72,7 @@ export default function Home() {
       <WhyChooseUs />
       <StatsStrip />
       <HeroMarquee />
+      <FeaturedReview />
       <Testimonials />
       <AuthorSpotlight />
       <StoryBand />

@@ -6,6 +6,25 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**featured-author-review** — Published Beaulah (Robertson) Leher's long-form written review as
+its own editorial section on the homepage. `tsc` clean, eslint clean, renders on dev.
+- New `lib/featuredReview.ts` (single source of truth) + `components/sections/FeaturedReview.tsx`,
+  rendered between `<HeroMarquee />` and `<Testimonials />` on `app/page.tsx` so the one *real*,
+  named review leads the social-proof block ahead of the short card grid and the video spotlight.
+- Layout: centred eyebrow/h2/stand-first, then a panel of prose column + signature rail ("BL"
+  monogram, name, role, 5 stars, cited book titles, "Review submitted by the author"), then a CTA.
+  Client confirmed no author logo is needed, so the rail carries the monogram only. CSS block
+  appended to `globals.css` (`.featured-review*`), white background so it seats between the two
+  white-edged neighbours. Her opening word-list is treated as a display lead line.
+- `*Book Title*` markers in paragraph strings render as `<cite>`; `reviewSchema()` added to
+  `lib/schema.ts` and emitted from the section (Review + Person + 5/5 Rating, itemReviewed = the
+  ProfessionalService).
+- Copy-edited for spelling/punctuation/brand-name only (`talk too`→`talk to`, `finish product`→
+  `finished product`, `Kimberly direct publishing`→`Kimberley Direct Publishing`, `trust worthy`→
+  `trustworthy`). Dropped her two bracketed notes to us ("Logo here", "You can add your name if
+  you wish too") — we do not know which team member to name, so it reads "one of their exceptional
+  team". Verbatim source should be kept on file.
+
 **uk-self-publishing-post** — Wrote the second commissioned post (audit's Post 2). `tsc` clean,
 blog files lint clean; not yet committed.
 - New post `self-publishing-uk-guide` in `lib/blog.ts` (dated 2026-08-20 → now the featured

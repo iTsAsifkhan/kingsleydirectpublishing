@@ -85,6 +85,41 @@ export function faqSchema(faqs: Array<{ question: string; answer: string }>) {
   }
 }
 
+/**
+ * Review structured data for a single named, written client testimonial.
+ * Only ever call this with a review we actually hold on file.
+ */
+export function reviewSchema(review: {
+  author: string
+  body: string
+  rating: number
+  datePublished: string
+  headline?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    ...(review.headline && { name: review.headline }),
+    reviewBody: review.body,
+    datePublished: review.datePublished,
+    author: {
+      '@type': 'Person',
+      name: review.author,
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: review.rating,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    itemReviewed: {
+      '@type': 'ProfessionalService',
+      name: 'Kimberley Direct Publishing',
+      url: 'https://kimberleydirectpublishing.com',
+    },
+  }
+}
+
 export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
   return {
     '@context': 'https://schema.org',
