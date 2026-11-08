@@ -10264,7 +10264,8 @@ a.footer-contact-item:hover b {
 /* Additional videos row (renders automatically when more entries exist) */
 .spotlight-more {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 240px));
+  justify-content: center;
   gap: 22px;
   margin: 56px 0 0;
   padding: 40px 0 0;

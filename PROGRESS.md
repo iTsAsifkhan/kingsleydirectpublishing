@@ -6,6 +6,16 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**spotlight-more-videos** (2026-11-08) — Added 3 video testimonials to the Author Spotlight card
+row: Caroline Joy, Andy Carwardine, and a second Ermelinda Hashani clip (`public/testimonials/
+{caroline-joy,andy-carwardine,ermelinda-hashani-2}.mp4`, renamed from the client's uploads). No
+Amazon links (client request). `bookTitle`/`image` now optional in `lib/videoTestimonials.ts`;
+cards with no poster load metadata + `#t=0.1` so the first frame shows as the thumbnail. Card grid
+switched to `auto-fit, minmax(150px, 240px)` + centred. `tsc` clean. Not committed.
+- Book titles set: Caroline Joy — *Sleepyhead Goes to School*; Andy Carwardine — *Pass It On*.
+- TODO: poster photos for Caroline and Andy; `ermelinda-hashani-2.mp4` is 36 MB
+  (compress before launch); unused `WhatsApp Video 2026-10-24 at 20.33.09.mp4` still in folder.
+
 **featured-author-review** — Published Beaulah (Robertson) Leher's long-form written review as
 its own editorial section on the homepage. `tsc` clean, eslint clean, renders on dev.
 - New `lib/featuredReview.ts` (single source of truth) + `components/sections/FeaturedReview.tsx`,

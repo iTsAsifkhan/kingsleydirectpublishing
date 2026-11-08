@@ -27,6 +27,10 @@ function ReelPlayer({
 }) {
   const ref = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
+  const poster = item.poster ?? item.image
+  // No still image: load just the metadata and seek a hair in so the browser
+  // paints the first frame as the thumbnail instead of a blank box.
+  const src = poster ? item.video : `${item.video}#t=0.1`
 
   const start = () => {
     setPlaying(true)
@@ -40,11 +44,11 @@ function ReelPlayer({
     <div className={`spotlight-reel ${className}`}>
       <video
         ref={ref}
-        src={item.video}
-        poster={item.poster ?? item.image}
+        src={src}
+        poster={poster}
         className="spotlight-reel-video"
         playsInline
-        preload="none"
+        preload={poster ? 'none' : 'metadata'}
         controls={playing}
         controlsList="nodownload noremoteplayback"
         onEnded={() => setPlaying(false)}
@@ -93,20 +97,28 @@ export default function AuthorSpotlight() {
 
         <div className="spotlight-featured">
           <div className="spotlight-stage">
-            <figure className="spotlight-photo">
-              <Image
-                src={featured.image}
-                alt={`${featured.author} holding her book, ${featured.bookTitle}`}
-                width={1080}
-                height={1440}
-                className="spotlight-photo-img"
-                sizes="(max-width: 680px) 60vw, 300px"
-              />
-              <figcaption className="spotlight-photo-tag">
-                <BookOpen size={14} aria-hidden="true" />
-                {featured.bookTitle}
-              </figcaption>
-            </figure>
+            {featured.image && (
+              <figure className="spotlight-photo">
+                <Image
+                  src={featured.image}
+                  alt={
+                    featured.bookTitle
+                      ? `${featured.author} holding the book ${featured.bookTitle}`
+                      : `${featured.author}, ${featured.role}`
+                  }
+                  width={1080}
+                  height={1440}
+                  className="spotlight-photo-img"
+                  sizes="(max-width: 680px) 60vw, 300px"
+                />
+                {featured.bookTitle && (
+                  <figcaption className="spotlight-photo-tag">
+                    <BookOpen size={14} aria-hidden="true" />
+                    {featured.bookTitle}
+                  </figcaption>
+                )}
+              </figure>
+            )}
 
             <ReelPlayer item={featured} className="spotlight-reel--featured" />
           </div>
@@ -115,7 +127,13 @@ export default function AuthorSpotlight() {
             <span className="spotlight-copy-eyebrow">Author Spotlight</span>
             <h3 className="spotlight-copy-name">{featured.author}</h3>
             <p className="spotlight-copy-role">
-              {featured.role} · <span>{featured.bookTitle}</span>
+              {featured.role}
+              {featured.bookTitle && (
+                <>
+                  {' · '}
+                  <span>{featured.bookTitle}</span>
+                </>
+              )}
             </p>
             <p className="spotlight-copy-intro">{featured.intro}</p>
             <div className="spotlight-copy-actions">
@@ -147,7 +165,7 @@ export default function AuthorSpotlight() {
                 <ReelPlayer item={item} className="spotlight-reel--card" />
                 <div className="spotlight-more-meta">
                   <b>{item.author}</b>
-                  <span>{item.bookTitle}</span>
+                  <span>{item.bookTitle ?? item.role}</span>
                 </div>
               </li>
             ))}
