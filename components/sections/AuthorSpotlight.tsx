@@ -1,92 +1,91 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowRight, BookOpen, Play } from 'lucide-react'
+import { ArrowRight, Play, X } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 import { videoTestimonials, type VideoTestimonial } from '@/lib/videoTestimonials'
 
 /**
- * Author Spotlight — video testimonials from published authors.
+ * Author Stories — video testimonials from published authors.
  *
- * The first entry renders as a large featured spotlight (portrait "reel" player
- * paired with the author's photo); any further entries render as a compact
- * video-card row beneath. Data lives in `lib/videoTestimonials.ts`.
- *
- * The <video> uses `preload="none"` so the file is only fetched once the visitor
- * hits play — a large clip never costs page-load performance.
+ * Every clip gets an equal card: a branded poster frame (next/image, so the
+ * section costs no video bytes on load), play button and clip length. Clicking
+ * opens the clip in a full-screen player. On phones the cards become a
+ * swipeable row. Data lives in `lib/videoTestimonials.ts`.
  */
 
-function ReelPlayer({
-  item,
-  className = '',
-}: {
-  item: VideoTestimonial
-  className?: string
-}) {
-  const ref = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(false)
-  const poster = item.poster ?? item.image
-  // No still image: load just the metadata and seek a hair in so the browser
-  // paints the first frame as the thumbnail instead of a blank box.
-  const src = poster ? item.video : `${item.video}#t=0.1`
+function VideoModal({ item, onClose }: { item: VideoTestimonial; onClose: () => void }) {
+  const closeRef = useRef<HTMLButtonElement>(null)
 
-  const start = () => {
-    setPlaying(true)
-    // Let the controls attribute apply before requesting playback.
-    requestAnimationFrame(() => {
-      ref.current?.play().catch(() => setPlaying(false))
-    })
-  }
+  useEffect(() => {
+    closeRef.current?.focus()
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+    }
+  }, [onClose])
 
-  return (
-    <div className={`spotlight-reel ${className}`}>
-      <video
-        ref={ref}
-        src={src}
-        poster={poster}
-        className="spotlight-reel-video"
-        playsInline
-        preload={poster ? 'none' : 'metadata'}
-        controls={playing}
-        controlsList="nodownload noremoteplayback"
-        onEnded={() => setPlaying(false)}
-      />
-      {!playing && (
+  // Portal to <body>: the section's `isolation: isolate` would otherwise trap
+  // the overlay beneath the sticky site header.
+  return createPortal(
+    <div
+      className="sv-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${item.author}, author of ${item.bookTitle}`}
+      onClick={onClose}
+    >
+      <div className="sv-modal-frame" onClick={(e) => e.stopPropagation()}>
+        <video
+          className="sv-modal-video"
+          src={item.video}
+          poster={item.poster}
+          controls
+          autoPlay
+          playsInline
+          controlsList="nodownload noremoteplayback"
+        />
         <button
+          ref={closeRef}
           type="button"
-          className="spotlight-reel-cover"
-          onClick={start}
-          aria-label={`Play video: ${item.author}'s story`}
+          className="sv-modal-close"
+          onClick={onClose}
+          aria-label="Close video"
         >
-          <span className="spotlight-reel-play" aria-hidden="true">
-            <Play size={22} fill="currentColor" />
-          </span>
-          <span className="spotlight-reel-meta">
-            <span className="spotlight-reel-eyebrow">Author’s story</span>
-            {item.duration && (
-              <span className="spotlight-reel-time">{item.duration}</span>
-            )}
-          </span>
+          <X size={20} aria-hidden="true" />
         </button>
-      )}
-    </div>
+      </div>
+    </div>,
+    document.body
   )
 }
 
 export default function AuthorSpotlight() {
+  const [active, setActive] = useState<VideoTestimonial | null>(null)
+  const lastTrigger = useRef<HTMLButtonElement | null>(null)
+
+  const close = useCallback(() => {
+    setActive(null)
+    lastTrigger.current?.focus()
+  }, [])
+
   if (videoTestimonials.length === 0) return null
 
-  const [featured, ...rest] = videoTestimonials
-
   return (
-    <section className="author-spotlight position-relative" aria-label="Author video testimonials">
+    <section className="author-spotlight position-relative" aria-labelledby="author-stories-heading">
       <span className="spotlight-shade" aria-hidden="true" />
       <Container className="relative z-10">
         <div className="spotlight-head">
           <span className="span-tag-border spotlight-eyebrow">In Their Own Words</span>
-          <h2 className="spotlight-title fw-700 pt-3">
+          <h2 id="author-stories-heading" className="spotlight-title fw-700 pt-3">
             Author Stories, <span className="clr-1">On Camera</span>
           </h2>
           <p className="spotlight-sub">
@@ -95,83 +94,50 @@ export default function AuthorSpotlight() {
           </p>
         </div>
 
-        <div className="spotlight-featured">
-          <div className="spotlight-stage">
-            {featured.image && (
-              <figure className="spotlight-photo">
+        <ul className="sv-grid" aria-label="Author video testimonials">
+          {videoTestimonials.map((item) => (
+            <li key={item.id} className="sv-card">
+              <button
+                type="button"
+                className="sv-card-media"
+                onClick={(e) => {
+                  lastTrigger.current = e.currentTarget
+                  setActive(item)
+                }}
+                aria-label={`Play video: ${item.author}, author of ${item.bookTitle} (${item.duration})`}
+              >
                 <Image
-                  src={featured.image}
-                  alt={
-                    featured.bookTitle
-                      ? `${featured.author} holding the book ${featured.bookTitle}`
-                      : `${featured.author}, ${featured.role}`
-                  }
-                  width={1080}
-                  height={1440}
-                  className="spotlight-photo-img"
-                  sizes="(max-width: 680px) 60vw, 300px"
+                  src={item.poster}
+                  alt=""
+                  fill
+                  sizes="(max-width: 767px) 74vw, 340px"
+                  className="sv-card-poster"
                 />
-                {featured.bookTitle && (
-                  <figcaption className="spotlight-photo-tag">
-                    <BookOpen size={14} aria-hidden="true" />
-                    {featured.bookTitle}
-                  </figcaption>
-                )}
-              </figure>
-            )}
+                <span className="sv-card-time" aria-hidden="true">
+                  {item.duration}
+                </span>
+                <span className="sv-card-play" aria-hidden="true">
+                  <Play size={22} fill="currentColor" />
+                </span>
+              </button>
+              <div className="sv-card-meta">
+                <h3 className="sv-card-name">{item.author}</h3>
+                <p className="sv-card-book">
+                  Author of <i>{item.bookTitle}</i>
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
 
-            <ReelPlayer item={featured} className="spotlight-reel--featured" />
-          </div>
-
-          <div className="spotlight-copy">
-            <span className="spotlight-copy-eyebrow">Author Spotlight</span>
-            <h3 className="spotlight-copy-name">{featured.author}</h3>
-            <p className="spotlight-copy-role">
-              {featured.role}
-              {featured.bookTitle && (
-                <>
-                  {' · '}
-                  <span>{featured.bookTitle}</span>
-                </>
-              )}
-            </p>
-            <p className="spotlight-copy-intro">{featured.intro}</p>
-            <div className="spotlight-copy-actions">
-              <Button variant="yellow" href="/contact" icon={ArrowRight}>
-                Start Your Book
-              </Button>
-              {featured.bookUrl ? (
-                <a
-                  href={featured.bookUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="spotlight-ghost"
-                >
-                  View the Book on Amazon
-                </a>
-              ) : (
-                <Link href="/packages" className="spotlight-ghost">
-                  View Packages
-                </Link>
-              )}
-            </div>
-          </div>
+        <div className="sv-cta">
+          <Button variant="yellow" href="/contact" icon={ArrowRight}>
+            Start Your Book
+          </Button>
         </div>
-
-        {rest.length > 0 && (
-          <ul className="spotlight-more" aria-label="More author videos">
-            {rest.map((item) => (
-              <li key={item.id} className="spotlight-more-item">
-                <ReelPlayer item={item} className="spotlight-reel--card" />
-                <div className="spotlight-more-meta">
-                  <b>{item.author}</b>
-                  <span>{item.bookTitle ?? item.role}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
       </Container>
+
+      {active && <VideoModal item={active} onClose={close} />}
     </section>
   )
 }

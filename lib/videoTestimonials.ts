@@ -1,79 +1,49 @@
 /**
  * Video testimonials — authors sharing their publishing journey on camera.
  *
- * Single source of truth for the "Author Spotlight" section. The first entry is
- * rendered as the large featured spotlight; any additional entries render as a
- * compact video-card row beneath it. To add another testimonial, drop the files
- * in `public/testimonials/` and append an object here — no component changes.
+ * Single source of truth for the "Author Stories, On Camera" section. Every
+ * entry renders as an equal card (poster + play button); clicking opens the
+ * clip in a full-screen player. To add another testimonial, drop the video and
+ * a poster frame in `public/testimonials/` and append an object here.
  */
 
 export interface VideoTestimonial {
   id: string
   /** Author's full name. */
   author: string
-  /** Short role line, e.g. "Author of …". */
-  role: string
-  /** Book title the author published with us. Cards fall back to `role`. */
-  bookTitle?: string
-  /**
-   * A truthful intro/caption for the clip. Not presented as a verbatim quote —
-   * swap in the author's real words (with quotation marks) once transcribed.
-   */
-  intro: string
-  /** Portrait video file in /public (9:16 phone reel works best). */
+  /** Book title the author published with us. */
+  bookTitle: string
+  /** Portrait video file in /public (9:16 phone reel). */
   video: string
-  /**
-   * Still photo of the author (ideally holding the finished book). Required for
-   * the first (featured) entry; optional for the card row.
-   */
-  image?: string
-  /**
-   * Thumbnail shown on the player before playback (the video `poster`). Falls
-   * back to `image`, then to the video's own first frame.
-   */
-  poster?: string
-  /** Human-readable clip length, e.g. "1:21". */
-  duration?: string
-  /** Public link to buy the finished book (e.g. the Amazon product page). */
-  bookUrl?: string
+  /** 9:16 still shown on the card before playback (720×1280 WebP). */
+  poster: string
+  /** Human-readable clip length, e.g. "1:20". */
+  duration: string
 }
 
 export const videoTestimonials: VideoTestimonial[] = [
   {
     id: 'ermelinda-hashani',
     author: 'Ermelinda Hashani',
-    role: 'Children’s Author',
     bookTitle: 'Ayaan and the Little Village Light',
-    intro:
-      'Watch Ermelinda share her journey, from manuscript to holding her finished children’s book, with the Kimberley Direct Publishing team.',
-    video: '/testimonials/ermelinda-hashani.mp4',
-    image: '/testimonials/ermelinda-hashani.jpg',
-    duration: '1:21',
-    bookUrl: 'https://amzn.asia/d/07uFn76G',
-  },
-  {
-    id: 'caroline-joy',
-    author: 'Caroline Joy',
-    role: 'Published Author',
-    bookTitle: 'Sleepyhead Goes to School',
-    intro: 'Caroline Joy on publishing Sleepyhead Goes to School with Kimberley Direct Publishing.',
-    video: '/testimonials/caroline-joy.mp4',
+    video: '/testimonials/ermelinda-hashani-2.mp4',
+    poster: '/testimonials/ermelinda-hashani-poster.webp',
+    duration: '1:20',
   },
   {
     id: 'andy-carwardine',
     author: 'Andy Carwardine',
-    role: 'Published Author',
     bookTitle: 'Pass It On',
-    intro: 'Andy Carwardine on publishing Pass It On with Kimberley Direct Publishing.',
     video: '/testimonials/andy-carwardine.mp4',
+    poster: '/testimonials/andy-carwardine-poster.webp',
+    duration: '0:41',
   },
   {
-    id: 'ermelinda-hashani-2',
-    author: 'Ermelinda Hashani',
-    role: 'Children’s Author',
-    bookTitle: 'Ayaan and the Little Village Light',
-    intro: 'More from Ermelinda on publishing her children’s book.',
-    video: '/testimonials/ermelinda-hashani-2.mp4',
-    image: '/testimonials/ermelinda-hashani.jpg',
+    id: 'caroline-joy',
+    author: 'Caroline Joy',
+    bookTitle: 'Sleepyhead Goes to School',
+    video: '/testimonials/caroline-joy.mp4',
+    poster: '/testimonials/caroline-joy-poster.webp',
+    duration: '1:08',
   },
 ]

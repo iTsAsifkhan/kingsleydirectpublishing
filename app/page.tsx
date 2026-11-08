@@ -72,11 +72,11 @@ export default function Home() {
       <WhyChooseUs />
       <StatsStrip />
       <HeroMarquee />
-      <FeaturedReview />
       <Testimonials />
       <AuthorSpotlight />
       <StoryBand />
       <Process />
+      <FeaturedReview />
       <PurpleCTA />
       <FAQ />
       <ContactForm />

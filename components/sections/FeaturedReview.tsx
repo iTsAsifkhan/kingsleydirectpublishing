@@ -1,16 +1,20 @@
-import { ArrowRight, BadgeCheck, Quote, Star } from 'lucide-react'
-import { Button, Container } from '@/components/ui'
+import { BadgeCheck, Quote, Star } from 'lucide-react'
+import { Container } from '@/components/ui'
 import { featuredReview } from '@/lib/featuredReview'
 import { reviewSchema } from '@/lib/schema'
+import ReviewExpander from './ReviewExpander'
+
+/** Paragraphs shown before the "Read full review" toggle. */
+const VISIBLE_PARAGRAPHS = 3
 
 /**
  * Featured Author Review — one long-form, named testimonial given the weight of
  * an editorial spread: eyebrow + pull-quote headline, the review itself, and a
  * signature rail (logo or monogram, name, cited book titles, rating).
  *
- * Deliberately a separate section from the short <Testimonials /> card grid that
- * follows it: this one is a real, verifiable review and leads the social-proof
- * block. Content lives in `lib/featuredReview.ts`.
+ * Sits after the <Process /> section (her review is about the process) rather
+ * than stacked with the other testimonial blocks. The first paragraphs show by
+ * default; the rest sit behind a toggle. Content lives in `lib/featuredReview.ts`.
  */
 
 /** Renders `*Book Title*` markers in a paragraph as <cite> elements. */
@@ -57,7 +61,7 @@ export default function FeaturedReview() {
         <figure className="featured-review-panel">
           <blockquote className="featured-review-quote">
             <Quote className="featured-review-mark" size={38} aria-hidden="true" />
-            {r.paragraphs.map((text, i) => (
+            {r.paragraphs.slice(0, VISIBLE_PARAGRAPHS).map((text, i) => (
               <p
                 key={i}
                 className={i === 0 ? 'featured-review-lead' : undefined}
@@ -65,6 +69,13 @@ export default function FeaturedReview() {
                 {withCitedTitles(text)}
               </p>
             ))}
+            {r.paragraphs.length > VISIBLE_PARAGRAPHS && (
+              <ReviewExpander label={`Read ${r.author.split(' ')[0]}’s full review`}>
+                {r.paragraphs.slice(VISIBLE_PARAGRAPHS).map((text, i) => (
+                  <p key={i}>{withCitedTitles(text)}</p>
+                ))}
+              </ReviewExpander>
+            )}
           </blockquote>
 
           <figcaption className="featured-review-sign">
@@ -102,12 +113,6 @@ export default function FeaturedReview() {
             </p>
           </figcaption>
         </figure>
-
-        <div className="featured-review-cta">
-          <Button variant="yellow" href="/contact" icon={ArrowRight}>
-            Start Your Book
-          </Button>
-        </div>
       </Container>
     </section>
   )

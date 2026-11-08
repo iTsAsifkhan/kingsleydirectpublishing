@@ -6,6 +6,22 @@ Update this file at the **end of every session**. It's how the next Claude sessi
 
 ## Last completed task ID
 
+**homepage-polish-videos-faq** (2026-11-08) — Fixes after client review of the live site.
+- **Video section rebuilt** (`AuthorSpotlight.tsx`): the featured collage + card row is replaced by
+  one equal 3-card grid (9:16 poster via next/image, play button, duration chip, name + "Author of
+  *Book*") that opens a full-screen player (portalled to <body>; Esc/backdrop close; focus return).
+  Phones get a swipeable snap row. Posters are frames pulled at 9s and saved as 720×1280 WebP
+  (`public/testimonials/*-poster.webp`). `ermelinda-hashani-2.mp4` is the branded HD edit of the
+  old `ermelinda-hashani.mp4` (same footage), so it replaces it — old .mp4/.jpg now unused.
+- **FAQ**: `.faq-row-trigger` now opts out of the global `button:hover` scale/shadow/slide-fill
+  (hover was clipping the question and smearing a shadow over the answer).
+- **Recent Work**: rail uses `justify-content: safe center` so covers centre on wide screens.
+- **Featured Review**: moved after `<Process />` (no longer stacked with two other testimonial
+  blocks), first 3 paragraphs shown + `ReviewExpander` toggle (rest stays in HTML), dropped its
+  duplicate CTA. Wording untouched.
+- **Build**: `npm run build` = `next build --webpack` (Turbopack's PostCSS worker can't spawn on
+  Hostinger). Verified each section with Playwright screenshots at 390/1440/1920.
+
 **spotlight-more-videos** (2026-11-08) — Added 3 video testimonials to the Author Spotlight card
 row: Caroline Joy, Andy Carwardine, and a second Ermelinda Hashani clip (`public/testimonials/
 {caroline-joy,andy-carwardine,ermelinda-hashani-2}.mp4`, renamed from the client's uploads). No
